@@ -15,6 +15,7 @@ import org.confluence.mod.Confluence;
 import org.confluence.mod.common.init.block.ModBlocks;
 import org.confluence.mod.common.init.block.ModOreBlocks;
 import org.confluence.mod.common.init.item.*;
+import org.confluence.mod.common.item.food.BaseFoodItem;
 import org.confluence.mod.terra_curio.common.item.curio.BaseCurioItem;
 import software.bernie.geckolib.animatable.GeoItem;
 
@@ -36,7 +37,7 @@ public class ModItemModelProvider extends ItemModelProvider {
     protected void registerModels() {
 
         // 一般物品
-        List<DeferredRegister.Items> customModels = List.of(IconItems.ICONS,TerraPotions.POTIONS,MaterialItems.MATERIALS, ArrowItems.ARROWS);
+        List<DeferredRegister.Items> customModels = List.of(IconItems.ICONS,TerraPotions.POTIONS,MaterialItems.MATERIALS, ArrowItems.ARROWS, FoodItems.FOODS);
         customModels.forEach(reg -> reg.getEntries().forEach(item -> {
             String path = item.getId().getPath().toLowerCase();
             try {withExistingParent(path, "item/generated").texture("layer0", Confluence.asResource("item/" + path));}
@@ -97,9 +98,10 @@ public class ModItemModelProvider extends ItemModelProvider {
                 } else if (value instanceof BaseCurioItem) {
                     withExistingParent(path, "item/generated").texture("layer0", Confluence.asResource("item/curio/" + path));
                 }
-//                else if (value instanceof BaseFoodItem || value instanceof BottleFoodItem) {
-//                    withExistingParent(path, "item/generated").texture("layer0", Confluence.asResource("item/food/" + path));
-//                } else if (value instanceof ReversalImage16x) {
+               else if (value instanceof BaseFoodItem) {
+                    withExistingParent(path, "item/generated").texture("layer0", Confluence.asResource("item/food/" + path));
+                }
+//               else if (value instanceof ReversalImage16x) {
 //                    withExistingParent(path, "confluence:item/handheld_mirror").texture("layer0", Confluence.asResource("item/" + path));
 //                }
                 else {

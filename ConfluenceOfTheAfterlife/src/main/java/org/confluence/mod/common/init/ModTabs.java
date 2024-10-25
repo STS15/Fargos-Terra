@@ -104,6 +104,7 @@ public final class ModTabs {
                     .title(Component.translatable("creativetab.confluence.food_and_potions"))
                     .displayItems((parameters, output) -> {
                             TerraPotions.POTIONS.getEntries().forEach(item -> output.accept(item.get()));
+                            FoodItems.FOODS.getEntries().forEach(item -> output.accept(item.get()));
                     })
                     .build());
     // 盔甲
