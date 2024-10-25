@@ -31,7 +31,7 @@ public class ModItemModelProvider extends ItemModelProvider {
     protected void registerModels() {
 
         // 一般物品
-        List<DeferredRegister.Items> customModels = List.of(IconItems.ICONS,TerraPotions.POTIONS,MaterialItems.MATERIALS, ArrowItems.ARROWS, FoodItems.FOODS);
+        List<DeferredRegister.Items> customModels = List.of(IconItems.ICONS,TerraPotions.POTIONS,MaterialItems.MATERIALS, ArrowItems.ARROWS, FoodItems.FOODS, AxeItems.AXE);
         customModels.forEach(reg -> reg.getEntries().forEach(item -> {
             String path = item.getId().getPath().toLowerCase();
             try {withExistingParent(path, "item/generated").texture("layer0", Confluence.asResource("item/" + path));}
@@ -104,9 +104,17 @@ public class ModItemModelProvider extends ItemModelProvider {
                 withExistingParent(path,MISSING_ITEM);
             }
         }));
+        customModels.forEach(reg -> reg.getEntries().forEach(item -> {
+            String path = item.getId().getPath().toLowerCase();
+            try {withExistingParent(path, "item/generated").texture("layer0", Confluence.asResource("item/axe/" + path));}
+            catch (Exception e) {
+                Confluence.LOGGER.error(e.getMessage());
+                withExistingParent(path,MISSING_ITEM);
+            }
+        }));
 
         // 手持物品
-        List<DeferredRegister.Items> Handled = List.of(SwordItems.SWORDS, BowItems.BOWS);
+        List<DeferredRegister.Items> Handled = List.of(SwordItems.SWORDS, BowItems.BOWS, AxeItems.AXE);
         Handled.forEach(reg -> reg.getEntries().forEach(item -> {
             String path = item.getId().getPath().toLowerCase();
             try { withExistingParent(path, "item/handheld").texture("layer0", Confluence.asResource("item/" + path));}
@@ -126,6 +134,14 @@ public class ModItemModelProvider extends ItemModelProvider {
         Handled.forEach(reg -> reg.getEntries().forEach(item -> {
             String path = item.getId().getPath().toLowerCase();
             try { withExistingParent(path, "item/handheld").texture("layer0", Confluence.asResource("item/bow/" + path));}
+            catch (Exception e) {
+                Confluence.LOGGER.error(e.getMessage());
+                withExistingParent(path,MISSING_ITEM);
+            }
+        }));
+        Handled.forEach(reg -> reg.getEntries().forEach(item -> {
+            String path = item.getId().getPath().toLowerCase();
+            try { withExistingParent(path, "item/handheld").texture("layer0", Confluence.asResource("item/axe/" + path));}
             catch (Exception e) {
                 Confluence.LOGGER.error(e.getMessage());
                 withExistingParent(path,MISSING_ITEM);
