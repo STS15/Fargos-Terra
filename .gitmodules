@@ -22,3 +22,7 @@
 	path = PhaseJourney
 	url = https://github.com/XiaoHuNao/PhaseJourney
 	branch = master
+[submodule "TerraMoment"]
+	path = TerraMoment
+	url = https://github.com/XiaoHuNao/TerraMoment
+	branch = master
