@@ -1,7 +1,7 @@
 {
     "parent": "item/handheld_rod",
     "textures": {
-        "layer0": "confluence:item/copper_bow"
+        "layer0": "confluence:item/bow/copper_bow"
     },
     "display": {
         "thirdperson_righthand": {

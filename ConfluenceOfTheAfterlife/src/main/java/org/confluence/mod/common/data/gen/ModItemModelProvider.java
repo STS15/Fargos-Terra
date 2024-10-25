@@ -2,21 +2,15 @@ package org.confluence.mod.common.data.gen;
 
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.SpawnEggItem;
 import net.minecraft.world.item.TieredItem;
 import net.minecraft.world.level.block.*;
-import net.neoforged.neoforge.client.model.generators.ItemModelBuilder;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.confluence.mod.Confluence;
 import org.confluence.mod.common.init.block.ModBlocks;
-import org.confluence.mod.common.init.block.ModOreBlocks;
 import org.confluence.mod.common.init.item.*;
-import org.confluence.mod.common.item.food.BaseFoodItem;
-import org.confluence.mod.terra_curio.common.item.curio.BaseCurioItem;
 import software.bernie.geckolib.animatable.GeoItem;
 
 import java.util.List;
@@ -46,6 +40,70 @@ public class ModItemModelProvider extends ItemModelProvider {
                 withExistingParent(path,MISSING_ITEM);
             }
         }));
+        customModels.forEach(reg -> reg.getEntries().forEach(item -> {
+            String path = item.getId().getPath().toLowerCase();
+            try {withExistingParent(path, "item/generated").texture("layer0", Confluence.asResource("item/materials/" + path));}
+            catch (Exception e) {
+                Confluence.LOGGER.error(e.getMessage());
+                withExistingParent(path,MISSING_ITEM);
+            }
+        }));
+        customModels.forEach(reg -> reg.getEntries().forEach(item -> {
+            String path = item.getId().getPath().toLowerCase();
+            try {withExistingParent(path, "item/generated").texture("layer0", Confluence.asResource("item/ore/" + path));}
+            catch (Exception e) {
+                Confluence.LOGGER.error(e.getMessage());
+                withExistingParent(path,MISSING_ITEM);
+            }
+        }));
+        customModels.forEach(reg -> reg.getEntries().forEach(item -> {
+            String path = item.getId().getPath().toLowerCase();
+            try {withExistingParent(path, "item/generated").texture("layer0", Confluence.asResource("item/gem/" + path));}
+            catch (Exception e) {
+                Confluence.LOGGER.error(e.getMessage());
+                withExistingParent(path,MISSING_ITEM);
+            }
+        }));
+        customModels.forEach(reg -> reg.getEntries().forEach(item -> {
+            String path = item.getId().getPath().toLowerCase();
+            try {withExistingParent(path, "item/generated").texture("layer0", Confluence.asResource("item/ingot/" + path));}
+            catch (Exception e) {
+                Confluence.LOGGER.error(e.getMessage());
+                withExistingParent(path,MISSING_ITEM);
+            }
+        }));
+        customModels.forEach(reg -> reg.getEntries().forEach(item -> {
+            String path = item.getId().getPath().toLowerCase();
+            try {withExistingParent(path, "item/generated").texture("layer0", Confluence.asResource("item/arrow/" + path));}
+            catch (Exception e) {
+                Confluence.LOGGER.error(e.getMessage());
+                withExistingParent(path,MISSING_ITEM);
+            }
+        }));
+        customModels.forEach(reg -> reg.getEntries().forEach(item -> {
+            String path = item.getId().getPath().toLowerCase();
+            try {withExistingParent(path, "item/generated").texture("layer0", Confluence.asResource("item/curio/" + path));}
+            catch (Exception e) {
+                Confluence.LOGGER.error(e.getMessage());
+                withExistingParent(path,MISSING_ITEM);
+            }
+        }));
+        customModels.forEach(reg -> reg.getEntries().forEach(item -> {
+            String path = item.getId().getPath().toLowerCase();
+            try {withExistingParent(path, "item/generated").texture("layer0", Confluence.asResource("item/food/" + path));}
+            catch (Exception e) {
+                Confluence.LOGGER.error(e.getMessage());
+                withExistingParent(path,MISSING_ITEM);
+            }
+        }));
+        customModels.forEach(reg -> reg.getEntries().forEach(item -> {
+            String path = item.getId().getPath().toLowerCase();
+            try {withExistingParent(path, "item/generated").texture("layer0", Confluence.asResource("item/potion/" + path));}
+            catch (Exception e) {
+                Confluence.LOGGER.error(e.getMessage());
+                withExistingParent(path,MISSING_ITEM);
+            }
+        }));
 
         // 手持物品
         List<DeferredRegister.Items> Handled = List.of(SwordItems.SWORDS, BowItems.BOWS);
@@ -57,71 +115,22 @@ public class ModItemModelProvider extends ItemModelProvider {
             withExistingParent(path,MISSING_ITEM);
         }
         }));
-
-
-
-        ModItems.ITEMS.getEntries().forEach(item -> {
-            Item value = item.get();
-
-            if (shouldSkip(value)) return;
-
+        Handled.forEach(reg -> reg.getEntries().forEach(item -> {
             String path = item.getId().getPath().toLowerCase();
-            boolean isBlockItem = false;
-            try {
-//                if (value instanceof HerbSeedItem) {
-//                    withExistingParent(path, "item/generated").texture("layer0", Confluence.asResource("item/" + path));
-//                } else
-                if (value instanceof BlockItem blockItem) {
-
-                    isBlockItem = true;
-                    Block block = blockItem.getBlock();
-//                    if (block instanceof CustomItemModel) return;
-                    if (block instanceof DoorBlock) {
-                        withExistingParent(path, "item/generated").texture("layer0", Confluence.asResource("item/" + path));
-                    } else if (block instanceof TrapDoorBlock) {
-                        withExistingParent(path, Confluence.asResource("block/" + path + "_bottom"));
-                    } else {
-                        withExistingParent(path, Confluence.asResource("block/" + path + (hasInventory(block) ? "_inventory" : "")));
-                    }
-
-                } else if (isHandheld(value)) {
-                    ItemModelBuilder builder = withExistingParent(path, "item/handheld").texture("layer0", Confluence.asResource("item/" + path));
-//                    if (value instanceof Image24x i32) {
-//                        i32.preset(builder);
-//                    } else if (value instanceof ReversalImage24x i32) {
-//                        i32.preset(builder);
-//                    } else if (value instanceof Image64x i64) {
-//                        i64.preset(builder);
-//                    }
-                } else if (value instanceof SpawnEggItem) {
-                    withExistingParent(path, "item/template_spawn_egg");
-                } else if (value instanceof BaseCurioItem) {
-                    withExistingParent(path, "item/generated").texture("layer0", Confluence.asResource("item/curio/" + path));
-                }
-               else if (value instanceof BaseFoodItem) {
-                    withExistingParent(path, "item/generated").texture("layer0", Confluence.asResource("item/food/" + path));
-                }
-//               else if (value instanceof ReversalImage16x) {
-//                    withExistingParent(path, "confluence:item/handheld_mirror").texture("layer0", Confluence.asResource("item/" + path));
-//                }
-                else {
-                    withExistingParent(path, "item/generated").texture("layer0", Confluence.asResource("item/" + path));
-                }
-            } catch (Exception e) {
+            try { withExistingParent(path, "item/handheld").texture("layer0", Confluence.asResource("item/sword/" + path));}
+            catch (Exception e) {
                 Confluence.LOGGER.error(e.getMessage());
-                withExistingParent(path, isBlockItem ? MISSING_BLOCK : MISSING_ITEM);
+                withExistingParent(path,MISSING_ITEM);
             }
-        });
-
-
-
-
-/*
-        Swords.SWORDS.getEntries().forEach(item -> {
+        }));
+        Handled.forEach(reg -> reg.getEntries().forEach(item -> {
             String path = item.getId().getPath().toLowerCase();
-            withExistingParent(path, "item/handheld").texture("layer0", Confluence.asResource("item/" + path));
-        });
-*/
+            try { withExistingParent(path, "item/handheld").texture("layer0", Confluence.asResource("item/bow/" + path));}
+            catch (Exception e) {
+                Confluence.LOGGER.error(e.getMessage());
+                withExistingParent(path,MISSING_ITEM);
+            }
+        }));
     }
 
     private static boolean hasInventory(Block block) {

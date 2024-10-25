@@ -1,6 +1,6 @@
 {
     "parent": "confluence:item/platinum_bow",
     "textures": {
-        "layer0": "confluence:item/platinum_bow_pulling_2"
+        "layer0": "confluence:item/bow/platinum_bow_pulling_2"
     }
 }
