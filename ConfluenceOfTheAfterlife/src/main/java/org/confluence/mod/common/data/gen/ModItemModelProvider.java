@@ -63,7 +63,7 @@ public class ModItemModelProvider extends ItemModelProvider {
                 createDir(MaterialItems.MATERIALS,"materials/","gem/","ingot/","ore/"),
                 createDir(TerraPotions.POTIONS,"potion/"),
                 createDir(ArrowItems.ARROWS,"arrow/"),
-                createDir(FoodItems.FOODS,"food/","fishingpole/"),
+                createDir(FoodItems.FOODS,"food/"),
                 createDir(FishingPoleItems.POLES,"fishingpole/")
         );
         genModels(customModels,"item/generated");

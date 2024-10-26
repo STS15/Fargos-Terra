@@ -1194,8 +1194,8 @@ public class ModChineseProvider extends LanguageProvider {
         add(AxeItems.TUNGSTEN_AXE.get(), "钨斧");
         add(AxeItems.GOLDEN_AXE.get(), "金斧");
         add(AxeItems.PLATINUM_AXE.get(), "铂金斧");
-//        add(AxeItems.EBONY_AXE.get(), "暗夜战斧");
-//        add(AxeItems.TR_CRIMSON_AXE.get(), "嗜血狂斧");
+        add(AxeItems.EBONY_AXE.get(), "暗夜战斧");
+        add(AxeItems.TR_CRIMSON_AXE.get(), "嗜血狂斧");
 
 /*
         add(Pickaxes.COPPER_PICKAXE.get(), "铜镐");
