@@ -1145,6 +1145,7 @@ public class ModChineseProvider extends LanguageProvider {
 
         add(SwordItems.COPPER_SHORT_SWORD.get(), "铜短剑");
         add(SwordItems.TIN_SHORT_SWORD.get(), "锡短剑");
+        add(SwordItems.COPPER_BOARD_SWORD.get(), "铜阔剑");
         add(SwordItems.TIN_BOARD_SWORD.get(), "锡阔剑");
         add(SwordItems.LEAD_SHORT_SWORD.get(), "铅短剑");
         add(SwordItems.LEAD_BOARD_SWORD.get(), "铅阔剑");
@@ -1186,18 +1187,15 @@ public class ModChineseProvider extends LanguageProvider {
 
 //        add(Swords.DEVELOPER_SWORD.get(),"开发者剑");
 
-
-/*
-        add(Axes.COPPER_AXE.get(), "铜斧");
-        add(Axes.TIN_AXE.get(), "锡斧");
-        add(Axes.LEAD_AXE.get(), "铅斧");
-        add(Axes.SILVER_AXE.get(), "银斧");
-        add(Axes.TUNGSTEN_AXE.get(), "钨斧");
-        add(Axes.GOLDEN_AXE.get(), "金斧");
-        add(Axes.PLATINUM_AXE.get(), "铂金斧");
-        add(Axes.EBONY_AXE.get(), "暗夜战斧");
-        add(Axes.TR_CRIMSON_AXE.get(), "嗜血狂斧");
-        */
+        add(AxeItems.COPPER_AXE.get(), "铜斧");
+        add(AxeItems.TIN_AXE.get(), "锡斧");
+        add(AxeItems.LEAD_AXE.get(), "铅斧");
+        add(AxeItems.SILVER_AXE.get(), "银斧");
+        add(AxeItems.TUNGSTEN_AXE.get(), "钨斧");
+        add(AxeItems.GOLDEN_AXE.get(), "金斧");
+        add(AxeItems.PLATINUM_AXE.get(), "铂金斧");
+//        add(AxeItems.EBONY_AXE.get(), "暗夜战斧");
+//        add(AxeItems.TR_CRIMSON_AXE.get(), "嗜血狂斧");
 
 /*
         add(Pickaxes.COPPER_PICKAXE.get(), "铜镐");

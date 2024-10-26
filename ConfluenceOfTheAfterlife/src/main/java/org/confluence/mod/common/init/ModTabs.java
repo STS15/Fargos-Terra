@@ -51,10 +51,10 @@ public final class ModTabs {
                     .build());
     // 工具
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> TOOLS = TABS.register("tools",
-            () -> CreativeModeTab.builder().icon(() -> new ItemStack(IconItems.ITEM_ICON.get()))
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(IconItems.TOOLS_ICON.get()))
                     .title(Component.translatable("creativetab.confluence.tools"))
                     .displayItems((parameters, output) -> {
-
+                        AxeItems.AXE.getEntries().forEach(item -> output.accept(item.get()));
                     })
                     .build());
     // 战士武器
@@ -100,7 +100,7 @@ public final class ModTabs {
                     .build());
     // 食物与药水
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> FOOD_AND_POTIONS = TABS.register("food_and_potions",
-            () -> CreativeModeTab.builder().icon(() -> new ItemStack(IconItems.ITEM_ICON.get()))
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(IconItems.FOOD_ICON.get()))
                     .title(Component.translatable("creativetab.confluence.food_and_potions"))
                     .displayItems((parameters, output) -> {
                             TerraPotions.POTIONS.getEntries().forEach(item -> output.accept(item.get()));

@@ -23,7 +23,7 @@ public class IconItems {
     public static final DeferredItem<IconItem> ACCESSORIES_ICON = register("accessories_icon");
     public static final DeferredItem<IconItem> TOOLS_ICON = register("tools_icon");
     public static final DeferredItem<IconItem> MECHANICAL_ICON = register("mechanical_icon");
-
+    public static final DeferredItem<IconItem> FOOD_ICON = register("food_icon");
     public static DeferredItem<IconItem> register(String name) {
         return ICONS.register(name, IconItem::new);
     }

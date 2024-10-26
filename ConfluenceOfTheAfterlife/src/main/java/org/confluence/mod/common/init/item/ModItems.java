@@ -57,5 +57,6 @@ public final class ModItems {
         TerraPotions.POTIONS.register(eventBus);
         QuestedFishes.FISHES.register(eventBus);
         FoodItems.FOODS.register(eventBus);
+        AxeItems.AXE.register(eventBus);
     }
 }
