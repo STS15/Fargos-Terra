@@ -10,7 +10,7 @@
 | [ParticleStorm](ParticleStorm)                       | 为复杂的粒子提供API   | 是      |
 | [HeavenDestinyMoment](HeavenDestinyMoment)           | 提供各类事件机制API   | 是      |
 | [PhaseJourney](PhaseJourney)                         | 提供各类阶游戏段机制API | 是      |
-
+| [TerraMoment](TerraMoment)                           | 泰拉事件          | 是      |
 ## 构建项目
 
 - 项目拉取完成后,确认子项目文件是否有拉取，如空文件夹请按下列指令在终端内顺序执行
