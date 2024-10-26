@@ -15,7 +15,6 @@ import org.confluence.mod.Confluence;
 import org.confluence.mod.common.CommonConfigs;
 import org.confluence.mod.network.s2c.GamePhasePacketS2C;
 import org.confluence.mod.network.s2c.ManaPacketS2C;
-import org.confluence.mod.network.s2c.WindSpeedPacketS2C;
 import org.confluence.mod.terra_curio.common.init.ModAttributes;
 
 import static org.confluence.mod.Confluence.MODID;
@@ -81,11 +80,6 @@ public final class ModEvents {
                 GamePhasePacketS2C.TYPE,
                 GamePhasePacketS2C.STREAM_CODEC,
                 GamePhasePacketS2C::handle
-        );
-        registrar.playToClient(
-                WindSpeedPacketS2C.TYPE,
-                WindSpeedPacketS2C.STREAM_CODEC,
-                WindSpeedPacketS2C::handle
         );
     }
 }

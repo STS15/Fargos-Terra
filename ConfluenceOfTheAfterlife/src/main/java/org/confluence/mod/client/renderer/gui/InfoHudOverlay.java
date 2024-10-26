@@ -6,7 +6,7 @@ import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.LayeredDraw;
 import net.minecraft.network.chat.Component;
-import org.confluence.mod.client.handler.InformationHandler;
+import org.confluence.mod.terra_curio.client.handler.InformationHandler;
 
 public class InfoHudOverlay implements LayeredDraw.Layer {
     private static final int background = (0x90 << 24) + 0x505050;
