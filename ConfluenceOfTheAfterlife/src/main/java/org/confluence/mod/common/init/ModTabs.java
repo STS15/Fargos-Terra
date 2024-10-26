@@ -16,9 +16,9 @@ import org.confluence.mod.common.init.item.*;
 public final class ModTabs {
     public static final DeferredRegister<CreativeModeTab> TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, Confluence.MODID);
 
-    //TODO 图标暂时为空
+
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> BUILDING_BLOCKS = TABS.register("building_blocks",
-            () -> CreativeModeTab.builder().icon(() -> new ItemStack(Items.AIR))
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(IconItems.BLOCKS_ICON.get()))
                     .title(Component.translatable("creativetab.confluence.building_blocks"))
                     .displayItems((parameters, output) -> {
                         ModDecorativeBlocks.BLOCKS.getEntries().forEach(block -> output.accept(block.get()));
@@ -26,7 +26,7 @@ public final class ModTabs {
                     .build()
     );
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> NATURAL_BLOCKS = TABS.register("natural_blocks",
-            () -> CreativeModeTab.builder().icon(() -> new ItemStack(Items.AIR))
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(IconItems.NATURE_ICON.get()))
                     .title(Component.translatable("creativetab.confluence.natural_blocks"))
                     .displayItems((parameters, output) -> {
                         ModOreBlocks.BLOCKS.getEntries().forEach(block -> output.accept(block.get()));
@@ -34,16 +34,18 @@ public final class ModTabs {
                     .build()
     );
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> CREATIVES = TABS.register("misc",
-            () -> CreativeModeTab.builder().icon(() -> new ItemStack(Items.AIR))
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(IconItems.PRECIOUS_ICON.get()))
                     .title(Component.translatable("creativetab.confluence.misc"))
                     .displayItems((parameters, output) -> {
                         //ModBlocks.BOX.get().getAll(Registries.BLOCK).forEach(entry -> output.accept(entry.get(), CreativeModeTab.TabVisibility.PARENT_TAB_ONLY));
                     })
                     .build()
     );
+
+
     // 材料
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> MATERIALS = TABS.register("materials",
-            () -> CreativeModeTab.builder().icon(() -> new ItemStack(MaterialItems.CRYSTAL_SHARDS_ITEM.get()))
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(IconItems.MATERIAL_ICON.get()))
                     .title(Component.translatable("creativetab.confluence.materials"))
                     .displayItems((parameters, output) -> {
                         MaterialItems.MATERIALS.getEntries().forEach(item -> output.accept(item.get()));
@@ -59,7 +61,7 @@ public final class ModTabs {
                     .build());
     // 战士武器
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> WARRIORS = TABS.register("warriors",
-            () -> CreativeModeTab.builder().icon(() -> new ItemStack(SwordItems.COPPER_BOARD_SWORD.get()))
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(IconItems.MELEE_ICON.get()))
                     .title(Component.translatable("creativetab.confluence.warriors"))
                     .displayItems((parameters, output) -> {
                         SwordItems.SWORDS.getEntries().forEach(item -> output.accept(item.get()));
@@ -67,7 +69,7 @@ public final class ModTabs {
                     .build());
     // 射手武器
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> SHOOTERS = TABS.register("shooters",
-            () -> CreativeModeTab.builder().icon(() -> new ItemStack(BowItems.COPPER_SHORT_BOW.get()))
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(IconItems.REMOTE_ICON.get()))
                     .title(Component.translatable("creativetab.confluence.rangers"))
                     .displayItems((parameters, output) -> {
                         BowItems.BOWS.getEntries().forEach(item -> output.accept(item.get()));
@@ -76,7 +78,7 @@ public final class ModTabs {
                     .build());
     // 法师武器
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> MAGES = TABS.register("mages",
-            () -> CreativeModeTab.builder().icon(() -> new ItemStack(IconItems.ITEM_ICON.get()))
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(IconItems.MAGIC_ICON.get()))
                     .title(Component.translatable("creativetab.confluence.mages"))
                     .displayItems((parameters, output) -> {
 
@@ -84,7 +86,7 @@ public final class ModTabs {
                     .build());
     // 召唤武器
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> SUMMONERS = TABS.register("summoners",
-            () -> CreativeModeTab.builder().icon(() -> new ItemStack(IconItems.ITEM_ICON.get()))
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(IconItems.SUMMON_ICON.get()))
                     .title(Component.translatable("creativetab.confluence.summoners"))
                     .displayItems((parameters, output) -> {
 
@@ -109,7 +111,7 @@ public final class ModTabs {
                     .build());
     // 盔甲
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> ARMORS = TABS.register("armors",
-            () -> CreativeModeTab.builder().icon(() -> new ItemStack(IconItems.ITEM_ICON.get()))
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(IconItems.ARMOR_ICON.get()))
                     .title(Component.translatable("creativetab.confluence.armors"))
                     .displayItems((parameters, output) -> {
 
@@ -117,10 +119,22 @@ public final class ModTabs {
                     .build());
     // 器械
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> MECHANICAL = TABS.register("mechanical",
-            () -> CreativeModeTab.builder().icon(() -> new ItemStack(IconItems.ITEM_ICON.get()))
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(IconItems.TOOLS_ICON.get()))
                     .title(Component.translatable("creativetab.confluence.mechanical"))
                     .displayItems((parameters, output) -> {
 
+                    })
+                    .build());
+
+
+
+
+    // todo ITEMS放的一些shi存在这里，自己分类
+    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> SHIT = TABS.register("tobe_sorted",
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(Items.EGG))
+                    .title(Component.translatable("creativetab.confluence.shit"))
+                    .displayItems((parameters, output) -> {
+                        ModItems.ITEMS.getEntries().forEach(item -> output.accept(item.get()));
                     })
                     .build());
 }

@@ -26,7 +26,7 @@ public class DataGenerator {
         boolean client = event.includeClient();
         generator.addProvider(client, new ModChineseProvider(output));
         generator.addProvider(client, new ModEnglishProvider(output));
-//        generator.addProvider(client, new ModBlockStateProvider(output, helper));
+        generator.addProvider(client, new ModBlockStateProvider(output, helper));
         generator.addProvider(client, new ModItemModelProvider(output, helper));
 
         boolean server = event.includeServer();
