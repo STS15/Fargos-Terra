@@ -110,7 +110,7 @@ public class BaseBombEntity extends ThrowableItemProjectile {
 
             if (emitter == null) {
                 this.emitter = new ParticleEmitter(level(), position(), getLeadParticle());
-                emitter.offsetRot.set(0.0, -Mth.HALF_PI, 0.0);
+                emitter.offsetRot.set(0.0, Mth.HALF_PI, 0.0);
                 emitter.offsetPos = new Vec3(0.0, DIAMETER, 0.0);
                 emitter.parentRotation = rotation;
                 emitter.attached = this;
