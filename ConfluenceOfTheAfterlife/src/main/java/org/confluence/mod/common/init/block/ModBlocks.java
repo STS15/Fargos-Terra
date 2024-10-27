@@ -6,15 +6,19 @@ import com.tterrag.registrate.providers.DataGenContext;
 import com.tterrag.registrate.util.CreativeModeTabModifier;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import com.tterrag.registrate.util.nullness.NonNullBiConsumer;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
+import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.confluence.mod.Confluence;
+import org.confluence.mod.common.block.CloudBlock;
 import org.confluence.mod.common.block.CoinPileBlock;
 import org.confluence.mod.common.init.ModTabs;
 import org.confluence.mod.common.init.item.ModItems;
@@ -25,6 +29,7 @@ import java.util.function.Supplier;
 
 public class ModBlocks {
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(Confluence.MODID);
+    public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(BuiltInRegistries.BLOCK_ENTITY_TYPE, Confluence.MODID);
     public static final NonNullBiConsumer<DataGenContext<Item, BoxBlockItem>, CreativeModeTabModifier> PARENT_ONLY = (context, modifier) -> modifier.accept(context, CreativeModeTab.TabVisibility.PARENT_TAB_ONLY);
 
     public static final BlockEntry<Block> WOODEN_BOX = registerBoxBlock("wooden_box");
@@ -59,6 +64,8 @@ public class ModBlocks {
     public static final DeferredBlock<CoinPileBlock> SILVER_COIN_PILE = registerWithoutItem("silver_coin_pile", CoinPileBlock::new);
     public static final DeferredBlock<CoinPileBlock> GOLDEN_COIN_PILE = registerWithoutItem("golden_coin_pile", CoinPileBlock::new);
     public static final DeferredBlock<CoinPileBlock> PLATINUM_COIN_PILE = registerWithoutItem("platinum_coin_pile", CoinPileBlock::new);
+
+    public static final DeferredBlock<CloudBlock> CLOUD_BLOCK = registerWithItem("cloud_block", CloudBlock::new);
 
 
     public static <B extends Block> DeferredBlock<B> registerWithItem(String id, Supplier<B> block) {

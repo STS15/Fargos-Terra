@@ -5,12 +5,12 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.confluence.mod.Confluence;
+import org.confluence.mod.common.entity.projectile.BaseArrowEntity;
+import org.confluence.mod.common.entity.projectile.EffectThrownPotion;
 import org.confluence.mod.common.entity.fishing.BaseFishingHook;
 import org.confluence.mod.common.entity.fishing.BloodyFishingHook;
 import org.confluence.mod.common.entity.fishing.CurioFishingHook;
 import org.confluence.mod.common.entity.fishing.HotlineFishingHook;
-import org.confluence.mod.common.entity.projectile.BaseArrowEntity;
-import org.confluence.mod.common.entity.projectile.EffectThrownPotion;
 import org.confluence.mod.common.entity.projectile.bombs.*;
 
 import java.util.function.Supplier;
