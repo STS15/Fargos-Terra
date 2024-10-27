@@ -9,6 +9,8 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import org.confluence.mod.Confluence;
 import org.confluence.mod.common.entity.fishing.CurioFishingHook;
 import org.confluence.mod.common.entity.projectile.bombs.*;
+import org.confluence.mod.common.init.armor.ArmorMaterials;
+import org.confluence.mod.common.init.armor.ModArmors;
 import org.confluence.mod.common.init.block.ModBlocks;
 import org.confluence.mod.common.item.common.BombItem;
 import org.confluence.mod.common.item.common.LifeCrystal;
@@ -58,5 +60,7 @@ public final class ModItems {
         QuestedFishes.FISHES.register(eventBus);
         FoodItems.FOODS.register(eventBus);
         AxeItems.AXE.register(eventBus);
+        ArmorMaterials.ARMOR_MATERIALS.register(eventBus);
+        ModArmors.ARMOR.register(eventBus);
     }
 }

@@ -8,6 +8,7 @@ import net.minecraft.world.item.Items;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.confluence.mod.Confluence;
+import org.confluence.mod.common.init.armor.ModArmors;
 import org.confluence.mod.common.init.block.ModDecorativeBlocks;
 import org.confluence.mod.common.init.block.ModOreBlocks;
 import org.confluence.mod.common.init.item.*;
@@ -114,7 +115,7 @@ public final class ModTabs {
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(IconItems.ARMOR_ICON.get()))
                     .title(Component.translatable("creativetab.confluence.armors"))
                     .displayItems((parameters, output) -> {
-
+                        ModArmors.ARMOR.getEntries().forEach(item -> output.accept(item.get()));
                     })
                     .build());
     // 器械
