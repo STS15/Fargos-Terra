@@ -33,11 +33,6 @@ public final class LivingEntityEvents {
     }
 
     @SubscribeEvent
-    public static void effectApplicable(MobEffectEvent.Applicable event) {
-
-    }
-
-    @SubscribeEvent
     public static void effectAdded(MobEffectEvent.Added event) {
 
     }

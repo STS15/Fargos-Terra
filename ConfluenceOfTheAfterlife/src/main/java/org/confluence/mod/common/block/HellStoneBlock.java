@@ -29,7 +29,7 @@ public class HellStoneBlock extends Block {
     public void stepOn(@NotNull Level level, @NotNull BlockPos blockPos, @NotNull BlockState blockState, @NotNull Entity entity) {
         if (entity instanceof LivingEntity) {
             entity.hurt(level.damageSources().hotFloor(), 2.5F);
-            entity.setRemainingFireTicks(3);
+            entity.igniteForTicks(60);
         }
         super.stepOn(level, blockPos, blockState, entity);
     }

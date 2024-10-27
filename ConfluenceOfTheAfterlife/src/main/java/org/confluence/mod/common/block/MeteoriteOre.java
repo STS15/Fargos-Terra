@@ -17,6 +17,6 @@ public class MeteoriteOre extends Block {
     @Override
     public void stepOn(Level level, @NotNull BlockPos blockPos, @NotNull BlockState blockState, @NotNull Entity entity) {
         if (level.isClientSide) return;
-        entity.setRemainingFireTicks(5);
+        entity.igniteForTicks(100);
     }
 }
