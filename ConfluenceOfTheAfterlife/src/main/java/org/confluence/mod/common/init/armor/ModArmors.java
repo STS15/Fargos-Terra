@@ -1,76 +1,85 @@
 package org.confluence.mod.common.init.armor;
 
+import net.minecraft.core.Holder;
 import net.minecraft.world.item.ArmorItem;
+import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.Item;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.confluence.mod.Confluence;
+import org.confluence.mod.common.item.armor.NormalArmorItem;
 
 import java.util.function.Supplier;
 
 public class ModArmors {
-    public static final DeferredRegister<Item> ARMOR = DeferredRegister.createItems(Confluence.MODID);
+    public static final DeferredRegister.Items ARMOR = DeferredRegister.createItems(Confluence.MODID);
 
-    public static final Supplier<ArmorItem> CACTUS_HELMET = ARMOR.register("cactus_helmet", () -> new ArmorItem(ArmorMaterials.CACTUS_ARMOR_MATERIALS, ArmorItem.Type.HELMET, new Item.Properties().durability(120)));
-    public static final Supplier<ArmorItem> CACTUS_CHESTPLATE = ARMOR.register("cactus_chestplate", () -> new ArmorItem(ArmorMaterials.CACTUS_ARMOR_MATERIALS, ArmorItem.Type.CHESTPLATE, new Item.Properties().durability(170)));
-    public static final Supplier<ArmorItem> CACTUS_LEGGINGS = ARMOR.register("cactus_leggings", () -> new ArmorItem(ArmorMaterials.CACTUS_ARMOR_MATERIALS, ArmorItem.Type.LEGGINGS, new Item.Properties().durability(150)));
-    public static final Supplier<ArmorItem> CACTUS_BOOTS = ARMOR.register("cactus_boots", () -> new ArmorItem(ArmorMaterials.CACTUS_ARMOR_MATERIALS, ArmorItem.Type.BOOTS, new Item.Properties().durability(130)));
+    public static final Supplier<ArmorItem> CACTUS_HELMET = registerNormalArmor("cactus_helmet","cactus_armor",ArmorMaterials.CACTUS_ARMOR_MATERIALS,ArmorItem.Type.HELMET,120);
+    public static final Supplier<ArmorItem> CACTUS_CHESTPLATE = registerNormalArmor("cactus_chestplate","cactus_armor",ArmorMaterials.CACTUS_ARMOR_MATERIALS,ArmorItem.Type.CHESTPLATE,170);
+    public static final Supplier<ArmorItem> CACTUS_LEGGINGS = registerNormalArmor("cactus_leggings","cactus_armor",ArmorMaterials.CACTUS_ARMOR_MATERIALS,ArmorItem.Type.LEGGINGS,150);
+    public static final Supplier<ArmorItem> CACTUS_BOOTS = registerNormalArmor("cactus_boots","cactus_armor",ArmorMaterials.CACTUS_ARMOR_MATERIALS,ArmorItem.Type.BOOTS,130);
 
-    public static final Supplier<Item> COPPER_HELMET = ARMOR.register("copper_helmet", () -> new ArmorItem(ArmorMaterials.COPPER_ARMOR_MATERIALS, ArmorItem.Type.HELMET, new Item.Properties().durability(120)));
-    public static final Supplier<Item> COPPER_CHESTPLATE = ARMOR.register("copper_chestplate", () -> new ArmorItem(ArmorMaterials.COPPER_ARMOR_MATERIALS, ArmorItem.Type.CHESTPLATE, new Item.Properties().durability(170)));
-    public static final Supplier<Item> COPPER_LEGGINGS = ARMOR.register("copper_leggings", () -> new ArmorItem(ArmorMaterials.COPPER_ARMOR_MATERIALS, ArmorItem.Type.LEGGINGS, new Item.Properties().durability(150)));
-    public static final Supplier<Item> COPPER_BOOTS = ARMOR.register("copper_boots", () -> new ArmorItem(ArmorMaterials.COPPER_ARMOR_MATERIALS, ArmorItem.Type.BOOTS, new Item.Properties().durability(130)));
+    public static final Supplier<ArmorItem> COPPER_HELMET = registerNormalArmor("copper_helmet","copper_armor",ArmorMaterials.COPPER_ARMOR_MATERIALS,ArmorItem.Type.HELMET,120);
+    public static final Supplier<ArmorItem> COPPER_CHESTPLATE = registerNormalArmor("copper_chestplate","copper_armor",ArmorMaterials.COPPER_ARMOR_MATERIALS,ArmorItem.Type.CHESTPLATE,170);
+    public static final Supplier<ArmorItem> COPPER_LEGGINGS = registerNormalArmor("copper_leggings","copper_armor",ArmorMaterials.COPPER_ARMOR_MATERIALS,ArmorItem.Type.LEGGINGS,150);
+    public static final Supplier<ArmorItem> COPPER_BOOTS = registerNormalArmor("copper_boots","copper_armor",ArmorMaterials.COPPER_ARMOR_MATERIALS,ArmorItem.Type.BOOTS,130);
 
-    public static final Supplier<Item> FOSSIL_HELMET = ARMOR.register("fossil_helmet", () -> new ArmorItem(ArmorMaterials.FOSSIL_ARMOR_MATERIALS, ArmorItem.Type.HELMET, new Item.Properties().durability(200)));
-    public static final Supplier<Item> FOSSIL_CHESTPLATE = ARMOR.register("fossil_chestplate", () -> new ArmorItem(ArmorMaterials.FOSSIL_ARMOR_MATERIALS, ArmorItem.Type.CHESTPLATE, new Item.Properties().durability(270)));
-    public static final Supplier<Item> FOSSIL_LEGGINGS = ARMOR.register("fossil_leggings", () -> new ArmorItem(ArmorMaterials.FOSSIL_ARMOR_MATERIALS, ArmorItem.Type.LEGGINGS, new Item.Properties().durability(250)));
-    public static final Supplier<Item> FOSSIL_BOOTS = ARMOR.register("fossil_boots", () -> new ArmorItem(ArmorMaterials.FOSSIL_ARMOR_MATERIALS, ArmorItem.Type.BOOTS, new Item.Properties().durability(200)));
+    public static final Supplier<ArmorItem> FOSSIL_HELMET = registerNormalArmor("fossil_helmet","",ArmorMaterials.FOSSIL_ARMOR_MATERIALS,ArmorItem.Type.HELMET,200);
+    public static final Supplier<ArmorItem> FOSSIL_CHESTPLATE = registerNormalArmor("fossil_chestplate","",ArmorMaterials.FOSSIL_ARMOR_MATERIALS,ArmorItem.Type.CHESTPLATE,270);
+    public static final Supplier<ArmorItem> FOSSIL_LEGGINGS = registerNormalArmor("fossil_leggings","",ArmorMaterials.FOSSIL_ARMOR_MATERIALS,ArmorItem.Type.LEGGINGS,250);
+    public static final Supplier<ArmorItem> FOSSIL_BOOTS = registerNormalArmor("fossil_boots","",ArmorMaterials.FOSSIL_ARMOR_MATERIALS,ArmorItem.Type.BOOTS,200);
 
-    public static final Supplier<Item> GOLDEN_HELMET = ARMOR.register("golden_helmet", () -> new ArmorItem(ArmorMaterials.GOLDEN_ARMOR_MATERIALS, ArmorItem.Type.HELMET, new Item.Properties().durability(250)));
-    public static final Supplier<Item> GOLDEN_CHESTPLATE = ARMOR.register("golden_chestplate", () -> new ArmorItem(ArmorMaterials.GOLDEN_ARMOR_MATERIALS, ArmorItem.Type.CHESTPLATE, new Item.Properties().durability(340)));
-    public static final Supplier<Item> GOLDEN_LEGGINGS = ARMOR.register("golden_leggings", () -> new ArmorItem(ArmorMaterials.GOLDEN_ARMOR_MATERIALS, ArmorItem.Type.LEGGINGS, new Item.Properties().durability(320)));
-    public static final Supplier<Item> GOLDEN_BOOTS = ARMOR.register("golden_boots", () -> new ArmorItem(ArmorMaterials.GOLDEN_ARMOR_MATERIALS, ArmorItem.Type.BOOTS, new Item.Properties().durability(260)));
+    public static final Supplier<ArmorItem> GOLDEN_HELMET = registerNormalArmor("golden_helmet","golden_armor",ArmorMaterials.GOLDEN_ARMOR_MATERIALS,ArmorItem.Type.HELMET,250);
+    public static final Supplier<ArmorItem> GOLDEN_CHESTPLATE = registerNormalArmor("golden_chestplate","golden_armor",ArmorMaterials.GOLDEN_ARMOR_MATERIALS,ArmorItem.Type.CHESTPLATE,340);
+    public static final Supplier<ArmorItem> GOLDEN_LEGGINGS = registerNormalArmor("golden_leggings","golden_armor",ArmorMaterials.GOLDEN_ARMOR_MATERIALS,ArmorItem.Type.LEGGINGS,320);
+    public static final Supplier<ArmorItem> GOLDEN_BOOTS = registerNormalArmor("golden_boots","golden_armor",ArmorMaterials.GOLDEN_ARMOR_MATERIALS,ArmorItem.Type.BOOTS,260);
 
-    public static final Supplier<Item> LEAD_HELMET = ARMOR.register("lead_helmet", () -> new ArmorItem(ArmorMaterials.LEAD_ARMOR_MATERIALS, ArmorItem.Type.HELMET, new Item.Properties().durability(170)));
-    public static final Supplier<Item> LEAD_CHESTPLATE = ARMOR.register("lead_chestplate", () -> new ArmorItem(ArmorMaterials.LEAD_ARMOR_MATERIALS, ArmorItem.Type.CHESTPLATE, new Item.Properties().durability(250)));
-    public static final Supplier<Item> LEAD_LEGGINGS = ARMOR.register("lead_leggings", () -> new ArmorItem(ArmorMaterials.LEAD_ARMOR_MATERIALS, ArmorItem.Type.LEGGINGS, new Item.Properties().durability(230)));
-    public static final Supplier<Item> LEAD_BOOTS = ARMOR.register("lead_boots", () -> new ArmorItem(ArmorMaterials.LEAD_ARMOR_MATERIALS, ArmorItem.Type.BOOTS, new Item.Properties().durability(160)));
+    public static final Supplier<ArmorItem> LEAD_HELMET = registerNormalArmor("lead_helmet","lead_armor",ArmorMaterials.LEAD_ARMOR_MATERIALS,ArmorItem.Type.HELMET,170);
+    public static final Supplier<ArmorItem> LEAD_CHESTPLATE = registerNormalArmor("lead_chestplate","lead_armor",ArmorMaterials.LEAD_ARMOR_MATERIALS,ArmorItem.Type.CHESTPLATE,250);
+    public static final Supplier<ArmorItem> LEAD_LEGGINGS = registerNormalArmor("lead_leggings","lead_armor",ArmorMaterials.LEAD_ARMOR_MATERIALS,ArmorItem.Type.LEGGINGS,230);
+    public static final Supplier<ArmorItem> LEAD_BOOTS = registerNormalArmor("lead_boots","lead_armor",ArmorMaterials.LEAD_ARMOR_MATERIALS,ArmorItem.Type.BOOTS,160);
 
-    public static final Supplier<Item> NINJA_HELMET = ARMOR.register("ninja_helmet", () -> new ArmorItem(ArmorMaterials.NINJA_ARMOR_MATERIALS, ArmorItem.Type.HELMET, new Item.Properties().durability(170)));
-    public static final Supplier<Item> NINJA_CHESTPLATE = ARMOR.register("ninja_chestplate", () -> new ArmorItem(ArmorMaterials.NINJA_ARMOR_MATERIALS, ArmorItem.Type.CHESTPLATE, new Item.Properties().durability(250)));
-    public static final Supplier<Item> NINJA_LEGGINGS = ARMOR.register("ninja_leggings", () -> new ArmorItem(ArmorMaterials.NINJA_ARMOR_MATERIALS, ArmorItem.Type.LEGGINGS, new Item.Properties().durability(230)));
-    public static final Supplier<Item> NINJA_BOOTS = ARMOR.register("ninja_boots", () -> new ArmorItem(ArmorMaterials.NINJA_ARMOR_MATERIALS, ArmorItem.Type.BOOTS, new Item.Properties().durability(160)));
+    public static final Supplier<ArmorItem> NINJA_HELMET = registerNormalArmor("ninja_helmet","",ArmorMaterials.NINJA_ARMOR_MATERIALS,ArmorItem.Type.HELMET,170);
+    public static final Supplier<ArmorItem> NINJA_CHESTPLATE = registerNormalArmor("ninja_chestplate","",ArmorMaterials.NINJA_ARMOR_MATERIALS,ArmorItem.Type.CHESTPLATE,2500);
+    public static final Supplier<ArmorItem> NINJA_LEGGINGS = registerNormalArmor("ninja_leggings","",ArmorMaterials.NINJA_ARMOR_MATERIALS,ArmorItem.Type.LEGGINGS,2300);
+    public static final Supplier<ArmorItem> NINJA_BOOTS = registerNormalArmor("ninja_boots","",ArmorMaterials.NINJA_ARMOR_MATERIALS,ArmorItem.Type.BOOTS,160);
 
-    public static final Supplier<Item> PLANK_HELMET = ARMOR.register("plank_helmet", () -> new ArmorItem(ArmorMaterials.PLANK_ARMOR_MATERIALS, ArmorItem.Type.HELMET, new Item.Properties().durability(55)));
-    public static final Supplier<Item> PLANK_CHESTPLATE = ARMOR.register("plank_chestplate", () -> new ArmorItem(ArmorMaterials.PLANK_ARMOR_MATERIALS, ArmorItem.Type.CHESTPLATE, new Item.Properties().durability(80)));
-    public static final Supplier<Item> PLANK_LEGGINGS = ARMOR.register("plank_leggings", () -> new ArmorItem(ArmorMaterials.PLANK_ARMOR_MATERIALS, ArmorItem.Type.LEGGINGS, new Item.Properties().durability(75)));
-    public static final Supplier<Item> PLANK_BOOTS = ARMOR.register("plank_boots", () -> new ArmorItem(ArmorMaterials.PLANK_ARMOR_MATERIALS, ArmorItem.Type.BOOTS, new Item.Properties().durability(65)));
+    public static final Supplier<ArmorItem> PLANK_HELMET = registerNormalArmor("plank_helmet","plank_armor",ArmorMaterials.PLANK_ARMOR_MATERIALS,ArmorItem.Type.HELMET,55);
+    public static final Supplier<ArmorItem> PLANK_CHESTPLATE = registerNormalArmor("plank_chestplate","plank_armor",ArmorMaterials.PLANK_ARMOR_MATERIALS,ArmorItem.Type.CHESTPLATE,80);
+    public static final Supplier<ArmorItem> PLANK_LEGGINGS = registerNormalArmor("plank_leggings","plank_armor",ArmorMaterials.PLANK_ARMOR_MATERIALS,ArmorItem.Type.LEGGINGS,75);
+    public static final Supplier<ArmorItem> PLANK_BOOTS = registerNormalArmor("plank_boots","plank_armor",ArmorMaterials.PLANK_ARMOR_MATERIALS,ArmorItem.Type.BOOTS,65);
 
-    public static final Supplier<Item> PLATINUM_HELMET = ARMOR.register("platinum_helmet", () -> new ArmorItem(ArmorMaterials.PLATINUM_ARMOR_MATERIALS, ArmorItem.Type.HELMET, new Item.Properties().durability(250)));
-    public static final Supplier<Item> PLATINUM_CHESTPLATE = ARMOR.register("platinum_chestplate", () -> new ArmorItem(ArmorMaterials.PLATINUM_ARMOR_MATERIALS, ArmorItem.Type.CHESTPLATE, new Item.Properties().durability(340)));
-    public static final Supplier<Item> PLATINUM_LEGGINGS = ARMOR.register("platinum_leggings", () -> new ArmorItem(ArmorMaterials.PLATINUM_ARMOR_MATERIALS, ArmorItem.Type.LEGGINGS, new Item.Properties().durability(320)));
-    public static final Supplier<Item> PLATINUM_BOOTS = ARMOR.register("platinum_boots", () -> new ArmorItem(ArmorMaterials.PLATINUM_ARMOR_MATERIALS, ArmorItem.Type.BOOTS, new Item.Properties().durability(260)));
+    public static final Supplier<ArmorItem> PLATINUM_HELMET = registerNormalArmor("platinum_helmet","platinum_armor",ArmorMaterials.PLATINUM_ARMOR_MATERIALS,ArmorItem.Type.HELMET,250);
+    public static final Supplier<ArmorItem> PLATINUM_CHESTPLATE = registerNormalArmor("platinum_chestplate","platinum_armor",ArmorMaterials.PLATINUM_ARMOR_MATERIALS,ArmorItem.Type.CHESTPLATE,340);
+    public static final Supplier<ArmorItem> PLATINUM_LEGGINGS = registerNormalArmor("platinum_leggings","platinum_armor",ArmorMaterials.PLATINUM_ARMOR_MATERIALS,ArmorItem.Type.LEGGINGS,320);
+    public static final Supplier<ArmorItem> PLATINUM_BOOTS = registerNormalArmor("platinum_boots","platinum_armor",ArmorMaterials.PLATINUM_ARMOR_MATERIALS,ArmorItem.Type.BOOTS,260);
 
-    public static final Supplier<Item> SILVER_HELMET = ARMOR.register("silver_helmet", () -> new ArmorItem(ArmorMaterials.SILVER_ARMOR_MATERIALS, ArmorItem.Type.HELMET, new Item.Properties().durability(190)));
-    public static final Supplier<Item> SILVER_CHESTPLATE = ARMOR.register("silver_chestplate", () -> new ArmorItem(ArmorMaterials.SILVER_ARMOR_MATERIALS, ArmorItem.Type.CHESTPLATE, new Item.Properties().durability(270)));
-    public static final Supplier<Item> SILVER_LEGGINGS = ARMOR.register("silver_leggings", () -> new ArmorItem(ArmorMaterials.SILVER_ARMOR_MATERIALS, ArmorItem.Type.LEGGINGS, new Item.Properties().durability(250)));
-    public static final Supplier<Item> SILVER_BOOTS = ARMOR.register("silver_boots", () -> new ArmorItem(ArmorMaterials.SILVER_ARMOR_MATERIALS, ArmorItem.Type.BOOTS, new Item.Properties().durability(180)));
+    public static final Supplier<ArmorItem> SILVER_HELMET = registerNormalArmor("silver_helmet","silver_armor",ArmorMaterials.SILVER_ARMOR_MATERIALS,ArmorItem.Type.HELMET,190);
+    public static final Supplier<ArmorItem> SILVER_CHESTPLATE = registerNormalArmor("silver_chestplate","silver_",ArmorMaterials.SILVER_ARMOR_MATERIALS,ArmorItem.Type.CHESTPLATE,270);
+    public static final Supplier<ArmorItem> SILVER_LEGGINGS = registerNormalArmor("silver_leggings","silver_",ArmorMaterials.SILVER_ARMOR_MATERIALS,ArmorItem.Type.LEGGINGS,250);
+    public static final Supplier<ArmorItem> SILVER_BOOTS = registerNormalArmor("silver_boots","silver_",ArmorMaterials.SILVER_ARMOR_MATERIALS,ArmorItem.Type.BOOTS,180);
 
-    public static final Supplier<Item> SNOW_CAPS = ARMOR.register("snow_caps", () -> new ArmorItem(ArmorMaterials.SNOW_ARMOR_MATERIALS, ArmorItem.Type.HELMET, new Item.Properties().durability(120)));
-    public static final Supplier<Item> SNOW_SUITS = ARMOR.register("snow_suits", () -> new ArmorItem(ArmorMaterials.SNOW_ARMOR_MATERIALS, ArmorItem.Type.CHESTPLATE, new Item.Properties().durability(170)));
-    public static final Supplier<Item> INSULATED_PANTS = ARMOR.register("insulated_pants", () -> new ArmorItem(ArmorMaterials.SNOW_ARMOR_MATERIALS, ArmorItem.Type.LEGGINGS, new Item.Properties().durability(150)));
-    public static final Supplier<Item> INSULATED_SHOES = ARMOR.register("insulated_shoes", () -> new ArmorItem(ArmorMaterials.SNOW_ARMOR_MATERIALS, ArmorItem.Type.BOOTS, new Item.Properties().durability(140)));
-    public static final Supplier<Item> PINK_SNOW_CAPS = ARMOR.register("pink_snow_caps", () -> new ArmorItem(ArmorMaterials.PINK_SNOW_ARMOR_MATERIALS, ArmorItem.Type.HELMET, new Item.Properties().durability(120)));
-    public static final Supplier<Item> PINK_SNOW_SUITS = ARMOR.register("pink_snow_suits", () -> new ArmorItem(ArmorMaterials.PINK_SNOW_ARMOR_MATERIALS, ArmorItem.Type.CHESTPLATE, new Item.Properties().durability(170)));
-    public static final Supplier<Item> PINK_INSULATED_PANTS = ARMOR.register("pink_insulated_pants", () -> new ArmorItem(ArmorMaterials.PINK_SNOW_ARMOR_MATERIALS, ArmorItem.Type.LEGGINGS, new Item.Properties().durability(150)));
-    public static final Supplier<Item> PINK_INSULATED_SHOES = ARMOR.register("pink_insulated_shoes", () -> new ArmorItem(ArmorMaterials.PINK_SNOW_ARMOR_MATERIALS, ArmorItem.Type.BOOTS, new Item.Properties().durability(140)));
+    public static final Supplier<ArmorItem> SNOW_CAPS = registerNormalArmor("snow_caps","snow_armor",ArmorMaterials.SNOW_ARMOR_MATERIALS,ArmorItem.Type.HELMET,120);
+    public static final Supplier<ArmorItem> SNOW_SUITS = registerNormalArmor("snow_suits","snow_armor",ArmorMaterials.SNOW_ARMOR_MATERIALS,ArmorItem.Type.CHESTPLATE,170);
+    public static final Supplier<ArmorItem> INSULATED_PANTS = registerNormalArmor("insulated_pants","snow_armor",ArmorMaterials.SNOW_ARMOR_MATERIALS,ArmorItem.Type.LEGGINGS,150);
+    public static final Supplier<ArmorItem> INSULATED_SHOES = registerNormalArmor("insulated_shoes","snow_armor",ArmorMaterials.SNOW_ARMOR_MATERIALS,ArmorItem.Type.BOOTS,140);
 
-    public static final Supplier<Item> TIN_HELMET = ARMOR.register("tin_helmet", () -> new ArmorItem(ArmorMaterials.TIN_ARMOR_MATERIALS, ArmorItem.Type.HELMET, new Item.Properties().durability(150)));
-    public static final Supplier<Item> TIN_CHESTPLATE = ARMOR.register("tin_chestplate", () -> new ArmorItem(ArmorMaterials.TIN_ARMOR_MATERIALS, ArmorItem.Type.CHESTPLATE, new Item.Properties().durability(190)));
-    public static final Supplier<Item> TIN_LEGGINGS = ARMOR.register("tin_leggings", () -> new ArmorItem(ArmorMaterials.TIN_ARMOR_MATERIALS, ArmorItem.Type.LEGGINGS, new Item.Properties().durability(170)));
-    public static final Supplier<Item> TIN_BOOTS = ARMOR.register("tin_boots", () -> new ArmorItem(ArmorMaterials.TIN_ARMOR_MATERIALS, ArmorItem.Type.BOOTS, new Item.Properties().durability(150)));
+    public static final Supplier<ArmorItem> PINK_SNOW_CAPS = registerNormalArmor("pink_snow_caps","",ArmorMaterials.PINK_SNOW_ARMOR_MATERIALS,ArmorItem.Type.HELMET,120);
+    public static final Supplier<ArmorItem> PINK_SNOW_SUITS = registerNormalArmor("pink_snow_suits","",ArmorMaterials.PINK_SNOW_ARMOR_MATERIALS,ArmorItem.Type.CHESTPLATE,170);
+    public static final Supplier<ArmorItem> PINK_INSULATED_PANTS = registerNormalArmor("pink_insulated_pants","",ArmorMaterials.PINK_SNOW_ARMOR_MATERIALS,ArmorItem.Type.LEGGINGS,150);
+    public static final Supplier<ArmorItem> PINK_INSULATED_SHOES = registerNormalArmor("pink_insulated_shoes","",ArmorMaterials.PINK_SNOW_ARMOR_MATERIALS,ArmorItem.Type.BOOTS,140);
 
-    public static final Supplier<Item> TUNGSTEN_HELMET = ARMOR.register("tungsten_helmet", () -> new ArmorItem(ArmorMaterials.TUNGSTEN_ARMOR_MATERIALS, ArmorItem.Type.HELMET, new Item.Properties().durability(210)));
-    public static final Supplier<Item> TUNGSTEN_CHESTPLATE = ARMOR.register("tungsten_chestplate", () -> new ArmorItem(ArmorMaterials.TUNGSTEN_ARMOR_MATERIALS, ArmorItem.Type.CHESTPLATE, new Item.Properties().durability(290)));
-    public static final Supplier<Item> TUNGSTEN_LEGGINGS = ARMOR.register("tungsten_leggings", () -> new ArmorItem(ArmorMaterials.TUNGSTEN_ARMOR_MATERIALS, ArmorItem.Type.LEGGINGS, new Item.Properties().durability(270)));
-    public static final Supplier<Item> TUNGSTEN_BOOTS = ARMOR.register("tungsten_boots", () -> new ArmorItem(ArmorMaterials.TUNGSTEN_ARMOR_MATERIALS, ArmorItem.Type.BOOTS, new Item.Properties().durability(200)));
+    public static final Supplier<ArmorItem> TIN_HELMET = registerNormalArmor("tin_helmet","tin_armor",ArmorMaterials.TIN_ARMOR_MATERIALS,ArmorItem.Type.HELMET,150);
+    public static final Supplier<ArmorItem> TIN_CHESTPLATE = registerNormalArmor("tin_chestplate","tin_armor",ArmorMaterials.TIN_ARMOR_MATERIALS,ArmorItem.Type.CHESTPLATE,190);
+    public static final Supplier<ArmorItem> TIN_LEGGINGS = registerNormalArmor("tin_leggings","tin_armor",ArmorMaterials.TIN_ARMOR_MATERIALS,ArmorItem.Type.LEGGINGS,170);
+    public static final Supplier<ArmorItem> TIN_BOOTS = registerNormalArmor("tin_boots","tin_armor",ArmorMaterials.TIN_ARMOR_MATERIALS,ArmorItem.Type.BOOTS,150);
+
+    public static final Supplier<ArmorItem> TUNGSTEN_HELMET = registerNormalArmor("tungsten_helmet","tungsten_armor",ArmorMaterials.TUNGSTEN_ARMOR_MATERIALS,ArmorItem.Type.HELMET,210);
+    public static final Supplier<ArmorItem> TUNGSTEN_CHESTPLATE = registerNormalArmor("tungsten_chestplate","tungsten_armor",ArmorMaterials.TUNGSTEN_ARMOR_MATERIALS,ArmorItem.Type.CHESTPLATE,290);
+    public static final Supplier<ArmorItem> TUNGSTEN_LEGGINGS = registerNormalArmor("tungsten_leggings","tungsten_armor",ArmorMaterials.TUNGSTEN_ARMOR_MATERIALS,ArmorItem.Type.LEGGINGS,270);
+    public static final Supplier<ArmorItem> TUNGSTEN_BOOTS = registerNormalArmor("tungsten_boots","tungsten_armor",ArmorMaterials.TUNGSTEN_ARMOR_MATERIALS,ArmorItem.Type.BOOTS,200);
+
+
+    public static Supplier<ArmorItem> registerNormalArmor(String name, String geoName,Holder<ArmorMaterial> material, ArmorItem.Type type, int durability) {
+        return ARMOR.register(name, ()->new NormalArmorItem("armor/"+geoName, material, type, new Item.Properties().stacksTo(1).durability(durability)));
+    }
 }

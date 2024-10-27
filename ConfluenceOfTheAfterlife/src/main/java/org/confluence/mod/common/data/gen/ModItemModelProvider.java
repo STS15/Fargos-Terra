@@ -13,6 +13,7 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.confluence.mod.Confluence;
+import org.confluence.mod.common.init.armor.ModArmors;
 import org.confluence.mod.common.init.block.ModBlocks;
 import org.confluence.mod.common.init.block.ModOreBlocks;
 import org.confluence.mod.common.init.item.*;
@@ -64,7 +65,8 @@ public class ModItemModelProvider extends ItemModelProvider {
                 createDir(TerraPotions.POTIONS,"potion/"),
                 createDir(ArrowItems.ARROWS,"arrow/"),
                 createDir(FoodItems.FOODS,"food/"),
-                createDir(FishingPoleItems.POLES,"fishingpole/")
+                createDir(FishingPoleItems.POLES,"fishingpole/"),
+                createDir(ModArmors.ARMOR,"boots/","chestplate/", "helmet/", "leggings/")
         );
         genModels(customModels,"item/generated");
 
