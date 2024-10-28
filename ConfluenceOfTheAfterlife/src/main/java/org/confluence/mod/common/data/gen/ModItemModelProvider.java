@@ -64,7 +64,7 @@ public class ModItemModelProvider extends ItemModelProvider {
                 createDir(FishingPoleItems.POLES,"fishingpole/"),
                 createDir(ModArmors.ARMOR,"boots/","chestplate/", "helmet/", "leggings/"),
                 createDir(AccessoryItems.ACCESSORIES, "accessory/"),
-                createDir(ModItems.ITEMS,"misc/")
+                createDir(ModItems.ITEMS,"misc/", "seed/")
         );
         genModels(customModels,"item/generated");
 
