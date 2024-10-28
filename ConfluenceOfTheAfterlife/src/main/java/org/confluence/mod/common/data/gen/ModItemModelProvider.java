@@ -56,15 +56,15 @@ public class ModItemModelProvider extends ItemModelProvider {
         // 一般物品
         // tip：MATERIALS的贴图分多个文件夹 "materials/","gem/","ingot/","ore/"，物品多的文件夹放前面提高速度
         List<Map<DeferredRegister.Items,List<String>>> customModels = List.of(
-                createDir(IconItems.ICONS,""),
-                createDir(MaterialItems.MATERIALS,"materials/","gem/","ingot/","ore/"),
+                createDir(IconItems.ICONS,"icon/"),
+                createDir(MaterialItems.MATERIALS,"materials/","ingot/","ore/"),
                 createDir(TerraPotions.POTIONS,"potion/"),
                 createDir(ArrowItems.ARROWS,"arrow/"),
                 createDir(FoodItems.FOODS,"food/"),
                 createDir(FishingPoleItems.POLES,"fishingpole/"),
-                createDir(ModArmors.ARMOR,"boots/","chestplate/", "helmet/", "leggings/"),
+                createDir(ModArmors.ARMOR,"armor_item/"),
                 createDir(AccessoryItems.ACCESSORIES, "accessory/"),
-                createDir(ModItems.ITEMS,"misc/", "seed/")
+                createDir(ModItems.ITEMS,"misc/", "seed/", "consumables/")
         );
         genModels(customModels,"item/generated");
 

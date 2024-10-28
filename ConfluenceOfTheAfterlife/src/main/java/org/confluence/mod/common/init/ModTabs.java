@@ -90,7 +90,7 @@ public final class ModTabs {
                     .build());
     // 开发者物品
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> DEVELOPER = TABS.register("developer",
-            () -> CreativeModeTab.builder().icon(() -> IconItems.ITEM_ICON.get().getDefaultInstance())
+            () -> CreativeModeTab.builder().icon(() -> IconItems.DEVELOPER_ICON.get().getDefaultInstance())
                     .title(Component.translatable("creativetab.confluence.developer"))
                     .displayItems((parameters, output) -> {
 
@@ -98,7 +98,7 @@ public final class ModTabs {
                     .build());
     // 食物与药水
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> FOOD_AND_POTIONS = TABS.register("food_and_potions",
-            () -> CreativeModeTab.builder().icon(() -> IconItems.FOOD_ICON.get().getDefaultInstance())
+            () -> CreativeModeTab.builder().icon(() -> IconItems.POTION_ICON.get().getDefaultInstance())
                     .title(Component.translatable("creativetab.confluence.food_and_potions"))
                     .displayItems((parameters, output) -> {
                         TerraPotions.POTIONS.getEntries().forEach(item -> output.accept(item.get()));

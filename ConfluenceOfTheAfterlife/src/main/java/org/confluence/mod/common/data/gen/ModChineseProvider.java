@@ -6,6 +6,7 @@ import org.confluence.mod.Confluence;
 import org.confluence.mod.common.init.ModEffects;
 import org.confluence.mod.common.init.armor.ModArmors;
 import org.confluence.mod.common.init.block.ModBlocks;
+import org.confluence.mod.common.init.block.ModDecorativeBlocks;
 import org.confluence.mod.common.init.block.ModOreBlocks;
 import org.confluence.mod.common.init.item.*;
 
@@ -800,48 +801,48 @@ public class ModChineseProvider extends LanguageProvider {
 //        add(ModBlocks.BIG_TR_AMETHYST_BLOCK.get(), "大紫晶块");
 //        add(ModBlocks.TR_POLISHED_GRANITE.get(), "异域花岗岩块");
 //        add(ModBlocks.POLISHED_MARBLE.get(), "异域大理石块");
-//        add(ModBlocks.TR_COPPER_BRICKS.get(), "铜砖块");
+        add(ModDecorativeBlocks.TR_COPPER_BRICKS.get(), "铜砖块");
 //        add(ModBlocks.TR_COPPER_PLATE.get(), "铜条板块");
-//        add(ModBlocks.TR_CRIMSON_ORE_BRICKS.get(), "猩红矿砖");
-//        add(ModBlocks.TR_CRIMSON_ROCK_BRICKS.get(), "猩红石砖");
-//        add(ModBlocks.TR_GOLD_BRICKS.get(), "金砖块");
-//        add(ModBlocks.TR_IRON_BRICKS.get(), "铁砖块");
-//        add(ModBlocks.TR_STONE_BRICKS.get(), "异域石砖");
+        add(ModDecorativeBlocks.TR_CRIMSON_ORE_BRICKS.get(), "猩红矿砖");
+        add(ModDecorativeBlocks.TR_CRIMSON_ROCK_BRICKS.get(), "猩红石砖");
+        add(ModDecorativeBlocks.TR_GOLD_BRICKS.get(), "金砖块");
+        add(ModDecorativeBlocks.TR_IRON_BRICKS.get(), "铁砖块");
+        add(ModDecorativeBlocks.TR_STONE_BRICKS.get(), "异域石砖");
 //        add(ModBlocks.EBONY_ORE_BRICKS.get(), "魔矿砖");
 //        add(ModBlocks.EBONY_ROCK_BRICKS.get(), "黑檀石砖");
-//        add(ModBlocks.BLUE_GEL_BLOCK.get(), "凝胶块");
-//        add(ModBlocks.GREEN_CANDY_BLOCK.get(), "绿色糖块");
-//        add(ModBlocks.ICE_BRICKS.get(), "冰砖块");
-//        add(ModBlocks.FROZEN_GEL_BLOCK.get(), "冻凝胶块");
-//        add(ModBlocks.LEAD_BRICKS.get(), "铅砖块");
-//        add(ModBlocks.METEORITE_BRICKS.get(), "陨石砖块");
+        add(ModDecorativeBlocks.BLUE_GEL_BLOCK.get(), "凝胶块");
+        add(ModDecorativeBlocks.GREEN_CANDY_BLOCK.get(), "绿色糖块");
+        add(ModDecorativeBlocks.ICE_BRICKS.get(), "冰砖块");
+        add(ModDecorativeBlocks.FROZEN_GEL_BLOCK.get(), "冻凝胶块");
+        add(ModDecorativeBlocks.LEAD_BRICKS.get(), "铅砖块");
+        add(ModDecorativeBlocks.METEORITE_BRICKS.get(), "陨石砖块");
 //        add(ModBlocks.PEARL_ROCK_BRICKS.get(), "珍珠石砖");
-//        add(ModBlocks.PINK_GEL_BLOCK.get(), "粉凝胶块");
-//        add(ModBlocks.PLATINUM_BRICKS.get(), "铂金砖块");
-//        add(ModBlocks.RED_CANDY_BLOCK.get(), "红色糖块");
-//        add(ModBlocks.SILVER_BRICKS.get(), "银砖块");
-//        add(ModBlocks.SNOW_BRICKS.get(), "雪砖块");
-//        add(ModBlocks.SUN_PLATE.get(), "日盘块");
-//        add(ModBlocks.TIN_BRICKS.get(), "锡砖块");
+        add(ModDecorativeBlocks.PINK_GEL_BLOCK.get(), "粉凝胶块");
+        add(ModDecorativeBlocks.PLATINUM_BRICKS.get(), "铂金砖块");
+        add(ModDecorativeBlocks.RED_CANDY_BLOCK.get(), "红色糖块");
+        add(ModDecorativeBlocks.SILVER_BRICKS.get(), "银砖块");
+        add(ModDecorativeBlocks.SNOW_BRICKS.get(), "雪砖块");
+        add(ModDecorativeBlocks.SUN_PLATE.get(), "日盘块");
+        add(ModDecorativeBlocks.TIN_BRICKS.get(), "锡砖块");
 //        add(ModBlocks.TIN_PLATE.get(), "锡条板块");
-//        add(ModBlocks.TUNGSTEN_BRICKS.get(), "钨砖块");
-//        add(ModBlocks.TR_LAVA_BEAM.get(), "异域熔岩梁");
-//        add(ModBlocks.TR_LAVA_BRICKS.get(), "异域熔岩砖块");
-//        add(ModBlocks.TR_OBSIDIAN_BEAM.get(), "异域黑曜石梁");
-//        add(ModBlocks.TR_OBSIDIAN_BRICKS.get(), "异域黑曜石砖");
-//        add(ModBlocks.TR_OBSIDIAN_PLATE.get(), "异域黑曜石条板块");
-//        add(ModBlocks.TR_OBSIDIAN_SMALL_BRICKS.get(), "异域切制黑曜石砖");
-//        add(ModBlocks.TR_SMOOTH_OBSIDIAN.get(), "异域光滑黑曜石块");
-//        add(ModBlocks.CHISELED_TR_OBSIDIAN_BRICKS.get(), "錾制异域黑曜石块");
-//        add(ModBlocks.CRYSTAL_BLOCK.get(), "水晶块");
-//        add(ModBlocks.RAINBOW_BRICK.get(), "彩虹砖");
-//        add(ModBlocks.TR_OAK_BEAM.get(), "经典风情木梁");
+        add(ModDecorativeBlocks.TUNGSTEN_BRICKS.get(), "钨砖块");
+        add(ModDecorativeBlocks.TR_LAVA_BEAM.get(), "异域熔岩梁");
+        add(ModDecorativeBlocks.TR_LAVA_BRICKS.get(), "异域熔岩砖块");
+        add(ModDecorativeBlocks.TR_OBSIDIAN_BEAM.get(), "异域黑曜石梁");
+        add(ModDecorativeBlocks.TR_OBSIDIAN_BRICKS.get(), "异域黑曜石砖");
+        add(ModDecorativeBlocks.TR_OBSIDIAN_PLATE.get(), "异域黑曜石条板块");
+        add(ModDecorativeBlocks.TR_OBSIDIAN_SMALL_BRICKS.get(), "异域切制黑曜石砖");
+        add(ModDecorativeBlocks.TR_SMOOTH_OBSIDIAN.get(), "异域光滑黑曜石块");
+        add(ModDecorativeBlocks.CHISELED_TR_OBSIDIAN_BRICKS.get(), "錾制异域黑曜石块");
+        add(ModDecorativeBlocks.CRYSTAL_BLOCK.get(), "水晶块");
+        add(ModDecorativeBlocks.RAINBOW_BRICK.get(), "彩虹砖");
+        add(ModDecorativeBlocks.TR_OAK_BEAM.get(), "经典风情木梁");
 //        add(ModBlocks.TR_OAK_PLANKS.get(), "经典风情木板");
-//        add(ModBlocks.TR_NORTHLAND_BEAM.get(), "北地风情木梁");
+        add(ModDecorativeBlocks.TR_NORTHLAND_BEAM.get(), "北地风情木梁");
 //        add(ModBlocks.TR_NORTHLAND_PLANKS.get(), "北地风情木板");
 //        add(ModBlocks.TR_GRANITE_COLUMN.get(), "异域花岗岩梁");
 //        add(ModBlocks.MARBLE_COLUMN.get(), "异域大理岩梁");
-//        add(ModBlocks.PURE_GLASS.get(), "纯净玻璃块");
+        add(ModDecorativeBlocks.PURE_GLASS.get(), "纯净玻璃块");
 //        add(ModBlocks.WHITE_PURE_GLASS.get(), "白色纯净玻璃块");
 //        add(ModBlocks.LIGHT_GRAY_PURE_GLASS.get(), "淡灰色玻璃块");
 //        add(ModBlocks.GRAY_PURE_GLASS.get(), "灰色纯净玻璃块");
@@ -1056,20 +1057,18 @@ public class ModChineseProvider extends LanguageProvider {
         add(MaterialItems.SHADOW_SCALE.get(), "暗影鳞片");
         add(MaterialItems.TISSUE_SAMPLE.get(), "组织样本");
         add(MaterialItems.PURPLE_MUCUS.get(), "紫色黏液");
-//        add(MaterialItems.MANA_STAR.get(), "魔力水晶");
-//        add(MaterialItems.LIFE_CRYSTAL.get(), "生命水晶");
         add(MaterialItems.CURSED_FLAME.get(), "诅咒火");
         add(MaterialItems.ICHOR.get(), "灵液");
         add(MaterialItems.PIXIE_DUST.get(), "妖精尘");
         add(MaterialItems.PEARL.get(), "珍珠");
         add(MaterialItems.BLACK_PEARL.get(), "黑珍珠");
         add(MaterialItems.PINK_PEARL.get(), "粉珍珠");
-//        add(MaterialItems.LIFE_FRUIT.get(), "生命果");
         add(MaterialItems.HOOK.get(), "爪钩");
         add(MaterialItems.GEL.get(), "凝胶");
         add(MaterialItems.PINK_GEL.get(), "粉凝胶");
         add(MaterialItems.STURDY_FOSSIL.get(), "坚固化石");
         add(MaterialItems.EMERALD_COIN.get(), "绿宝石币");
+
 
 
         add(SwordItems.COPPER_SHORT_SWORD.get(), "铜短剑");
@@ -1153,18 +1152,12 @@ public class ModChineseProvider extends LanguageProvider {
         */
         /* HammerAxes */
 
-        /*
+
         // 杂项
+        /*
         add(ICE_MIRROR.get(), "冰雪镜");
         add(CLAM.get(), "牡蛎");
-        add(LESSER_HEALING_POTION.get(), "弱效治疗药水");
-        add(HEALING_POTION.get(), "治疗药水");
-        add(GREATER_HEALING_POTION.get(), "强效治疗药水");
-        add(SUPER_HEALING_POTION.get(), "超级治疗药水");
-        add(LESSER_MANA_POTION.get(), "弱效魔力药水");
-        add(MANA_POTION.get(), "魔力药水");
-        add(GREATER_MANA_POTION.get(), "强效魔力药水");
-        add(SUPER_MANA_POTION.get(), "超级魔力药水");
+
         add(MAGIC_MIRROR.get(), "魔镜");
         add(COPPER_COIN.get(), "铜币");
         add(SILVER_COIN.get(), "银币");
@@ -1194,10 +1187,6 @@ public class ModChineseProvider extends LanguageProvider {
         add(CAN_OF_WORMS.get(), "蠕虫罐头");
         add(HERB_BAG.get(), "草药袋");
         add(WHOOPIE_CUSHION.get(), "整蛊坐垫");
-        add(BOMB.get(), "炸弹");
-        add(BOUNCY_BOMB.get(), "弹力炸弹");
-        add(STICKY_BOMB.get(), "粘性炸弹");
-        add(SCARAB_BOMB.get(), "甲虫炸弹");
         add(RED_WRENCH.get(), "红扳手");
         add(BLUE_WRENCH.get(), "蓝扳手");
         add(GREEN_WRENCH.get(), "绿扳手");
@@ -1212,9 +1201,24 @@ public class ModChineseProvider extends LanguageProvider {
         add(SKY_MILL.get(), "天磨");
         add(WORKSHOP.get(), "工匠作坊");
         add(ALCHEMY_TABLE_BLOCK.get(), "炼药桌");
-        add(BOMB_FISH.get(), "炸弹鱼");
         add(STONE_PRESSURE_PLATE.get(), "石头压力板");
-*/
+        */
+
+        // 杂项
+        add(ModItems.BOMB.get(), "炸弹");
+        add(ModItems.BOUNCY_BOMB.get(), "弹力炸弹");
+        add(ModItems.STICKY_BOMB.get(), "粘性炸弹");
+        add(ModItems.SCARAB_BOMB.get(), "甲虫炸弹");
+        add(ModItems.BOMB_FISH.get(), "炸弹鱼");
+        add(ModItems.MANA_STAR.get(), "魔力水晶");
+        add(ModItems.LIFE_CRYSTAL.get(), "生命水晶");
+        add(ModItems.LIFE_FRUIT.get(), "生命果");
+        // 种子
+        add(ModItems.STELLAR_BLOSSOM_SEED.get(), "星辰花种子");
+        add(ModItems.CLOUDWEAVER_SEED.get(), "云织草种子");
+        add(ModItems.FLOATING_WHEAT_SEED.get(), "飘飘麦种子");
+
+
         /*
         // 功能性方块
         add(ECHO_BLOCK.get(), "回声块");
@@ -1363,9 +1367,7 @@ public class ModChineseProvider extends LanguageProvider {
 //        add(ModItems.SHIVERINGTHORNS_SEED.get(), "寒颤棘种子");
 //        add(ModItems.SUNFLOWERS_SEED.get(), "太阳花种子");
 //        add(ModItems.DEATHWEED_SEED.get(), "死亡草种子");
-        add(ModItems.STELLAR_BLOSSOM_SEED.get(), "星辰花种子");
-        add(ModItems.CLOUDWEAVER_SEED.get(), "云织草种子");
-        add(ModItems.FLOATING_WHEAT_SEED.get(), "飘飘麦种子");
+
 
 /*
         add(CRIMSON_THORN.get(), "猩红荆棘");
@@ -1650,7 +1652,7 @@ public class ModChineseProvider extends LanguageProvider {
         add(FoodItems.MOTTLED_OILFISH.get(), "斑驳油鱼");
 
         // 任务鱼
-        /*
+
         add(QuestedFishes.AMANITA_FUNGIFIN.get(), "发光蘑菇鱼");
         add(QuestedFishes.ANGELFISH.get(), "天使鱼");
         add(QuestedFishes.BATFISH.get(), "蝙蝠鱼");
@@ -1692,7 +1694,8 @@ public class ModChineseProvider extends LanguageProvider {
         add(QuestedFishes.UNICORN_FISH.get(), "独角兽鱼");
         add(QuestedFishes.WYVERNTAIL.get(), "飞龙尾");
         add(QuestedFishes.ZOMBIE_FISH.get(), "僵尸鱼");
-*/
+
+        // 食物
         add(FoodItems.APPLE_JUICE.get(), "苹果汁");
         add(FoodItems.BLACKCURRANT.get(), "黑醋栗");
         add(FoodItems.BLOOD_ORANGE.get(), "血橙");
@@ -1782,6 +1785,14 @@ public class ModChineseProvider extends LanguageProvider {
         // 药水
 
 //        add(VANILLA_POTION.get(), "药水");
+        add(TerraPotions.LESSER_HEALING_POTION.get(), "弱效治疗药水");
+        add(TerraPotions.HEALING_POTION.get(), "治疗药水");
+        add(TerraPotions.GREATER_HEALING_POTION.get(), "强效治疗药水");
+        add(TerraPotions.SUPER_HEALING_POTION.get(), "超级治疗药水");
+        add(TerraPotions.LESSER_MANA_POTION.get(), "弱效魔力药水");
+        add(TerraPotions.MANA_POTION.get(), "魔力药水");
+        add(TerraPotions.GREATER_MANA_POTION.get(), "强效魔力药水");
+        add(TerraPotions.SUPER_MANA_POTION.get(), "超级魔力药水");
         add(TerraPotions.GRAVITATION_POTION.get(), "重力药水");
         add(TerraPotions.SHINE_POTION.get(), "光环药水");
         add(TerraPotions.IRON_SKIN_POTION.get(), "铁皮药水");
