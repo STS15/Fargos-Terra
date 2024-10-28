@@ -6,8 +6,8 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.confluence.mod.Confluence;
-import org.confluence.mod.common.block.HellStoneBlock;
-import org.confluence.mod.common.block.MeteoriteOre;
+import org.confluence.mod.common.block.natural.HellStoneBlock;
+import org.confluence.mod.common.block.natural.MeteoriteOre;
 import org.confluence.mod.common.init.item.ModItems;
 
 import java.util.function.Supplier;

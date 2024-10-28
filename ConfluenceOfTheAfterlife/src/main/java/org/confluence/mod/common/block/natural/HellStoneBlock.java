@@ -1,4 +1,4 @@
-package org.confluence.mod.common.block;
+package org.confluence.mod.common.block.natural;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.Entity;
