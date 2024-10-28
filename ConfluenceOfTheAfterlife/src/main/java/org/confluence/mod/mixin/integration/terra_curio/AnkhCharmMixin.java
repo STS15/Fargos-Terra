@@ -18,7 +18,7 @@ public abstract class AnkhCharmMixin {
                 MobEffects.POISON, MobEffects.BLINDNESS,
                 MobEffects.MOVEMENT_SLOWDOWN, MobEffects.WEAKNESS,
                 ModEffects.BLEEDING, ModEffects.BROKEN_ARMOR,
-                ModEffects.CONFUSED, ModEffects.CURSED,
+                org.confluence.mod.terra_curio.common.effect.ModEffects.CONFUSED, ModEffects.CURSED,
                 ModEffects.SILENCED, ModEffects.STONED
         ).rarity(ModRarity.LIGHT_PURPLE).initialize());
     }

@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import top.theillusivec4.curios.api.SlotContext;
 
 @Mixin(BaseSpeedBoots.class)
-public abstract class BaseCurioBootsMixin {
+public abstract class BaseSpeedBootsMixin {
     @Inject(method = "speedUp(Ltop/theillusivec4/curios/api/SlotContext;Lnet/minecraft/world/item/ItemStack;II)V", at = @At("HEAD"), cancellable = true)
     private void confluence(SlotContext slotContext, ItemStack stack, int addition, int max, CallbackInfo ci) {
         if (slotContext.entity().hasEffect(ModEffects.STONED)) {

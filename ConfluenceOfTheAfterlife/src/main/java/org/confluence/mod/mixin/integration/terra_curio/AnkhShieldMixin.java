@@ -20,7 +20,7 @@ public abstract class AnkhShieldMixin {
                 MobEffects.POISON, MobEffects.BLINDNESS,
                 MobEffects.MOVEMENT_SLOWDOWN, MobEffects.WEAKNESS,
                 ModEffects.BLEEDING, ModEffects.BROKEN_ARMOR,
-                ModEffects.CONFUSED, ModEffects.CURSED,
+                org.confluence.mod.terra_curio.common.effect.ModEffects.CONFUSED, ModEffects.CURSED,
                 ModEffects.SILENCED, ModEffects.STONED
         ).attribute(
                 Attributes.KNOCKBACK_RESISTANCE, "knockback_resistance", 1.0, AttributeModifier.Operation.ADD_VALUE
