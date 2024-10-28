@@ -9,7 +9,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import org.confluence.mod.common.init.ModEffects;
 import org.confluence.mod.mixinauxi.IAbstractArrow;
-import org.confluence.mod.mixinauxi.SelfGetter;
+import org.confluence.mod.terra_curio.mixinauxi.SelfGetter;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;

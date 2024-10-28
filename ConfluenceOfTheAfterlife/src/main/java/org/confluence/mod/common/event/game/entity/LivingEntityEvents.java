@@ -8,11 +8,6 @@ import org.confluence.mod.Confluence;
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.GAME, modid = Confluence.MODID)
 public final class LivingEntityEvents {
     @SubscribeEvent
-    public static void livingDamage$Post(LivingDamageEvent.Post event) {
-
-    }
-
-    @SubscribeEvent
     public static void livingDeath(LivingDeathEvent event) {
 
     }
@@ -28,22 +23,12 @@ public final class LivingEntityEvents {
     }
 
     @SubscribeEvent
-    public static void livingIncomingDamage(LivingIncomingDamageEvent event) { // livingDamage
-
-    }
-
-    @SubscribeEvent
     public static void livingBreathe(LivingBreatheEvent event) {
 
     }
 
     @SubscribeEvent
     public static void finalizeSpawn(FinalizeSpawnEvent event) {
-
-    }
-
-    @SubscribeEvent
-    public static void effectApplicable(MobEffectEvent.Applicable event) {
 
     }
 

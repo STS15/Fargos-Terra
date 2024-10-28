@@ -7,7 +7,7 @@ import org.confluence.mod.Confluence;
 import org.confluence.mod.common.item.CustomRarityItem;
 import org.confluence.mod.terra_curio.common.component.ModRarity;
 
-public class MaterialItems {
+public class MaterialItems{
     public static final DeferredRegister.Items MATERIALS = DeferredRegister.createItems(Confluence.MODID);
 
     public static final DeferredItem<Item> GEL = register("gel", ModRarity.WHITE);
@@ -91,12 +91,19 @@ public class MaterialItems {
     public static final DeferredItem<Item> PINK_PEARL = register("pink_pearl");
 
     public static DeferredItem<Item> register(String id) {
-        return MATERIALS.register(id, () -> new Item(new Item.Properties()));
+        DeferredItem<Item> item = MATERIALS.register(id, () -> new Item(new Item.Properties()));
+        return item;
+
+    }
+    public static DeferredItem<Item> register(String id, ModRarity rarity) {
+        DeferredItem<Item> item = MATERIALS.register(id, () -> new CustomRarityItem(rarity));
+        return item;
     }
 
-    public static DeferredItem<Item> register(String id, ModRarity rarity) {
-        return MATERIALS.register(id, () -> new CustomRarityItem(rarity));
-    }
+
+
+
+
 
     public static void init(){}
 }

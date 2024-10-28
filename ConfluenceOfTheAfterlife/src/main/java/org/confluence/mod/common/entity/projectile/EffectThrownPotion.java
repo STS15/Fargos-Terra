@@ -1,6 +1,5 @@
 package org.confluence.mod.common.entity.projectile;
 
-import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -10,7 +9,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.LevelEvent;
 import net.minecraft.world.phys.HitResult;
-
 import org.confluence.mod.common.init.ModEntities;
 import org.confluence.mod.common.init.item.TerraPotions;
 import org.confluence.mod.common.item.potion.EffectThrowablePotionItem;

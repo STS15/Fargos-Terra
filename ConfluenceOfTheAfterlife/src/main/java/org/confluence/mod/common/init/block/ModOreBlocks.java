@@ -6,8 +6,8 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.confluence.mod.Confluence;
-import org.confluence.mod.common.block.HellStoneBlock;
-import org.confluence.mod.common.block.MeteoriteOre;
+import org.confluence.mod.common.block.natural.HellStoneBlock;
+import org.confluence.mod.common.block.natural.MeteoriteOre;
 import org.confluence.mod.common.init.item.ModItems;
 
 import java.util.function.Supplier;
@@ -51,6 +51,26 @@ public class ModOreBlocks {
     public static final DeferredBlock<Block> SANCTIFICATION_SILVER_ORE = copyBlockRegister("sanctification_silver_ore", Blocks.IRON_ORE);
     public static final DeferredBlock<Block> CORRUPTION_SILVER_ORE = copyBlockRegister("corruption_silver_ore", Blocks.IRON_ORE);
     public static final DeferredBlock<Block> FLESHIFICATION_SILVER_ORE = copyBlockRegister("fleshification_silver_ore", Blocks.IRON_ORE);
+
+    public static final DeferredBlock<Block> DEEPSLATE_TUNGSTEN_ORE = copyBlockRegister("deepslate_tungsten_ore", Blocks.DEEPSLATE_IRON_ORE);
+    public static final DeferredBlock<Block> SANCTIFICATION_TUNGSTEN_ORE = copyBlockRegister("sanctification_tungsten_ore", Blocks.IRON_ORE);
+    public static final DeferredBlock<Block> CORRUPTION_TUNGSTEN_ORE = copyBlockRegister("corruption_tungsten_ore", Blocks.IRON_ORE);
+    public static final DeferredBlock<Block> FLESHIFICATION_TUNGSTEN_ORE = copyBlockRegister("fleshification_tungsten_ore", Blocks.IRON_ORE);
+
+    public static final DeferredBlock<Block> PLATINUM_ORE = copyBlockRegister("platinum_ore", Blocks.GOLD_ORE);
+    public static final DeferredBlock<Block> DEEPSLATE_PLATINUM_ORE = copyBlockRegister("deepslate_platinum_ore", Blocks.DEEPSLATE_GOLD_ORE);
+    public static final DeferredBlock<Block> SANCTIFICATION_PLATINUM_ORE = copyBlockRegister("sanctification_platinum_ore", Blocks.GOLD_ORE);
+    public static final DeferredBlock<Block> CORRUPTION_PLATINUM_ORE = copyBlockRegister("corruption_platinum_ore", Blocks.GOLD_ORE);
+    public static final DeferredBlock<Block> FLESHIFICATION_PLATINUM_ORE = copyBlockRegister("fleshification_platinum_ore", Blocks.GOLD_ORE);
+    public static final DeferredBlock<Block> RAW_PLATINUM_BLOCK = copyBlockRegister("raw_platinum_block", Blocks.RAW_GOLD_BLOCK);
+    public static final DeferredBlock<Block> PLATINUM_BLOCK = copyBlockRegister("platinum_block", Blocks.GOLD_BLOCK);
+
+    public static final DeferredBlock<Block> RAW_TUNGSTEN_BLOCK = copyBlockRegister("raw_tungsten_block", Blocks.RAW_IRON_BLOCK);
+    public static final DeferredBlock<Block> TUNGSTEN_ORE = copyBlockRegister("tungsten_ore", Blocks.IRON_ORE);
+    public static final DeferredBlock<Block> TUNGSTEN_BLOCK = copyBlockRegister("tungsten_block", Blocks.IRON_BLOCK);
+    public static final DeferredBlock<Block> SANCTIFICATION_GOLD_ORE = copyBlockRegister("sanctification_gold_ore", Blocks.GOLD_ORE);
+    public static final DeferredBlock<Block> CORRUPTION_GOLD_ORE = copyBlockRegister("corruption_gold_ore", Blocks.GOLD_ORE);
+    public static final DeferredBlock<Block> FLESHIFICATION_GOLD_ORE = copyBlockRegister("fleshification_gold_ore", Blocks.GOLD_ORE);
 
     public static final DeferredBlock<Block> RAW_SILVER_BLOCK = copyBlockRegister("raw_silver_block", Blocks.RAW_IRON_BLOCK);
     public static final DeferredBlock<Block> SILVER_BLOCK = copyBlockRegister("silver_block", Blocks.IRON_BLOCK);

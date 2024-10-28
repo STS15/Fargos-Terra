@@ -25,10 +25,10 @@ public abstract class BombEntityRenderer<E extends BaseBombEntity> extends Entit
     @Override
     public void render(@NotNull E pEntity, float pEntityYaw, float pPartialTick, @NotNull PoseStack pPoseStack, @NotNull MultiBufferSource pBuffer, int pPackedLight) {
         pPoseStack.pushPose();
-        pPoseStack.translate(-0.0625, 0.1875, -0.0625);
+        pPoseStack.translate(0, 0.1875, 0);
         pPoseStack.mulPose(Axis.YP.rotationDegrees(pEntity.getYRot() - 90.0F));
         pPoseStack.mulPose(Axis.ZP.rotation(-Mth.lerp(pPartialTick, pEntity.rotateO, pEntity.rotate)));
-        pPoseStack.translate(0.0625, -0.1875, 0.0625);
+        pPoseStack.translate(0, -0.1875, 0);
         EntityModel<E> model = getModel(pEntity);
         model.renderToBuffer(pPoseStack, pBuffer.getBuffer(model.renderType(getTextureLocation(pEntity))), pPackedLight, OverlayTexture.NO_OVERLAY);
         pPoseStack.popPose();
