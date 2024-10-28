@@ -12,6 +12,7 @@ import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import org.confluence.mod.Confluence;
 import org.confluence.mod.common.init.ModTags;
+import org.confluence.mod.common.init.item.AccessoryItems;
 import org.confluence.mod.common.init.item.ArrowItems;
 import org.confluence.mod.common.init.item.BowItems;
 import org.confluence.mod.common.init.item.MaterialItems;
@@ -27,6 +28,8 @@ public class ModItemTagsProvider extends ItemTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.@NotNull Provider provider) {
+        AccessoryItems.acceptTag(tag(org.confluence.mod.terra_curio.common.init.ModTags.CURIO));
+
 //        Hooks.acceptTag(tag(ModTags.Items.HOOK));
         tag(ModTags.Items.MINECART).add(Items.MINECART);
 //        tag(ModTags.Items.PROVIDE_MANA).add(ModItems.STAR.get(), ModItems.SOUL_CAKE.get(), ModItems.SUGAR_PLUM.get());

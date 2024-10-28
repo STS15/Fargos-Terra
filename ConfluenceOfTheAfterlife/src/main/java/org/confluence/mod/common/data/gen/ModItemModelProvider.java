@@ -1,6 +1,5 @@
 package org.confluence.mod.common.data.gen;
 
-import net.minecraft.client.renderer.LevelRenderer;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
@@ -9,13 +8,10 @@ import net.minecraft.world.item.TieredItem;
 import net.minecraft.world.level.block.*;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
-import net.neoforged.neoforge.registries.DeferredBlock;
-import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.confluence.mod.Confluence;
 import org.confluence.mod.common.init.armor.ModArmors;
 import org.confluence.mod.common.init.block.ModBlocks;
-import org.confluence.mod.common.init.block.ModOreBlocks;
 import org.confluence.mod.common.init.item.*;
 import software.bernie.geckolib.animatable.GeoItem;
 
@@ -66,7 +62,9 @@ public class ModItemModelProvider extends ItemModelProvider {
                 createDir(ArrowItems.ARROWS,"arrow/"),
                 createDir(FoodItems.FOODS,"food/"),
                 createDir(FishingPoleItems.POLES,"fishingpole/"),
-                createDir(ModArmors.ARMOR,"boots/","chestplate/", "helmet/", "leggings/")
+                createDir(ModArmors.ARMOR,"boots/","chestplate/", "helmet/", "leggings/"),
+                createDir(AccessoryItems.ACCESSORIES, "accessory/"),
+                createDir(ModItems.ITEMS,"misc/")
         );
         genModels(customModels,"item/generated");
 

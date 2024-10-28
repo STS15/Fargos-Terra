@@ -4,7 +4,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.projectile.FishingHook;
 import net.minecraft.world.item.FishingRodItem;
 import org.confluence.mod.common.entity.fishing.CurioFishingHook;
-import org.confluence.mod.common.item.curio.fishing.FishingBobber;
+import org.confluence.mod.common.item.accessory.fishing.FishingBobber;
 import org.confluence.mod.mixin.accessor.FishingHookAccessor;
 import org.confluence.mod.terra_curio.util.CuriosUtils;
 import org.spongepowered.asm.mixin.Mixin;

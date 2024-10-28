@@ -1,11 +1,14 @@
 package org.confluence.mod.common.init.item;
 
+import net.minecraft.data.tags.IntrinsicHolderTagsProvider;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.item.Item;
+import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.confluence.mod.Confluence;
 import org.confluence.mod.common.entity.fishing.CurioFishingHook;
 import org.confluence.mod.common.init.ModEffects;
-import org.confluence.mod.common.item.curio.fishing.FishingBobber;
+import org.confluence.mod.common.item.accessory.fishing.FishingBobber;
 import org.confluence.mod.terra_curio.common.component.ModRarity;
 import org.confluence.mod.terra_curio.common.item.curio.BaseCurioItem;
 
@@ -50,5 +53,9 @@ public class AccessoryItems {
             consumer.accept(builder);
             return builder.build();
         });
+    }
+
+    public static void acceptTag(IntrinsicHolderTagsProvider.IntrinsicTagAppender<Item> tag) {
+        for (DeferredHolder<Item, ? extends Item> accessory : ACCESSORIES.getEntries()) tag.add(accessory.get());
     }
 }

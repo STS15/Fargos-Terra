@@ -1,4 +1,4 @@
-package org.confluence.mod.common.item.curio.fishing;
+package org.confluence.mod.common.item.accessory.fishing;
 
 import org.confluence.mod.common.entity.fishing.CurioFishingHook;
 import org.confluence.mod.terra_curio.common.component.CombineRule;
