@@ -8,6 +8,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import org.confluence.mod.Confluence;
 import org.confluence.mod.common.init.ModTiers;
 import org.confluence.mod.common.item.sword.BoardSwordItem;
+import org.confluence.mod.common.item.sword.HighAttackSpeedSwordItem;
 import org.confluence.mod.common.item.sword.ShortSwordItem;
 import org.confluence.mod.terra_curio.common.component.ModRarity;
 
@@ -33,6 +34,8 @@ public class SwordItems {
     public static final DeferredItem<SwordItem> GOLDEN_BOARD_SWORD = registerBoardSword("golden_board_sword", ModTiers.GOLD, 7, 1.6F);
     public static final DeferredItem<SwordItem> PLATINUM_BOARD_SWORD = registerBoardSword("platinum_board_sword", Tiers.DIAMOND, 7, 1.6F);
 
+    public static final DeferredItem<SwordItem> TERRAGRIM = registerHighAttackSpeedSword("terragrim", ModTiers.TITANIUM, 1, 5.2F, ModRarity.ORANGE);
+
     public static DeferredItem<SwordItem> register(String name, Supplier<SwordItem> supplier) {
         return SWORDS.register(name, supplier);
     }
@@ -51,5 +54,13 @@ public class SwordItems {
 
     public static DeferredItem<SwordItem> registerBoardSword(String name, Tier tier, int rawDamage, float rawSpeed, ModRarity rarity) {
         return SWORDS.register(name, () -> new BoardSwordItem(tier, rarity, rawDamage, rawSpeed));
+    }
+
+    public static DeferredItem<SwordItem> registerHighAttackSpeedSword(String name, Tier tier, int attackDamage, float attackSpeed) {
+        return SWORDS.register(name, () -> new BoardSwordItem(tier, ModRarity.WHITE, attackDamage, attackSpeed));
+    }
+
+    public static DeferredItem<SwordItem> registerHighAttackSpeedSword(String name, Tier tier, int attackDamage, float attackSpeed, ModRarity rarity) {
+        return SWORDS.register(name, () -> new HighAttackSpeedSwordItem(tier, attackDamage, attackSpeed, rarity));
     }
 }

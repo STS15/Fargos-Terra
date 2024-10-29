@@ -1089,31 +1089,31 @@ public class ModChineseProvider extends LanguageProvider {
 
 
         /*
-        add(Swords.CROWBAR.get(), "撬棍");
-        add(Swords.ZOMBIE_ARM.get(), "僵尸臂");
-        add(Swords.MANDIBLE_BLADE.get(), "颌骨剑");
-        add(Swords.STYLISH_SCISSORS.get(), "时尚剪刀");
-        add(Swords.BONE_SWORD.get(), "骨剑");
-        add(Swords.PURPLE_CLUBBERFISH.get(), "紫挥棒鱼");
-        add(Swords.UMBRELLA.get(), "雨伞");
-        add(Swords.CANDY_CANE_SWORD.get(), "糖棒剑");
-        add(Swords.BREATHING_REED.get(), "芦苇呼吸管");
-        add(Swords.TRAGIC_UMBRELLA.get(), "悲剧雨伞");
-        add(Swords.FALCON_BLADE.get(), "猎鹰刃");
-        add(Swords.BAT_BAT.get(), "蝙蝠棍");
-        add(Swords.STARFURY.get(), "星怒");
-        add(Swords.LIGHTS_BANE.get(), "魔光剑");
-        add(Swords.BLOOD_BUTCHERER.get(), "血腥屠刀");
-        add(Swords.KATANA.get(), "武士刀");
-        add(Swords.TENTACLE_MACE.get(), "触手钉锤");
-        add(Swords.ICE_BLADE.get(), "冰雪剑");
-        add(Swords.EXOTIC_SCIMITAR.get(), "异域弯刀");
-        add(Swords.FAKE_SWORD.get(), "假剑");
-        add(Swords.VOLCANO.get(), "火山");
+        add(SwordItems.CROWBAR.get(), "撬棍");
+        add(SwordItems.ZOMBIE_ARM.get(), "僵尸臂");
+        add(SwordItems.MANDIBLE_BLADE.get(), "颌骨剑");
+        add(SwordItems.STYLISH_SCISSORS.get(), "时尚剪刀");
+        add(SwordItems.BONE_SWORD.get(), "骨剑");
+        add(SwordItems.PURPLE_CLUBBERFISH.get(), "紫挥棒鱼");
+        add(SwordItems.UMBRELLA.get(), "雨伞");
+        add(SwordItems.CANDY_CANE_SWORD.get(), "糖棒剑");
+        add(SwordItems.BREATHING_REED.get(), "芦苇呼吸管");
+        add(SwordItems.TRAGIC_UMBRELLA.get(), "悲剧雨伞");
+        add(SwordItems.FALCON_BLADE.get(), "猎鹰刃");
+        add(SwordItems.BAT_BAT.get(), "蝙蝠棍");
+        add(SwordItems.STARFURY.get(), "星怒");
+        add(SwordItems.LIGHTS_BANE.get(), "魔光剑");
+        add(SwordItems.BLOOD_BUTCHERER.get(), "血腥屠刀");
+        add(SwordItems.KATANA.get(), "武士刀");
+        add(SwordItems.TENTACLE_MACE.get(), "触手钉锤");
+        add(SwordItems.ICE_BLADE.get(), "冰雪剑");
+        add(SwordItems.EXOTIC_SCIMITAR.get(), "异域弯刀");
+        add(SwordItems.FAKE_SWORD.get(), "假剑");
+        add(SwordItems.VOLCANO.get(), "火山");
         */
 
 
-//        add(Swords.DEVELOPER_SWORD.get(),"开发者剑");
+//        add(SwordItems.DEVELOPER_SWORD.get(),"开发者剑");
 
         add(AxeItems.COPPER_AXE.get(), "铜斧");
         add(AxeItems.TIN_AXE.get(), "锡斧");
@@ -1495,7 +1495,6 @@ public class ModChineseProvider extends LanguageProvider {
         add(BowItems.GOLDEN_BOW.get(), "金弓");
         add(BowItems.PLATINUM_BOW.get(), "铂金弓");
 
-
         // 子弹
         /*
         add(AmmoItems.MUSKET_BULLET.get(), "火枪子弹");
@@ -1542,19 +1541,19 @@ public class ModChineseProvider extends LanguageProvider {
          */
         // 光剑
         /*
-        add(Swords.RED_LIGHT_SABER.get(), "陨石红光剑");
-        add(Swords.ORANGE_LIGHT_SABER.get(), "陨石橙光剑");
-        add(Swords.YELLOW_LIGHT_SABER.get(), "陨石黄光剑");
-        add(Swords.GREEN_LIGHT_SABER.get(), "陨石绿光剑");
-        add(Swords.BLUE_LIGHT_SABER.get(), "陨石蓝光剑");
-        add(Swords.PURPLE_LIGHT_SABER.get(), "陨石紫光剑");
-        add(Swords.WHITE_LIGHT_SABER.get(), "陨石白光剑");
+        add(SwordItems.RED_LIGHT_SABER.get(), "陨石红光剑");
+        add(SwordItems.ORANGE_LIGHT_SABER.get(), "陨石橙光剑");
+        add(SwordItems.YELLOW_LIGHT_SABER.get(), "陨石黄光剑");
+        add(SwordItems.GREEN_LIGHT_SABER.get(), "陨石绿光剑");
+        add(SwordItems.BLUE_LIGHT_SABER.get(), "陨石蓝光剑");
+        add(SwordItems.PURPLE_LIGHT_SABER.get(), "陨石紫光剑");
+        add(SwordItems.WHITE_LIGHT_SABER.get(), "陨石白光剑");
 
          */
         //剑气
-//        add(Swords.ENCHANTED_SWORD.get(),"附魔剑");
+//        add(SwordItems.ENCHANTED_SWORD.get(),"附魔剑");
         //快攻
-//        add(Swords.TERRAGRIM.get(),"泰拉魔刃");
+        add(SwordItems.TERRAGRIM.get(),"泰拉魔刃");
 
         // 盔甲
         add(ModArmors.CACTUS_CHESTPLATE.get(), "仙人掌胸甲");
