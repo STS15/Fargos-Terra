@@ -9,10 +9,12 @@ import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.event.entity.EntityAttributeModificationEvent;
 import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
+import net.neoforged.neoforge.network.handling.DirectionalPayloadHandler;
 import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 import net.neoforged.neoforge.registries.RegisterEvent;
 import org.confluence.mod.Confluence;
 import org.confluence.mod.common.CommonConfigs;
+import org.confluence.mod.network.c2s.SwordShootingPacketC2S;
 import org.confluence.mod.network.s2c.GamePhasePacketS2C;
 import org.confluence.mod.network.s2c.ManaPacketS2C;
 import org.confluence.mod.terra_curio.common.init.ModAttributes;
@@ -80,6 +82,11 @@ public final class ModEvents {
                 GamePhasePacketS2C.TYPE,
                 GamePhasePacketS2C.STREAM_CODEC,
                 GamePhasePacketS2C::handle
+        );
+        registrar.playToServer(
+                SwordShootingPacketC2S.TYPE,
+                SwordShootingPacketC2S.STREAM_CODEC,
+                SwordShootingPacketC2S::receive
         );
     }
 }

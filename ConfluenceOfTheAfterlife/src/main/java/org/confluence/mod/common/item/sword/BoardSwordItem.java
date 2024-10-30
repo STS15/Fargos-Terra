@@ -12,12 +12,9 @@ import org.confluence.mod.terra_curio.common.component.ModRarity;
 import org.confluence.mod.terra_curio.common.init.ModDataComponentTypes;
 import org.jetbrains.annotations.NotNull;
 
-public class BoardSwordItem extends SwordItem {
+public class BoardSwordItem extends BaseSwordItem {
     public BoardSwordItem(Tier tier, ModRarity rarity, int rawDamage, float rawSpeed) {
-        super(tier, new Item.Properties()
-                .component(DataComponents.ATTRIBUTE_MODIFIERS, createAttributes(tier, (rawDamage - tier.getAttackDamageBonus() - 1), rawSpeed - 4))
-                .component(ModDataComponentTypes.MOD_RARITY, rarity)
-        );
+        super(tier, rarity, (int) (rawDamage - tier.getAttackDamageBonus() - 1), rawSpeed - 4);
     }
 
     @Override

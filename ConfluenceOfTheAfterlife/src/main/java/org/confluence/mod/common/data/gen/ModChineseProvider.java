@@ -1088,29 +1088,29 @@ public class ModChineseProvider extends LanguageProvider {
         add(SwordItems.CACTUS_SWORD.get(), "仙人掌剑");
 
 
-        /*
-        add(SwordItems.CROWBAR.get(), "撬棍");
-        add(SwordItems.ZOMBIE_ARM.get(), "僵尸臂");
-        add(SwordItems.MANDIBLE_BLADE.get(), "颌骨剑");
-        add(SwordItems.STYLISH_SCISSORS.get(), "时尚剪刀");
-        add(SwordItems.BONE_SWORD.get(), "骨剑");
-        add(SwordItems.PURPLE_CLUBBERFISH.get(), "紫挥棒鱼");
-        add(SwordItems.UMBRELLA.get(), "雨伞");
-        add(SwordItems.CANDY_CANE_SWORD.get(), "糖棒剑");
-        add(SwordItems.BREATHING_REED.get(), "芦苇呼吸管");
-        add(SwordItems.TRAGIC_UMBRELLA.get(), "悲剧雨伞");
-        add(SwordItems.FALCON_BLADE.get(), "猎鹰刃");
-        add(SwordItems.BAT_BAT.get(), "蝙蝠棍");
+
+//        add(SwordItems.CROWBAR.get(), "撬棍");
+//        add(SwordItems.ZOMBIE_ARM.get(), "僵尸臂");
+//        add(SwordItems.MANDIBLE_BLADE.get(), "颌骨剑");
+//        add(SwordItems.STYLISH_SCISSORS.get(), "时尚剪刀");
+//        add(SwordItems.BONE_SWORD.get(), "骨剑");
+//        add(SwordItems.PURPLE_CLUBBERFISH.get(), "紫挥棒鱼");
+//        add(SwordItems.UMBRELLA.get(), "雨伞");
+//        add(SwordItems.CANDY_CANE_SWORD.get(), "糖棒剑");
+//        add(SwordItems.BREATHING_REED.get(), "芦苇呼吸管");
+//        add(SwordItems.TRAGIC_UMBRELLA.get(), "悲剧雨伞");
+//        add(SwordItems.FALCON_BLADE.get(), "猎鹰刃");
+//        add(SwordItems.BAT_BAT.get(), "蝙蝠棍");
         add(SwordItems.STARFURY.get(), "星怒");
         add(SwordItems.LIGHTS_BANE.get(), "魔光剑");
         add(SwordItems.BLOOD_BUTCHERER.get(), "血腥屠刀");
-        add(SwordItems.KATANA.get(), "武士刀");
-        add(SwordItems.TENTACLE_MACE.get(), "触手钉锤");
+//        add(SwordItems.KATANA.get(), "武士刀");
+//        add(SwordItems.TENTACLE_MACE.get(), "触手钉锤");
         add(SwordItems.ICE_BLADE.get(), "冰雪剑");
-        add(SwordItems.EXOTIC_SCIMITAR.get(), "异域弯刀");
-        add(SwordItems.FAKE_SWORD.get(), "假剑");
-        add(SwordItems.VOLCANO.get(), "火山");
-        */
+//        add(SwordItems.EXOTIC_SCIMITAR.get(), "异域弯刀");
+//        add(SwordItems.FAKE_SWORD.get(), "假剑");
+//        add(SwordItems.VOLCANO.get(), "火山");
+
 
 
 //        add(SwordItems.DEVELOPER_SWORD.get(),"开发者剑");
@@ -1551,7 +1551,7 @@ public class ModChineseProvider extends LanguageProvider {
 
          */
         //剑气
-//        add(SwordItems.ENCHANTED_SWORD.get(),"附魔剑");
+        add(SwordItems.ENCHANTED_SWORD.get(),"附魔剑");
         //快攻
         add(SwordItems.TERRAGRIM.get(),"泰拉魔刃");
 
