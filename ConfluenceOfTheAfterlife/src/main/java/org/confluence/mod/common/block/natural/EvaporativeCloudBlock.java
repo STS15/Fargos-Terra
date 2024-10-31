@@ -51,6 +51,7 @@ public class EvaporativeCloudBlock extends BaseEntityBlock {
 
                 if (neighborState.getBlock() == Blocks.WATER) {
                     level.setBlockAndUpdate(neighborPos, Blocks.WATER.defaultBlockState());
+                    level.removeBlock(blockPos, false);
                 }
             }
         });
