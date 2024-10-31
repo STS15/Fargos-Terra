@@ -10,20 +10,26 @@ import org.confluence.mod.terra_curio.network.s2c.WindSpeedPacketS2C;
 import org.jetbrains.annotations.NotNull;
 
 public class ConfluenceData extends SavedData {
+    private SpecificMoon specificMoon;
     private GamePhase gamePhase;
     private float windSpeedX;
     private float windSpeedZ;
+    private int revealStep;
 
     ConfluenceData() {
+        this.specificMoon = SpecificMoon.VANILLA;
         this.gamePhase = GamePhase.BEFORE_SKELETRON;
         this.windSpeedX = 0.0F;
         this.windSpeedZ = 0.0F;
+        this.revealStep = -1;
     }
 
     ConfluenceData(CompoundTag nbt, HolderLookup.@NotNull Provider registries) {
+        this.specificMoon = SpecificMoon.byId(nbt.getInt("moonSpecific"));
         this.gamePhase = GamePhase.getById(nbt.getInt("gamePhase"));
         this.windSpeedX = nbt.getFloat("windSpeedX");
         this.windSpeedZ = nbt.getFloat("windSpeedZ");
+        this.revealStep = nbt.getInt("revealStep");
     }
 
     public static ConfluenceData get(ServerLevel serverLevel) {
@@ -70,4 +76,19 @@ public class ConfluenceData extends SavedData {
     public float getWindSpeedZ() {
         return windSpeedZ;
     }
+
+    // TODO: 发包
+    public void setSpecificMoon(SpecificMoon specificMoon) {
+        this.specificMoon = specificMoon;
+//        NetworkHandler.CHANNEL.send(
+//            PacketDistributor.ALL.noArg(),
+//            new SpecificMoonPacketS2C(specificMoon)
+//        );
+        setDirty();
+    }
+
+    public SpecificMoon getSpecificMoon() {
+        return specificMoon;
+    }
+
 }

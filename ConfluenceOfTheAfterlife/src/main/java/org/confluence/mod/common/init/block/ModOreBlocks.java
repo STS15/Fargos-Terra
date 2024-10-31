@@ -8,9 +8,12 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import org.confluence.mod.Confluence;
 import org.confluence.mod.common.block.natural.HellStoneBlock;
 import org.confluence.mod.common.block.natural.MeteoriteOre;
+import org.confluence.mod.common.block.common.CustomModelBlock;
 import org.confluence.mod.common.init.item.ModItems;
 
 import java.util.function.Supplier;
+
+import static org.confluence.mod.common.init.block.ModBlocks.registerWithItem;
 
 public class ModOreBlocks {
     //TODO 未附带Tag标记
@@ -160,6 +163,10 @@ public class ModOreBlocks {
     public static final DeferredBlock<Block> RAW_HELLSTONE_BLOCK = simpleBlockRegister("raw_hellstone_block", BlockBehaviour.Properties.of().requiresCorrectToolForDrops());
     public static final DeferredBlock<Block> HELLSTONE_BLOCK = simpleBlockRegister("hellstone_block", BlockBehaviour.Properties.of().requiresCorrectToolForDrops());
 
+    // 红石矿
+    public static final DeferredBlock<Block> SANCTIFICATION_REDSTONE_ORE = registerWithItem("sanctification_redstone_ore", CustomModelBlock::new);
+    public static final DeferredBlock<Block> CORRUPTION_REDSTONE_ORE = registerWithItem("corruption_redstone_ore", CustomModelBlock::new);
+    public static final DeferredBlock<Block> FLESHIFICATION_REDSTONE_ORE = registerWithItem("fleshification_redstone_ore", CustomModelBlock::new);
 
     //    TODO 隐藏矿物方块
 //    public static fina DeferredBlock<Block>k> DEEPSLATE_COBALT_ORE = simpleBlockRegister("deepslate_cobalt_ore", () -> new StepRevealingBlock(BlockBehaviour.Properties.of().requiresCorrectToolForDrops()));

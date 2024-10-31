@@ -1,5 +1,6 @@
 package org.confluence.mod.common.data.gen;
 
+import com.google.common.util.concurrent.Runnables;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
@@ -39,6 +40,9 @@ public class ModItemModelProvider extends ItemModelProvider {
             items.getEntries().forEach(item -> {
                 String path = item.getId().getPath().toLowerCase();
                 boolean exist = false;
+                if(path.contains("seed")){
+                    Runnables.doNothing();
+                }
                 for(String packPath : packPaths){
                     try {
                         withExistingParent(path, parent).texture("layer0", Confluence.asResource("item/" + packPath + path));
