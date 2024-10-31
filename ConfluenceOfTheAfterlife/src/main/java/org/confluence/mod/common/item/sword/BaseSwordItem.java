@@ -7,7 +7,7 @@ import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tier;
 import org.confluence.mod.common.item.sword.stagedy.projectile.AbstractProjContainer;
 import org.confluence.mod.terra_curio.common.component.ModRarity;
-import org.confluence.mod.terra_curio.common.init.ModDataComponentTypes;
+import org.confluence.mod.terra_curio.common.init.TCDataComponentTypes;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,13 +23,13 @@ public class BaseSwordItem extends SwordItem {
     public BaseSwordItem(Tier tier, ModRarity rarity, int rawDamage, float rawSpeed) {
         super(tier, new Item.Properties()
                 .component(DataComponents.ATTRIBUTE_MODIFIERS,createAttributes(tier,rawDamage,rawSpeed))
-                .component(ModDataComponentTypes.MOD_RARITY, rarity)
+                .component(TCDataComponentTypes.MOD_RARITY, rarity)
         );
     }
     public BaseSwordItem(Tier tier, ModRarity rarity, int rawDamage, float rawSpeed, ModifierBuilder modifier) {
         super(tier, new Item.Properties()
                 .component(DataComponents.ATTRIBUTE_MODIFIERS,createAttributes(tier,rawDamage,rawSpeed))
-                .component(ModDataComponentTypes.MOD_RARITY, rarity)
+                .component(TCDataComponentTypes.MOD_RARITY, rarity)
         );
         this.modifier = modifier;
     }
