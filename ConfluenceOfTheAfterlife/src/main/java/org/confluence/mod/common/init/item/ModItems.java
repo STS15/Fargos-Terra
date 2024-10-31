@@ -13,6 +13,7 @@ import org.confluence.mod.common.init.armor.ArmorMaterials;
 import org.confluence.mod.common.init.armor.ModArmors;
 import org.confluence.mod.common.init.block.ModBlocks;
 import org.confluence.mod.common.item.common.BombItem;
+import org.confluence.mod.common.item.common.HerbSeedItem;
 import org.confluence.mod.common.item.common.LifeCrystal;
 import org.confluence.mod.common.item.common.LifeFruit;
 import org.confluence.mod.common.item.mana.ManaStar;
@@ -39,6 +40,14 @@ public final class ModItems {
     public static final DeferredItem<Item> STELLAR_BLOSSOM_SEED = ITEMS.register("stellar_blossom_seed", () -> new ItemNameBlockItem(ModBlocks.STELLAR_BLOSSOM.get(), new Item.Properties()));
     public static final DeferredItem<Item> CLOUDWEAVER_SEED = ITEMS.register("cloudweaver_seed", () -> new ItemNameBlockItem(ModBlocks.CLOUDWEAVER.get(), new Item.Properties()));
     public static final DeferredItem<Item> FLOATING_WHEAT_SEED = ITEMS.register("floating_wheat_seed", () -> new ItemNameBlockItem(ModBlocks.FLOATING_WHEAT.get(), new Item.Properties()));
+    // 草药种子
+    public static final DeferredItem<Item> WATERLEAF_SEED = ITEMS.register("waterleaf_seed", () -> new HerbSeedItem(ModBlocks.WATERLEAF.get()));
+    public static final DeferredItem<Item> FLAMEFLOWERS_SEED = ITEMS.register("flameflowers_seed", () -> new HerbSeedItem(ModBlocks.FLAMEFLOWERS.get(), new Item.Properties().fireResistant()));
+    public static final DeferredItem<Item> MOONSHINE_GRASS_SEED = ITEMS.register("moonshine_grass_seed", () -> new HerbSeedItem(ModBlocks.MOONSHINE_GRASS.get()));
+    public static final DeferredItem<Item> SHINE_ROOT_SEED = ITEMS.register("shine_root_seed", () -> new HerbSeedItem(ModBlocks.SHINE_ROOT.get()));
+    public static final DeferredItem<Item> SHIVERINGTHORNS_SEED = ITEMS.register("shiveringthorns_seed", () -> new HerbSeedItem(ModBlocks.SHIVERINGTHORNS.get()));
+    public static final DeferredItem<Item> SUNFLOWERS_SEED = ITEMS.register("sunflowers_seed", () -> new HerbSeedItem(ModBlocks.SUNFLOWERS.get()));
+    public static final DeferredItem<Item> DEATHWEED_SEED = ITEMS.register("deathweed_seed", () -> new HerbSeedItem(ModBlocks.DEATHWEED.get()));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

@@ -15,6 +15,7 @@ import net.neoforged.neoforge.registries.RegisterEvent;
 import org.confluence.mod.Confluence;
 import org.confluence.mod.common.CommonConfigs;
 import org.confluence.mod.network.c2s.SwordShootingPacketC2S;
+import org.confluence.mod.common.block.natural.spreadable.ISpreadable;
 import org.confluence.mod.network.s2c.GamePhasePacketS2C;
 import org.confluence.mod.network.s2c.ManaPacketS2C;
 import org.confluence.mod.terra_curio.common.init.ModAttributes;
@@ -27,6 +28,7 @@ public final class ModEvents {
     public static void commonSetup(FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
             CommonConfigs.onLoad();
+            Confluence.registerGameRules();
         });
     }
 
@@ -34,6 +36,7 @@ public final class ModEvents {
     public static void loadComplete(FMLLoadCompleteEvent event) {
         event.enqueueWork(() -> {
             Confluence.registerMinecartAbility();
+            ISpreadable.Type.buildMap();
         });
     }
 

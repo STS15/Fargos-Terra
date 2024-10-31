@@ -10,7 +10,7 @@ import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import org.confluence.mod.terra_curio.common.component.ModRarity;
-import org.confluence.mod.terra_curio.common.init.ModDataComponentTypes;
+import org.confluence.mod.terra_curio.common.init.TCDataComponentTypes;
 
 import java.util.List;
 
@@ -35,11 +35,11 @@ public class EffectPotionItem extends AbstractPotionItem {
     }
 
     public EffectPotionItem(Holder<MobEffect> mobEffect, int duration) {
-        this(new Properties().component(ModDataComponentTypes.MOD_RARITY, ModRarity.BLUE), mobEffect, duration, 0);
+        this(new Properties().component(TCDataComponentTypes.MOD_RARITY, ModRarity.BLUE), mobEffect, duration, 0);
     }
 
     public EffectPotionItem(Holder<MobEffect> mobEffect, int duration, int amplifier) {
-        this(new Properties().component(ModDataComponentTypes.MOD_RARITY, ModRarity.BLUE), mobEffect, duration, amplifier);
+        this(new Properties().component(TCDataComponentTypes.MOD_RARITY, ModRarity.BLUE), mobEffect, duration, amplifier);
     }
 
     @Override

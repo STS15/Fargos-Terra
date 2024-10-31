@@ -7,11 +7,11 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import org.confluence.mod.common.entity.projectile.BaseArrowEntity;
 import org.confluence.mod.terra_curio.common.component.ModRarity;
-import org.confluence.mod.terra_curio.common.init.ModDataComponentTypes;
+import org.confluence.mod.terra_curio.common.init.TCDataComponentTypes;
 
 public class BaseArrowItem extends ArrowItem {
     public BaseArrowItem(ModRarity rarity) {
-        super(new Properties().component(ModDataComponentTypes.MOD_RARITY, rarity));
+        super(new Properties().component(TCDataComponentTypes.MOD_RARITY, rarity));
     }
     public AbstractArrow createArrow(Level pLevel, ItemStack pStack, LivingEntity pShooter,ItemStack weapon) {
         // todo 到时候做自定义箭矢的时候再改

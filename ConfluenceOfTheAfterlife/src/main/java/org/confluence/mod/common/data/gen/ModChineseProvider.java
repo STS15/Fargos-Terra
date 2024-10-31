@@ -10,6 +10,8 @@ import org.confluence.mod.common.init.block.ModDecorativeBlocks;
 import org.confluence.mod.common.init.block.ModOreBlocks;
 import org.confluence.mod.common.init.item.*;
 
+import static org.confluence.mod.common.init.block.ModBlocks.*;
+
 
 public class ModChineseProvider extends LanguageProvider {
     public ModChineseProvider(PackOutput output) {
@@ -661,7 +663,7 @@ public class ModChineseProvider extends LanguageProvider {
         add(ModOreBlocks.HALLOWED_BLOCK.get(), "神圣块");
         add(ModOreBlocks.SPECTRE_BLOCK.get(), "幽灵块");
         add(ModOreBlocks.SHROOMITE_BLOCK.get(), "蘑菇矿块");
-/*
+
         add(EBONY_LOG_BLOCKS.BUTTON.get(), "乌木按钮");
         add(EBONY_LOG_BLOCKS.PLANKS.get(), "乌木板");
         add(EBONY_LOG_BLOCKS.LOG.get(), "乌木原木");
@@ -677,8 +679,7 @@ public class ModChineseProvider extends LanguageProvider {
         add(EBONY_LOG_BLOCKS.LEAVES.get(), "乌木树叶");
         add(EBONY_LOG_BLOCKS.FENCE.get(), "乌木栅栏");
         add(EBONY_LOG_BLOCKS.FENCE_GATE.get(), "乌木栅栏门");
-*/
-/*
+
         add(PEARL_LOG_BLOCKS.BUTTON.get(), "珍珠木按钮");
         add(PEARL_LOG_BLOCKS.PLANKS.get(), "珍珠木板");
         add(PEARL_LOG_BLOCKS.LOG.get(), "珍珠木原木");
@@ -694,8 +695,7 @@ public class ModChineseProvider extends LanguageProvider {
         add(PEARL_LOG_BLOCKS.LEAVES.get(), "珍珠木树叶");
         add(PEARL_LOG_BLOCKS.FENCE.get(), "珍珠木栅栏");
         add(PEARL_LOG_BLOCKS.FENCE_GATE.get(), "珍珠木栅栏门");
-*/
-/*
+
         add(SHADOW_LOG_BLOCKS.BUTTON.get(), "暗影木按钮");
         add(SHADOW_LOG_BLOCKS.PLANKS.get(), "暗影木板");
         add(SHADOW_LOG_BLOCKS.LOG.get(), "暗影木原木");
@@ -711,8 +711,7 @@ public class ModChineseProvider extends LanguageProvider {
         add(SHADOW_LOG_BLOCKS.FENCE.get(), "暗影木栅栏");
         add(SHADOW_LOG_BLOCKS.FENCE_GATE.get(), "暗影木栅栏门");
         add(SHADOW_LOG_BLOCKS.PRESSURE_PLATE.get(), "暗影木压力板");
-*/
-/*
+
         add(PALM_LOG_BLOCKS.BUTTON.get(), "沙漠风情按钮");
         add(PALM_LOG_BLOCKS.PLANKS.get(), "沙漠风情木板");
         add(PALM_LOG_BLOCKS.LOG.get(), "棕榈原木");
@@ -728,8 +727,7 @@ public class ModChineseProvider extends LanguageProvider {
         add(PALM_LOG_BLOCKS.FENCE.get(), "沙漠风情栅栏");
         add(PALM_LOG_BLOCKS.FENCE_GATE.get(), "沙漠风情栅栏门");
         add(PALM_LOG_BLOCKS.PRESSURE_PLATE.get(), "沙漠风情压力板");
-*/
-/*
+
         add(ASH_LOG_BLOCKS.BUTTON.get(), "白蜡木按钮");
         add(ASH_LOG_BLOCKS.PLANKS.get(), "白蜡木板");
         add(ASH_LOG_BLOCKS.LOG.get(), "白蜡木原木");
@@ -745,7 +743,6 @@ public class ModChineseProvider extends LanguageProvider {
         add(ASH_LOG_BLOCKS.FENCE.get(), "白蜡木栅栏");
         add(ASH_LOG_BLOCKS.FENCE_GATE.get(), "白蜡木栅栏门");
         add(ASH_LOG_BLOCKS.PRESSURE_PLATE.get(), "白蜡木压力板");
-        */
 
 /*
         add(LIFE_LOG.get(), "生命原木");
@@ -755,44 +752,44 @@ public class ModChineseProvider extends LanguageProvider {
 
 
 //      add(ModBlocks.DESERT_FOSSIL.get(), "沙漠化石");
-//      add(ModBlocks.HARDENED_SAND_BLOCK.get(), "硬化沙块");
+      add(ModBlocks.HARDENED_SAND_BLOCK.get(), "硬化沙块");
         add(ModBlocks.SAND_LAYER_BLOCK.get(),"沙片");
         add(ModBlocks.RED_SAND_LAYER_BLOCK.get(), "红沙片");
 //        add(ModBlocks.RED_HARDENED_SAND_BLOCK.get(), "硬化红沙块");
 //        add(ModBlocks.DIATOMACEOUS.get(), "硅藻土");
 //        add(ModBlocks.SLUSH.get(), "雪泥块");
 //        add(ModBlocks.MARINE_GRAVEL.get(), "海洋砂砾");
-//        add(ModBlocks.EBONY_STONE.get(), "黑檀石块");
-//        add(ModBlocks.EBONY_COBBLESTONE.get(), "黑檀圆石");
-//        add(ModBlocks.EBONY_HARDENED_SAND_BLOCK.get(), "硬化黑檀沙块");
-//        add(ModBlocks.EBONY_SANDSTONE.get(), "黑檀砂岩");
-//        add(ModBlocks.EBONY_SAND.get(), "黑檀沙块");
-//        add(ModBlocks.CORRUPT_GRASS_BLOCK.get(), "腐化草方块");
+        add(ModBlocks.EBONY_STONE.get(), "黑檀石块");
+        add(ModBlocks.EBONY_COBBLESTONE.get(), "黑檀圆石");
+        add(ModBlocks.EBONY_HARDENED_SAND_BLOCK.get(), "硬化黑檀沙块");
+        add(ModBlocks.EBONY_SANDSTONE.get(), "黑檀砂岩");
+        add(ModBlocks.EBONY_SAND.get(), "黑檀沙块");
+        add(ModBlocks.CORRUPT_GRASS_BLOCK.get(), "腐化草方块");
         add(ModBlocks.EBONY_SAND_LAYER_BLOCK.get(), "腐化沙片");
-//        add(ModBlocks.PEARL_STONE.get(), "珍珠石块");
-//        add(ModBlocks.PEARL_COBBLESTONE.get(), "珍珠圆石");
-//        add(ModBlocks.PEARL_HARDENED_SAND_BLOCK.get(), "硬化珍珠沙块");
-//        add(ModBlocks.PEARL_SANDSTONE.get(), "珍珠砂岩");
-//        add(ModBlocks.PEARL_SAND.get(), "珍珠沙块");
-//        add(ModBlocks.HALLOW_GRASS_BLOCK.get(), "神圣草方块");
+        add(ModBlocks.PEARL_STONE.get(), "珍珠石块");
+        add(ModBlocks.PEARL_COBBLESTONE.get(), "珍珠圆石");
+        add(ModBlocks.PEARL_HARDENED_SAND_BLOCK.get(), "硬化珍珠沙块");
+        add(ModBlocks.PEARL_SANDSTONE.get(), "珍珠砂岩");
+        add(ModBlocks.PEARL_SAND.get(), "珍珠沙块");
+        add(ModBlocks.HALLOW_GRASS_BLOCK.get(), "神圣草方块");
         add(ModBlocks.PEARL_SAND_LAYER_BLOCK.get(),"神圣沙片");
-//        add(ModBlocks.TR_CRIMSON_STONE.get(), "猩红石块");
-//        add(ModBlocks.TR_CRIMSON_COBBLESTONE.get(), "猩红圆石");
-//        add(ModBlocks.TR_CRIMSON_HARDENED_SAND_BLOCK.get(), "硬化猩红沙块");
-//        add(ModBlocks.TR_CRIMSON_SANDSTONE.get(), "猩红砂岩");
-//        add(ModBlocks.TR_CRIMSON_SAND.get(), "猩红沙块");
+        add(ModBlocks.TR_CRIMSON_STONE.get(), "猩红石块");
+        add(ModBlocks.TR_CRIMSON_COBBLESTONE.get(), "猩红圆石");
+        add(ModBlocks.TR_CRIMSON_HARDENED_SAND_BLOCK.get(), "硬化猩红沙块");
+        add(ModBlocks.TR_CRIMSON_SANDSTONE.get(), "猩红砂岩");
+        add(ModBlocks.TR_CRIMSON_SAND.get(), "猩红沙块");
         add(ModBlocks.TR_CRIMSON_SAND_LAYER_BLOCK.get(),"猩红沙片");
-//        add(ModBlocks.RED_ICE.get(), "红冰块");
-//        add(ModBlocks.RED_PACKED_ICE.get(), "红浮冰块");
-//        add(ModBlocks.PINK_ICE.get(), "粉冰块");
-//        add(ModBlocks.PINK_PACKED_ICE.get(), "粉浮冰块");
-//        add(ModBlocks.PURPLE_ICE.get(), "紫冰块");
-//        add(ModBlocks.PURPLE_PACKED_ICE.get(), "紫浮冰块");
-//        add(ModBlocks.TR_CRIMSON_GRASS_BLOCK.get(), "猩红草方块");
-//        add(ModBlocks.MUSHROOM_GRASS_BLOCK.get(), "蘑菇草方块");
-//        add(ModBlocks.ASH_BLOCK.get(), "灰烬块");
-//        add(ModBlocks.ASH_GRASS_BLOCK.get(), "灰烬草块");
-//        add(ModBlocks.ASH_GRASS.get(), "灰烬草");
+        add(ModBlocks.RED_ICE.get(), "红冰块");
+        add(ModBlocks.RED_PACKED_ICE.get(), "红浮冰块");
+        add(ModBlocks.PINK_ICE.get(), "粉冰块");
+        add(ModBlocks.PINK_PACKED_ICE.get(), "粉浮冰块");
+        add(ModBlocks.PURPLE_ICE.get(), "紫冰块");
+        add(ModBlocks.PURPLE_PACKED_ICE.get(), "紫浮冰块");
+        add(ModBlocks.TR_CRIMSON_GRASS_BLOCK.get(), "猩红草方块");
+        add(ModBlocks.MUSHROOM_GRASS_BLOCK.get(), "蘑菇草方块");
+        add(ModBlocks.ASH_BLOCK.get(), "灰烬块");
+        add(ModBlocks.ASH_GRASS_BLOCK.get(), "灰烬草块");
+        add(ModBlocks.ASH_GRASS.get(), "灰烬草");
 //        add(ModBlocks.BIG_RUBY_BLOCK.get(), "大红玉块");
 //        add(ModBlocks.BIG_AMBER_BLOCK.get(), "大琥珀块");
 //        add(ModBlocks.BIG_TOPAZ_BLOCK.get(), "大黄玉块");
@@ -975,7 +972,6 @@ public class ModChineseProvider extends LanguageProvider {
         add(ModBlocks.HELL_STONE_BOX.get(), "狱石匣");
         add(ModBlocks.BEACH_BOX.get(), "海滩匣");
 
-/*
         add(SPOOKY_LOG_BLOCKS.PLANKS.get(), "阴森木板");
         add(SPOOKY_LOG_BLOCKS.PRESSURE_PLATE.get(), "阴森木压力板");
         add(SPOOKY_LOG_BLOCKS.FENCE.get(), "阴森木栅栏");
@@ -986,7 +982,6 @@ public class ModChineseProvider extends LanguageProvider {
         add(SPOOKY_LOG_BLOCKS.SIGN.get(), "阴森告示牌");
         add(SPOOKY_LOG_BLOCKS.STAIRS.get(), "阴森楼梯");
         add(SPOOKY_LOG_BLOCKS.SLAB.get(), "阴森台阶");
-        */
 
         add(ArrowItems.FLAMING_ARROW.get(), "烈焰箭");
         add(ArrowItems.UNHOLY_ARROW.get(), "邪箭");
@@ -1341,7 +1336,6 @@ public class ModChineseProvider extends LanguageProvider {
 
          */
         // 植物
-        /*
         add(ModBlocks.WATERLEAF.get(), "幌菊");
         add(ModBlocks.FLAMEFLOWERS.get(), "火焰花");
         add(ModBlocks.MOONSHINE_GRASS.get(), "月光草");
@@ -1349,24 +1343,24 @@ public class ModChineseProvider extends LanguageProvider {
         add(ModBlocks.SHIVERINGTHORNS.get(), "寒颤棘");
         add(ModBlocks.SUNFLOWERS.get(), "太阳花");
         add(ModBlocks.DEATHWEED.get(), "死亡草");
-        add(ModItems.WATERLEAF.get(), "幌菊");
-        add(ModItems.FLAMEFLOWERS.get(), "火焰花");
-        add(ModItems.MOONSHINE_GRASS.get(), "月光草");
-        add(ModItems.SHINE_ROOT.get(), "闪耀根");
-        add(ModItems.SHIVERINGTHORNS.get(), "寒颤棘");
-        add(ModItems.SUNFLOWERS.get(), "太阳花");
-        add(ModItems.DEATHWEED.get(), "死亡草");
-         */
+        add(MaterialItems.WATERLEAF.get(), "幌菊");
+        add(MaterialItems.FLAMEFLOWERS.get(), "火焰花");
+        add(MaterialItems.MOONSHINE_GRASS.get(), "月光草");
+        add(MaterialItems.SHINE_ROOT.get(), "闪耀根");
+        add(MaterialItems.SHIVERINGTHORNS.get(), "寒颤棘");
+        add(MaterialItems.SUNFLOWERS.get(), "太阳花");
+        add(MaterialItems.DEATHWEED.get(), "死亡草");
+
         add(ModBlocks.STELLAR_BLOSSOM.get(), "星辰花");
         add(ModBlocks.CLOUDWEAVER.get(), "云织草");
         add(ModBlocks.FLOATING_WHEAT.get(), "飘飘麦");
-//        add(ModBlocks.WATERLEAF_SEED.get(), "幌菊种子");
-//        add(ModItems.FLAMEFLOWERS_SEED.get(), "火焰花种子");
-//        add(ModItems.MOONSHINE_GRASS_SEED.get(), "月光草种子");
-//        add(ModItems.SHINE_ROOT_SEED.get(), "闪耀根种子");
-//        add(ModItems.SHIVERINGTHORNS_SEED.get(), "寒颤棘种子");
-//        add(ModItems.SUNFLOWERS_SEED.get(), "太阳花种子");
-//        add(ModItems.DEATHWEED_SEED.get(), "死亡草种子");
+        add(ModItems.WATERLEAF_SEED.get(), "幌菊种子");
+        add(ModItems.FLAMEFLOWERS_SEED.get(), "火焰花种子");
+        add(ModItems.MOONSHINE_GRASS_SEED.get(), "月光草种子");
+        add(ModItems.SHINE_ROOT_SEED.get(), "闪耀根种子");
+        add(ModItems.SHIVERINGTHORNS_SEED.get(), "寒颤棘种子");
+        add(ModItems.SUNFLOWERS_SEED.get(), "太阳花种子");
+        add(ModItems.DEATHWEED_SEED.get(), "死亡草种子");
 
 
 /*

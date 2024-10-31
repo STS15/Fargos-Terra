@@ -26,7 +26,10 @@ public class AccessoryItems {
             ARMOR_BRACING = registerCurio("armor_bracing", builder -> builder.rarity(ModRarity.PINK).effectImmunities(MobEffects.WEAKNESS, ModEffects.BROKEN_ARMOR)),
             MEGAPHONE = registerCurio("megaphone", builder -> builder.rarity(ModRarity.LIGHT_RED).effectImmunities(ModEffects.SILENCED)),
             NAZAR = registerCurio("nazar", builder -> builder.rarity(ModRarity.GREEN).effectImmunities(ModEffects.CURSED)),
-            COUNTERCURSE_MANTRA = registerCurio("countercurse_mantra", builder -> builder.rarity(ModRarity.LIGHT_RED).effectImmunities(ModEffects.SILENCED, ModEffects.CURSED));
+            COUNTERCURSE_MANTRA = registerCurio("countercurse_mantra", builder -> builder.rarity(ModRarity.LIGHT_RED).effectImmunities(ModEffects.SILENCED, ModEffects.CURSED)),
+            NATURES_GIFT = registerCurio("natures_gift", builder -> builder.rarity(ModRarity.ORANGE)/*TODO: 减魔耗*/)
+
+    ;
 
     public static final Supplier<FishingBobber> FISHING_BOBBER = ACCESSORIES.register("fishing_bobber", () -> new FishingBobber(CurioFishingHook.Variant.COMMON)), // 钓鱼浮标
             GLOWING_FISHING_BOBBER = ACCESSORIES.register("glowing_fishing_bobber", () -> new FishingBobber(CurioFishingHook.Variant.GLOWING)), // 发光钓鱼浮标

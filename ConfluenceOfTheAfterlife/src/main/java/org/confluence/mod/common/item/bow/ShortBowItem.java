@@ -5,7 +5,7 @@ import net.minecraft.world.item.BowItem;
 import net.minecraft.world.item.ItemStack;
 import org.confluence.mod.mixinauxi.IAbstractArrow;
 import org.confluence.mod.terra_curio.common.component.ModRarity;
-import org.confluence.mod.terra_curio.common.init.ModDataComponentTypes;
+import org.confluence.mod.terra_curio.common.init.TCDataComponentTypes;
 import org.jetbrains.annotations.NotNull;
 
 public class ShortBowItem extends BowItem {
@@ -13,7 +13,7 @@ public class ShortBowItem extends BowItem {
     private final float baseDamage;
 
     public ShortBowItem(float baseDamage, int durability, ModRarity rarity) {
-        super(new Properties().durability(durability).component(ModDataComponentTypes.MOD_RARITY, rarity));
+        super(new Properties().durability(durability).component(TCDataComponentTypes.MOD_RARITY, rarity));
         this.baseDamage = baseDamage;
     }
 

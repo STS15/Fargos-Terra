@@ -10,6 +10,7 @@ import net.minecraft.world.entity.vehicle.AbstractMinecart;
 import net.minecraft.world.entity.vehicle.Minecart;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
@@ -35,6 +36,7 @@ public class Confluence {
     public static final Hashtable<Item, Function3<Level, BlockPos, Double, AbstractMinecart>> CURIO_MINECART = new Hashtable<>(); // 矿车物品 -> 矿车实体
     public static NonNullSupplier<Registrate> REGISTRATE = NonNullSupplier.lazy(() -> Registrate.create(MODID).skipErrors(true)); // todo 销毁
     public static final Logger LOGGER = LoggerFactory.getLogger("Confluence");
+    public static GameRules.Key<GameRules.IntegerValue> SPREADABLE_CHANCE;
 
     public Confluence(IEventBus eventBus, ModContainer container) {
         CommonConfigs.register(container);
@@ -48,6 +50,10 @@ public class Confluence {
         ModSoundEvents.SOUND_EVENT.register(eventBus);
         ModAttachments.TYPES.register(eventBus);
         ModEffects.EFFECTS.register(eventBus);
+    }
+
+    public static void registerGameRules() {
+        SPREADABLE_CHANCE = GameRules.register("confluenceSpreadableChance", GameRules.Category.MISC, GameRules.IntegerValue.create(10));
     }
 
     public static ResourceLocation asResource(String path) {

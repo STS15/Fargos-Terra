@@ -5,7 +5,7 @@ import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.confluence.mod.Confluence;
 import org.confluence.mod.terra_curio.common.component.ModRarity;
-import org.confluence.mod.terra_curio.common.init.ModDataComponentTypes;
+import org.confluence.mod.terra_curio.common.init.TCDataComponentTypes;
 
 public class QuestedFishes {
     public static final DeferredRegister.Items FISHES = DeferredRegister.createItems(Confluence.MODID);
@@ -53,6 +53,6 @@ public class QuestedFishes {
             TUNDRA_TROUT = register("tundra_trout"); // 苔原鳟鱼
 
     public static DeferredItem<Item> register(String name) {
-        return FISHES.register(name, () -> new Item(new Item.Properties().fireResistant().component(ModDataComponentTypes.MOD_RARITY, ModRarity.QUEST)));
+        return FISHES.register(name, () -> new Item(new Item.Properties().fireResistant().component(TCDataComponentTypes.MOD_RARITY, ModRarity.QUEST)));
     }
 }

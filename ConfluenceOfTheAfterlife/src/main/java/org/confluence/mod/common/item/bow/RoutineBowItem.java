@@ -4,7 +4,7 @@ import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.BowItem;
 import net.minecraft.world.item.ItemStack;
 import org.confluence.mod.terra_curio.common.component.ModRarity;
-import org.confluence.mod.terra_curio.common.init.ModDataComponentTypes;
+import org.confluence.mod.terra_curio.common.init.TCDataComponentTypes;
 
 
 public class RoutineBowItem extends BowItem {
@@ -12,7 +12,7 @@ public class RoutineBowItem extends BowItem {
 
     public RoutineBowItem(float baseDamage, int durability, ModRarity rarity) {
         super(new Properties().durability(durability)
-                .component(ModDataComponentTypes.MOD_RARITY, rarity));
+                .component(TCDataComponentTypes.MOD_RARITY, rarity));
         this.baseDamage = baseDamage;
     }
 

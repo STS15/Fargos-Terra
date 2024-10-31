@@ -6,7 +6,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import org.confluence.mod.terra_curio.common.component.ModRarity;
-import org.confluence.mod.terra_curio.common.init.ModDataComponentTypes;
+import org.confluence.mod.terra_curio.common.init.TCDataComponentTypes;
 
 import java.util.List;
 
@@ -16,7 +16,7 @@ public class BaitItem extends Item implements IBait {
     private final float bonus;
 
     public BaitItem(ModRarity rarity, float bonus) {
-        super(new Properties().component(ModDataComponentTypes.MOD_RARITY, rarity));
+        super(new Properties().component(TCDataComponentTypes.MOD_RARITY, rarity));
         this.bonus = bonus;
     }
 
