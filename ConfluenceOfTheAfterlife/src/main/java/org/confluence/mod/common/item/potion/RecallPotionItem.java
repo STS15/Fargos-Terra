@@ -10,12 +10,12 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.storage.LevelData;
 import org.confluence.mod.common.init.ModSoundEvents;
 import org.confluence.mod.terra_curio.common.component.ModRarity;
-import org.confluence.mod.terra_curio.common.init.ModDataComponentTypes;
+import org.confluence.mod.terra_curio.common.init.TCDataComponentTypes;
 import org.jetbrains.annotations.NotNull;
 
 public class RecallPotionItem extends AbstractPotionItem {
     public RecallPotionItem() {
-        super(new Properties().component(ModDataComponentTypes.MOD_RARITY, ModRarity.BLUE));
+        super(new Properties().component(TCDataComponentTypes.MOD_RARITY, ModRarity.BLUE));
     }
 
     @Override

@@ -9,12 +9,15 @@ import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.phys.AABB;
 import org.confluence.mod.terra_curio.common.component.ModRarity;
-import org.confluence.mod.terra_curio.common.init.ModDataComponentTypes;
+import org.confluence.mod.terra_curio.common.init.TCDataComponentTypes;
 import org.jetbrains.annotations.NotNull;
 
-public class BoardSwordItem extends BaseSwordItem {
+public class BoardSwordItem extends SwordItem {
     public BoardSwordItem(Tier tier, ModRarity rarity, int rawDamage, float rawSpeed) {
-        super(tier, rarity, (int) (rawDamage - tier.getAttackDamageBonus() - 1), rawSpeed - 4);
+        super(tier, new Item.Properties()
+                .component(DataComponents.ATTRIBUTE_MODIFIERS, createAttributes(tier, (rawDamage - tier.getAttackDamageBonus() - 1), rawSpeed - 4))
+                .component(TCDataComponentTypes.MOD_RARITY, rarity)
+        );
     }
 
     @Override
