@@ -4,9 +4,9 @@ import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.confluence.mod.Confluence;
 import org.confluence.mod.common.item.fishing.BaitItem;
-import org.confluence.mod.terra_curio.common.component.ModRarity;
+import org.confluence.terra_curio.common.component.ModRarity;
 
-import static org.confluence.mod.terra_curio.common.component.ModRarity.*;
+import static org.confluence.terra_curio.common.component.ModRarity.*;
 
 
 public class BaitItems {

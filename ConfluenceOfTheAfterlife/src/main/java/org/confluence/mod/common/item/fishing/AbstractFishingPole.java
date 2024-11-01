@@ -23,8 +23,8 @@ import org.confluence.mod.common.entity.fishing.CurioFishingHook;
 import org.confluence.mod.common.item.CustomRarityItem;
 import org.confluence.mod.common.item.accessory.fishing.FishingBobber;
 import org.confluence.mod.mixinauxi.IFishingHook;
-import org.confluence.mod.terra_curio.common.component.ModRarity;
-import org.confluence.mod.terra_curio.util.CuriosUtils;
+import org.confluence.terra_curio.common.component.ModRarity;
+import org.confluence.terra_curio.util.CuriosUtils;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Optional;

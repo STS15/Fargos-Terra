@@ -13,8 +13,8 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
-import org.confluence.mod.terra_curio.common.init.ModAttributes;
 import org.confluence.mod.util.ModUtils;
+import org.confluence.terra_curio.common.init.TCAttributes;
 import org.jetbrains.annotations.NotNull;
 
 public abstract class SwordProjectile extends AbstractHurtingProjectile {
@@ -35,12 +35,12 @@ public abstract class SwordProjectile extends AbstractHurtingProjectile {
         if (attributeInstance != null) {
             this.knockBack = (float) attributeInstance.getValue();
         }
-        attributeInstance = living.getAttribute(ModAttributes.getRangedDamage());
+        attributeInstance = living.getAttribute(TCAttributes.getRangedDamage());
         if (attributeInstance != null) {
             this.attackDamage = (float) attributeInstance.getValue();
         }
-        if (ModAttributes.hasCustomAttribute(ModAttributes.CRIT_CHANCE)) return;
-        attributeInstance = living.getAttribute(ModAttributes.CRIT_CHANCE);
+        if (TCAttributes.hasCustomAttribute(TCAttributes.CRIT_CHANCE)) return;
+        attributeInstance = living.getAttribute(TCAttributes.CRIT_CHANCE);
         if (attributeInstance != null) {
             this.criticalChance = (float) attributeInstance.getValue();
         }

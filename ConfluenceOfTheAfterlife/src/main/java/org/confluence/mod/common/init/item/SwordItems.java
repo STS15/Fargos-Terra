@@ -13,7 +13,7 @@ import org.confluence.mod.common.init.ModTiers;
 import org.confluence.mod.common.item.sword.*;
 import org.confluence.mod.common.item.sword.stagedy.ProjectileStrategy;
 import org.confluence.mod.common.item.sword.stagedy.projectile.AbstractProjContainer;
-import org.confluence.mod.terra_curio.common.component.ModRarity;
+import org.confluence.terra_curio.common.component.ModRarity;
 
 import java.util.function.Consumer;
 import java.util.function.Supplier;

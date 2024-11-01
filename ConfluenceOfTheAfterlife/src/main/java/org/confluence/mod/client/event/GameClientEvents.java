@@ -1,19 +1,16 @@
 package org.confluence.mod.client.event;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.player.Player;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.*;
 import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
-import net.neoforged.neoforge.network.PacketDistributor;
 import org.confluence.mod.Confluence;
 import org.confluence.mod.common.init.ModEffects;
 import org.confluence.mod.common.item.sword.stagedy.ProjectileStrategy;
-import org.confluence.mod.network.c2s.SwordShootingPacketC2S;
-import org.confluence.mod.terra_curio.api.event.PerformJumpingEvent;
+import org.confluence.terra_curio.api.event.PerformJumpingEvent;
 
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.GAME, value = Dist.CLIENT, modid = Confluence.MODID)
 public final class GameClientEvents {

@@ -13,8 +13,8 @@ import org.confluence.mod.Confluence;
 import org.confluence.mod.common.attachment.GamePlay;
 import org.confluence.mod.common.init.ModAttachments;
 import org.confluence.mod.common.item.CustomRarityItem;
-import org.confluence.mod.terra_curio.common.component.ModRarity;
-import org.confluence.mod.terra_curio.common.init.TCDataComponentTypes;
+import org.confluence.terra_curio.common.component.ModRarity;
+import org.confluence.terra_curio.common.init.TCDataComponentTypes;
 import org.jetbrains.annotations.NotNull;
 
 public class LifeFruit extends CustomRarityItem {

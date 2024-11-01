@@ -12,6 +12,7 @@ import org.confluence.mod.common.effect.beneficial.*;
 import org.confluence.mod.common.effect.harmful.*;
 import org.confluence.mod.common.effect.neutral.LoveEffect;
 import org.confluence.mod.common.effect.neutral.ShimmerEffect;
+import org.confluence.terra_curio.common.init.TCEffects;
 
 public final class ModEffects {
     public static final DeferredRegister<MobEffect> EFFECTS = DeferredRegister.create(BuiltInRegistries.MOB_EFFECT, Confluence.MODID);
@@ -58,7 +59,7 @@ public final class ModEffects {
 
     public static void healPerSecond(LivingEntity living, float amount) {
         if (living.level().getGameTime() % 20 == 0) {
-            if (living.hasEffect(org.confluence.mod.terra_curio.common.effect.ModEffects.HONEY)) amount += 1;
+            if (living.hasEffect(TCEffects.HONEY)) amount += 1;
             living.heal(amount);
         }
     }

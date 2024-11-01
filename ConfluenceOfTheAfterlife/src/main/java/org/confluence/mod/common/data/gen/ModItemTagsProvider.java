@@ -16,6 +16,7 @@ import org.confluence.mod.common.init.item.AccessoryItems;
 import org.confluence.mod.common.init.item.ArrowItems;
 import org.confluence.mod.common.init.item.BowItems;
 import org.confluence.mod.common.init.item.MaterialItems;
+import org.confluence.terra_curio.common.init.TCTags;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -28,7 +29,7 @@ public class ModItemTagsProvider extends ItemTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.@NotNull Provider provider) {
-        AccessoryItems.acceptTag(tag(org.confluence.mod.terra_curio.common.init.ModTags.CURIO));
+        AccessoryItems.acceptTag(tag(TCTags.CURIO));
 
 //        Hooks.acceptTag(tag(ModTags.Items.HOOK));
         tag(ModTags.Items.MINECART).add(Items.MINECART);

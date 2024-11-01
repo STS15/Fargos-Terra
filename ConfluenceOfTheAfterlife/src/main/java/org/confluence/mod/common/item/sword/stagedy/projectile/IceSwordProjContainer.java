@@ -9,7 +9,7 @@ import net.minecraft.world.entity.player.Player;
 import org.confluence.mod.common.entity.projectile.IceBladeSwordProjectile;
 import org.confluence.mod.common.entity.projectile.SwordProjectile;
 import org.confluence.mod.common.init.ModSoundEvents;
-import org.confluence.mod.terra_curio.common.init.ModAttributes;
+import org.confluence.terra_curio.common.init.TCAttributes;
 
 
 public class IceSwordProjContainer extends AbstractProjContainer {
@@ -39,7 +39,7 @@ public class IceSwordProjContainer extends AbstractProjContainer {
 
     public float getVelocity(LivingEntity living) {
         float velocity = getBaseVelocity();
-        AttributeInstance attributeInstance = living.getAttribute(ModAttributes.getRangedVelocity());
+        AttributeInstance attributeInstance = living.getAttribute(TCAttributes.getRangedVelocity());
         if (attributeInstance != null) return velocity * (float) attributeInstance.getValue();
         return velocity;
     }

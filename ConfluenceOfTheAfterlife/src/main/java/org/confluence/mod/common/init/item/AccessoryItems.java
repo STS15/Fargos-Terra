@@ -9,25 +9,27 @@ import org.confluence.mod.Confluence;
 import org.confluence.mod.common.entity.fishing.CurioFishingHook;
 import org.confluence.mod.common.init.ModEffects;
 import org.confluence.mod.common.item.accessory.fishing.FishingBobber;
-import org.confluence.mod.terra_curio.common.component.ModRarity;
-import org.confluence.mod.terra_curio.common.item.curio.BaseCurioItem;
+import org.confluence.terra_curio.common.component.ModRarity;
+import org.confluence.terra_curio.common.item.curio.BaseCurioItem;
 
 import java.util.function.Consumer;
 import java.util.function.Supplier;
+
+import static org.confluence.terra_curio.common.component.ModRarity.*;
 
 public class AccessoryItems {
     public static final DeferredRegister.Items ACCESSORIES = DeferredRegister.createItems(Confluence.MODID);
 
     public static final Supplier<BaseCurioItem> ADHESIVE_BANDAGE = registerCurio("adhesive_bandage", builder -> builder.rarity(ModRarity.LIGHT_RED).effectImmunities(ModEffects.BLEEDING)),
-            MEDICATED_BANDAGE = registerCurio("medicated_bandage", builder -> builder.rarity(ModRarity.PINK).effectImmunities(MobEffects.POISON, ModEffects.BLEEDING)),
-            POCKET_MIRROR = registerCurio("pocket_mirror", builder -> builder.rarity(ModRarity.ORANGE).effectImmunities(ModEffects.STONED)),
-            REFLECTIVE_SHADES = registerCurio("reflective_shades", builder -> builder.rarity(ModRarity.PINK).effectImmunities(MobEffects.BLINDNESS, ModEffects.STONED)),
-            ARMOR_POLISH = registerCurio("armor_polish", builder -> builder.rarity(ModRarity.LIGHT_RED).effectImmunities(ModEffects.BROKEN_ARMOR)),
-            ARMOR_BRACING = registerCurio("armor_bracing", builder -> builder.rarity(ModRarity.PINK).effectImmunities(MobEffects.WEAKNESS, ModEffects.BROKEN_ARMOR)),
-            MEGAPHONE = registerCurio("megaphone", builder -> builder.rarity(ModRarity.LIGHT_RED).effectImmunities(ModEffects.SILENCED)),
-            NAZAR = registerCurio("nazar", builder -> builder.rarity(ModRarity.GREEN).effectImmunities(ModEffects.CURSED)),
-            COUNTERCURSE_MANTRA = registerCurio("countercurse_mantra", builder -> builder.rarity(ModRarity.LIGHT_RED).effectImmunities(ModEffects.SILENCED, ModEffects.CURSED)),
-            NATURES_GIFT = registerCurio("natures_gift", builder -> builder.rarity(ModRarity.ORANGE)/*TODO: 减魔耗*/)
+            MEDICATED_BANDAGE = registerCurio("medicated_bandage", builder -> builder.rarity(PINK).effectImmunities(MobEffects.POISON, ModEffects.BLEEDING)),
+            POCKET_MIRROR = registerCurio("pocket_mirror", builder -> builder.rarity(ORANGE).effectImmunities(ModEffects.STONED)),
+            REFLECTIVE_SHADES = registerCurio("reflective_shades", builder -> builder.rarity(PINK).effectImmunities(MobEffects.BLINDNESS, ModEffects.STONED)),
+            ARMOR_POLISH = registerCurio("armor_polish", builder -> builder.rarity(LIGHT_RED).effectImmunities(ModEffects.BROKEN_ARMOR)),
+            ARMOR_BRACING = registerCurio("armor_bracing", builder -> builder.rarity(PINK).effectImmunities(MobEffects.WEAKNESS, ModEffects.BROKEN_ARMOR)),
+            MEGAPHONE = registerCurio("megaphone", builder -> builder.rarity(LIGHT_RED).effectImmunities(ModEffects.SILENCED)),
+            NAZAR = registerCurio("nazar", builder -> builder.rarity(GREEN).effectImmunities(ModEffects.CURSED)),
+            COUNTERCURSE_MANTRA = registerCurio("countercurse_mantra", builder -> builder.rarity(LIGHT_RED).effectImmunities(ModEffects.SILENCED, ModEffects.CURSED)),
+            NATURES_GIFT = registerCurio("natures_gift", builder -> builder.rarity(ORANGE)/*TODO: 减魔耗*/)
 
     ;
 

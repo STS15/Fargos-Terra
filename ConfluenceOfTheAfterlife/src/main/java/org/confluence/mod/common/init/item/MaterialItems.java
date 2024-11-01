@@ -8,7 +8,7 @@ import org.confluence.mod.common.init.block.ModBlocks;
 import org.confluence.mod.common.item.CustomRarityItem;
 import org.confluence.mod.common.item.common.CustomModelItem;
 import org.confluence.mod.common.item.common.MushroomItem;
-import org.confluence.mod.terra_curio.common.component.ModRarity;
+import org.confluence.terra_curio.common.component.ModRarity;
 
 public class MaterialItems{
     public static final DeferredRegister.Items MATERIALS = DeferredRegister.createItems(Confluence.MODID);

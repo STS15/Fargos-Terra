@@ -6,7 +6,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.saveddata.SavedData;
 import net.neoforged.neoforge.network.PacketDistributor;
 import org.confluence.mod.network.s2c.GamePhasePacketS2C;
-import org.confluence.mod.terra_curio.network.s2c.WindSpeedPacketS2C;
+import org.confluence.terra_curio.network.s2c.WindSpeedPacketS2C;
 import org.jetbrains.annotations.NotNull;
 
 public class ConfluenceData extends SavedData {

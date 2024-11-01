@@ -7,8 +7,8 @@ import net.neoforged.neoforge.common.data.LanguageProvider;
 import org.confluence.mod.Confluence;
 import org.confluence.mod.common.init.block.ModOreBlocks;
 import org.confluence.mod.common.init.item.*;
-import org.confluence.mod.terra_curio.common.effect.ModEffects;
-import org.confluence.mod.terra_curio.common.entity.ModEntities;
+import org.confluence.terra_curio.common.init.TCEffects;
+import org.confluence.terra_curio.common.init.TCEntities;
 
 import java.util.Arrays;
 import java.util.stream.Collectors;
@@ -452,8 +452,8 @@ public class ModEnglishProvider extends LanguageProvider {
 
         });
 
-        ModEntities.ENTITIES.getEntries().forEach(entity -> add(entity.get(), toTitleCase(entity.getId().getPath())));
-        ModEffects.EFFECTS.getEntries().forEach(effect -> add(effect.get(), toTitleCase(effect.getId().getPath())));
+        TCEntities.ENTITIES.getEntries().forEach(entity -> add(entity.get(), toTitleCase(entity.getId().getPath())));
+        TCEffects.EFFECTS.getEntries().forEach(effect -> add(effect.get(), toTitleCase(effect.getId().getPath())));
         SwordItems.SWORDS.getEntries().forEach(sword -> add(sword.get(), toTitleCase(sword.getId().getPath())));
         ArrowItems.ARROWS.getEntries().forEach(arrow -> add(arrow.get(), toTitleCase(arrow.getId().getPath())));
         BowItems.BOWS.getEntries().forEach(bow -> add(bow.get(), toTitleCase(bow.getId().getPath())));

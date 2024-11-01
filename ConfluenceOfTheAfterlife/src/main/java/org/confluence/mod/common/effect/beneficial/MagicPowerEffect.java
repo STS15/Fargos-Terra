@@ -5,13 +5,13 @@ import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import org.confluence.mod.Confluence;
-import org.confluence.mod.terra_curio.common.init.ModAttributes;
+import org.confluence.terra_curio.common.init.TCAttributes;
 
 public class MagicPowerEffect extends MobEffect {
     public static final ResourceLocation ID = Confluence.asResource("magic_power");
 
     public MagicPowerEffect() {
         super(MobEffectCategory.BENEFICIAL, 0xCC00CC);
-        addAttributeModifier(ModAttributes.getMagicDamage(), ID, 0.2, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL);
+        addAttributeModifier(TCAttributes.getMagicDamage(), ID, 0.2, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL);
     }
 }

@@ -11,7 +11,7 @@ import net.minecraft.world.level.Level;
 import org.confluence.mod.common.init.ModAttachments;
 import org.confluence.mod.common.init.ModSoundEvents;
 import org.confluence.mod.common.item.CustomRarityItem;
-import org.confluence.mod.terra_curio.common.component.ModRarity;
+import org.confluence.terra_curio.common.component.ModRarity;
 import org.jetbrains.annotations.NotNull;
 
 public class ManaStar extends CustomRarityItem {

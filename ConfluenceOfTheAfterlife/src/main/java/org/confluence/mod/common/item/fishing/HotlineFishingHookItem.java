@@ -10,7 +10,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import org.confluence.mod.Confluence;
 import org.confluence.mod.common.entity.fishing.HotlineFishingHook;
-import org.confluence.mod.terra_curio.common.component.ModRarity;
+import org.confluence.terra_curio.common.component.ModRarity;
 
 public class HotlineFishingHookItem extends AbstractFishingPole {
     public static final ResourceLocation ID = Confluence.asResource("hotline_fishing_hook");

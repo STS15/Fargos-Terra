@@ -6,19 +6,16 @@ import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.neoforged.neoforge.event.AddPackFindersEvent;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
-import net.neoforged.neoforge.event.entity.EntityAttributeModificationEvent;
 import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
-import net.neoforged.neoforge.network.handling.DirectionalPayloadHandler;
 import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 import net.neoforged.neoforge.registries.RegisterEvent;
 import org.confluence.mod.Confluence;
 import org.confluence.mod.common.CommonConfigs;
-import org.confluence.mod.network.c2s.SwordShootingPacketC2S;
 import org.confluence.mod.common.block.natural.spreadable.ISpreadable;
+import org.confluence.mod.network.c2s.SwordShootingPacketC2S;
 import org.confluence.mod.network.s2c.GamePhasePacketS2C;
 import org.confluence.mod.network.s2c.ManaPacketS2C;
-import org.confluence.mod.terra_curio.common.init.ModAttributes;
 
 import static org.confluence.mod.Confluence.MODID;
 
@@ -58,19 +55,6 @@ public final class ModEvents {
     @SubscribeEvent
     public static void attributeCreate(EntityAttributeCreationEvent event) {
 
-    }
-
-    @SubscribeEvent
-    public static void entityAttributeModification(EntityAttributeModificationEvent event) {
-        ModAttributes.readJsonConfig();
-        ModAttributes.registerAttribute(ModAttributes.CRIT_CHANCE, event::add);
-        ModAttributes.registerAttribute(ModAttributes.RANGED_VELOCITY, event::add);
-        ModAttributes.registerAttribute(ModAttributes.RANGED_DAMAGE, event::add);
-        ModAttributes.registerAttribute(ModAttributes.DODGE_CHANCE, event::add);
-        ModAttributes.registerAttribute(ModAttributes.AGGRO, event::add);
-        ModAttributes.registerAttribute(ModAttributes.MAGIC_DAMAGE, event::add);
-        ModAttributes.registerAttribute(ModAttributes.ARMOR_PASS, event::add);
-        ModAttributes.registerAttribute(ModAttributes.PICKUP_RANGE, event::add);
     }
 
     @SubscribeEvent

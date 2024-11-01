@@ -2,9 +2,10 @@ package org.confluence.mod.mixin.integration.terra_curio;
 
 import net.minecraft.world.effect.MobEffects;
 import org.confluence.mod.common.init.ModEffects;
-import org.confluence.mod.terra_curio.common.component.ModRarity;
-import org.confluence.mod.terra_curio.common.item.curio.BaseCurioItem;
-import org.confluence.mod.terra_curio.common.item.curio.combat.AnkhCharm;
+import org.confluence.terra_curio.common.component.ModRarity;
+import org.confluence.terra_curio.common.init.TCEffects;
+import org.confluence.terra_curio.common.item.curio.BaseCurioItem;
+import org.confluence.terra_curio.common.item.curio.combat.AnkhCharm;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -18,7 +19,7 @@ public abstract class AnkhCharmMixin {
                 MobEffects.POISON, MobEffects.BLINDNESS,
                 MobEffects.MOVEMENT_SLOWDOWN, MobEffects.WEAKNESS,
                 ModEffects.BLEEDING, ModEffects.BROKEN_ARMOR,
-                org.confluence.mod.terra_curio.common.effect.ModEffects.CONFUSED, ModEffects.CURSED,
+                TCEffects.CONFUSED, ModEffects.CURSED,
                 ModEffects.SILENCED, ModEffects.STONED
         ).rarity(ModRarity.LIGHT_PURPLE).initialize());
     }

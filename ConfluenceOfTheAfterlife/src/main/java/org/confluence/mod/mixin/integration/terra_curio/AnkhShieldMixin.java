@@ -4,9 +4,10 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import org.confluence.mod.common.init.ModEffects;
-import org.confluence.mod.terra_curio.common.component.ModRarity;
-import org.confluence.mod.terra_curio.common.item.curio.BaseCurioItem;
-import org.confluence.mod.terra_curio.common.item.curio.combat.AnkhShield;
+import org.confluence.terra_curio.common.component.ModRarity;
+import org.confluence.terra_curio.common.init.TCEffects;
+import org.confluence.terra_curio.common.item.curio.BaseCurioItem;
+import org.confluence.terra_curio.common.item.curio.combat.AnkhShield;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -20,7 +21,7 @@ public abstract class AnkhShieldMixin {
                 MobEffects.POISON, MobEffects.BLINDNESS,
                 MobEffects.MOVEMENT_SLOWDOWN, MobEffects.WEAKNESS,
                 ModEffects.BLEEDING, ModEffects.BROKEN_ARMOR,
-                org.confluence.mod.terra_curio.common.effect.ModEffects.CONFUSED, ModEffects.CURSED,
+                TCEffects.CONFUSED, ModEffects.CURSED,
                 ModEffects.SILENCED, ModEffects.STONED
         ).attribute(
                 Attributes.KNOCKBACK_RESISTANCE, "knockback_resistance", 1.0, AttributeModifier.Operation.ADD_VALUE

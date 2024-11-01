@@ -7,6 +7,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import org.confluence.mod.Confluence;
 import org.confluence.mod.common.init.ModEffects;
 import org.confluence.mod.common.item.potion.*;
+import org.confluence.terra_curio.common.init.TCEffects;
 
 public class TerraPotions{
     public static final DeferredRegister.Items POTIONS = DeferredRegister.createItems(Confluence.MODID);
@@ -19,7 +20,7 @@ public class TerraPotions{
     public static final DeferredItem<AbstractPotionItem> FLIPPER_POTION = POTIONS.register("flipper_potion", () -> new EffectPotionItem(ModEffects.FLIPPER, 9600));
     public static final DeferredItem<AbstractPotionItem> FISHING_POTION = POTIONS.register("fishing_potion", () -> new EffectPotionItem(ModEffects.FISHING, 9600));
     public static final DeferredItem<AbstractPotionItem> GILLS_POTION = POTIONS.register("gills_potion", () -> new EffectPotionItem(MobEffects.WATER_BREATHING, 4800));
-    public static final DeferredItem<AbstractPotionItem> GRAVITATION_POTION = POTIONS.register("gravitation_potion", () -> new EffectPotionItem(org.confluence.mod.terra_curio.common.effect.ModEffects.GRAVITATION, 3600));
+    public static final DeferredItem<AbstractPotionItem> GRAVITATION_POTION = POTIONS.register("gravitation_potion", () -> new EffectPotionItem(TCEffects.GRAVITATION, 3600));
     public static final DeferredItem<AbstractPotionItem> HEART_REACH_POTION = POTIONS.register("heart_reach_potion", () -> new EffectPotionItem(ModEffects.HEART_REACH, 9600));
     public static final DeferredItem<AbstractPotionItem> HUNTER_POTION = POTIONS.register("hunter_potion", ()->new EffectPotionItem(ModEffects.HUNTER, 9600));
     public static final DeferredItem<AbstractPotionItem> INFERNO_POTION = POTIONS.register("inferno_potion", () -> new EffectPotionItem(ModEffects.INFERNO, 4800));

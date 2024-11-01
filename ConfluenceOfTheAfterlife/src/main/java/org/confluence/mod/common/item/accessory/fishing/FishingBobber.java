@@ -1,11 +1,11 @@
 package org.confluence.mod.common.item.accessory.fishing;
 
 import org.confluence.mod.common.entity.fishing.CurioFishingHook;
-import org.confluence.mod.terra_curio.common.component.AccessoriesComponent;
-import org.confluence.mod.terra_curio.common.component.ModRarity;
-import org.confluence.mod.terra_curio.common.component.primitive.FloatValue;
-import org.confluence.mod.terra_curio.common.init.TCDataComponentTypes;
-import org.confluence.mod.terra_curio.common.item.curio.BaseCurioItem;
+import org.confluence.terra_curio.common.component.AccessoriesComponent;
+import org.confluence.terra_curio.common.component.ModRarity;
+import org.confluence.terra_curio.common.component.primitive.FloatValue;
+import org.confluence.terra_curio.common.init.TCDataComponentTypes;
+import org.confluence.terra_curio.common.item.curio.BaseCurioItem;
 
 public class FishingBobber extends BaseCurioItem {
     public final CurioFishingHook.Variant variant;

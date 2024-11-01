@@ -1,15 +1,11 @@
 package org.confluence.mod.common.item.sword;
 
-import net.minecraft.core.Holder;
-import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.Tier;
-import net.neoforged.neoforge.registries.DeferredHolder;
-import org.confluence.mod.terra_curio.common.component.ModRarity;
+import org.confluence.terra_curio.common.component.ModRarity;
 
 import java.util.Arrays;
-import java.util.List;
 import java.util.function.Consumer;
 
 public class EffectiveSword extends BaseSwordItem {
