@@ -10,39 +10,37 @@ import net.minecraft.world.item.UseAnim;
 import org.jetbrains.annotations.NotNull;
 
 public class BaseFoodItem extends Item {
+    private UseAnim useAnim;
+    private SoundEvent drinkingSound;
+    private SoundEvent eatingSound;
+
     public BaseFoodItem(FoodProperties foodProperties) {
         super(new Item.Properties().food(foodProperties).stacksTo(64));
     }
 
-    public static class FireproofFoodItem extends Item {
-        public FireproofFoodItem(FoodProperties foodProperties) {
-            super(new Properties().food(foodProperties).stacksTo(64).fireResistant());
-        }
+    public BaseFoodItem(FoodProperties foodProperties, boolean isFireResistant) {
+        super(new Properties().food(foodProperties).stacksTo(64).fireResistant());
     }
 
-    public static class ContainerFoodItem extends Item {
-        public ContainerFoodItem(FoodProperties foodProperties, Item craftingRemainingItem) {
-            super(new Properties().food(foodProperties).craftRemainder(craftingRemainingItem).stacksTo(64));
-        }
+    public BaseFoodItem(FoodProperties foodProperties, Item craftingRemainingItem, int durability, UseAnim useAnim, SoundEvent drinkingSound, SoundEvent eatingSound) {
+        super(new Properties().food(foodProperties).craftRemainder(craftingRemainingItem).stacksTo(64).durability(durability));
+        this.useAnim = useAnim;
+        this.drinkingSound = drinkingSound;
+        this.eatingSound = eatingSound;
+    }
 
-        @Override
-        public int getUseDuration(@NotNull ItemStack stack, @NotNull LivingEntity entity) {
-            return 20;
-        }
+    @Override
+    public @NotNull UseAnim getUseAnimation(@NotNull ItemStack itemStack) {
+        return useAnim;
+    }
 
-        @Override
-        public @NotNull UseAnim getUseAnimation(@NotNull ItemStack itemStack) {
-            return UseAnim.DRINK;
-        }
+    @Override
+    public @NotNull SoundEvent getDrinkingSound() {
+        return drinkingSound;
+    }
 
-        @Override
-        public @NotNull SoundEvent getDrinkingSound() {
-            return SoundEvents.HONEY_DRINK;
-        }
-
-        @Override
-        public @NotNull SoundEvent getEatingSound() {
-            return SoundEvents.HONEY_DRINK;
-        }
+    @Override
+    public @NotNull SoundEvent getEatingSound() {
+        return eatingSound;
     }
 }
