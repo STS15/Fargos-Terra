@@ -20,6 +20,8 @@
         "item.ProjectileWeaponItemMixin"
     ],
     "client": [
+        "client.PauseScreenMixin",
+        "client.TitleScreenMixin"
     ],
     "injectors": {
         "defaultRequire": 1

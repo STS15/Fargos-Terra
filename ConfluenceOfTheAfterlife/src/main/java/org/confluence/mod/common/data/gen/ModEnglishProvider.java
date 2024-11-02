@@ -432,6 +432,45 @@ public class ModEnglishProvider extends LanguageProvider {
         add("generator.confluence.corruption", "The Corruption");
         add("generator.confluence.tr_crimson", "The Crimson");
 
+        add("title.confluence.wiki", "Confluence Wiki");
+        add("wiki.confluence.back", "Return");
+        add("title.confluence.group", "Group Wiki");
+        add("wiki.confluence.item", "Items");
+        add("wiki.confluence.type_accessories", "Accessories");
+        add("wiki.confluence.type_arrow", "Arrows");
+        add("wiki.confluence.type_axe", "Axes");
+        add("wiki.confluence.type_bait", "Baits");
+        add("wiki.confluence.type_bow", "Bows");
+        add("wiki.confluence.type_fishing_pole", "Fishing Poles");
+        add("wiki.confluence.type_food", "Foods");
+        add("wiki.confluence.type_material", "Materials");
+        add("wiki.confluence.type_misc", "Misc");
+        add("wiki.confluence.type_quested_fish", "Quested Fish");
+        add("wiki.confluence.type_sword", "Swords");
+        add("wiki.confluence.type_terra_potion", "Terra Potions");
+        add("wiki.confluence.damage", "Attack Damage: ");
+        add("wiki.confluence.use", "Durability: ");
+        add("wiki.confluence.speed", "Use Speed: ");
+        add("wiki.confluence.enchantment", "Enchantment Level: ");
+        add("wiki.confluence.ingredient", "Repair Ingredient: ");
+        add("wiki.confluence.power", "Pickaxe Power: ");
+        add("wiki.confluence.nutrition", "Nutrition: ");
+        add("wiki.confluence.saturation", "Saturation: ");
+
+        add("wiki.confluence.copper_short_sword", """
+                The Copper Shortsword is an early-game metal shortsword.
+                Its alternate ore counterpart is the Tin Shortsword.
+                
+                Like all shortswords, the Copper Shortsword has a very limited range
+                and attacks with a stabbing motion at any direction / horizontally
+                in front of the player, instead of an arc.
+                
+                This makes it almost useless against flying or jumping enemies,
+                although its high attack rate makes it
+                somewhat effective against weaker fighter type enemies.
+                
+                Its best modifier is Legendary.""");
+
 
 
         ModOreBlocks.BLOCKS.getEntries().forEach(block -> {

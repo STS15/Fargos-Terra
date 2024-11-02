@@ -15,6 +15,8 @@ public class EnchantedSwordProjectile extends SwordProjectile {
         super(ModEntities.ENCHANTED_SWORD_PROJECTILE.get(), living.level(), living);
     }
 
+
+
     @Override
     protected int getBaseDamage() {
         return 9;
