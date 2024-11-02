@@ -1,6 +1,5 @@
 package org.confluence.mod.common.init.item;
 
-import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
@@ -26,8 +25,8 @@ public class FoodItems {
     public static final DeferredItem<BaseFoodItem> MONSTER_LASAGNA = normalFoodRegister("monster_lasagna", FoodType.SENIOR); //怪物千层面
     public static final DeferredItem<BaseFoodItem> SASHIMI = normalFoodRegister("sashimi", FoodType.MEDIUM); //生鱼片
     public static final DeferredItem<BaseFoodItem> ROASTED_BIRD = normalFoodRegister("roasted_bird", FoodType.MEAT); //烤鸟腿
-    public static final DeferredItem<BaseFoodItem> ROASTED_DUCK= normalFoodRegister("roasted_duck", FoodType.MEAT); //鸭肉
-    public static final DeferredItem<BaseFoodItem> SAUTEED_FROG_LEGS= normalFoodRegister("sauteed_frog_legs", FoodType.MEAT); //爆炒青蛙腿
+    public static final DeferredItem<BaseFoodItem> ROASTED_DUCK = normalFoodRegister("roasted_duck", FoodType.MEAT); //鸭肉
+    public static final DeferredItem<BaseFoodItem> SAUTEED_FROG_LEGS = normalFoodRegister("sauteed_frog_legs", FoodType.MEAT); //爆炒青蛙腿
     public static final DeferredItem<BaseFoodItem> SEAFOOD_DINNER = normalFoodRegister("seafood_dinner", FoodType.SENIOR); //海鲜大餐
     public static final DeferredItem<BaseFoodItem> BACON = normalFoodRegister("bacon", FoodType.SENIOR); //培根
     public static final DeferredItem<BaseFoodItem> BANANA_SPLIT = normalFoodRegister("banana_split", FoodType.SENIOR); //香蕉船
@@ -128,7 +127,7 @@ public class FoodItems {
     public static final DeferredItem<BaseFoodItem> OBSIDIAN_FISH = fireResistantFoodRegister("obsidian_fish", (FoodType.FISH));
     public static final DeferredItem<BaseFoodItem> FLASHFIN_KOI = fireResistantFoodRegister("flashfin_koi", (FoodType.FISH));
     //节日特有
-    public static final DeferredItem<BaseFoodItem > ZONGZI = fireResistantFoodRegister("zongzi", (FoodType.LOW));
+    public static final DeferredItem<BaseFoodItem> ZONGZI = fireResistantFoodRegister("zongzi", (FoodType.LOW));
 
     public static final DeferredItem<BaseFoodItem> HONEY_MOONCAKES = fireResistantFoodRegister("honey_mooncakes", (FoodType.MEDIUM));
     public static final DeferredItem<BaseFoodItem> HONEY_MOONCAKES_CHUNKS = fireResistantFoodRegister("honey_mooncakes_chunks", (FoodType.MOONCAKES));
@@ -140,12 +139,12 @@ public class FoodItems {
     public static DeferredItem<BaseFoodItem> normalFoodRegister(String name, FoodProperties foodProperties) {
         return FOODS.register(name, () -> new BaseFoodItem(foodProperties));
     }
-    
+
     public static DeferredItem<BaseFoodItem> fireResistantFoodRegister(String name, FoodProperties foodProperties) {
         return FOODS.register(name, () -> new BaseFoodItem(foodProperties, true));
     }
 
     public static DeferredItem<BaseFoodItem> containerFoodRegister(String name, FoodProperties foodProperties, Item craftingRemainingItem) {
-        return FOODS.register(name, () -> new BaseFoodItem(foodProperties, craftingRemainingItem, 20, UseAnim.DRINK, SoundEvents.HONEY_DRINK, SoundEvents.HONEY_DRINK));
+        return FOODS.register(name, () -> new BaseFoodItem(foodProperties, craftingRemainingItem, 20, UseAnim.DRINK, SoundEvents.HONEY_DRINK));
     }
 }

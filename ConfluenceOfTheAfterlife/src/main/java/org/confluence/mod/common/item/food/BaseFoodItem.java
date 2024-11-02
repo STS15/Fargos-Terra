@@ -10,9 +10,9 @@ import net.minecraft.world.item.UseAnim;
 import org.jetbrains.annotations.NotNull;
 
 public class BaseFoodItem extends Item {
-    private UseAnim useAnim;
-    private SoundEvent drinkingSound;
-    private SoundEvent eatingSound;
+    private int durability = 0;
+    private UseAnim useAnim = UseAnim.NONE;
+    private SoundEvent soundEvent = SoundEvents.HONEY_DRINK;
 
     public BaseFoodItem(FoodProperties foodProperties) {
         super(new Item.Properties().food(foodProperties).stacksTo(64));
@@ -22,11 +22,16 @@ public class BaseFoodItem extends Item {
         super(new Properties().food(foodProperties).stacksTo(64).fireResistant());
     }
 
-    public BaseFoodItem(FoodProperties foodProperties, Item craftingRemainingItem, int durability, UseAnim useAnim, SoundEvent drinkingSound, SoundEvent eatingSound) {
-        super(new Properties().food(foodProperties).craftRemainder(craftingRemainingItem).stacksTo(64).durability(durability));
+    public BaseFoodItem(FoodProperties foodProperties, Item craftingRemainingItem, int durability, UseAnim useAnim, SoundEvent soundEvent) {
+        super(new Properties().food(foodProperties).craftRemainder(craftingRemainingItem).stacksTo(64));
         this.useAnim = useAnim;
-        this.drinkingSound = drinkingSound;
-        this.eatingSound = eatingSound;
+        this.soundEvent = soundEvent;
+        this.durability = durability;
+    }
+
+    @Override
+    public int getUseDuration(@NotNull ItemStack itemStack, @NotNull LivingEntity entity) {
+        return durability;
     }
 
     @Override
@@ -36,11 +41,11 @@ public class BaseFoodItem extends Item {
 
     @Override
     public @NotNull SoundEvent getDrinkingSound() {
-        return drinkingSound;
+        return soundEvent;
     }
 
     @Override
     public @NotNull SoundEvent getEatingSound() {
-        return eatingSound;
+        return soundEvent;
     }
 }
