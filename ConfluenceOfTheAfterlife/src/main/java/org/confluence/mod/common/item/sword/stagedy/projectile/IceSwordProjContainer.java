@@ -12,7 +12,7 @@ import org.confluence.mod.common.init.ModSoundEvents;
 import org.confluence.terra_curio.common.init.TCAttributes;
 
 
-public class IceSwordProjContainer extends AbstractProjContainer {
+public class IceSwordProjContainer implements AbstractProjContainer {
 
     public int getCooldown() {
         return 10;

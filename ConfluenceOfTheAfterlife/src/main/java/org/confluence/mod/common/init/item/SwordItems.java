@@ -45,9 +45,9 @@ public class SwordItems {
     public static final DeferredItem<SwordItem> LIGHTS_BANE = registerEffectiveSword("lights_bane",ModTiers.TITANIUM, 5, -0.1F, ModRarity.BLUE,new MobEffectInstance(MobEffects.GLOWING,5 * 20)); //TODO 魔光剑,暂时发光效果
     public static final DeferredItem<SwordItem> BLOOD_BUTCHERER = registerEffectiveSword("blood_butchere",ModTiers.TITANIUM, 7, -2.7F,ModRarity.BLUE,BLOOD_BUTCHERED_EFFECT);
 
-    public static final DeferredItem<SwordItem> ICE_BLADE = registerProjectileSword("ice_blade",ModTiers.TITANIUM, 5, -0.1F, ModRarity.BLUE,ProjectileStrategy.ICE_PROJ);
-    public static final DeferredItem<SwordItem>STARFURY = registerProjectileSword("starfury",ModTiers.TITANIUM, 6, -0.1f, ModRarity.BLUE,ProjectileStrategy.STAR_FURY_PROJ);
-    public static final DeferredItem<SwordItem> ENCHANTED_SWORD = registerProjectileSword("enchanted_sword",ModTiers.TITANIUM, 7, -0.2F, ModRarity.ORANGE,ProjectileStrategy.ENCHANTED_SWORD_PROJ);
+    public static final DeferredItem<SwordItem> ICE_BLADE = registerProjectileSword("ice_blade",ModTiers.TITANIUM, 5, -0.1F, ModRarity.BLUE, ProjectileStrategy.ICE_PROJ);
+    public static final DeferredItem<SwordItem>STARFURY = registerProjectileSword("starfury",ModTiers.TITANIUM, 6, -0.1f, ModRarity.GREEN, ProjectileStrategy.STAR_FURY_PROJ);
+    public static final DeferredItem<SwordItem> ENCHANTED_SWORD = registerProjectileSword("enchanted_sword",ModTiers.TITANIUM, 7, -0.2F, ModRarity.ORANGE, ProjectileStrategy.ENCHANTED_SWORD_PROJ);
 
 
 /*
@@ -59,13 +59,8 @@ public class SwordItems {
     PURPLE_LIGHT_SABER("purple_light_saber", LightSaber.Purple::new),
     WHITE_LIGHT_SABER("white_light_saber", LightSaber.White::new),
 
-    ICE_BLADE("ice_blade", () -> new ProjSwordItem(ModTiers.TITANIUM, 5, -0.1F, new Item.Properties().rarity(ModRarity.BLUE))),
-    STARFURY("starfury", () -> new StarFurySword(ModTiers.TITANIUM, 6, -0.1f, new Item.Properties().rarity(ModRarity.GREEN))),// 新版星怒
-    ENCHANTED_SWORD("enchanted_sword", () -> new EnchantedSwordItem(ModTiers.TITANIUM, 7, -0.2F, new Item.Properties().rarity(ModRarity.ORANGE))),
     VOLCANO("volcano", () -> new BigRegularBroadSwordItem(ModTiers.TITANIUM, 16, -1.4F, new Item.Properties().rarity(ModRarity.ORANGE))),
 
-
-    TERRAGRIM("terragrim", TerragrimItem::new),
     // 其他剑
     FAKE_SWORD("fake_sword", () -> new RegularBroadSwordItem(ModTiers.CANDY, 0, -1.4F, new Item.Properties().rarity(ModRarity.GRAY))),
     CANDY_CANE_SWORD("candy_cane_sword", () -> new BigRegularBroadSwordItem(ModTiers.CANDY, 0, -1.4F, new Item.Properties().rarity(ModRarity.WHITE))),

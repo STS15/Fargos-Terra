@@ -15,7 +15,7 @@ import org.confluence.mod.common.init.ModSoundEvents;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StarFuryProjContainer extends AbstractProjContainer {
+public class StarFuryProjContainer implements AbstractProjContainer {
     private float maxAngle = 30;//索敌最大角度
     private float range = 30;//索敌范围
     private float predict = 10;//预判量

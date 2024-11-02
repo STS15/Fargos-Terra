@@ -34,7 +34,7 @@ public class ProjectileStrategy {
             && sword.modifier.proj!= null
         ) {
             PacketDistributor.sendToServer((new SwordShootingPacketC2S()));
-            localPlayer.getCooldowns().addCooldown(sword,sword.modifier.proj.getAttackSpeed(localPlayer));
+            localPlayer.getCooldowns().addCooldown(sword,sword.modifier.proj.getCooldown());
             localPlayer.swing(InteractionHand.MAIN_HAND);
         }
     }

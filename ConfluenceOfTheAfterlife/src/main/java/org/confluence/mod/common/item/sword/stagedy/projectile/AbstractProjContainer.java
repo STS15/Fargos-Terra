@@ -9,19 +9,19 @@ import org.confluence.mod.common.entity.projectile.SwordProjectile;
  * 这个文件夹定义弹幕的大体释放逻辑，参数可以在strategy调整
  * @author coffee
  */
-public abstract class AbstractProjContainer { // 剑气
+public interface  AbstractProjContainer { // 剑气
 
-    public abstract int getCooldown();
+    int getCooldown();
 
-    public abstract float getBaseVelocity();
+    float getBaseVelocity();
 
-    public abstract SoundEvent getSound();
+    SoundEvent getSound();
 
-    public abstract SwordProjectile getProjectile(Player player);
+    SwordProjectile getProjectile(Player player);
 
-    public abstract void genProjectile(Player owner);
+    void genProjectile(Player owner);
 
-    public abstract float getVelocity(LivingEntity living);
+    float getVelocity(LivingEntity living);
 
-    public abstract int getAttackSpeed(LivingEntity living);
+    int getAttackSpeed(LivingEntity living);
 }
