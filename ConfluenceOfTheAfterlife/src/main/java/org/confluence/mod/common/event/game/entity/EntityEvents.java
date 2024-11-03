@@ -16,7 +16,7 @@ public final class EntityEvents {
 //    public static void entityMount(EntityMountEvent event) {
 //        if (event.isMounting() || event.getLevel().isClientSide) return;
 //        if (event.getEntityMounting() instanceof Player player && event.getEntityBeingMounted() instanceof AbstractMinecart abstractMinecart) {
-//            Item item = Confluence.MINECART_CURIO.get(abstractMinecart.getType());
+//            Item item = Confluence.MINECART_CURIO.getPrefab(abstractMinecart.getType());
 //            if (item == null) return;
 //            ItemStack itemStack = new ItemStack(item);
 //            if (CuriosUtils.getSlot(player, "minecart", 0).isEmpty()) {

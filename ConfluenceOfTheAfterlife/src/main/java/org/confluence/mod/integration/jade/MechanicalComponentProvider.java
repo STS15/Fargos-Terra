@@ -40,7 +40,7 @@ public class MechanicalComponentProvider implements IBlockComponentProvider, ISe
 
     @Override
     public void appendServerData(CompoundTag compoundTag, BlockAccessor blockAccessor) {
-//        if (!blockAccessor.getPlayer().isCreative() && blockAccessor.getBlock() == ModBlocks.DEATH_CHEST_BLOCK.get()) return;
+//        if (!blockAccessor.getPlayer().isCreative() && blockAccessor.getBlock() == ModBlocks.DEATH_CHEST_BLOCK.getPrefab()) return;
 //        if (blockAccessor.getBlockEntity() instanceof INetworkEntity entity) {
 //            NetworkNode networkNode = entity.getOrCreateNetworkNode();
 //            ListTag listTag = new ListTag();

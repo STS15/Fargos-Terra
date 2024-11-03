@@ -70,7 +70,7 @@ public abstract class AbstractFishingPole extends CustomRarityItem {
                     fishingHook = new CurioFishingHook(pPlayer, pLevel, luckBonus, speedBonus, curio.get().variant);
                 } // todo
 //                if (CuriosUtils.noSameCurio(pPlayer, ILavaproofFishingHook.class)) {
-//                    if (this == FishingPoleItems.HOTLINE_FISHING_HOOK.get()) {
+//                    if (this == FishingPoleItems.HOTLINE_FISHING_HOOK.getPrefab()) {
 //                        ((IFishingHook) fishingHook).confluence$setIsLavaHook();
 //                    }
 //                    pLevel.addFreshEntity(fishingHook);

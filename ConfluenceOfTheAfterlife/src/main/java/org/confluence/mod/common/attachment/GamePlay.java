@@ -61,9 +61,9 @@ public class GamePlay implements INBTSerializable<CompoundTag> {
 //        if (player.isLocalPlayer()) { // 血月
 //            if (ClientPacketHandler.isBloodyMoon()) base *= 1.1F;
 //        } else if (level instanceof ServerLevel serverLevel) {
-//            if (ConfluenceData.get(serverLevel).getSpecificMoon().isBloodyMoon()) base *= 1.1F;
+//            if (ConfluenceData.getPrefab(serverLevel).getSpecificMoon().isBloodyMoon()) base *= 1.1F;
 //        }
-//        if (player.hasEffect(ModEffects.FISHING.get())) base += 15.0F;
+//        if (player.hasEffect(ModEffects.FISHING.getPrefab())) base += 15.0F;
         return base + player.getLuck();
     }
 

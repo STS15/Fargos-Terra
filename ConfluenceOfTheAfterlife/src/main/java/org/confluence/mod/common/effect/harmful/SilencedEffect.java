@@ -10,7 +10,7 @@ public class SilencedEffect extends MobEffect { //沉默 禁用使用魔力的�
     }
 
 //    public static void onRightClick(LivingEntity entity, PlayerInteractEvent.RightClickItem event) {
-//        if (!entity.isSpectator() && entity.isUsingItem() && event.getItemStack().getItem() instanceof IManaWeapon && entity.hasEffect(ModEffects.SILENCED.get())) {
+//        if (!entity.isSpectator() && entity.isUsingItem() && event.getItemStack().getItem() instanceof IManaWeapon && entity.hasEffect(ModEffects.SILENCED.getPrefab())) {
 //            event.setCanceled(true);
 //        }
 //    }

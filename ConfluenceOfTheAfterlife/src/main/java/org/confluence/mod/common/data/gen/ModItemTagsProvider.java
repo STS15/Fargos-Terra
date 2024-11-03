@@ -33,40 +33,40 @@ public class ModItemTagsProvider extends ItemTagsProvider {
 
 //        Hooks.acceptTag(tag(ModTags.Items.HOOK));
         tag(ModTags.Items.MINECART).add(Items.MINECART);
-//        tag(ModTags.Items.PROVIDE_MANA).add(ModItems.STAR.get(), ModItems.SOUL_CAKE.get(), ModItems.SUGAR_PLUM.get());
-//        tag(ModTags.Items.PROVIDE_LIFE).add(ModItems.HEART.get(), ModItems.CANDY_APPLE.get(), ModItems.CANDY_CANE.get());
-//        tag(ModTags.Items.DESERT_FOSSIL).add(ModBlocks.DESERT_FOSSIL.get().asItem());
+//        tag(ModTags.Items.PROVIDE_MANA).add(ModItems.STAR.getPrefab(), ModItems.SOUL_CAKE.getPrefab(), ModItems.SUGAR_PLUM.getPrefab());
+//        tag(ModTags.Items.PROVIDE_LIFE).add(ModItems.HEART.getPrefab(), ModItems.CANDY_APPLE.getPrefab(), ModItems.CANDY_CANE.getPrefab());
+//        tag(ModTags.Items.DESERT_FOSSIL).add(ModBlocks.DESERT_FOSSIL.getPrefab().asItem());
         tag(ModTags.Items.GRAVEL).add(Blocks.GRAVEL.asItem());
-//        tag(ModTags.Items.SLUSH).add(ModBlocks.SLUSH.get().asItem());
-//        tag(ModTags.Items.MARINE_GRAVEL).add(ModBlocks.MARINE_GRAVEL.get().asItem());
+//        tag(ModTags.Items.SLUSH).add(ModBlocks.SLUSH.getPrefab().asItem());
+//        tag(ModTags.Items.MARINE_GRAVEL).add(ModBlocks.MARINE_GRAVEL.getPrefab().asItem());
         tag(ModTags.Items.JUNK).add(Blocks.LILY_PAD.asItem(), Items.LEATHER_BOOTS, Blocks.SEAGRASS.asItem());
         tag(ModTags.Items.CORAL).add(Blocks.TUBE_CORAL.asItem(), Blocks.TUBE_CORAL_FAN.asItem(), Blocks.TUBE_CORAL_BLOCK.asItem(), Blocks.BRAIN_CORAL.asItem(), Blocks.BRAIN_CORAL_FAN.asItem(), Blocks.BRAIN_CORAL_BLOCK.asItem(),
                 Blocks.BUBBLE_CORAL.asItem(), Blocks.BUBBLE_CORAL_FAN.asItem(), Blocks.BUBBLE_CORAL_BLOCK.asItem(), Blocks.FIRE_CORAL.asItem(), Blocks.FIRE_CORAL_FAN.asItem(), Blocks.FIRE_CORAL_BLOCK.asItem(), Blocks.HORN_CORAL.asItem(), Blocks.HORN_CORAL_FAN.asItem(), Blocks.HORN_CORAL_BLOCK.asItem(),
                 Blocks.DEAD_TUBE_CORAL.asItem(), Blocks.DEAD_TUBE_CORAL_FAN.asItem(), Blocks.DEAD_TUBE_CORAL_BLOCK.asItem(), Blocks.DEAD_BRAIN_CORAL.asItem(), Blocks.DEAD_BRAIN_CORAL_FAN.asItem(), Blocks.DEAD_BRAIN_CORAL_BLOCK.asItem(),
                 Blocks.DEAD_BUBBLE_CORAL.asItem(), Blocks.DEAD_BUBBLE_CORAL_FAN.asItem(), Blocks.DEAD_BUBBLE_CORAL_BLOCK.asItem(), Blocks.DEAD_FIRE_CORAL.asItem(), Blocks.DEAD_FIRE_CORAL_FAN.asItem(), Blocks.DEAD_FIRE_CORAL_BLOCK.asItem(), Blocks.DEAD_HORN_CORAL.asItem(), Blocks.DEAD_HORN_CORAL_FAN.asItem(), Blocks.DEAD_HORN_CORAL_BLOCK.asItem());
         tag(ModTags.Items.TR_PLANKS).add(
-//                ModBlocks.EBONY_LOG_BLOCKS.PLANKS.get().asItem(), ModBlocks.SHADOW_LOG_BLOCKS.PLANKS.get().asItem(), ModBlocks.PALM_LOG_BLOCKS.PLANKS.get().asItem(),
-//                ModBlocks.SPOOKY_LOG_BLOCKS.PLANKS.get().asItem(), ModBlocks.ASH_LOG_BLOCKS.PLANKS.get().asItem(), ModBlocks.PEARL_LOG_BLOCKS.PLANKS.get().asItem(), Blocks.OAK_PLANKS.asItem(), Blocks.SPRUCE_PLANKS.asItem(),
+//                ModBlocks.EBONY_LOG_BLOCKS.PLANKS.getPrefab().asItem(), ModBlocks.SHADOW_LOG_BLOCKS.PLANKS.getPrefab().asItem(), ModBlocks.PALM_LOG_BLOCKS.PLANKS.getPrefab().asItem(),
+//                ModBlocks.SPOOKY_LOG_BLOCKS.PLANKS.getPrefab().asItem(), ModBlocks.ASH_LOG_BLOCKS.PLANKS.getPrefab().asItem(), ModBlocks.PEARL_LOG_BLOCKS.PLANKS.getPrefab().asItem(), Blocks.OAK_PLANKS.asItem(), Blocks.SPRUCE_PLANKS.asItem(),
                 Blocks.ACACIA_PLANKS.asItem(), Blocks.DARK_OAK_PLANKS.asItem(), Blocks.JUNGLE_PLANKS.asItem(), Blocks.MANGROVE_PLANKS.asItem(), Blocks.CHERRY_PLANKS.asItem(), Blocks.BAMBOO_PLANKS.asItem(), Blocks.CRIMSON_PLANKS.asItem(),
                 Blocks.BIRCH_PLANKS.asItem(), Blocks.WARPED_PLANKS.asItem());
         tag(ModTags.Items.LEAD_AND_IRON).add(Items.IRON_INGOT, MaterialItems.LEAD_INGOT.get());
         IntrinsicTagAppender<Item> torch = tag(ModTags.Items.TORCH);
         torch.add(Items.TORCH, Items.SOUL_TORCH);
-//        for (Torches torches : Torches.values()) torch.add(torches.item.get());
+//        for (Torches torches : Torches.values()) torch.add(torches.item.getPrefab());
 //        tag(ModTags.Items.BOTTOMLESS).add(
-//                ModItems.BOTTOMLESS_WATER_BUCKET.get(),
-//                ModItems.BOTTOMLESS_LAVA_BUCKET.get(),
-//                ModItems.BOTTOMLESS_HONEY_BUCKET.get(),
-//                ModItems.BOTTOMLESS_SHIMMER_BUCKET.get()
+//                ModItems.BOTTOMLESS_WATER_BUCKET.getPrefab(),
+//                ModItems.BOTTOMLESS_LAVA_BUCKET.getPrefab(),
+//                ModItems.BOTTOMLESS_HONEY_BUCKET.getPrefab(),
+//                ModItems.BOTTOMLESS_SHIMMER_BUCKET.getPrefab()
 //        );
 //        tag(ModTags.Items.FRUIT).add(
-//                Items.APPLE, Items.MELON_SLICE, Foods.APRICOT.get(),
-//                Foods.BANANA.get(), Foods.CHERRY.get(), Foods.COCONUT.get(),
-//                Foods.DRAGON_FRUIT.get(), Foods.GRAPE_FRUIT.get(), Foods.LEMON.get(),
-//                Foods.MANGO.get(), Foods.PEACH.get(), Foods.PINEAPPLE.get(),
-//                Foods.PLUM.get(), Foods.GRAPE.get(), Foods.SPICY_PEPPER.get(),
-//                Foods.STAR_FRUIT.get(), Foods.POMEGRANATE.get(), Foods.RAMBUTAN.get(),
-//                Foods.BLOOD_ORANGE.get(), Foods.ELDERBERRY.get(), Foods.BLACKCURRANT.get()
+//                Items.APPLE, Items.MELON_SLICE, Foods.APRICOT.getPrefab(),
+//                Foods.BANANA.getPrefab(), Foods.CHERRY.getPrefab(), Foods.COCONUT.getPrefab(),
+//                Foods.DRAGON_FRUIT.getPrefab(), Foods.GRAPE_FRUIT.getPrefab(), Foods.LEMON.getPrefab(),
+//                Foods.MANGO.getPrefab(), Foods.PEACH.getPrefab(), Foods.PINEAPPLE.getPrefab(),
+//                Foods.PLUM.getPrefab(), Foods.GRAPE.getPrefab(), Foods.SPICY_PEPPER.getPrefab(),
+//                Foods.STAR_FRUIT.getPrefab(), Foods.POMEGRANATE.getPrefab(), Foods.RAMBUTAN.getPrefab(),
+//                Foods.BLOOD_ORANGE.getPrefab(), Foods.ELDERBERRY.getPrefab(), Foods.BLACKCURRANT.getPrefab()
 //        );
 
         BowItems.BOWS.getEntries().forEach(entry -> tag(Tags.Items.TOOLS_BOW).add(entry.get()));
@@ -79,11 +79,11 @@ public class ModItemTagsProvider extends ItemTagsProvider {
 //        rangedWeapon.addTag(Tags.Items.TOOLS_BOWS);
 //        rangedWeapon.addTag(Tags.Items.TOOLS_CROSSBOWS);
 //        rangedWeapon.addTag(Tags.Items.TOOLS_TRIDENTS);
-//        for (ManaWeapons manaWeapons : ManaWeapons.values()) rangedWeapon.add(manaWeapons.get());
-//        tag(ModTags.Items.COIN).add(ModItems.COPPER_COIN.get(), ModItems.SILVER_COIN.get(), ModItems.GOLDEN_COIN.get(), ModItems.PLATINUM_COIN.get());
-//        tag(ItemTags.MUSIC_DISCS).add(ModItems.ALPHA.get());
+//        for (ManaWeapons manaWeapons : ManaWeapons.values()) rangedWeapon.add(manaWeapons.getPrefab());
+//        tag(ModTags.Items.COIN).add(ModItems.COPPER_COIN.getPrefab(), ModItems.SILVER_COIN.getPrefab(), ModItems.GOLDEN_COIN.getPrefab(), ModItems.PLATINUM_COIN.getPrefab());
+//        tag(ItemTags.MUSIC_DISCS).add(ModItems.ALPHA.getPrefab());
 //        IntrinsicTagAppender<Item> hammer = tag(ModTags.Items.HAMMER);
-//        for (Hammers hammers : Hammers.values()) hammer.add(hammers.get());
+//        for (Hammers hammers : Hammers.values()) hammer.add(hammers.getPrefab());
 
     }
 }

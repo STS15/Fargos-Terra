@@ -20,7 +20,7 @@ public class ShineEffect extends MobEffect {
 //
 //    public static void onRemove(Holder<MobEffect> mobEffect, LivingEntity living) {
 //        if (mobEffect == ModEffects.SHINE && living instanceof ServerPlayer serverPlayer) {
-//            boolean curio = CuriosUtils.hasCurio(living, CurioItems.MAGILUMINESCENCE.get());
+//            boolean curio = CuriosUtils.hasCurio(living, CurioItems.MAGILUMINESCENCE.getPrefab());
 //            NetworkHandler.CHANNEL.send(
 //                PacketDistributor.PLAYER.with(() -> serverPlayer),
 //                new PlayerLightPacketS2C(serverPlayer.getUUID(), curio)

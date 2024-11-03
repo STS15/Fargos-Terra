@@ -18,7 +18,7 @@ public final class GameEvents {
 //    @SubscribeEvent
 //    public static void onRegisterTeamData(RegisterTeamDataEvent event) {
 //        ModEntities.ENTITIES.getEntries().forEach(entry -> {
-//            EntityType<?> entityType = entry.get();
+//            EntityType<?> entityType = entry.getPrefab();
 //            event.registerTeamData(entityType, data -> data.setCanTeam(false));
 //        });
 //    }
@@ -35,15 +35,15 @@ public final class GameEvents {
 
     @SubscribeEvent
     public static void shimmerTransmutation$Post(ShimmerItemTransmutationEvent.Post event) {
-//        if (ConfluenceData.get((ServerLevel) event.getSource().level()).isGraduated()) {
+//        if (ConfluenceData.getPrefab((ServerLevel) event.getSource().level()).isGraduated()) {
 //            ItemStack itemStack = event.getSource().getItem();
 //            Item item = itemStack.getItem();
-//            if (item == ModItems.BOTTOMLESS_WATER_BUCKET.get()) {
+//            if (item == ModItems.BOTTOMLESS_WATER_BUCKET.getPrefab()) {
 //                event.setShrink(1);
-//                event.setTargets(Collections.singletonList(new ItemStack(ModItems.BOTTOMLESS_SHIMMER_BUCKET.get())));
-//            } else if (item == ModItems.BOTTOMLESS_SHIMMER_BUCKET.get()) {
+//                event.setTargets(Collections.singletonList(new ItemStack(ModItems.BOTTOMLESS_SHIMMER_BUCKET.getPrefab())));
+//            } else if (item == ModItems.BOTTOMLESS_SHIMMER_BUCKET.getPrefab()) {
 //                event.setShrink(1);
-//                event.setTargets(Collections.singletonList(new ItemStack(ModItems.BOTTOMLESS_WATER_BUCKET.get())));
+//                event.setTargets(Collections.singletonList(new ItemStack(ModItems.BOTTOMLESS_WATER_BUCKET.getPrefab())));
 //            }
 //        }
     }

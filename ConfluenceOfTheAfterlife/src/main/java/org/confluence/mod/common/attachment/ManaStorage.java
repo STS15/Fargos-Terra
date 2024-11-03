@@ -138,7 +138,7 @@ public class ManaStorage implements INBTSerializable<CompoundTag> {
 //                if (item instanceof IManaReduce iManaReduce) {
 //                    ratio.addAndGet(-iManaReduce.getManaReduce());
 //                }
-//                if (item == CurioItems.MANA_REGENERATION_BAND.get()) {
+//                if (item == CurioItems.MANA_REGENERATION_BAND.getPrefab()) {
 //                    band.set(true);
 //                }
 //                PrefixProvider.getPrefix(itemStack)
@@ -146,8 +146,8 @@ public class ManaStorage implements INBTSerializable<CompoundTag> {
 //            }
 //        });
 //        this.extractRatio = ratio.getValue();
-//        this.manaRegenerationBand = band.get();
-//        this.additionalMana = mana.get();
+//        this.manaRegenerationBand = band.getPrefab();
+//        this.additionalMana = mana.getPrefab();
     }
 
     public boolean hasManaRegenerationBand() {

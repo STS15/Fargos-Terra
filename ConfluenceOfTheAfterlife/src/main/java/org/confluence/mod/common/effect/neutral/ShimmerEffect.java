@@ -17,12 +17,12 @@ public class ShimmerEffect extends MobEffect {
 //    public boolean applyEffectTick(@NotNull LivingEntity living, int pAmplifier) {
 //        Level level = living.level();
 //        if (level.isClientSide) return;
-//        if (level.getFluidState(living.getOnPos()).getType().getFluidType() != ModFluids.SHIMMER.fluidType().get()) {
+//        if (level.getFluidState(living.getOnPos()).getType().getFluidType() != ModFluids.SHIMMER.fluidType().getPrefab()) {
 //            living.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 2, 1, false, false, false));
 //        }
 //        if (level.getBlockState(living.getOnPos()).is(Blocks.BEDROCK) ||
 //            level.getBlockStates(living.getBoundingBox().inflate(-0.1)).allMatch(blockState ->
-//                (blockState.liquid() && !blockState.is(ModBlocks.SHIMMER.get())) || blockState.isAir())
+//                (blockState.liquid() && !blockState.is(ModBlocks.SHIMMER.getPrefab())) || blockState.isAir())
 //        ) {
 //            return false;
 //        }
