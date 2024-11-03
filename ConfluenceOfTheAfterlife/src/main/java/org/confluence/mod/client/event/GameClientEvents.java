@@ -8,6 +8,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.*;
 import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
 import org.confluence.mod.Confluence;
+import org.confluence.mod.client.gui.hud.ArrowInBowHud;
 import org.confluence.mod.common.init.ModEffects;
 import org.confluence.mod.common.item.sword.stagedy.ProjectileStrategy;
 import org.confluence.terra_curio.api.event.PerformJumpingEvent;
@@ -24,7 +25,7 @@ public final class GameClientEvents {
     public static void clientTick$Post(ClientTickEvent.Post event) {
         Player player = Minecraft.getInstance().player;
         // 弹幕
-        if(player!=null){
+        if (player != null) {
             ProjectileStrategy.handle();
         }
 
@@ -95,5 +96,10 @@ public final class GameClientEvents {
         if (event.isCanPerform() && event.getEntity().hasEffect(ModEffects.SHIMMER)) {
             event.setCanPerform(false);
         }
+    }
+
+    @SubscribeEvent
+    public static void renderHandEvent(RenderHandEvent event) {
+        ArrowInBowHud.render(event);
     }
 }
