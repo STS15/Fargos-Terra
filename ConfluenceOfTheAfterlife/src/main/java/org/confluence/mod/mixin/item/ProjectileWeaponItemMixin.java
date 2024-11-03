@@ -24,9 +24,4 @@ public abstract class ProjectileWeaponItemMixin {
             ShortBowItem.applyToArrow(weapon, abstractArrow);
         }
     }
-
-//    @WrapWithCondition(method = "useAmmo", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/ItemStack;split(I)Lnet/minecraft/world/item/ItemStack;"))
-//    private static boolean canAmmoUse(ItemStack instance, int amount, @Local(argsOnly = true, ordinal = 1) ItemStack ammo, @Local(argsOnly = true) LivingEntity shooter) {
-//        return !(ammo.getItem() instanceof ArrowItem) || MagicQuiver.shouldConsume(shooter);
-//    }
 }

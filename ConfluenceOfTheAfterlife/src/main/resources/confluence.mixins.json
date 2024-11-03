@@ -14,7 +14,6 @@
         "integration.terra_curio.ModTabsMixin",
         "item.BowItemMixin",
         "item.BucketItemMixin",
-        "item.CrossbowItemMixin",
         "item.FishingRodItemMixin",
         "item.HoneyBottleItemMixin",
         "item.ProjectileWeaponItemMixin"
