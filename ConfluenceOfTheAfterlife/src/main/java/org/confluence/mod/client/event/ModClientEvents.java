@@ -21,10 +21,11 @@ import org.confluence.mod.client.renderer.entity.fishing.BaseFishingHookRenderer
 import org.confluence.mod.client.renderer.entity.fishing.BloodyFishingHookRenderer;
 import org.confluence.mod.client.renderer.entity.fishing.GlowingFishingHookRenderer;
 import org.confluence.mod.client.renderer.entity.fishing.HotlineFishingHookRenderer;
-import org.confluence.mod.client.renderer.entity.projectile.*;
+import org.confluence.mod.client.renderer.entity.projectile.EnchantedSwordProjectileRenderer;
+import org.confluence.mod.client.renderer.entity.projectile.IceBladeSwordProjectileRenderer;
+import org.confluence.mod.client.renderer.entity.projectile.StarFuryProjectileRenderer;
 import org.confluence.mod.client.renderer.entity.projectile.TerraArrowRenderer;
 import org.confluence.mod.client.renderer.gui.HealthHudLayer;
-import org.confluence.mod.client.renderer.gui.InfoHudOverlay;
 import org.confluence.mod.client.renderer.gui.ManaHudLayer;
 import org.confluence.mod.common.init.item.BowItems;
 import org.confluence.mod.common.init.item.FishingPoleItems;
@@ -50,7 +51,6 @@ public final class ModClientEvents {
     @SubscribeEvent
     public static void registerGuiLayers(RegisterGuiLayersEvent event) {
         event.registerBelow(VanillaGuiLayers.SELECTED_ITEM_NAME, Confluence.asResource("mana_hud"), new ManaHudLayer());
-        event.registerAboveAll(Confluence.asResource("info_hud"), new InfoHudOverlay());
         event.registerAboveAll(Confluence.asResource("health_hud"), new HealthHudLayer());
     }
 
