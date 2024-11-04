@@ -625,11 +625,11 @@ public class ModChineseProvider extends LanguageProvider {
         add(ModOreBlocks.CORRUPTION_AMBER_ORE.get(), "腐化琥珀矿石");
         add(ModOreBlocks.FLESHIFICATION_AMBER_ORE.get(), "血化琥珀矿石");
         add(ModOreBlocks.DEEPSLATE_AMBER_ORE.get(), "深层琥珀矿石");
-//        add(ModOreBlocks.TR_EMERALD_ORE.getPrefab(), "翡翠矿石");
-//        add(ModOreBlocks.SANCTIFICATION_TR_EMERALD_ORE.getPrefab(), "圣化翡翠矿石");
-//        add(ModOreBlocks.CORRUPTION_TR_EMERALD_ORE.getPrefab(), "腐化翡翠矿石");
-//        add(ModOreBlocks.FLESHIFICATION_TR_EMERALD_ORE.getPrefab(), "血化翡翠矿石");
-//        add(ModOreBlocks.DEEPSLATE_TR_EMERALD_ORE.getPrefab(), "深层翡翠矿石");
+//        add(ModOreBlocks.TR_EMERALD_ORE.get(), "翡翠矿石");
+//        add(ModOreBlocks.SANCTIFICATION_TR_EMERALD_ORE.get(), "圣化翡翠矿石");
+//        add(ModOreBlocks.CORRUPTION_TR_EMERALD_ORE.get(), "腐化翡翠矿石");
+//        add(ModOreBlocks.FLESHIFICATION_TR_EMERALD_ORE.get(), "血化翡翠矿石");
+//        add(ModOreBlocks.DEEPSLATE_TR_EMERALD_ORE.get(), "深层翡翠矿石");
         add(ModOreBlocks.TR_AMETHYST_ORE.get(), "异域紫晶矿石");
         add(ModOreBlocks.SANCTIFICATION_TR_AMETHYST_ORE.get(), "圣化异域紫晶矿石");
         add(ModOreBlocks.CORRUPTION_TR_AMETHYST_ORE.get(), "腐化异域紫晶矿石");
@@ -672,22 +672,22 @@ public class ModChineseProvider extends LanguageProvider {
         add(ModOreBlocks.HELLSTONE_BLOCK.get(), "狱石块");
         add(ModOreBlocks.RAW_HELLSTONE_BLOCK.get(), "狱石原矿块");
         add(ModOreBlocks.RAW_COBALT_BLOCK.get(), "钴原矿");
-//        add(ModOreBlocks.DEEPSLATE_COBALT_ORE.getPrefab(), "深层钴矿");
+//        add(ModOreBlocks.DEEPSLATE_COBALT_ORE.get(), "深层钴矿");
         add(ModOreBlocks.COBALT_BLOCK.get(), "钴块");
         add(ModOreBlocks.RAW_PALLADIUM_BLOCK.get(), "钯金原矿");
-//        add(ModOreBlocks.DEEPSLATE_PALLADIUM_ORE.getPrefab(), "深层钯金矿");
+//        add(ModOreBlocks.DEEPSLATE_PALLADIUM_ORE.get(), "深层钯金矿");
         add(ModOreBlocks.PALLADIUM_BLOCK.get(), "钯金块");
         add(ModOreBlocks.RAW_MITHRIL_BLOCK.get(), "秘银原矿");
-//        add(ModOreBlocks.DEEPSLATE_MITHRIL_ORE.getPrefab(), "深层秘银矿");
+//        add(ModOreBlocks.DEEPSLATE_MITHRIL_ORE.get(), "深层秘银矿");
         add(ModOreBlocks.MITHRIL_BLOCK.get(), "秘银块");
         add(ModOreBlocks.RAW_ORICHALCUM_BLOCK.get(), "山铜原矿");
-//        add(ModOreBlocks.DEEPSLATE_ORICHALCUM_ORE.getPrefab(), "深层山铜矿");
+//        add(ModOreBlocks.DEEPSLATE_ORICHALCUM_ORE.get(), "深层山铜矿");
         add(ModOreBlocks.ORICHALCUM_BLOCK.get(), "山铜块");
         add(ModOreBlocks.RAW_ADAMANTITE_BLOCK.get(), "精金原矿");
-//        add(ModOreBlocks.DEEPSLATE_ADAMANTITE_ORE.getPrefab(), "深层精金矿");
+//        add(ModOreBlocks.DEEPSLATE_ADAMANTITE_ORE.get(), "深层精金矿");
         add(ModOreBlocks.ADAMANTITE_BLOCK.get(), "精金块");
         add(ModOreBlocks.RAW_TITANIUM_BLOCK.get(), "钛金原矿");
-//        add(ModOreBlocks.DEEPSLATE_TITANIUM_ORE.getPrefab(), "深层钛金矿");
+//        add(ModOreBlocks.DEEPSLATE_TITANIUM_ORE.get(), "深层钛金矿");
         add(ModOreBlocks.TITANIUM_BLOCK.get(), "钛金块");
         add(ModOreBlocks.CHLOROPHYTE_ORE.get(), "叶绿矿");
         add(ModOreBlocks.CHLOROPHYTE_BLOCK.get(), "叶绿块");
@@ -779,20 +779,20 @@ public class ModChineseProvider extends LanguageProvider {
         add(ASH_LOG_BLOCKS.PRESSURE_PLATE.get(), "白蜡木压力板");
 
 /*
-        add(LIFE_LOG.getPrefab(), "生命原木");
-        add(LIFE_LEAVES.getPrefab(), "生命木树叶");
-        add(LIFE_PLANKS.getPrefab(), "生命木板");
+        add(LIFE_LOG.get(), "生命原木");
+        add(LIFE_LEAVES.get(), "生命木树叶");
+        add(LIFE_PLANKS.get(), "生命木板");
         */
 
 
-//      add(ModBlocks.DESERT_FOSSIL.getPrefab(), "沙漠化石");
+//      add(ModBlocks.DESERT_FOSSIL.get(), "沙漠化石");
       add(ModBlocks.HARDENED_SAND_BLOCK.get(), "硬化沙块");
         add(ModBlocks.SAND_LAYER_BLOCK.get(),"沙片");
         add(ModBlocks.RED_SAND_LAYER_BLOCK.get(), "红沙片");
-//        add(ModBlocks.RED_HARDENED_SAND_BLOCK.getPrefab(), "硬化红沙块");
-//        add(ModBlocks.DIATOMACEOUS.getPrefab(), "硅藻土");
-//        add(ModBlocks.SLUSH.getPrefab(), "雪泥块");
-//        add(ModBlocks.MARINE_GRAVEL.getPrefab(), "海洋砂砾");
+//        add(ModBlocks.RED_HARDENED_SAND_BLOCK.get(), "硬化红沙块");
+//        add(ModBlocks.DIATOMACEOUS.get(), "硅藻土");
+//        add(ModBlocks.SLUSH.get(), "雪泥块");
+//        add(ModBlocks.MARINE_GRAVEL.get(), "海洋砂砾");
         add(ModBlocks.EBONY_STONE.get(), "黑檀石块");
         add(ModBlocks.EBONY_COBBLESTONE.get(), "黑檀圆石");
         add(ModBlocks.EBONY_HARDENED_SAND_BLOCK.get(), "硬化黑檀沙块");
@@ -824,30 +824,30 @@ public class ModChineseProvider extends LanguageProvider {
         add(ModBlocks.ASH_BLOCK.get(), "灰烬块");
         add(ModBlocks.ASH_GRASS_BLOCK.get(), "灰烬草块");
         add(ModBlocks.ASH_GRASS.get(), "灰烬草");
-//        add(ModBlocks.BIG_RUBY_BLOCK.getPrefab(), "大红玉块");
-//        add(ModBlocks.BIG_AMBER_BLOCK.getPrefab(), "大琥珀块");
-//        add(ModBlocks.BIG_TOPAZ_BLOCK.getPrefab(), "大黄玉块");
-//        add(ModBlocks.BIG_TR_EMERALD_BLOCK.getPrefab(), "大翡翠块");
-//        add(ModBlocks.BIG_SAPPHIRE_BLOCK.getPrefab(), "大蓝玉块");
-//        add(ModBlocks.BIG_TR_AMETHYST_BLOCK.getPrefab(), "大紫晶块");
-//        add(ModBlocks.TR_POLISHED_GRANITE.getPrefab(), "异域花岗岩块");
-//        add(ModBlocks.POLISHED_MARBLE.getPrefab(), "异域大理石块");
+//        add(ModBlocks.BIG_RUBY_BLOCK.get(), "大红玉块");
+//        add(ModBlocks.BIG_AMBER_BLOCK.get(), "大琥珀块");
+//        add(ModBlocks.BIG_TOPAZ_BLOCK.get(), "大黄玉块");
+//        add(ModBlocks.BIG_TR_EMERALD_BLOCK.get(), "大翡翠块");
+//        add(ModBlocks.BIG_SAPPHIRE_BLOCK.get(), "大蓝玉块");
+//        add(ModBlocks.BIG_TR_AMETHYST_BLOCK.get(), "大紫晶块");
+//        add(ModBlocks.TR_POLISHED_GRANITE.get(), "异域花岗岩块");
+//        add(ModBlocks.POLISHED_MARBLE.get(), "异域大理石块");
         add(ModDecorativeBlocks.TR_COPPER_BRICKS.get(), "铜砖块");
-//        add(ModBlocks.TR_COPPER_PLATE.getPrefab(), "铜条板块");
+//        add(ModBlocks.TR_COPPER_PLATE.get(), "铜条板块");
         add(ModDecorativeBlocks.TR_CRIMSON_ORE_BRICKS.get(), "猩红矿砖");
         add(ModDecorativeBlocks.TR_CRIMSON_ROCK_BRICKS.get(), "猩红石砖");
         add(ModDecorativeBlocks.TR_GOLD_BRICKS.get(), "金砖块");
         add(ModDecorativeBlocks.TR_IRON_BRICKS.get(), "铁砖块");
         add(ModDecorativeBlocks.TR_STONE_BRICKS.get(), "异域石砖");
-//        add(ModBlocks.EBONY_ORE_BRICKS.getPrefab(), "魔矿砖");
-//        add(ModBlocks.EBONY_ROCK_BRICKS.getPrefab(), "黑檀石砖");
+//        add(ModBlocks.EBONY_ORE_BRICKS.get(), "魔矿砖");
+//        add(ModBlocks.EBONY_ROCK_BRICKS.get(), "黑檀石砖");
         add(ModDecorativeBlocks.BLUE_GEL_BLOCK.get(), "凝胶块");
         add(ModDecorativeBlocks.GREEN_CANDY_BLOCK.get(), "绿色糖块");
         add(ModDecorativeBlocks.ICE_BRICKS.get(), "冰砖块");
         add(ModDecorativeBlocks.FROZEN_GEL_BLOCK.get(), "冻凝胶块");
         add(ModDecorativeBlocks.LEAD_BRICKS.get(), "铅砖块");
         add(ModDecorativeBlocks.METEORITE_BRICKS.get(), "陨石砖块");
-//        add(ModBlocks.PEARL_ROCK_BRICKS.getPrefab(), "珍珠石砖");
+//        add(ModBlocks.PEARL_ROCK_BRICKS.get(), "珍珠石砖");
         add(ModDecorativeBlocks.PINK_GEL_BLOCK.get(), "粉凝胶块");
         add(ModDecorativeBlocks.PLATINUM_BRICKS.get(), "铂金砖块");
         add(ModDecorativeBlocks.RED_CANDY_BLOCK.get(), "红色糖块");
@@ -855,7 +855,7 @@ public class ModChineseProvider extends LanguageProvider {
         add(ModDecorativeBlocks.SNOW_BRICKS.get(), "雪砖块");
         add(ModDecorativeBlocks.SUN_PLATE.get(), "日盘块");
         add(ModDecorativeBlocks.TIN_BRICKS.get(), "锡砖块");
-//        add(ModBlocks.TIN_PLATE.getPrefab(), "锡条板块");
+//        add(ModBlocks.TIN_PLATE.get(), "锡条板块");
         add(ModDecorativeBlocks.TUNGSTEN_BRICKS.get(), "钨砖块");
         add(ModDecorativeBlocks.TR_LAVA_BEAM.get(), "异域熔岩梁");
         add(ModDecorativeBlocks.TR_LAVA_BRICKS.get(), "异域熔岩砖块");
@@ -868,29 +868,29 @@ public class ModChineseProvider extends LanguageProvider {
         add(ModDecorativeBlocks.CRYSTAL_BLOCK.get(), "水晶块");
         add(ModDecorativeBlocks.RAINBOW_BRICK.get(), "彩虹砖");
         add(ModDecorativeBlocks.TR_OAK_BEAM.get(), "经典风情木梁");
-//        add(ModBlocks.TR_OAK_PLANKS.getPrefab(), "经典风情木板");
+//        add(ModBlocks.TR_OAK_PLANKS.get(), "经典风情木板");
         add(ModDecorativeBlocks.TR_NORTHLAND_BEAM.get(), "北地风情木梁");
-//        add(ModBlocks.TR_NORTHLAND_PLANKS.getPrefab(), "北地风情木板");
-//        add(ModBlocks.TR_GRANITE_COLUMN.getPrefab(), "异域花岗岩梁");
-//        add(ModBlocks.MARBLE_COLUMN.getPrefab(), "异域大理岩梁");
+//        add(ModBlocks.TR_NORTHLAND_PLANKS.get(), "北地风情木板");
+//        add(ModBlocks.TR_GRANITE_COLUMN.get(), "异域花岗岩梁");
+//        add(ModBlocks.MARBLE_COLUMN.get(), "异域大理岩梁");
         add(ModDecorativeBlocks.PURE_GLASS.get(), "纯净玻璃块");
-//        add(ModBlocks.WHITE_PURE_GLASS.getPrefab(), "白色纯净玻璃块");
-//        add(ModBlocks.LIGHT_GRAY_PURE_GLASS.getPrefab(), "淡灰色玻璃块");
-//        add(ModBlocks.GRAY_PURE_GLASS.getPrefab(), "灰色纯净玻璃块");
-//        add(ModBlocks.BLACK_PURE_GLASS.getPrefab(), "黑色纯净玻璃块");
-//        add(ModBlocks.BROWN_PURE_GLASS.getPrefab(), "棕色纯净玻璃块");
-//        add(ModBlocks.RED_PURE_GLASS.getPrefab(), "红色纯净玻璃块");
-//        add(ModBlocks.ORANGE_PURE_GLASS.getPrefab(), "橙色纯净玻璃块");
-//        add(ModBlocks.YELLOW_PURE_GLASS.getPrefab(), "黄色纯净玻璃块");
-//        add(ModBlocks.LIME_PURE_GLASS.getPrefab(), "黄绿色纯净玻璃块");
-//        add(ModBlocks.GREEN_PURE_GLASS.getPrefab(), "绿色纯净玻璃块");
-//        add(ModBlocks.CYAN_PURE_GLASS.getPrefab(), "青色纯净玻璃块");
-//        add(ModBlocks.LIGHT_BLUE_PURE_GLASS.getPrefab(), "淡蓝色纯净玻璃块");
-//        add(ModBlocks.BLUE_PURE_GLASS.getPrefab(), "蓝色纯净玻璃块");
-//        add(ModBlocks.PURPLE_PURE_GLASS.getPrefab(), "紫色纯净玻璃块");
-//        add(ModBlocks.MAGENTA_PURE_GLASS.getPrefab(), "品红纯净玻璃块");
-//        add(ModBlocks.PINK_PURE_GLASS.getPrefab(), "品红纯净玻璃块");
-//        add(ModBlocks.DISC_BLOCK.getPrefab(), "飞盘块");
+//        add(ModBlocks.WHITE_PURE_GLASS.get(), "白色纯净玻璃块");
+//        add(ModBlocks.LIGHT_GRAY_PURE_GLASS.get(), "淡灰色玻璃块");
+//        add(ModBlocks.GRAY_PURE_GLASS.get(), "灰色纯净玻璃块");
+//        add(ModBlocks.BLACK_PURE_GLASS.get(), "黑色纯净玻璃块");
+//        add(ModBlocks.BROWN_PURE_GLASS.get(), "棕色纯净玻璃块");
+//        add(ModBlocks.RED_PURE_GLASS.get(), "红色纯净玻璃块");
+//        add(ModBlocks.ORANGE_PURE_GLASS.get(), "橙色纯净玻璃块");
+//        add(ModBlocks.YELLOW_PURE_GLASS.get(), "黄色纯净玻璃块");
+//        add(ModBlocks.LIME_PURE_GLASS.get(), "黄绿色纯净玻璃块");
+//        add(ModBlocks.GREEN_PURE_GLASS.get(), "绿色纯净玻璃块");
+//        add(ModBlocks.CYAN_PURE_GLASS.get(), "青色纯净玻璃块");
+//        add(ModBlocks.LIGHT_BLUE_PURE_GLASS.get(), "淡蓝色纯净玻璃块");
+//        add(ModBlocks.BLUE_PURE_GLASS.get(), "蓝色纯净玻璃块");
+//        add(ModBlocks.PURPLE_PURE_GLASS.get(), "紫色纯净玻璃块");
+//        add(ModBlocks.MAGENTA_PURE_GLASS.get(), "品红纯净玻璃块");
+//        add(ModBlocks.PINK_PURE_GLASS.get(), "品红纯净玻璃块");
+//        add(ModBlocks.DISC_BLOCK.get(), "飞盘块");
 
 
         add(ModBlocks.CLOUD_BLOCK.get(), "云块");
@@ -899,85 +899,85 @@ public class ModChineseProvider extends LanguageProvider {
         add(ModBlocks.SNOW_CLOUD_BLOCK.get(), "雪云块");
         add(ModBlocks.THIN_ICE_BLOCK.get(), "薄冰块");
         add(ModBlocks.CRISPY_HONEY_BLOCK.get(), "松脆蜂蜜块");
-//        add(ModBlocks.LIFE_CRYSTAL_BLOCK.getPrefab(), "生命水晶");
-//        add(ModBlocks.CRIMSON_ALTAR.getPrefab(), "猩红祭坛");
-//        add(ModBlocks.DEMON_ALTAR.getPrefab(), "恶魔祭坛");
-//        add(ModBlocks.EXTRACTINATOR.getPrefab(), "提炼机");
-//        add(ModBlocks.FLOATING_WHEAT_BALE.getPrefab(), "飘飘麦捆");
-//        add(ModBlocks.BASE_CHEST_BLOCK.getPrefab(), "箱子");
-//        add(ModBlocks.JUNGLE_HIVE_BLOCK.getPrefab(), "丛林蜂巢");
-//        add(ModBlocks.THIN_HONEY_BLOCK.getPrefab(), "稀薄蜂蜜块");
-//        add(ModBlocks.LOOSE_HONEY_BLOCK.getPrefab(), "松散蜂蜜块");
-//        add(ModBlocks.SANCTIFICATION_REDSTONE_ORE.getPrefab(), "圣化红石矿石");
-//        add(ModBlocks.CORRUPTION_REDSTONE_ORE.getPrefab(), "腐化红石矿石");
-//        add(ModBlocks.FLESHIFICATION_REDSTONE_ORE.getPrefab(), "血化红石矿石");
-//        add(ModBlocks.OCULAR_BLOCKS.getPrefab(), "血肉眼球块");
+//        add(ModBlocks.LIFE_CRYSTAL_BLOCK.get(), "生命水晶");
+//        add(ModBlocks.CRIMSON_ALTAR.get(), "猩红祭坛");
+//        add(ModBlocks.DEMON_ALTAR.get(), "恶魔祭坛");
+//        add(ModBlocks.EXTRACTINATOR.get(), "提炼机");
+//        add(ModBlocks.FLOATING_WHEAT_BALE.get(), "飘飘麦捆");
+//        add(ModBlocks.BASE_CHEST_BLOCK.get(), "箱子");
+//        add(ModBlocks.JUNGLE_HIVE_BLOCK.get(), "丛林蜂巢");
+//        add(ModBlocks.THIN_HONEY_BLOCK.get(), "稀薄蜂蜜块");
+//        add(ModBlocks.LOOSE_HONEY_BLOCK.get(), "松散蜂蜜块");
+//        add(ModBlocks.SANCTIFICATION_REDSTONE_ORE.get(), "圣化红石矿石");
+//        add(ModBlocks.CORRUPTION_REDSTONE_ORE.get(), "腐化红石矿石");
+//        add(ModBlocks.FLESHIFICATION_REDSTONE_ORE.get(), "血化红石矿石");
+//        add(ModBlocks.OCULAR_BLOCKS.get(), "血肉眼球块");
         add(ModBlocks.SWORD_IN_STONE.get(), "石中剑");
-//        add(ModBlocks.WOOD_STONE_SLATTED_BLOCKS.getPrefab(), "木石板条块");
-//        add(ModBlocks.DEEPSLATE_PRESSURE_PLATE.getPrefab(), "深板岩压力板");
-//        add(ModBlocks.STONY_LOGS.getPrefab(), "石质原木");
-//        add(ModBlocks.AMBER_BRANCHES.getPrefab(), "琥珀石枝杈");
-//        add(ModBlocks.RUBY_BRANCHES.getPrefab(), "红玉石枝杈");
-//        add(ModBlocks.TOPAZ_BRANCHES.getPrefab(), "黄玉石枝杈");
-//        add(ModBlocks.EMERALD_BRANCHES.getPrefab(), "翡翠石枝杈");
-//        add(ModBlocks.DIAMOND_BRANCHES.getPrefab(), "钻石枝杈");
-//        add(ModBlocks.SAPPHIRE_BRANCHES.getPrefab(), "蓝玉石枝杈");
-//        add(ModBlocks.TR_AMETHYST_BRANCHES.getPrefab(), "紫晶石枝杈");
-//        add(ModBlocks.ASH_BRANCHES.getPrefab(), "白蜡枝杈");
+//        add(ModBlocks.WOOD_STONE_SLATTED_BLOCKS.get(), "木石板条块");
+//        add(ModBlocks.DEEPSLATE_PRESSURE_PLATE.get(), "深板岩压力板");
+//        add(ModBlocks.STONY_LOGS.get(), "石质原木");
+//        add(ModBlocks.AMBER_BRANCHES.get(), "琥珀石枝杈");
+//        add(ModBlocks.RUBY_BRANCHES.get(), "红玉石枝杈");
+//        add(ModBlocks.TOPAZ_BRANCHES.get(), "黄玉石枝杈");
+//        add(ModBlocks.EMERALD_BRANCHES.get(), "翡翠石枝杈");
+//        add(ModBlocks.DIAMOND_BRANCHES.get(), "钻石枝杈");
+//        add(ModBlocks.SAPPHIRE_BRANCHES.get(), "蓝玉石枝杈");
+//        add(ModBlocks.TR_AMETHYST_BRANCHES.get(), "紫晶石枝杈");
+//        add(ModBlocks.ASH_BRANCHES.get(), "白蜡枝杈");
         add(ModBlocks.CRACKED_BLUE_BRICK.get(), "碎裂蓝色地牢砖");
         add(ModBlocks.CRACKED_GREEN_BRICK.get(), "碎裂绿色地牢砖");
         add(ModBlocks.CRACKED_PINK_BRICK.get(), "碎裂粉色地牢砖");
-//        add(ModBlocks.BLUE_BRICK.getPrefab(), "蓝色地牢砖");
-//        add(ModBlocks.GREEN_BRICK.getPrefab(), "绿色地牢砖");
-//        add(ModBlocks.PINK_BRICK.getPrefab(), "粉色地牢砖");
-//        add(ModBlocks.AETHERIUM_BLOCK.getPrefab(), "以太块");
-//        add(ModBlocks.AETHERIUM_BRICK.getPrefab(), "以太砖");
-//        add(ModBlocks.DARK_AETHERIUM_BLOCK.getPrefab(),"黯淡以太块");
-//        add(ModBlocks.ANCIENT_COPPER_BRICKS.getPrefab(),"古代铜砖");
-//        add(ModBlocks.ANCIENT_TIN_BRICKS.getPrefab(),"古代锡砖");
-//        add(ModBlocks.ANCIENT_IRON_BRICKS.getPrefab(),"古代铁砖");
-//        add(ModBlocks.ANCIENT_LEAD_BRICKS.getPrefab(),"古代铅砖");
-//        add(ModBlocks.ANCIENT_TUNGSTEN_BRICKS.getPrefab(),"古代钨砖");
-//        add(ModBlocks.ANCIENT_PLATINUM_BRICKS.getPrefab(),"古代铂金砖");
+//        add(ModBlocks.BLUE_BRICK.get(), "蓝色地牢砖");
+//        add(ModBlocks.GREEN_BRICK.get(), "绿色地牢砖");
+//        add(ModBlocks.PINK_BRICK.get(), "粉色地牢砖");
+//        add(ModBlocks.AETHERIUM_BLOCK.get(), "以太块");
+//        add(ModBlocks.AETHERIUM_BRICK.get(), "以太砖");
+//        add(ModBlocks.DARK_AETHERIUM_BLOCK.get(),"黯淡以太块");
+//        add(ModBlocks.ANCIENT_COPPER_BRICKS.get(),"古代铜砖");
+//        add(ModBlocks.ANCIENT_TIN_BRICKS.get(),"古代锡砖");
+//        add(ModBlocks.ANCIENT_IRON_BRICKS.get(),"古代铁砖");
+//        add(ModBlocks.ANCIENT_LEAD_BRICKS.get(),"古代铅砖");
+//        add(ModBlocks.ANCIENT_TUNGSTEN_BRICKS.get(),"古代钨砖");
+//        add(ModBlocks.ANCIENT_PLATINUM_BRICKS.get(),"古代铂金砖");
 /*
-        add(Torches.RED_TORCH.item.getPrefab(), "红火把");
-        add(Torches.ORANGE_TORCH.item.getPrefab(), "橙火把");
-        add(Torches.YELLOW_TORCH.item.getPrefab(), "黄火把");
-        add(Torches.GREEN_TORCH.item.getPrefab(), "绿火把");
-        add(Torches.BLUE_TORCH.item.getPrefab(), "蓝火把");
-        add(Torches.WHITE_TORCH.item.getPrefab(), "白火把");
-        add(Torches.PURPLE_TORCH.item.getPrefab(), "紫火把");
-        add(Torches.ICE_TORCH.item.getPrefab(), "冰雪火把");
-        add(Torches.PINK_TORCH.item.getPrefab(), "粉火把");
-        add(Torches.BONE_TORCH.item.getPrefab(), "骨头火把");
-        add(Torches.ULTRABRIGHT_TORCH.item.getPrefab(), "超亮火把");
-        add(Torches.DEMON_TORCH.item.getPrefab(), "恶魔火把");
-        add(Torches.CURSED_TORCH.item.getPrefab(), "诅咒火把");
-        add(Torches.ICHOR_TORCH.item.getPrefab(), "灵液火把");
-        add(Torches.RAINBOW_TORCH.item.getPrefab(), "彩虹火把");
-        add(Torches.DESERT_TORCH.item.getPrefab(), "沙漠火把");
-        add(Torches.CORAL_TORCH.item.getPrefab(), "珊瑚火把");
-        add(Torches.CORRUPT_TORCH.item.getPrefab(), "腐化火把");
-        add(Torches.CRIMSON_TORCH.item.getPrefab(), "猩红火把");
-        add(Torches.HALLOWED_TORCH.item.getPrefab(), "神圣火把");
-        add(Torches.JUNGLE_TORCH.item.getPrefab(), "丛林火把");
-        add(Torches.MUSHROOM_TORCH.item.getPrefab(), "蘑菇火把");
-        add(Torches.AETHER_TORCH.item.getPrefab(), "以太火把");
+        add(Torches.RED_TORCH.item.get(), "红火把");
+        add(Torches.ORANGE_TORCH.item.get(), "橙火把");
+        add(Torches.YELLOW_TORCH.item.get(), "黄火把");
+        add(Torches.GREEN_TORCH.item.get(), "绿火把");
+        add(Torches.BLUE_TORCH.item.get(), "蓝火把");
+        add(Torches.WHITE_TORCH.item.get(), "白火把");
+        add(Torches.PURPLE_TORCH.item.get(), "紫火把");
+        add(Torches.ICE_TORCH.item.get(), "冰雪火把");
+        add(Torches.PINK_TORCH.item.get(), "粉火把");
+        add(Torches.BONE_TORCH.item.get(), "骨头火把");
+        add(Torches.ULTRABRIGHT_TORCH.item.get(), "超亮火把");
+        add(Torches.DEMON_TORCH.item.get(), "恶魔火把");
+        add(Torches.CURSED_TORCH.item.get(), "诅咒火把");
+        add(Torches.ICHOR_TORCH.item.get(), "灵液火把");
+        add(Torches.RAINBOW_TORCH.item.get(), "彩虹火把");
+        add(Torches.DESERT_TORCH.item.get(), "沙漠火把");
+        add(Torches.CORAL_TORCH.item.get(), "珊瑚火把");
+        add(Torches.CORRUPT_TORCH.item.get(), "腐化火把");
+        add(Torches.CRIMSON_TORCH.item.get(), "猩红火把");
+        add(Torches.HALLOWED_TORCH.item.get(), "神圣火把");
+        add(Torches.JUNGLE_TORCH.item.get(), "丛林火把");
+        add(Torches.MUSHROOM_TORCH.item.get(), "蘑菇火把");
+        add(Torches.AETHER_TORCH.item.get(), "以太火把");
         */
 /*
-        add(Pots.FOREST_POTS.getPrefab(), "森林罐子");
-        add(Pots.TUNDRA_POTS.getPrefab(), "苔原罐子");
-        add(Pots.SPIDER_NEST_POTS.getPrefab(), "蛛洞罐子");
-        add(Pots.UNDERGROUND_DESERT_POTS.getPrefab(), "沙漠罐子");
-        add(Pots.JUNGLE_POTS.getPrefab(), "丛林罐子");
-        add(Pots.MARBLE_CAVE_POTS.getPrefab(), "尘封罐子");
-        add(Pots.OCEAN_POTS.getPrefab(), "海洋罐子");
-        add(Pots.PYRAMID_POTS.getPrefab(), "祭祀罐子");
-        add(Pots.CORRUPTION_POTS.getPrefab(), "蠕虫罐子");
-        add(Pots.TR_CRIMSON_POTS.getPrefab(), "血肉罐子");
-        add(Pots.DUNGEON_POTS.getPrefab(), "地牢罐子");
-        add(Pots.UNDERWORLD_POTS.getPrefab(), "炎烬罐子");
-        add(Pots.LIHZAHRD_POTS.getPrefab(), "神庙罐子");
+        add(Pots.FOREST_POTS.get(), "森林罐子");
+        add(Pots.TUNDRA_POTS.get(), "苔原罐子");
+        add(Pots.SPIDER_NEST_POTS.get(), "蛛洞罐子");
+        add(Pots.UNDERGROUND_DESERT_POTS.get(), "沙漠罐子");
+        add(Pots.JUNGLE_POTS.get(), "丛林罐子");
+        add(Pots.MARBLE_CAVE_POTS.get(), "尘封罐子");
+        add(Pots.OCEAN_POTS.get(), "海洋罐子");
+        add(Pots.PYRAMID_POTS.get(), "祭祀罐子");
+        add(Pots.CORRUPTION_POTS.get(), "蠕虫罐子");
+        add(Pots.TR_CRIMSON_POTS.get(), "血肉罐子");
+        add(Pots.DUNGEON_POTS.get(), "地牢罐子");
+        add(Pots.UNDERWORLD_POTS.get(), "炎烬罐子");
+        add(Pots.LIHZAHRD_POTS.get(), "神庙罐子");
 */
         add(ModBlocks.WOODEN_BOX.get(), "木匣");
         add(ModBlocks.IRON_BOX.get(), "铁匣");
@@ -1118,31 +1118,31 @@ public class ModChineseProvider extends LanguageProvider {
 
 
 
-//        add(SwordItems.CROWBAR.getPrefab(), "撬棍");
-//        add(SwordItems.ZOMBIE_ARM.getPrefab(), "僵尸臂");
-//        add(SwordItems.MANDIBLE_BLADE.getPrefab(), "颌骨剑");
-//        add(SwordItems.STYLISH_SCISSORS.getPrefab(), "时尚剪刀");
-//        add(SwordItems.BONE_SWORD.getPrefab(), "骨剑");
-//        add(SwordItems.PURPLE_CLUBBERFISH.getPrefab(), "紫挥棒鱼");
-//        add(SwordItems.UMBRELLA.getPrefab(), "雨伞");
-//        add(SwordItems.CANDY_CANE_SWORD.getPrefab(), "糖棒剑");
-//        add(SwordItems.BREATHING_REED.getPrefab(), "芦苇呼吸管");
-//        add(SwordItems.TRAGIC_UMBRELLA.getPrefab(), "悲剧雨伞");
-//        add(SwordItems.FALCON_BLADE.getPrefab(), "猎鹰刃");
-//        add(SwordItems.BAT_BAT.getPrefab(), "蝙蝠棍");
+//        add(SwordItems.CROWBAR.get(), "撬棍");
+//        add(SwordItems.ZOMBIE_ARM.get(), "僵尸臂");
+//        add(SwordItems.MANDIBLE_BLADE.get(), "颌骨剑");
+//        add(SwordItems.STYLISH_SCISSORS.get(), "时尚剪刀");
+//        add(SwordItems.BONE_SWORD.get(), "骨剑");
+//        add(SwordItems.PURPLE_CLUBBERFISH.get(), "紫挥棒鱼");
+//        add(SwordItems.UMBRELLA.get(), "雨伞");
+//        add(SwordItems.CANDY_CANE_SWORD.get(), "糖棒剑");
+//        add(SwordItems.BREATHING_REED.get(), "芦苇呼吸管");
+//        add(SwordItems.TRAGIC_UMBRELLA.get(), "悲剧雨伞");
+//        add(SwordItems.FALCON_BLADE.get(), "猎鹰刃");
+//        add(SwordItems.BAT_BAT.get(), "蝙蝠棍");
         add(SwordItems.STARFURY.get(), "星怒");
         add(SwordItems.LIGHTS_BANE.get(), "魔光剑");
         add(SwordItems.BLOOD_BUTCHERER.get(), "血腥屠刀");
-//        add(SwordItems.KATANA.getPrefab(), "武士刀");
-//        add(SwordItems.TENTACLE_MACE.getPrefab(), "触手钉锤");
+//        add(SwordItems.KATANA.get(), "武士刀");
+//        add(SwordItems.TENTACLE_MACE.get(), "触手钉锤");
         add(SwordItems.ICE_BLADE.get(), "冰雪剑");
-//        add(SwordItems.EXOTIC_SCIMITAR.getPrefab(), "异域弯刀");
-//        add(SwordItems.FAKE_SWORD.getPrefab(), "假剑");
-//        add(SwordItems.VOLCANO.getPrefab(), "火山");
+//        add(SwordItems.EXOTIC_SCIMITAR.get(), "异域弯刀");
+//        add(SwordItems.FAKE_SWORD.get(), "假剑");
+//        add(SwordItems.VOLCANO.get(), "火山");
 
 
 
-//        add(SwordItems.DEVELOPER_SWORD.getPrefab(),"开发者剑");
+//        add(SwordItems.DEVELOPER_SWORD.get(),"开发者剑");
 
         add(AxeItems.COPPER_AXE.get(), "铜斧");
         add(AxeItems.TIN_AXE.get(), "锡斧");
@@ -1155,83 +1155,81 @@ public class ModChineseProvider extends LanguageProvider {
         add(AxeItems.TR_CRIMSON_AXE.get(), "嗜血狂斧");
 
 /*
-        add(Pickaxes.COPPER_PICKAXE.getPrefab(), "铜镐");
-        add(Pickaxes.CACTUS_PICKAXE.getPrefab(), "仙人掌镐");
-        add(Pickaxes.CANDY_CANE_PICKAXE.getPrefab(), "糖棒镐");
-        add(Pickaxes.FOSSIL_PICKAXE.getPrefab(), "化石镐");
-        add(Pickaxes.TIN_PICKAXE.getPrefab(), "锡镐");
-        add(Pickaxes.LEAD_PICKAXE.getPrefab(), "铅镐");
-        add(Pickaxes.SILVER_PICKAXE.getPrefab(), "银镐");
-        add(Pickaxes.TUNGSTEN_PICKAXE.getPrefab(), "钨镐");
-        add(Pickaxes.GOLDEN_PICKAXE.getPrefab(), "金镐");
-        add(Pickaxes.PLATINUM_PICKAXE.getPrefab(), "铂金镐");
+        add(Pickaxes.COPPER_PICKAXE.get(), "铜镐");
+        add(Pickaxes.CACTUS_PICKAXE.get(), "仙人掌镐");
+        add(Pickaxes.CANDY_CANE_PICKAXE.get(), "糖棒镐");
+        add(Pickaxes.FOSSIL_PICKAXE.get(), "化石镐");
+        add(Pickaxes.TIN_PICKAXE.get(), "锡镐");
+        add(Pickaxes.LEAD_PICKAXE.get(), "铅镐");
+        add(Pickaxes.SILVER_PICKAXE.get(), "银镐");
+        add(Pickaxes.TUNGSTEN_PICKAXE.get(), "钨镐");
+        add(Pickaxes.GOLDEN_PICKAXE.get(), "金镐");
+        add(Pickaxes.PLATINUM_PICKAXE.get(), "铂金镐");
         */
         /* Hammers */
         /*
-        add(Hammers.WOODEN_HAMMER.getPrefab(), "木锤");
-        add(Hammers.COPPER_HAMMER.getPrefab(), "铜锤");
-        add(Hammers.TIN_HAMMER.getPrefab(), "锡锤");
-        add(Hammers.LEAD_HAMMER.getPrefab(), "铅锤");
-        add(Hammers.SILVER_HAMMER.getPrefab(), "银锤");
-        add(Hammers.TUNGSTEN_HAMMER.getPrefab(), "钨锤");
-        add(Hammers.GOLDEN_HAMMER.getPrefab(), "金锤");
-        add(Hammers.PLATINUM_HAMMER.getPrefab(), "铂金锤");
-        add(Hammers.EBONY_HAMMER.getPrefab(), "魔锤");
-        add(Hammers.TR_CRIMSON_HAMMER.getPrefab(), "血肉锤");
+        add(Hammers.WOODEN_HAMMER.get(), "木锤");
+        add(Hammers.COPPER_HAMMER.get(), "铜锤");
+        add(Hammers.TIN_HAMMER.get(), "锡锤");
+        add(Hammers.LEAD_HAMMER.get(), "铅锤");
+        add(Hammers.SILVER_HAMMER.get(), "银锤");
+        add(Hammers.TUNGSTEN_HAMMER.get(), "钨锤");
+        add(Hammers.GOLDEN_HAMMER.get(), "金锤");
+        add(Hammers.PLATINUM_HAMMER.get(), "铂金锤");
+        add(Hammers.EBONY_HAMMER.get(), "魔锤");
+        add(Hammers.TR_CRIMSON_HAMMER.get(), "血肉锤");
         */
         /* HammerAxes */
 
 
         // 杂项
-        /*
-        add(ICE_MIRROR.getPrefab(), "冰雪镜");
-        add(CLAM.getPrefab(), "牡蛎");
-
-        add(MAGIC_MIRROR.getPrefab(), "魔镜");
-        add(COPPER_COIN.getPrefab(), "铜币");
-        add(SILVER_COIN.getPrefab(), "银币");
-        add(GOLDEN_COIN.getPrefab(), "金币");
-        add(PLATINUM_COIN.getPrefab(), "铂金币");
-        add(SHURIKEN.getPrefab(), "手里剑");
-        add(THROWING_KNIVES.getPrefab(), "投刀");
-        add(HONEY_BUCKET.getPrefab(), "蜂蜜桶");
-        add(BOTTOMLESS_SHIMMER_BUCKET.getPrefab(), "无底微光桶");
-        add(BOTTOMLESS_WATER_BUCKET.getPrefab(), "无底水桶");
-        add(BOTTOMLESS_LAVA_BUCKET.getPrefab(), "无底岩浆桶");
-        add(BOTTOMLESS_HONEY_BUCKET.getPrefab(), "无底蜂蜜桶");
-        add(SOUL_CAKE.getPrefab(), "灵魂蛋糕");
-        add(STAR.getPrefab(), "魔力星");
-        add(SUGAR_PLUM.getPrefab(), "蜜糖李");
-        add(HEART.getPrefab(), "心");
-        add(CANDY_CANE.getPrefab(), "拐杖糖");
-        add(CANDY_APPLE.getPrefab(), "糖葫芦");
-        add(VITAL_CRYSTAL.getPrefab(), "活力水晶");
-        add(GALAXY_PEARL.getPrefab(), "银河珍珠");
-        add(ARCANE_CRYSTAL.getPrefab(), "奥术水晶");
-        add(AEGIS_APPLE.getPrefab(), "神盾果");
-        add(AMBROSIA.getPrefab(), "仙馔密酒");
-        add(GUMMY_WORM.getPrefab(), "黏性蠕虫");
-        add(CHRISTMAS_GIFT.getPrefab(), "圣诞礼物");
-        add(RED_ENVELOPE.getPrefab(), "红包");
-        add(CAN_OF_WORMS.getPrefab(), "蠕虫罐头");
-        add(HERB_BAG.getPrefab(), "草药袋");
-        add(WHOOPIE_CUSHION.getPrefab(), "整蛊坐垫");
-        add(RED_WRENCH.getPrefab(), "红扳手");
-        add(BLUE_WRENCH.getPrefab(), "蓝扳手");
-        add(GREEN_WRENCH.getPrefab(), "绿扳手");
-        add(YELLOW_WRENCH.getPrefab(), "黄扳手");
-        add(GOLDEN_KEY.getPrefab(), "金钥匙");
-        add(SHADOW_KEY.getPrefab(), "暗影钥匙");
-        add(SUSPICIOUS_LOOKING_EYE.getPrefab(), "可疑眼球");
-        add(SLIME_CROWN.getPrefab(), "史莱姆皇冠");
-        add(DEMON_HEART.getPrefab(), "恶魔之心");
-        add(MAGIC_CONCH.getPrefab(), "魔法海螺");
-        add(DEMON_CONCH.getPrefab(), "恶魔海螺");
-        add(SKY_MILL.getPrefab(), "天磨");
-        add(WORKSHOP.getPrefab(), "工匠作坊");
-        add(ALCHEMY_TABLE_BLOCK.getPrefab(), "炼药桌");
-        add(STONE_PRESSURE_PLATE.getPrefab(), "石头压力板");
-        */
+//        add(ModItems.ICE_MIRROR.get(), "冰雪镜");
+//        add(ModItems.CLAM.get(), "牡蛎");
+//
+//        add(ModItems.MAGIC_MIRROR.get(), "魔镜");
+        add(ModItems.COPPER_COIN.get(), "铜币");
+        add(ModItems.SILVER_COIN.get(), "银币");
+        add(ModItems.GOLDEN_COIN.get(), "金币");
+        add(ModItems.PLATINUM_COIN.get(), "铂金币");
+//        add(ModItems.SHURIKEN.get(), "手里剑");
+//        add(ModItems.THROWING_KNIVES.get(), "投刀");
+//        add(ModItems.HONEY_BUCKET.get(), "蜂蜜桶");
+//        add(ModItems.BOTTOMLESS_SHIMMER_BUCKET.get(), "无底微光桶");
+//        add(ModItems.BOTTOMLESS_WATER_BUCKET.get(), "无底水桶");
+//        add(ModItems.BOTTOMLESS_LAVA_BUCKET.get(), "无底岩浆桶");
+//        add(ModItems.BOTTOMLESS_HONEY_BUCKET.get(), "无底蜂蜜桶");
+//        add(ModItems.SOUL_CAKE.get(), "灵魂蛋糕");
+//        add(ModItems.STAR.get(), "魔力星");
+//        add(ModItems.SUGAR_PLUM.get(), "蜜糖李");
+//        add(ModItems.HEART.get(), "心");
+//        add(ModItems.CANDY_CANE.get(), "拐杖糖");
+//        add(ModItems.CANDY_APPLE.get(), "糖葫芦");
+//        add(ModItems.VITAL_CRYSTAL.get(), "活力水晶");
+//        add(ModItems.GALAXY_PEARL.get(), "银河珍珠");
+//        add(ModItems.ARCANE_CRYSTAL.get(), "奥术水晶");
+//        add(ModItems.AEGIS_APPLE.get(), "神盾果");
+//        add(ModItems.AMBROSIA.get(), "仙馔密酒");
+//        add(ModItems.GUMMY_WORM.get(), "黏性蠕虫");
+//        add(ModItems.ModBlocks.CHRISTMAS_GIFT.get(), "圣诞礼物");
+//        add(ModItems.RED_ENVELOPE.get(), "红包");
+//        add(ModItems.CAN_OF_WORMS.get(), "蠕虫罐头");
+//        add(ModItems.HERB_BAG.get(), "草药袋");
+//        add(ModItems.WHOOPIE_CUSHION.get(), "整蛊坐垫");
+//        add(ModItems.RED_WRENCH.get(), "红扳手");
+//        add(ModItems.BLUE_WRENCH.get(), "蓝扳手");
+//        add(ModItems.GREEN_WRENCH.get(), "绿扳手");
+//        add(ModItems.YELLOW_WRENCH.get(), "黄扳手");
+//        add(ModItems.GOLDEN_KEY.get(), "金钥匙");
+//        add(ModItems.SHADOW_KEY.get(), "暗影钥匙");
+//        add(ModItems.SUSPICIOUS_LOOKING_EYE.get(), "可疑眼球");
+//        add(ModItems.SLIME_CROWN.get(), "史莱姆皇冠");
+//        add(ModItems.DEMON_HEART.get(), "恶魔之心");
+//        add(ModItems.MAGIC_CONCH.get(), "魔法海螺");
+//        add(ModItems.DEMON_CONCH.get(), "恶魔海螺");
+//        add(ModItems.SKY_MILL.get(), "天磨");
+//        add(ModItems.WORKSHOP.get(), "工匠作坊");
+//        add(ModItems.ALCHEMY_TABLE_BLOCK.get(), "炼药桌");
+//        add(ModItems.STONE_PRESSURE_PLATE.get(), "石头压力板");
 
         // 杂项
         add(ModItems.BOMB.get(), "炸弹");
@@ -1250,123 +1248,123 @@ public class ModChineseProvider extends LanguageProvider {
 
         /*
         // 功能性方块
-        add(ECHO_BLOCK.getPrefab(), "回声块");
-        add(BoulderBlock.Variant.NORMAL.getPrefab(), "巨石");
-        add(INSTANTANEOUS_EXPLOSION_TNT.getPrefab(), "瞬爆TNT");
-        add(SWITCH.getPrefab(), "开关");
-        add(SIGNAL_ADAPTER.getPrefab(), "信号适配器");
-        add(WIRE_CUTTER.getPrefab(), "钢丝钳");
-        add(DART_TRAP.getPrefab(), "毒镖机关");
-        add(TIMERS_BLOCK_1_1.getPrefab(), "1秒计时器");
-        add(TIMERS_BLOCK_3_1.getPrefab(), "3秒计时器");
-        add(TIMERS_BLOCK_5_1.getPrefab(), "5秒计时器");
-        add(TIMERS_BLOCK_1_2.getPrefab(), "1/2秒计时器");
-        add(TIMERS_BLOCK_1_4.getPrefab(), "1/4秒计时器");
+        add(ECHO_BLOCK.get(), "回声块");
+        add(BoulderBlock.Variant.NORMAL.get(), "巨石");
+        add(INSTANTANEOUS_EXPLOSION_TNT.get(), "瞬爆TNT");
+        add(SWITCH.get(), "开关");
+        add(SIGNAL_ADAPTER.get(), "信号适配器");
+        add(WIRE_CUTTER.get(), "钢丝钳");
+        add(DART_TRAP.get(), "毒镖机关");
+        add(TIMERS_BLOCK_1_1.get(), "1秒计时器");
+        add(TIMERS_BLOCK_3_1.get(), "3秒计时器");
+        add(TIMERS_BLOCK_5_1.get(), "5秒计时器");
+        add(TIMERS_BLOCK_1_2.get(), "1/2秒计时器");
+        add(TIMERS_BLOCK_1_4.get(), "1/4秒计时器");
 */
         /*
         // 鱼竿
-        add(FishingPoles.HOTLINE_FISHING_HOOK.getPrefab(), "熔线钓竿");
-        add(FishingPoles.WOOD_FISHING_POLE.getPrefab(), "木钓竿");
-        add(FishingPoles.FISHER_OF_SOULS.getPrefab(), "灵魂钓手");
-        add(FishingPoles.REINFORCED_FISHING_POLE.getPrefab(), "强化钓竿");
-        add(FishingPoles.FLESHCATCHER.getPrefab(), "捕肉手");
-        add(FishingPoles.SCARAB_FISHING_ROD.getPrefab(), "甲虫钓竿");
-        add(FishingPoles.CHUM_CASTER.getPrefab(), "鱼饵投掷者");
-        add(FishingPoles.FIBERGLASS_FISHING_POLE.getPrefab(), "玻璃钢钓竿");
-        add(FishingPoles.MECHANICS_ROD.getPrefab(), "机械师钓竿");
-        add(FishingPoles.SITTING_DUCKS_FISHING_POLE.getPrefab(), "冤大头钓竿");
-        add(FishingPoles.GOLDEN_FISHING_ROD.getPrefab(), "金钓竿");
+        add(FishingPoles.HOTLINE_FISHING_HOOK.get(), "熔线钓竿");
+        add(FishingPoles.WOOD_FISHING_POLE.get(), "木钓竿");
+        add(FishingPoles.FISHER_OF_SOULS.get(), "灵魂钓手");
+        add(FishingPoles.REINFORCED_FISHING_POLE.get(), "强化钓竿");
+        add(FishingPoles.FLESHCATCHER.get(), "捕肉手");
+        add(FishingPoles.SCARAB_FISHING_ROD.get(), "甲虫钓竿");
+        add(FishingPoles.CHUM_CASTER.get(), "鱼饵投掷者");
+        add(FishingPoles.FIBERGLASS_FISHING_POLE.get(), "玻璃钢钓竿");
+        add(FishingPoles.MECHANICS_ROD.get(), "机械师钓竿");
+        add(FishingPoles.SITTING_DUCKS_FISHING_POLE.get(), "冤大头钓竿");
+        add(FishingPoles.GOLDEN_FISHING_ROD.get(), "金钓竿");
         */
          /*
         // 鱼饵
-        add(Baits.APPRENTICE_BAIT.getPrefab(), "学徒诱饵");
-        add(Baits.JOURNEYMAN_BAIT.getPrefab(), "熟手诱饵");
-        add(Baits.MASTER_BAIT.getPrefab(), "大师诱饵");
-        add(Baits.BLACK_DRAGONFLY.getPrefab(), "黑蜻蜓");
-        add(Baits.BLACK_SCORPION.getPrefab(), "黑蝎子");
-        add(Baits.BLUE_JELLYFISH.getPrefab(), "蓝水母");
-        add(Baits.BLUE_DRAGONFLY.getPrefab(), "蓝蜻蜓");
-        add(Baits.BUGGY.getPrefab(), "蚜虫");
-        add(Baits.ENCHANTED_NIGHTCRAWLER.getPrefab(), "附魔夜行者");
-        add(Baits.FIREFLY.getPrefab(), "萤火虫");
-        add(Baits.GLOWING_SNAIL.getPrefab(), "发光蜗牛");
-        add(Baits.GOLD_BUTTERFLY.getPrefab(), "金蝴蝶");
-        add(Baits.GOLD_DRAGONFLY.getPrefab(), "金蜻蜓");
-        add(Baits.GOLD_GRASSHOPPER.getPrefab(), "金蟋蟀");
-        add(Baits.GOLD_LADYBUG.getPrefab(), "金瓢虫");
-        add(Baits.GOLD_WATER_STRIDER.getPrefab(), "金水黾");
-        add(Baits.GOLD_WORM.getPrefab(), "金蠕虫");
-        add(Baits.GRASSHOPPER.getPrefab(), "蟋蟀");
-        add(Baits.GREEN_DRAGONFLY.getPrefab(), "绿蜻蜓");
-        add(Baits.GREEN_JELLYFISH.getPrefab(), "绿水母");
-        add(Baits.GRUBBY.getPrefab(), "蛆虫");
-        add(Baits.HELL_BUTTERFLY.getPrefab(), "地狱蝴蝶");
-        add(Baits.JULIA_BUTTERFLY.getPrefab(), "珠袖蝶");
-        add(Baits.LADYBUG.getPrefab(), "瓢虫");
-        add(Baits.LAVAFLY.getPrefab(), "熔岩萤火虫");
-        add(Baits.LIGHTNING_BUG.getPrefab(), "荧光虫");
-        add(Baits.MAGGOT.getPrefab(), "蝇蛆");
-        add(Baits.MAGMA_SNAIL.getPrefab(), "岩浆蜗牛");
-        add(Baits.MONARCH_BUTTERFLY.getPrefab(), "帝王蝶");
-        add(Baits.ORANGE_DRAGONFLY.getPrefab(), "橙蜻蜓");
-        add(Baits.PINK_JELLYFISH.getPrefab(), "粉水母");
-        add(Baits.PURPLE_EMPEROR_BUTTERFLY.getPrefab(), "紫蛱蝶");
-        add(Baits.RED_ADMIRAL_BUTTERFLY.getPrefab(), "红蛱蝶");
-        add(Baits.RED_DRAGONFLY.getPrefab(), "红蜻蜓");
-        add(Baits.SCORPION.getPrefab(), "蝎子");
-        add(Baits.SLUGGY.getPrefab(), "鼻涕虫");
-        add(Baits.SNAIL.getPrefab(), "蜗牛");
-        add(Baits.STINKBUG.getPrefab(), "臭虫");
-        add(Baits.SULPHUR_BUTTERFLY.getPrefab(), "黄粉蝶");
-        add(Baits.TREE_NYMPH_BUTTERFLY.getPrefab(), "帛斑蝶");
-        add(Baits.TRUFFLE_WORM.getPrefab(), "松露虫");
-        add(Baits.ULYSSES_BUTTERFLY.getPrefab(), "翠凤蝶");
-        add(Baits.WATER_STRIDER.getPrefab(), "水黾");
-        add(Baits.WORM.getPrefab(), "蠕虫");
-        add(Baits.YELLOW_DRAGONFLY.getPrefab(), "黄蜻蜓");
-        add(Baits.ZEBRA_SWALLOWTAIL_BUTTERFLY.getPrefab(), "带凤蝶");
+        add(Baits.APPRENTICE_BAIT.get(), "学徒诱饵");
+        add(Baits.JOURNEYMAN_BAIT.get(), "熟手诱饵");
+        add(Baits.MASTER_BAIT.get(), "大师诱饵");
+        add(Baits.BLACK_DRAGONFLY.get(), "黑蜻蜓");
+        add(Baits.BLACK_SCORPION.get(), "黑蝎子");
+        add(Baits.BLUE_JELLYFISH.get(), "蓝水母");
+        add(Baits.BLUE_DRAGONFLY.get(), "蓝蜻蜓");
+        add(Baits.BUGGY.get(), "蚜虫");
+        add(Baits.ENCHANTED_NIGHTCRAWLER.get(), "附魔夜行者");
+        add(Baits.FIREFLY.get(), "萤火虫");
+        add(Baits.GLOWING_SNAIL.get(), "发光蜗牛");
+        add(Baits.GOLD_BUTTERFLY.get(), "金蝴蝶");
+        add(Baits.GOLD_DRAGONFLY.get(), "金蜻蜓");
+        add(Baits.GOLD_GRASSHOPPER.get(), "金蟋蟀");
+        add(Baits.GOLD_LADYBUG.get(), "金瓢虫");
+        add(Baits.GOLD_WATER_STRIDER.get(), "金水黾");
+        add(Baits.GOLD_WORM.get(), "金蠕虫");
+        add(Baits.GRASSHOPPER.get(), "蟋蟀");
+        add(Baits.GREEN_DRAGONFLY.get(), "绿蜻蜓");
+        add(Baits.GREEN_JELLYFISH.get(), "绿水母");
+        add(Baits.GRUBBY.get(), "蛆虫");
+        add(Baits.HELL_BUTTERFLY.get(), "地狱蝴蝶");
+        add(Baits.JULIA_BUTTERFLY.get(), "珠袖蝶");
+        add(Baits.LADYBUG.get(), "瓢虫");
+        add(Baits.LAVAFLY.get(), "熔岩萤火虫");
+        add(Baits.LIGHTNING_BUG.get(), "荧光虫");
+        add(Baits.MAGGOT.get(), "蝇蛆");
+        add(Baits.MAGMA_SNAIL.get(), "岩浆蜗牛");
+        add(Baits.MONARCH_BUTTERFLY.get(), "帝王蝶");
+        add(Baits.ORANGE_DRAGONFLY.get(), "橙蜻蜓");
+        add(Baits.PINK_JELLYFISH.get(), "粉水母");
+        add(Baits.PURPLE_EMPEROR_BUTTERFLY.get(), "紫蛱蝶");
+        add(Baits.RED_ADMIRAL_BUTTERFLY.get(), "红蛱蝶");
+        add(Baits.RED_DRAGONFLY.get(), "红蜻蜓");
+        add(Baits.SCORPION.get(), "蝎子");
+        add(Baits.SLUGGY.get(), "鼻涕虫");
+        add(Baits.SNAIL.get(), "蜗牛");
+        add(Baits.STINKBUG.get(), "臭虫");
+        add(Baits.SULPHUR_BUTTERFLY.get(), "黄粉蝶");
+        add(Baits.TREE_NYMPH_BUTTERFLY.get(), "帛斑蝶");
+        add(Baits.TRUFFLE_WORM.get(), "松露虫");
+        add(Baits.ULYSSES_BUTTERFLY.get(), "翠凤蝶");
+        add(Baits.WATER_STRIDER.get(), "水黾");
+        add(Baits.WORM.get(), "蠕虫");
+        add(Baits.YELLOW_DRAGONFLY.get(), "黄蜻蜓");
+        add(Baits.ZEBRA_SWALLOWTAIL_BUTTERFLY.get(), "带凤蝶");
 
           */
         // 钩爪
         /*
-        add(Hooks.GRAPPLING_HOOK.getPrefab(), "抓钩");
-        add(Hooks.RUBY_HOOK.getPrefab(), "红玉钩");
-        add(Hooks.AMBER_HOOK.getPrefab(), "琥珀钩");
-        add(Hooks.TOPAZ_HOOK.getPrefab(), "黄玉钩");
-        add(Hooks.EMERALD_HOOK.getPrefab(), "翡翠钩");
-        add(Hooks.SAPPHIRE_HOOK.getPrefab(), "蓝玉钩");
-        add(Hooks.DIAMOND_HOOK.getPrefab(), "钻石钩");
-        add(Hooks.AMETHYST_HOOK.getPrefab(), "紫晶钩");
-        add(Hooks.ANTI_GRAVITY_HOOK.getPrefab(), "反重力钩");
-        add(Hooks.WEB_SLINGER.getPrefab(), "蛛丝吊索");
-        add(Hooks.SKELETRON_HAND.getPrefab(), "骷髅王之手");
-        add(Hooks.SLIME_HOOK.getPrefab(), "史莱姆钩");
-        add(Hooks.FISH_HOOK.getPrefab(), "鱼钩");
-        add(Hooks.IVY_WHIP.getPrefab(), "常春藤钩");
-        add(Hooks.BAT_HOOK.getPrefab(), "蝙蝠钩");
-        add(Hooks.CANDY_CANE_HOOK.getPrefab(), "糖棒钩");
-        add(Hooks.CHRISTMAS_HOOK.getPrefab(), "圣诞挂钩");
-        add(Hooks.DUAL_HOOK.getPrefab(), "双钩");
-        add(Hooks.HOOK_OF_DISSONANCE.getPrefab(), "失谐钩");
-        add(Hooks.THORN_HOOK.getPrefab(), "棘刺钩");
-        add(Hooks.ILLUMINANT_HOOK.getPrefab(), "荧光钩");
-        add(Hooks.WORM_HOOK.getPrefab(), "蠕虫钩");
-        add(Hooks.LUNAR_HOOK.getPrefab(), "月钩");
-        add(Hooks.SPOOKY_HOOK.getPrefab(), "阴森钩");
-        add(Hooks.TENDON_HOOK.getPrefab(), "肌腱钩");
+        add(Hooks.GRAPPLING_HOOK.get(), "抓钩");
+        add(Hooks.RUBY_HOOK.get(), "红玉钩");
+        add(Hooks.AMBER_HOOK.get(), "琥珀钩");
+        add(Hooks.TOPAZ_HOOK.get(), "黄玉钩");
+        add(Hooks.EMERALD_HOOK.get(), "翡翠钩");
+        add(Hooks.SAPPHIRE_HOOK.get(), "蓝玉钩");
+        add(Hooks.DIAMOND_HOOK.get(), "钻石钩");
+        add(Hooks.AMETHYST_HOOK.get(), "紫晶钩");
+        add(Hooks.ANTI_GRAVITY_HOOK.get(), "反重力钩");
+        add(Hooks.WEB_SLINGER.get(), "蛛丝吊索");
+        add(Hooks.SKELETRON_HAND.get(), "骷髅王之手");
+        add(Hooks.SLIME_HOOK.get(), "史莱姆钩");
+        add(Hooks.FISH_HOOK.get(), "鱼钩");
+        add(Hooks.IVY_WHIP.get(), "常春藤钩");
+        add(Hooks.BAT_HOOK.get(), "蝙蝠钩");
+        add(Hooks.CANDY_CANE_HOOK.get(), "糖棒钩");
+        add(Hooks.CHRISTMAS_HOOK.get(), "圣诞挂钩");
+        add(Hooks.DUAL_HOOK.get(), "双钩");
+        add(Hooks.HOOK_OF_DISSONANCE.get(), "失谐钩");
+        add(Hooks.THORN_HOOK.get(), "棘刺钩");
+        add(Hooks.ILLUMINANT_HOOK.get(), "荧光钩");
+        add(Hooks.WORM_HOOK.get(), "蠕虫钩");
+        add(Hooks.LUNAR_HOOK.get(), "月钩");
+        add(Hooks.SPOOKY_HOOK.get(), "阴森钩");
+        add(Hooks.TENDON_HOOK.get(), "肌腱钩");
 
          */
         // 锁链
         /*
-        add(RUBY_CHAIN.getPrefab(), "红玉锁链");
-        add(AMBER_CHAIN.getPrefab(), "琥珀锁链");
-        add(TOPAZ_CHAIN.getPrefab(), "黄玉锁链");
-        add(EMERALD_CHAIN.getPrefab(), "翡翠锁链");
-        add(SAPPHIRE_CHAIN.getPrefab(), "蓝玉锁链");
-        add(DIAMOND_CHAIN.getPrefab(), "钻石锁链");
-        add(AMETHYST_CHAIN.getPrefab(), "紫晶锁链");
-        add(SILK_CHAIN.getPrefab(), "蛛丝绳");
-        add(BONE_CHAIN.getPrefab(), "骨头锁链");
+        add(RUBY_CHAIN.get(), "红玉锁链");
+        add(AMBER_CHAIN.get(), "琥珀锁链");
+        add(TOPAZ_CHAIN.get(), "黄玉锁链");
+        add(EMERALD_CHAIN.get(), "翡翠锁链");
+        add(SAPPHIRE_CHAIN.get(), "蓝玉锁链");
+        add(DIAMOND_CHAIN.get(), "钻石锁链");
+        add(AMETHYST_CHAIN.get(), "紫晶锁链");
+        add(SILK_CHAIN.get(), "蛛丝绳");
+        add(BONE_CHAIN.get(), "骨头锁链");
 
          */
         // 植物
@@ -1398,107 +1396,106 @@ public class ModChineseProvider extends LanguageProvider {
 
 
 /*
-        add(CRIMSON_THORN.getPrefab(), "猩红荆棘");
-        add(CORRUPTION_THORN.getPrefab(), "腐化荆棘");
-        add(JUNGLE_THORN.getPrefab(), "丛林荆棘");
-        add(PLANTERA_THORN.getPrefab(), "世纪之花荆棘");
+        add(CRIMSON_THORN.get(), "猩红荆棘");
+        add(CORRUPTION_THORN.get(), "腐化荆棘");
+        add(JUNGLE_THORN.get(), "丛林荆棘");
+        add(PLANTERA_THORN.get(), "世纪之花荆棘");
 
  */
         // 树苗
         /*
-        add(SHADOW_SAPLING.getPrefab(), "暗影树苗");
-        add(EBONY_SAPLING.getPrefab(), "乌木树苗");
-        add(PALM_SAPLING.getPrefab(), "棕榈树苗");
-        add(PEARL_SAPLING.getPrefab(), "珍珠树苗");
-        add(RUBY_SAPLING.getPrefab(), "红玉树苗");
-        add(AMBER_SAPLING.getPrefab(), "琥珀树苗");
-        add(TOPAZ_SAPLING.getPrefab(), "黄玉树苗");
-        add(EMERALD_SAPLING.getPrefab(), "翡翠树苗");
-        add(DIAMOND_SAPLING.getPrefab(), "钻石树苗");
-        add(SAPPHIRE_SAPLING.getPrefab(), "蓝玉树苗");
-        add(TR_AMETHYST_SAPLING.getPrefab(), "紫晶树苗");
-        add(ASH_SAPLING.getPrefab(), "白蜡树苗");
+        add(SHADOW_SAPLING.get(), "暗影树苗");
+        add(EBONY_SAPLING.get(), "乌木树苗");
+        add(PALM_SAPLING.get(), "棕榈树苗");
+        add(PEARL_SAPLING.get(), "珍珠树苗");
+        add(RUBY_SAPLING.get(), "红玉树苗");
+        add(AMBER_SAPLING.get(), "琥珀树苗");
+        add(TOPAZ_SAPLING.get(), "黄玉树苗");
+        add(EMERALD_SAPLING.get(), "翡翠树苗");
+        add(DIAMOND_SAPLING.get(), "钻石树苗");
+        add(SAPPHIRE_SAPLING.get(), "蓝玉树苗");
+        add(TR_AMETHYST_SAPLING.get(), "紫晶树苗");
+        add(ASH_SAPLING.get(), "白蜡树苗");
 
          */
-/*
-        add(ModBlocks.TR_CRIMSON_MUSHROOM.getPrefab(), "毒蘑菇");
-        add(ModBlocks.EBONY_MUSHROOM.getPrefab(), "魔菇");
-        add(ModBlocks.GLOWING_MUSHROOM.getPrefab(), "发光蘑菇");
-        add(ModBlocks.LIFE_MUSHROOM.getPrefab(), "生命蘑菇");
-        add(ModBlocks.JUNGLE_SPORE.getPrefab(), "丛林孢子");
-        add(ModItems.JUNGLE_SPORE.getPrefab(), "丛林孢子");
-        add(JUNGLE_ROSE.getPrefab(), "丛林玫瑰");
-        add(CORRUPT_GRASS.getPrefab(), "腐化草");
-        add(TR_CRIMSON_GRASS.getPrefab(), "猩红草");
-        add(HALLOW_GRASS.getPrefab(), "神圣草");
-        add(ModBlocks.NATURES_GIFT.getPrefab(), "大自然的恩赐");
 
- */
+        add(ModBlocks.TR_CRIMSON_MUSHROOM.get(), "毒蘑菇");
+        add(ModBlocks.EBONY_MUSHROOM.get(), "魔菇");
+        add(ModBlocks.GLOWING_MUSHROOM.get(), "发光蘑菇");
+        add(ModBlocks.LIFE_MUSHROOM.get(), "生命蘑菇");
+        add(ModBlocks.JUNGLE_SPORE.get(), "丛林孢子");
+//        add(ModItems.JUNGLE_SPORE.get(), "丛林孢子");
+//        add(JUNGLE_ROSE.get(), "丛林玫瑰");
+        add(CORRUPT_GRASS.get(), "腐化草");
+        add(TR_CRIMSON_GRASS.get(), "猩红草");
+        add(HALLOW_GRASS.get(), "神圣草");
+        add(ModBlocks.NATURES_GIFT.get(), "大自然的恩赐");
+
         // 法杖
         /*
-        add(ManaWeapons.RUBY_STAFF.getPrefab(), "红玉法杖");
-        add(ManaWeapons.AMBER_STAFF.getPrefab(), "琥珀法杖");
-        add(ManaWeapons.TOPAZ_STAFF.getPrefab(), "黄玉法杖");
-        add(ManaWeapons.EMERALD_STAFF.getPrefab(), "翡翠法杖");
-        add(ManaWeapons.SAPPHIRE_STAFF.getPrefab(), "蓝玉法杖");
-        add(ManaWeapons.DIAMOND_STAFF.getPrefab(), "钻石法杖");
-        add(ManaWeapons.AMETHYST_STAFF.getPrefab(), "紫晶法杖");
-        add(ManaWeapons.AQUA_SCEPTER.getPrefab(), "海蓝权杖");
-        add(ManaWeapons.WOND_OF_SPARKING.getPrefab(), "火花魔棒");
-        add(ManaWeapons.WOND_OF_FROSTING.getPrefab(), "霜冻魔棒");
-        add(ManaWeapons.THUNDER_ZAPPER.getPrefab(), "雷霆法杖");
-        add(ManaWeapons.VILETHORN.getPrefab(), "魔刺");
-        add(ManaWeapons.WEATHER_PAIN.getPrefab(), "天候棒");
-        add(ManaWeapons.MAGIC_MISSILE.getPrefab(), "魔法导弹");
-        add(ManaWeapons.FLOWER_OF_FIRE.getPrefab(), "火之花");
-        add(ManaWeapons.FLAMELASH.getPrefab(), "烈焰火鞭");
-        add(ManaWeapons.SKY_FRACTURE.getPrefab(), "裂天剑");
-        add(ManaWeapons.CRYSTAL_SERPENT.getPrefab(), "水晶蛇");
-        add(ManaWeapons.FROST_STAFF.getPrefab(), "寒霜法杖");
-        add(ManaWeapons.FLOWER_OF_FROST.getPrefab(), "寒霜之花");
-        add(ManaWeapons.CRYSTAL_VILE_SHARD.getPrefab(), "魔晶碎块");
-        add(ManaWeapons.LIFE_DRAIN.getPrefab(), "夺命杖");
-        add(ManaWeapons.METEOR_STAFF.getPrefab(), "流星法杖");
-        add(ManaWeapons.POISON_STAFF.getPrefab(), "毒液法杖");
-        add(ManaWeapons.RAINBOW_ROD.getPrefab(), "彩虹法杖");
-        add(ManaWeapons.UNHOLY_TRIDENT.getPrefab(), "邪恶三叉戟");
-        add(ManaWeapons.TOME_OF_INFINITE_WISDOM.getPrefab(), "无限智慧巨著");
-        add(ManaWeapons.NETTLE_BURST.getPrefab(), "爆裂藤曼");
-        add(ManaWeapons.SHADOWBEAM_STAFF.getPrefab(), "暗影束法杖");
-        add(ManaWeapons.INFERNO_FORK.getPrefab(), "狱火叉");
-        add(ManaWeapons.VENOM_STAFF.getPrefab(), "毒液法杖");
-        add(ManaWeapons.BAT_SCEPTER.getPrefab(), "蝙蝠权杖");
-        add(ManaWeapons.BLIZZARD_STAFF.getPrefab(), "暴雪法杖");
-        add(ManaWeapons.SPECTRE_STAFF.getPrefab(), "幽灵法杖");
-        add(ManaWeapons.RESONANCE_SCEPTER.getPrefab(), "共鸣权杖");
-        add(ManaWeapons.STAFF_OF_EARTH.getPrefab(), "大地法杖");
-        add(ManaWeapons.RAZORPINE.getPrefab(), "剃刀松");
-        add(ManaWeapons.BETSYS_WRATH.getPrefab(), "双足翼龙怒气");
+        add(ManaWeapons.RUBY_STAFF.get(), "红玉法杖");
+        add(ManaWeapons.AMBER_STAFF.get(), "琥珀法杖");
+        add(ManaWeapons.TOPAZ_STAFF.get(), "黄玉法杖");
+        add(ManaWeapons.EMERALD_STAFF.get(), "翡翠法杖");
+        add(ManaWeapons.SAPPHIRE_STAFF.get(), "蓝玉法杖");
+        add(ManaWeapons.DIAMOND_STAFF.get(), "钻石法杖");
+        add(ManaWeapons.AMETHYST_STAFF.get(), "紫晶法杖");
+        add(ManaWeapons.AQUA_SCEPTER.get(), "海蓝权杖");
+        add(ManaWeapons.WOND_OF_SPARKING.get(), "火花魔棒");
+        add(ManaWeapons.WOND_OF_FROSTING.get(), "霜冻魔棒");
+        add(ManaWeapons.THUNDER_ZAPPER.get(), "雷霆法杖");
+        add(ManaWeapons.VILETHORN.get(), "魔刺");
+        add(ManaWeapons.WEATHER_PAIN.get(), "天候棒");
+        add(ManaWeapons.MAGIC_MISSILE.get(), "魔法导弹");
+        add(ManaWeapons.FLOWER_OF_FIRE.get(), "火之花");
+        add(ManaWeapons.FLAMELASH.get(), "烈焰火鞭");
+        add(ManaWeapons.SKY_FRACTURE.get(), "裂天剑");
+        add(ManaWeapons.CRYSTAL_SERPENT.get(), "水晶蛇");
+        add(ManaWeapons.FROST_STAFF.get(), "寒霜法杖");
+        add(ManaWeapons.FLOWER_OF_FROST.get(), "寒霜之花");
+        add(ManaWeapons.CRYSTAL_VILE_SHARD.get(), "魔晶碎块");
+        add(ManaWeapons.LIFE_DRAIN.get(), "夺命杖");
+        add(ManaWeapons.METEOR_STAFF.get(), "流星法杖");
+        add(ManaWeapons.POISON_STAFF.get(), "毒液法杖");
+        add(ManaWeapons.RAINBOW_ROD.get(), "彩虹法杖");
+        add(ManaWeapons.UNHOLY_TRIDENT.get(), "邪恶三叉戟");
+        add(ManaWeapons.TOME_OF_INFINITE_WISDOM.get(), "无限智慧巨著");
+        add(ManaWeapons.NETTLE_BURST.get(), "爆裂藤曼");
+        add(ManaWeapons.SHADOWBEAM_STAFF.get(), "暗影束法杖");
+        add(ManaWeapons.INFERNO_FORK.get(), "狱火叉");
+        add(ManaWeapons.VENOM_STAFF.get(), "毒液法杖");
+        add(ManaWeapons.BAT_SCEPTER.get(), "蝙蝠权杖");
+        add(ManaWeapons.BLIZZARD_STAFF.get(), "暴雪法杖");
+        add(ManaWeapons.SPECTRE_STAFF.get(), "幽灵法杖");
+        add(ManaWeapons.RESONANCE_SCEPTER.get(), "共鸣权杖");
+        add(ManaWeapons.STAFF_OF_EARTH.get(), "大地法杖");
+        add(ManaWeapons.RAZORPINE.get(), "剃刀松");
+        add(ManaWeapons.BETSYS_WRATH.get(), "双足翼龙怒气");
 
 
          */
         // 射手武器
         /*
-        add(GunItems.HANDGUN.getPrefab(), "手枪");
-        add(GunItems.BLOWGUN.getPrefab(), "吹箭筒");
-        add(GunItems.BLOWPIPE.getPrefab(), "吹管");
-        add(GunItems.BOOMSTICK.getPrefab(), "三发猎枪");
-        add(GunItems.FLAREGUN.getPrefab(), "信号枪");
-        add(GunItems.FLINTLOCKPISTOL.getPrefab(), "燧发枪");
-        add(GunItems.MINISHARK.getPrefab(), "迷你鲨");
-        add(GunItems.ONYXBLASTER.getPrefab(), "玛瑙爆破枪");
-        add(GunItems.PHOENIXBLASTER.getPrefab(), "凤凰爆破枪");
-        add(GunItems.REVOLVER.getPrefab(), "左轮手枪");
-        add(GunItems.THEUNDERTAKER.getPrefab(), "夺命枪");
-        add(GunItems.SLIMEGUN.getPrefab(), "史莱姆枪");
-        add(GunItems.SNIPERRIFLE.getPrefab(), "狙击步枪");
-        add(GunItems.SNOWBALLCANNON.getPrefab(), "雪球炮");
-        add(GunItems.STARCANNON.getPrefab(), "星星炮");
-        add(GunItems.TACTICALSHOTGUN.getPrefab(), "战术霰弹枪");
-        add(GunItems.UZI.getPrefab(), "乌兹冲锋枪");
-        add(GunItems.SHOTGUN.getPrefab(), "霰弹枪");
-        add(GunItems.MUSKET.getPrefab(), "火枪");
-        add(GunItems.DEBUGGUN.getPrefab(), "调试枪");
+        add(GunItems.HANDGUN.get(), "手枪");
+        add(GunItems.BLOWGUN.get(), "吹箭筒");
+        add(GunItems.BLOWPIPE.get(), "吹管");
+        add(GunItems.BOOMSTICK.get(), "三发猎枪");
+        add(GunItems.FLAREGUN.get(), "信号枪");
+        add(GunItems.FLINTLOCKPISTOL.get(), "燧发枪");
+        add(GunItems.MINISHARK.get(), "迷你鲨");
+        add(GunItems.ONYXBLASTER.get(), "玛瑙爆破枪");
+        add(GunItems.PHOENIXBLASTER.get(), "凤凰爆破枪");
+        add(GunItems.REVOLVER.get(), "左轮手枪");
+        add(GunItems.THEUNDERTAKER.get(), "夺命枪");
+        add(GunItems.SLIMEGUN.get(), "史莱姆枪");
+        add(GunItems.SNIPERRIFLE.get(), "狙击步枪");
+        add(GunItems.SNOWBALLCANNON.get(), "雪球炮");
+        add(GunItems.STARCANNON.get(), "星星炮");
+        add(GunItems.TACTICALSHOTGUN.get(), "战术霰弹枪");
+        add(GunItems.UZI.get(), "乌兹冲锋枪");
+        add(GunItems.SHOTGUN.get(), "霰弹枪");
+        add(GunItems.MUSKET.get(), "火枪");
+        add(GunItems.DEBUGGUN.get(), "调试枪");
         */
 
         // 弓
@@ -1525,57 +1522,57 @@ public class ModChineseProvider extends LanguageProvider {
 
         // 子弹
         /*
-        add(AmmoItems.MUSKET_BULLET.getPrefab(), "火枪子弹");
-        add(AmmoItems.METEOR_BULLET.getPrefab(), "流星弹");
-        add(AmmoItems.SILVER_BULLET.getPrefab(), "银子弹");
-        add(AmmoItems.CRYSTAL_BILLET.getPrefab(), "水晶子弹");
-        add(AmmoItems.CURSED_BULLET.getPrefab(), "诅咒弹");
-        add(AmmoItems.CHLOROPHYTE_BULLET.getPrefab(), "叶绿弹");
-        add(AmmoItems.HIGH_VELOCITY_BULLET.getPrefab(), "高速子弹");
-        add(AmmoItems.ICHOR_BULLET.getPrefab(), "灵液弹");
-        add(AmmoItems.VENOM_BULLET.getPrefab(), "毒液弹");
-        add(AmmoItems.PARTY_BULLET.getPrefab(), "派对弹");
-        add(AmmoItems.NANO_BULLET.getPrefab(), "纳米弹");
-        add(AmmoItems.EXPLODING_BULLET.getPrefab(), "爆破弹");
-        add(AmmoItems.GOLDEN_BULLET.getPrefab(), "金子弹");
-        add(AmmoItems.ENDLESS_MUSKET_POUCH.getPrefab(), "无限子弹袋");
-        add(AmmoItems.LUMINITE_BULLET.getPrefab(), "夜明弹");
-        add(AmmoItems.TUNGSTEN_BULLET.getPrefab(), "钨子弹");
+        add(AmmoItems.MUSKET_BULLET.get(), "火枪子弹");
+        add(AmmoItems.METEOR_BULLET.get(), "流星弹");
+        add(AmmoItems.SILVER_BULLET.get(), "银子弹");
+        add(AmmoItems.CRYSTAL_BILLET.get(), "水晶子弹");
+        add(AmmoItems.CURSED_BULLET.get(), "诅咒弹");
+        add(AmmoItems.CHLOROPHYTE_BULLET.get(), "叶绿弹");
+        add(AmmoItems.HIGH_VELOCITY_BULLET.get(), "高速子弹");
+        add(AmmoItems.ICHOR_BULLET.get(), "灵液弹");
+        add(AmmoItems.VENOM_BULLET.get(), "毒液弹");
+        add(AmmoItems.PARTY_BULLET.get(), "派对弹");
+        add(AmmoItems.NANO_BULLET.get(), "纳米弹");
+        add(AmmoItems.EXPLODING_BULLET.get(), "爆破弹");
+        add(AmmoItems.GOLDEN_BULLET.get(), "金子弹");
+        add(AmmoItems.ENDLESS_MUSKET_POUCH.get(), "无限子弹袋");
+        add(AmmoItems.LUMINITE_BULLET.get(), "夜明弹");
+        add(AmmoItems.TUNGSTEN_BULLET.get(), "钨子弹");
 
          */
         // 刷怪蛋
         /*
-        add(SpawnEggs.BLUE_SLIME_SPAWN_EGG.getPrefab(), "蓝色史莱姆刷怪蛋");
-        add(SpawnEggs.RED_SLIME_SPAWN_EGG.getPrefab(), "红色史莱姆刷怪蛋");
-        add(SpawnEggs.YELLOW_SLIME_SPAWN_EGG.getPrefab(), "黄色史莱姆刷怪蛋");
-        add(SpawnEggs.HONEY_SLIME_SPAWN_EGG.getPrefab(), "蜂蜜史莱姆刷怪蛋");
-        add(SpawnEggs.PURPLE_SLIME_SPAWN_EGG.getPrefab(), "紫色史莱姆刷怪蛋");
-        add(SpawnEggs.DESERT_SLIME_SPAWN_EGG.getPrefab(), "沙漠史莱姆刷怪蛋");
-        add(SpawnEggs.JUNGLE_SLIME_SPAWN_EGG.getPrefab(), "丛林史莱姆刷怪蛋");
-        add(SpawnEggs.PINK_SLIME_SPAWN_EGG.getPrefab(), "粉色史莱姆刷怪蛋");
-        add(SpawnEggs.ICE_SLIME_SPAWN_EGG.getPrefab(), "冰冻史莱姆刷怪蛋");
-        add(SpawnEggs.GREEN_SLIME_SPAWN_EGG.getPrefab(), "绿色史莱姆刷怪蛋");
-        add(SpawnEggs.BLACK_SLIME_SPAWN_EGG.getPrefab(), "史莱姆之母刷怪蛋");
-        add(SpawnEggs.CRIMSON_SLIME_SPAWN_EGG.getPrefab(), "猩红史莱姆刷怪蛋");
-        add(SpawnEggs.TROPIC_SLIME_SPAWN_EGG.getPrefab(), "热带史莱姆刷怪蛋");
-        add(SpawnEggs.LUMINOUS_SLIME_SPAWN_EGG.getPrefab(), "夜明史莱姆刷怪蛋");
-        add(SpawnEggs.LAVA_SLIME_SPAWN_EGG.getPrefab(), "岩浆史莱姆刷怪蛋");
-        add(SpawnEggs.DEMON_EYE_SPAWN_EGG.getPrefab(), "恶魔眼刷怪蛋");
-        add(SpawnEggs.BLOOD_CRAWLER_SPAWN_EGG.getPrefab(), "血爬虫刷怪蛋");
-        add(SpawnEggs.BLOODY_SPORE_SPAWN_EGG.getPrefab(), "血腥芽孢刷怪蛋");
-        add(SpawnEggs.CTHULHU_EYE_SPAWN_EGG.getPrefab(), "克苏鲁之眼刷怪蛋");
-        add(SpawnEggs.KING_SLIME_SPAWN_EGG.getPrefab(), "史莱姆王刷怪蛋");
+        add(SpawnEggs.BLUE_SLIME_SPAWN_EGG.get(), "蓝色史莱姆刷怪蛋");
+        add(SpawnEggs.RED_SLIME_SPAWN_EGG.get(), "红色史莱姆刷怪蛋");
+        add(SpawnEggs.YELLOW_SLIME_SPAWN_EGG.get(), "黄色史莱姆刷怪蛋");
+        add(SpawnEggs.HONEY_SLIME_SPAWN_EGG.get(), "蜂蜜史莱姆刷怪蛋");
+        add(SpawnEggs.PURPLE_SLIME_SPAWN_EGG.get(), "紫色史莱姆刷怪蛋");
+        add(SpawnEggs.DESERT_SLIME_SPAWN_EGG.get(), "沙漠史莱姆刷怪蛋");
+        add(SpawnEggs.JUNGLE_SLIME_SPAWN_EGG.get(), "丛林史莱姆刷怪蛋");
+        add(SpawnEggs.PINK_SLIME_SPAWN_EGG.get(), "粉色史莱姆刷怪蛋");
+        add(SpawnEggs.ICE_SLIME_SPAWN_EGG.get(), "冰冻史莱姆刷怪蛋");
+        add(SpawnEggs.GREEN_SLIME_SPAWN_EGG.get(), "绿色史莱姆刷怪蛋");
+        add(SpawnEggs.BLACK_SLIME_SPAWN_EGG.get(), "史莱姆之母刷怪蛋");
+        add(SpawnEggs.CRIMSON_SLIME_SPAWN_EGG.get(), "猩红史莱姆刷怪蛋");
+        add(SpawnEggs.TROPIC_SLIME_SPAWN_EGG.get(), "热带史莱姆刷怪蛋");
+        add(SpawnEggs.LUMINOUS_SLIME_SPAWN_EGG.get(), "夜明史莱姆刷怪蛋");
+        add(SpawnEggs.LAVA_SLIME_SPAWN_EGG.get(), "岩浆史莱姆刷怪蛋");
+        add(SpawnEggs.DEMON_EYE_SPAWN_EGG.get(), "恶魔眼刷怪蛋");
+        add(SpawnEggs.BLOOD_CRAWLER_SPAWN_EGG.get(), "血爬虫刷怪蛋");
+        add(SpawnEggs.BLOODY_SPORE_SPAWN_EGG.get(), "血腥芽孢刷怪蛋");
+        add(SpawnEggs.CTHULHU_EYE_SPAWN_EGG.get(), "克苏鲁之眼刷怪蛋");
+        add(SpawnEggs.KING_SLIME_SPAWN_EGG.get(), "史莱姆王刷怪蛋");
 
          */
         // 光剑
         /*
-        add(SwordItems.RED_LIGHT_SABER.getPrefab(), "陨石红光剑");
-        add(SwordItems.ORANGE_LIGHT_SABER.getPrefab(), "陨石橙光剑");
-        add(SwordItems.YELLOW_LIGHT_SABER.getPrefab(), "陨石黄光剑");
-        add(SwordItems.GREEN_LIGHT_SABER.getPrefab(), "陨石绿光剑");
-        add(SwordItems.BLUE_LIGHT_SABER.getPrefab(), "陨石蓝光剑");
-        add(SwordItems.PURPLE_LIGHT_SABER.getPrefab(), "陨石紫光剑");
-        add(SwordItems.WHITE_LIGHT_SABER.getPrefab(), "陨石白光剑");
+        add(SwordItems.RED_LIGHT_SABER.get(), "陨石红光剑");
+        add(SwordItems.ORANGE_LIGHT_SABER.get(), "陨石橙光剑");
+        add(SwordItems.YELLOW_LIGHT_SABER.get(), "陨石黄光剑");
+        add(SwordItems.GREEN_LIGHT_SABER.get(), "陨石绿光剑");
+        add(SwordItems.BLUE_LIGHT_SABER.get(), "陨石蓝光剑");
+        add(SwordItems.PURPLE_LIGHT_SABER.get(), "陨石紫光剑");
+        add(SwordItems.WHITE_LIGHT_SABER.get(), "陨石白光剑");
 
          */
         //剑气
@@ -1592,20 +1589,20 @@ public class ModChineseProvider extends LanguageProvider {
         add(ModArmors.PLANK_HELMET.get(), "木制头盔");
         add(ModArmors.PLANK_LEGGINGS.get(), "木制护腿");
         add(ModArmors.PLANK_BOOTS.get(), "木制靴子");
-//        add(ModArmors.EBONY_CHESTPLATE.getPrefab(), "乌木胸甲");
-//        add(ModArmors.EBONY_HELMET.getPrefab(), "乌木头盔");
-//        add(ModArmors.EBONY_LEGGINGS.getPrefab(), "乌木护腿");
-//        add(ModArmors.EBONY_BOOTS.getPrefab(), "乌木靴子");
-//        add(ModArmors.SHADOW_CHESTPLATE.getPrefab(), "暗影木胸甲");
-//        add(ModArmors.SHADOW_HELMET.getPrefab(), "暗影木头盔");
-//        add(ModArmors.SHADOW_LEGGINGS.getPrefab(), "暗影木护腿");
-//        add(ModArmors.SHADOW_BOOTS.getPrefab(), "暗影木靴子");
-//        add(ModArmors.PEARL_CHESTPLATE.getPrefab(), "珍珠木胸甲");
-//        add(ModArmors.PEARL_HELMET.getPrefab(), "珍珠木头盔");
-//        add(ModArmors.PEARL_LEGGINGS.getPrefab(), "珍珠木护腿");
-//        add(ModArmors.PEARL_BOOTS.getPrefab(), "珍珠木靴子");
-//        add(ModArmors.RAIN_CAP.getPrefab(), "雨帽");
-//        add(ModArmors.RAINCOAT.getPrefab(), "雨衣");
+//        add(ModArmors.EBONY_CHESTPLATE.get(), "乌木胸甲");
+//        add(ModArmors.EBONY_HELMET.get(), "乌木头盔");
+//        add(ModArmors.EBONY_LEGGINGS.get(), "乌木护腿");
+//        add(ModArmors.EBONY_BOOTS.get(), "乌木靴子");
+//        add(ModArmors.SHADOW_CHESTPLATE.get(), "暗影木胸甲");
+//        add(ModArmors.SHADOW_HELMET.get(), "暗影木头盔");
+//        add(ModArmors.SHADOW_LEGGINGS.get(), "暗影木护腿");
+//        add(ModArmors.SHADOW_BOOTS.get(), "暗影木靴子");
+//        add(ModArmors.PEARL_CHESTPLATE.get(), "珍珠木胸甲");
+//        add(ModArmors.PEARL_HELMET.get(), "珍珠木头盔");
+//        add(ModArmors.PEARL_LEGGINGS.get(), "珍珠木护腿");
+//        add(ModArmors.PEARL_BOOTS.get(), "珍珠木靴子");
+//        add(ModArmors.RAIN_CAP.get(), "雨帽");
+//        add(ModArmors.RAINCOAT.get(), "雨衣");
         add(ModArmors.SNOW_CAPS.get(), "防雪帽");
         add(ModArmors.SNOW_SUITS.get(), "防雪衣");
         add(ModArmors.INSULATED_PANTS.get(), "保温裤");
@@ -1811,7 +1808,7 @@ public class ModChineseProvider extends LanguageProvider {
         add(FoodItems.COOKED_FLUTTERING_LAMB_CHOPS.get(), "熟飘飘羊排");
         // 药水
 
-//        add(VANILLA_POTION.getPrefab(), "药水");
+//        add(VANILLA_POTION.get(), "药水");
         add(TerraPotions.LESSER_HEALING_POTION.get(), "弱效治疗药水");
         add(TerraPotions.HEALING_POTION.get(), "治疗药水");
         add(TerraPotions.GREATER_HEALING_POTION.get(), "强效治疗药水");
@@ -1883,11 +1880,11 @@ public class ModChineseProvider extends LanguageProvider {
         add(ModEffects.STONED.get(), "石化");
 
         // 雕像
-//        add(STATUE_A.getPrefab(), "A雕像");
+//        add(STATUE_A.get(), "A雕像");
         //endregion items
 
         //region entities
-//        add(ModEntities.STEP_STOOL.getPrefab(), "梯凳");
+//        add(ModEntities.STEP_STOOL.get(), "梯凳");
         //endregion entities
     }
 }
