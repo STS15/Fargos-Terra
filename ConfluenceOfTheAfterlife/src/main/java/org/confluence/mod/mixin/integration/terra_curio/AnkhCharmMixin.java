@@ -21,6 +21,6 @@ public abstract class AnkhCharmMixin {
                 ModEffects.BLEEDING, ModEffects.BROKEN_ARMOR,
                 TCEffects.CONFUSED, ModEffects.CURSED,
                 ModEffects.SILENCED, ModEffects.STONED
-        ).rarity(ModRarity.LIGHT_PURPLE).initialize());
+        ).rarity(ModRarity.LIGHT_PURPLE));
     }
 }

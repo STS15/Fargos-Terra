@@ -27,6 +27,6 @@ public abstract class AnkhShieldMixin {
                 Attributes.KNOCKBACK_RESISTANCE, "knockback_resistance", 1.0, AttributeModifier.Operation.ADD_VALUE
         ).attribute(
                 Attributes.ARMOR, "armor", 4.0, AttributeModifier.Operation.ADD_VALUE
-        ).rarity(ModRarity.LIME).initialize());
+        ).rarity(ModRarity.LIME));
     }
 }
