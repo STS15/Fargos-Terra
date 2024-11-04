@@ -22,9 +22,12 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.phys.Vec3;
 import org.confluence.mod.Confluence;
 import org.confluence.mod.common.init.item.ModItems;
+import org.confluence.mod.worldgen.feature.LivingTreeFeature;
+import org.joml.Vector3d;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -381,5 +384,29 @@ public final class ModUtils {
             int avg = (r + g + b) / 3;
             return a << 24 | avg << 16 | avg << 8 | avg;
         });
+    }
+
+    public static void lightningPathList(List<Vector3d> locationList, double dis, FeaturePlaceContext<LivingTreeFeature.Config> context) {
+        boolean refined;
+        do {
+            refined = false;
+            for (int i = 0; i < locationList.size() - 1; i++) {
+                Vector3d point1 = locationList.get(i);
+                Vector3d point2 = locationList.get(i + 1);
+                double distance = Math.sqrt(Math.pow(point2.x - point1.x, 2) + Math.pow(point2.y - point1.y, 2) + Math.pow(point2.z - point1.z, 2));
+                if (distance > dis) {
+                    Vector3d midpoint = new Vector3d();
+                    midpoint.x = ((point1.x + point2.x) / 2);
+                    midpoint.y = ((point1.y + point2.y) / 2);
+                    midpoint.z = ((point1.z + point2.z) / 2);
+                    double offset = distance / 8;
+                    midpoint.x = midpoint.x + (context.random().nextDouble() - 0.5) * offset * 2;
+                    midpoint.y = midpoint.y + (context.random().nextDouble() - 0.5) * offset * 2;
+                    midpoint.z = midpoint.z + (context.random().nextDouble() - 0.5) * offset * 2;
+                    locationList.add(i + 1, midpoint);
+                    refined = true;
+                }
+            }
+        } while (refined);
     }
 }

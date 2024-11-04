@@ -1403,21 +1403,20 @@ public class ModChineseProvider extends LanguageProvider {
 
  */
         // 树苗
-        /*
-        add(SHADOW_SAPLING.get(), "暗影树苗");
-        add(EBONY_SAPLING.get(), "乌木树苗");
-        add(PALM_SAPLING.get(), "棕榈树苗");
-        add(PEARL_SAPLING.get(), "珍珠树苗");
-        add(RUBY_SAPLING.get(), "红玉树苗");
-        add(AMBER_SAPLING.get(), "琥珀树苗");
-        add(TOPAZ_SAPLING.get(), "黄玉树苗");
-        add(EMERALD_SAPLING.get(), "翡翠树苗");
-        add(DIAMOND_SAPLING.get(), "钻石树苗");
-        add(SAPPHIRE_SAPLING.get(), "蓝玉树苗");
-        add(TR_AMETHYST_SAPLING.get(), "紫晶树苗");
-        add(ASH_SAPLING.get(), "白蜡树苗");
+        add(ModBlocks.SHADOW_SAPLING.get(), "暗影树苗");
+        add(ModBlocks.EBONY_SAPLING.get(), "乌木树苗");
+        add(ModBlocks.PALM_SAPLING.get(), "棕榈树苗");
+        add(ModBlocks.PEARL_SAPLING.get(), "珍珠树苗");
+        add(ModBlocks.RUBY_SAPLING.get(), "红玉树苗");
+        add(ModBlocks.AMBER_SAPLING.get(), "琥珀树苗");
+        add(ModBlocks.TOPAZ_SAPLING.get(), "黄玉树苗");
+        add(ModBlocks.EMERALD_SAPLING.get(), "翡翠树苗");
+        add(ModBlocks.DIAMOND_SAPLING.get(), "钻石树苗");
+        add(ModBlocks.SAPPHIRE_SAPLING.get(), "蓝玉树苗");
+        add(ModBlocks.TR_AMETHYST_SAPLING.get(), "紫晶树苗");
+        add(ModBlocks.ASH_SAPLING.get(), "白蜡树苗");
+        add(ModBlocks.LIVING_SAPLING.get(), "生命树树苗");
 
-         */
 
         add(ModBlocks.TR_CRIMSON_MUSHROOM.get(), "毒蘑菇");
         add(ModBlocks.EBONY_MUSHROOM.get(), "魔菇");

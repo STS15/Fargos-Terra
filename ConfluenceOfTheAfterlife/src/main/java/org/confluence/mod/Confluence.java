@@ -22,6 +22,7 @@ import org.confluence.mod.common.advancement.ModTriggers;
 import org.confluence.mod.common.init.*;
 import org.confluence.mod.common.init.block.ModBlocks;
 import org.confluence.mod.common.init.item.ModItems;
+import org.confluence.mod.worldgen.feature.ModFeatures;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -50,6 +51,7 @@ public class Confluence {
         ModSoundEvents.SOUND_EVENT.register(eventBus);
         ModAttachments.TYPES.register(eventBus);
         ModEffects.EFFECTS.register(eventBus);
+        ModFeatures.FEATURES.register(eventBus);
     }
 
     public static void registerGameRules() {
