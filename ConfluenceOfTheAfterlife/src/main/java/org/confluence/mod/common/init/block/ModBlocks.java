@@ -25,10 +25,8 @@ import org.confluence.mod.Confluence;
 import org.confluence.mod.common.block.natural.*;
 import org.confluence.mod.common.block.natural.MushroomBlock;
 import org.confluence.mod.common.block.natural.herbs.*;
-import org.confluence.mod.common.block.natural.sapling.*;
 import org.confluence.mod.common.block.natural.spreadable.*;
 import org.confluence.mod.common.init.ModTabs;
-import org.confluence.mod.common.init.ModTreeGrower;
 import org.confluence.mod.common.init.item.ModItems;
 import org.confluence.mod.common.item.common.BoxBlockItem;
 
@@ -174,21 +172,6 @@ public class ModBlocks {
     public static final DeferredBlock<ThornBlock> CORRUPTION_THORN = registerWithItem("corruption_thorn", () -> new SpreadingThornBlock(2, CORRUPT_GRASS_BLOCK.get(), ISpreadable.Type.CORRUPT));
     public static final DeferredBlock<ThornBlock> JUNGLE_THORN = registerWithItem("jungle_thorn", () -> new ThornBlock(3.4f, Blocks.MOSS_BLOCK));
     public static final DeferredBlock<ThornBlock> PLANTERA_THORN = registerWithItem("plantera_thorn", () -> new ThornBlock(20, null));
-
-    // 树苗
-    public static final DeferredBlock<Block> SHADOW_SAPLING = registerWithItem("shadow_sapling", () -> new BaseSaplingBlock(ModTreeGrower.SHADOW_GROWER, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING), ModBlocks.TR_CRIMSON_GRASS_BLOCK.get()));
-    public static final DeferredBlock<Block> EBONY_SAPLING = registerWithItem("ebony_sapling", () -> new BaseSaplingBlock(ModTreeGrower.EBONY_GROWER, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING), ModBlocks.CORRUPT_GRASS_BLOCK.get()));
-    public static final DeferredBlock<Block> PALM_SAPLING = registerWithItem("palm_sapling", () -> new PalmSaplingBlock(ModTreeGrower.PALM_GROWER, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
-    public static final DeferredBlock<Block> PEARL_SAPLING = registerWithItem("pearl_sapling", () -> new BaseSaplingBlock(ModTreeGrower.PEARL_GROWER, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING), ModBlocks.HALLOW_GRASS_BLOCK.get()));
-    public static final DeferredBlock<Block> RUBY_SAPLING = registerWithItem("ruby_sapling", () -> new StoneSaplingBlock(ModTreeGrower.RUBY_GROWER, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
-    public static final DeferredBlock<Block> AMBER_SAPLING = registerWithItem("amber_sapling", () -> new StoneSaplingBlock(ModTreeGrower.AMBER_GROWER, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
-    public static final DeferredBlock<Block> TOPAZ_SAPLING = registerWithItem("topaz_sapling", () -> new StoneSaplingBlock(ModTreeGrower.TOPAZ_GROWER, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
-    public static final DeferredBlock<Block> EMERALD_SAPLING = registerWithItem("emerald_sapling", () -> new StoneSaplingBlock(ModTreeGrower.EMERALD_GROWER, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
-    public static final DeferredBlock<Block> DIAMOND_SAPLING = registerWithItem("diamond_sapling", () -> new StoneSaplingBlock(ModTreeGrower.DIAMOND_GROWER, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
-    public static final DeferredBlock<Block> SAPPHIRE_SAPLING = registerWithItem("sapphire_sapling", () -> new StoneSaplingBlock(ModTreeGrower.SAPPHIRE_GROWER, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
-    public static final DeferredBlock<Block> TR_AMETHYST_SAPLING = registerWithItem("tr_amethyst_sapling", () -> new StoneSaplingBlock(ModTreeGrower.TR_AMETHYST_GROWER, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
-    public static final DeferredBlock<Block> ASH_SAPLING = registerWithItem("ash_sapling", () -> new AshSaplingBlock(ModTreeGrower.ASH_GROWER, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
-    public static final DeferredBlock<Block> LIVING_SAPLING = registerWithItem("living_sapling", () -> new LivingSaplingBlock(ModTreeGrower.LIVING_GROWER, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
 
     public static <B extends Block> DeferredBlock<B> registerWithItem(String id, Supplier<B> block) {
         return registerWithItem(id, block, new Item.Properties());
