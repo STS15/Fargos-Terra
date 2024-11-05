@@ -8,6 +8,7 @@
         "accessor.EntityAccessor",
         "accessor.FishingHookAccessor",
         "entity.AbstractArrowMixin",
+        "integration.terra_curio.AnglerEarringMixin",
         "integration.terra_curio.AnkhCharmMixin",
         "integration.terra_curio.AnkhShieldMixin",
         "integration.terra_curio.BaseSpeedBootsMixin",

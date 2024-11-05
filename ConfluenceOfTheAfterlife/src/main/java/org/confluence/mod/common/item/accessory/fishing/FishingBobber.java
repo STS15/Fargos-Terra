@@ -1,10 +1,10 @@
 package org.confluence.mod.common.item.accessory.fishing;
 
 import org.confluence.mod.common.entity.fishing.CurioFishingHook;
+import org.confluence.terra_curio.api.primitive.FloatValue;
+import org.confluence.terra_curio.api.primitive.ValueType;
 import org.confluence.terra_curio.common.component.AccessoriesComponent;
 import org.confluence.terra_curio.common.component.ModRarity;
-import org.confluence.terra_curio.common.component.primitive.FloatValue;
-import org.confluence.terra_curio.common.component.primitive.ValueType;
 import org.confluence.terra_curio.common.init.TCDataComponentTypes;
 import org.confluence.terra_curio.common.item.curio.BaseCurioItem;
 
