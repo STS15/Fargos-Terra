@@ -203,4 +203,8 @@ public class ModItemModelProvider extends ItemModelProvider {
                 .transform(FIXED).translation(-4.5F, 4.5F, 0).scale(1.5F).rotation(0, 0, 90).end();
     };
 
+    Consumer<ItemModelBuilder> reversalImage16x = builder->{
+
+    };
+
 }
