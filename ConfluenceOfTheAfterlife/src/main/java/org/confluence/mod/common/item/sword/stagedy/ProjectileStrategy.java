@@ -12,7 +12,7 @@ import org.confluence.mod.common.item.sword.stagedy.projectile.IceSwordProjConta
 import org.confluence.mod.common.item.sword.stagedy.projectile.StarFuryProjContainer;
 import org.confluence.mod.network.c2s.SwordShootingPacketC2S;
 
-/***
+/**
  * 这里是定义弹幕策略类工厂，方便给类似的弹幕逻辑修改参数
  * @author coffee
  */
@@ -34,7 +34,7 @@ public class ProjectileStrategy {
             && sword.modifier.proj!= null
         ) {
             PacketDistributor.sendToServer((new SwordShootingPacketC2S()));
-            localPlayer.getCooldowns().addCooldown(sword,sword.modifier.proj.getCooldown());
+            localPlayer.getCooldowns().addCooldown(sword,sword.modifier.proj.getAttackSpeed(localPlayer));
             localPlayer.swing(InteractionHand.MAIN_HAND);
         }
     }

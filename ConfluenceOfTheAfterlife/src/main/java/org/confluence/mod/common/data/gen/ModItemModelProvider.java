@@ -69,7 +69,7 @@ public class ModItemModelProvider extends ItemModelProvider {
                 createDir(ModArmors.ARMOR,"armor_item/"),
                 createDir(AccessoryItems.ACCESSORIES, "accessory/"),
                 createDir(ModItems.ITEMS,"misc/", "seed/", "consumables/", "materials/"),
-                createDir(HammerItems.HAMMER, "hammer/")
+                createDir(HammerItems.HAMMERS, "hammer/")
         );
         genModels(customModels,"item/generated",false);
 
@@ -79,7 +79,7 @@ public class ModItemModelProvider extends ItemModelProvider {
                 createDir(SwordItems.SWORDS,"sword/"),
                 createDir(BowItems.BOWS,"bow/"),
                 createDir(AxeItems.AXE,"axe/"),
-                createDir(HammerItems.HAMMER, "hammer/")
+                createDir(HammerItems.HAMMERS, "hammer/")
         );
         genModels(handheld,"item/handheld",true);
 

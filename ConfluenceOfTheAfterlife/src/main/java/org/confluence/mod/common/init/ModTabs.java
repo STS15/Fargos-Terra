@@ -53,7 +53,7 @@ public final class ModTabs {
                     .title(Component.translatable("creativetab.confluence.tools"))
                     .displayItems((parameters, output) -> {
                         AxeItems.AXE.getEntries().forEach(item -> output.accept(item.get()));
-                        HammerItems.HAMMER.getEntries().forEach(item -> output.accept(item.get()));
+                        HammerItems.HAMMERS.getEntries().forEach(item -> output.accept(item.get()));
                     })
                     .build());
     // 战士武器

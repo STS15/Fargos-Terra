@@ -19,6 +19,8 @@ import java.util.function.Supplier;
  * <a href="https://terraria.wiki.gg/zh/wiki/%E9%95%90">镐的Terraria Wiki页面</a>
  */
 public final class ModTiers {
+    public static final Tier Reed = new PoweredTier(0, ModTags.Blocks.NEEDS_4_LEVEL, 0, 0, 0, 0, Ingredient::of);
+
     public static final Tier CACTUS = new PoweredTier(35, ModTags.Blocks.NEEDS_4_LEVEL, 144, 3, 1, 4, () -> Ingredient.of(Items.CACTUS));
     public static final Tier COPPER = new PoweredTier(35, ModTags.Blocks.NEEDS_4_LEVEL, 250, 4, 1, 5, () -> Ingredient.of(Items.COPPER_INGOT));
     public static final Tier TIN = new PoweredTier(35, ModTags.Blocks.NEEDS_4_LEVEL, 270, 4, 1, 5, () -> Ingredient.of(MaterialItems.TIN_INGOT.get()));
