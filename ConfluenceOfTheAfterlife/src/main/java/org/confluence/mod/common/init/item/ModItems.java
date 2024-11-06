@@ -66,6 +66,6 @@ public final class ModItems {
         ArmorMaterials.ARMOR_MATERIALS.register(eventBus);
         ModArmors.ARMOR.register(eventBus);
         AccessoryItems.ACCESSORIES.register(eventBus);
-        HammerItems.HAMMER.register(eventBus);
+        HammerItems.HAMMERS.register(eventBus);
     }
 }
