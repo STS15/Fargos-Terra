@@ -1167,18 +1167,16 @@ public class ModChineseProvider extends LanguageProvider {
         add(Pickaxes.PLATINUM_PICKAXE.get(), "铂金镐");
         */
         /* Hammers */
-        /*
-        add(Hammers.WOODEN_HAMMER.get(), "木锤");
-        add(Hammers.COPPER_HAMMER.get(), "铜锤");
-        add(Hammers.TIN_HAMMER.get(), "锡锤");
-        add(Hammers.LEAD_HAMMER.get(), "铅锤");
-        add(Hammers.SILVER_HAMMER.get(), "银锤");
-        add(Hammers.TUNGSTEN_HAMMER.get(), "钨锤");
-        add(Hammers.GOLDEN_HAMMER.get(), "金锤");
-        add(Hammers.PLATINUM_HAMMER.get(), "铂金锤");
-        add(Hammers.EBONY_HAMMER.get(), "魔锤");
-        add(Hammers.TR_CRIMSON_HAMMER.get(), "血肉锤");
-        */
+        add(HammerItems.WOODEN_HAMMER.get(), "木锤");
+        add(HammerItems.COPPER_HAMMER.get(), "铜锤");
+        add(HammerItems.TIN_HAMMER.get(), "锡锤");
+        add(HammerItems.LEAD_HAMMER.get(), "铅锤");
+        add(HammerItems.SILVER_HAMMER.get(), "银锤");
+        add(HammerItems.TUNGSTEN_HAMMER.get(), "钨锤");
+        add(HammerItems.GOLDEN_HAMMER.get(), "金锤");
+        add(HammerItems.PLATINUM_HAMMER.get(), "铂金锤");
+        add(HammerItems.EBONY_HAMMER.get(), "魔锤");
+        add(HammerItems.TR_CRIMSON_HAMMER.get(), "血肉锤");
         /* HammerAxes */
 
 

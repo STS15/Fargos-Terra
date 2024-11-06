@@ -16,6 +16,6 @@ public class AxeItems {
     public static final DeferredItem<BaseAxeItem> TUNGSTEN_AXE = AXE.register("tungsten_axe", () -> new BaseAxeItem(ModTiers.TUNGSTEN, 4, 1));
     public static final DeferredItem<BaseAxeItem> GOLDEN_AXE = AXE.register("golden_axe", () -> new BaseAxeItem(ModTiers.GOLD, 5, 1));
     public static final DeferredItem<BaseAxeItem> PLATINUM_AXE = AXE.register("platinum_axe", () -> new BaseAxeItem(ModTiers.PLATINUM, 5, 1));
-    public static final DeferredItem<BaseAxeItem.BigAxeItem> EBONY_AXE = AXE.register("ebony_axe", () -> new BaseAxeItem.BigAxeItem(ModTiers.EBONY, 7, 1));
-    public static final DeferredItem<BaseAxeItem.BigAxeItem> TR_CRIMSON_AXE = AXE.register("tr_crimson_axe", () -> new BaseAxeItem.BigAxeItem(ModTiers.TR_CRIMSON, 8, 1));
+    public static final DeferredItem<BaseAxeItem> EBONY_AXE = AXE.register("ebony_axe", () -> new BaseAxeItem(ModTiers.EBONY, 7, 1));
+    public static final DeferredItem<BaseAxeItem> TR_CRIMSON_AXE = AXE.register("tr_crimson_axe", () -> new BaseAxeItem(ModTiers.TR_CRIMSON, 8, 1));
 }

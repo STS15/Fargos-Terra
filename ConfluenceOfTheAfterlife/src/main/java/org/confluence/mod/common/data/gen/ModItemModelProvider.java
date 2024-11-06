@@ -48,7 +48,9 @@ public class ModItemModelProvider extends ItemModelProvider {
                 SwordItems.STARFURY, image24x,
                 SwordItems.BLOOD_BUTCHERER, image24x,
                 AxeItems.EBONY_AXE, image24x,
-                AxeItems.TR_CRIMSON_AXE, image24x
+                AxeItems.TR_CRIMSON_AXE, image24x,
+                HammerItems.EBONY_HAMMER, image24x,
+                HammerItems.TR_CRIMSON_HAMMER, image24x
         );
     }
 
@@ -66,7 +68,8 @@ public class ModItemModelProvider extends ItemModelProvider {
                 createDir(FishingPoleItems.POLES,"fishingpole/"),
                 createDir(ModArmors.ARMOR,"armor_item/"),
                 createDir(AccessoryItems.ACCESSORIES, "accessory/"),
-                createDir(ModItems.ITEMS,"misc/", "seed/", "consumables/")
+                createDir(ModItems.ITEMS,"misc/", "seed/", "consumables/", "materials/"),
+                createDir(HammerItems.HAMMER, "hammer/")
         );
         genModels(customModels,"item/generated",false);
 
@@ -75,7 +78,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         List<Map<DeferredRegister.Items,List<String>>> handheld = List.of(
                 createDir(SwordItems.SWORDS,"sword/"),
                 createDir(BowItems.BOWS,"bow/"),
-                createDir(AxeItems.AXE,"axe/")
+                createDir(AxeItems.AXE,"axe/"),
+                createDir(HammerItems.HAMMER, "hammer/")
         );
         genModels(handheld,"item/handheld",true);
 
