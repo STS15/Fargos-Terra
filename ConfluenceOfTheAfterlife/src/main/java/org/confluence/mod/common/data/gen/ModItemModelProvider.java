@@ -20,10 +20,7 @@ import org.confluence.mod.common.init.block.ModBlocks;
 import org.confluence.mod.common.init.item.*;
 import software.bernie.geckolib.animatable.GeoItem;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.function.BiConsumer;
 import java.util.function.BiFunction;
 import java.util.function.Consumer;
@@ -44,14 +41,22 @@ public class ModItemModelProvider extends ItemModelProvider {
     }
     // 特殊调整贴图
     private void initDispatcher(){
-        dispatcher = Map.of(
-                SwordItems.STARFURY, image24x,
-                SwordItems.BLOOD_BUTCHERER, image24x,
-                AxeItems.EBONY_AXE, image24x,
-                AxeItems.TR_CRIMSON_AXE, image24x,
-                HammerItems.EBONY_HAMMER, image24x,
-                HammerItems.TR_CRIMSON_HAMMER, image24x
-        );
+        dispatcher = new HashMap<>();
+        dispatcher.put(SwordItems.BAT_BAT, image24x);
+        dispatcher.put(SwordItems.STARFURY, image24x);
+        dispatcher.put(SwordItems.BLOOD_BUTCHERER, image24x);
+        dispatcher.put(SwordItems.CANDY_CANE_SWORD, image24x);
+        dispatcher.put(SwordItems.PURPLE_CLUBBERFISH, image24x);
+        dispatcher.put(SwordItems.VOLCANO, image24x);
+        dispatcher.put(SwordItems.KATANA, image24x);
+//        dispatcher.put(SwordItems.LIGHTS_BANE, image24x);
+
+
+        dispatcher.put(AxeItems.EBONY_AXE, image24x);
+        dispatcher.put(AxeItems.TR_CRIMSON_AXE, image24x);
+
+        dispatcher.put(HammerItems.EBONY_HAMMER, image24x);
+        dispatcher.put(HammerItems.TR_CRIMSON_HAMMER, image24x);
     }
 
     @Override
@@ -59,28 +64,27 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         // 一般物品
         // tip：MATERIALS的贴图分多个文件夹 "materials/","gem/","ingot/","ore/"，物品多的文件夹放前面提高速度
-        List<Map<DeferredRegister.Items,List<String>>> customModels = List.of(
-                createDir(IconItems.ICONS,"icon/"),
-                createDir(MaterialItems.MATERIALS,"materials/","ingot/","ore/"),
-                createDir(TerraPotions.POTIONS,"potion/"),
-                createDir(ArrowItems.ARROWS,"arrow/"),
-                createDir(FoodItems.FOODS,"food/"),
-                createDir(FishingPoleItems.POLES,"fishingpole/"),
-                createDir(ModArmors.ARMOR,"armor_item/"),
-                createDir(AccessoryItems.ACCESSORIES, "accessory/"),
-                createDir(ModItems.ITEMS,"misc/", "seed/", "consumables/", "materials/"),
-                createDir(HammerItems.HAMMERS, "hammer/")
-        );
+        List<Map<DeferredRegister.Items,List<String>>> customModels = new ArrayList<>();
+        customModels.add(createDir(IconItems.ICONS,            "icon/"));
+        customModels.add(createDir(MaterialItems.MATERIALS,    "materials/","gem/","ingot/","ore/"));
+        customModels.add(createDir(TerraPotions.POTIONS,       "potion/"));
+        customModels.add(createDir(ArrowItems.ARROWS,          "arrow/"));
+        customModels.add(createDir(FoodItems.FOODS,            "food/"));
+        customModels.add(createDir(FishingPoleItems.POLES,     "fishingpole/"));
+        customModels.add(createDir(ModArmors.ARMOR,            "armor_item/"));
+        customModels.add(createDir(AccessoryItems.ACCESSORIES, "accessory/"));
+        customModels.add(createDir(ModItems.ITEMS,             "misc/", "seed/", "consumables/", "materials/"));
+        customModels.add(createDir(HammerItems.HAMMERS,        "hammer/"));
+
         genModels(customModels,"item/generated",false);
 
-
         // 手持物品
-        List<Map<DeferredRegister.Items,List<String>>> handheld = List.of(
-                createDir(SwordItems.SWORDS,"sword/"),
-                createDir(BowItems.BOWS,"bow/"),
-                createDir(AxeItems.AXE,"axe/"),
-                createDir(HammerItems.HAMMERS, "hammer/")
-        );
+        List<Map<DeferredRegister.Items,List<String>>> handheld = new ArrayList<>();
+        handheld.add(createDir(SwordItems.SWORDS,"sword/"));
+        handheld.add(createDir(BowItems.BOWS,"bow/"));
+        handheld.add(createDir(AxeItems.AXE,"axe/"));
+        handheld.add(createDir(HammerItems.HAMMERS, "hammer/"));
+
         genModels(handheld,"item/handheld",true);
 
 

@@ -1,5 +1,7 @@
 package org.confluence.mod.common.init.item;
 
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.Tiers;
@@ -8,6 +10,10 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import org.confluence.mod.Confluence;
 import org.confluence.mod.common.init.ModTiers;
 import org.confluence.mod.common.item.sword.*;
+import org.confluence.mod.common.item.sword.stagedy.EffectStrategy;
+import org.confluence.mod.common.item.sword.stagedy.InventoryTickStrategy;
+import org.confluence.mod.common.item.sword.stagedy.ProjectileStrategy;
+import org.confluence.mod.common.item.sword.stagedy.SwordPrefabs;
 import org.confluence.terra_curio.common.component.ModRarity;
 
 import java.util.function.Supplier;
@@ -62,7 +68,7 @@ public class SwordItems {
 
 
 
-    //改大小的宽剑
+    //改横扫大小的宽剑
     public static final DeferredItem<SwordItem> TERRAGRIM = register("terragrim", ModTiers.TITANIUM, 1, 5.2F, ModRarity.ORANGE, BOARD_SWORD.apply(1.2f));
 
     //效果剑
@@ -87,7 +93,14 @@ public class SwordItems {
 
     // 特殊剑
     public static final DeferredItem<SwordItem> CROWBAR = register("crowbar",ModTiers.TITANIUM, 16, -1.0F,ModRarity.MASTER, BOARD_SWORD.apply(2.0f));
-    public static final DeferredItem<SwordItem> DEVELOPER_SWORD = register("developer_sword",ModTiers.TITANIUM, 20, 20F,ModRarity.MASTER, BOARD_SWORD.apply(20.0f));
+    public static final DeferredItem<SwordItem> DEVELOPER_SWORD = register("developer_sword",ModTiers.TITANIUM, 20, 20F, ModRarity.MASTER,
+            SwordPrefabs.BOARD_SWORD.apply(10.0f)                                //宽剑
+                    .addAttributeModifier(Attributes.MOVEMENT_SPEED,1.5f,
+                            AttributeModifier.Operation.ADD_MULTIPLIED_BASE)        //手持属性加成
+                    .addOnHitEffect(EffectStrategy.UNDEFINED_EFFECT)                //命中效果
+                    .setProj(ProjectileStrategy.ICE_PROJ)                           //弹幕效果
+                    .setInventoryTick(InventoryTickStrategy.INVINCIBLE)             //背包每刻效果
+    );
 
 
 /*
@@ -109,7 +122,7 @@ public class SwordItems {
         return SWORDS.register(name, () -> new BaseSwordItem(tier, ModRarity.WHITE, rawDamage, rawSpeed, modifierBuilder));
     }
     public static DeferredItem<SwordItem> register(String name, Tier tier, int rawDamage, float rawSpeed ,ModRarity rarity, BaseSwordItem.ModifierBuilder modifierBuilder) {
-        return SWORDS.register(name, () -> new BaseSwordItem(tier, ModRarity.WHITE, rawDamage, rawSpeed, modifierBuilder));
+        return SWORDS.register(name, () -> new BaseSwordItem(tier, rarity, rawDamage, rawSpeed, modifierBuilder));
     }
 
 }

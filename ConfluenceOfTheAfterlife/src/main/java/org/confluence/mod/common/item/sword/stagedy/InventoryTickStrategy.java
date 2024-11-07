@@ -16,4 +16,11 @@ public class InventoryTickStrategy {
         }
     };
 
+
+    public static final QuaConsumer<ItemStack, Level, Entity,Boolean> INVINCIBLE= (stack, level, entity, selected)-> {
+        if (level.isClientSide) return;
+        if (selected && entity instanceof LivingEntity living && !living.swinging) {
+            living.addEffect(new MobEffectInstance(MobEffects.ABSORPTION, 20, 2, false, false, true));
+        }
+    };
 }
