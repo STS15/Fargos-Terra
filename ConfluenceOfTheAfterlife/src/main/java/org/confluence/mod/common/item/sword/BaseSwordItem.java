@@ -21,6 +21,9 @@ import net.minecraft.world.phys.AABB;
 import net.neoforged.neoforge.common.ItemAbility;
 import org.apache.commons.lang3.function.TriConsumer;
 import org.confluence.mod.Confluence;
+import org.confluence.mod.common.item.sword.stagedy.EffectStrategy;
+import org.confluence.mod.common.item.sword.stagedy.InventoryTickStrategy;
+import org.confluence.mod.common.item.sword.stagedy.ProjectileStrategy;
 import org.confluence.mod.common.item.sword.stagedy.projectile.AbstractProjContainer;
 import org.confluence.terra_curio.common.component.ModRarity;
 import org.confluence.terra_curio.common.init.TCDataComponentTypes;
@@ -77,7 +80,7 @@ public class BaseSwordItem extends SwordItem {
 
         /**
          * 添加击中效果
-         * {@link org.confluence.mod.common.item.sword.stagedy.EffectStrategy}
+         * @see EffectStrategy
          */
         public ModifierBuilder addOnHitEffect(BiConsumer<LivingEntity,LivingEntity> onHit){
             this.onHitEffects.add(onHit);
@@ -94,7 +97,7 @@ public class BaseSwordItem extends SwordItem {
 
         /**
          * 设置弹幕
-         * {@link org.confluence.mod.common.item.sword.stagedy.ProjectileStrategy}
+         * @see ProjectileStrategy
          */
         public ModifierBuilder setProj(AbstractProjContainer proj){
             this.proj = proj;
@@ -119,7 +122,7 @@ public class BaseSwordItem extends SwordItem {
 
         /**
          * 背包每刻效果
-         * {@link org.confluence.mod.common.item.sword.stagedy.InventoryTickStrategy}
+         * @see InventoryTickStrategy
          */
         public ModifierBuilder setInventoryTick(QuaConsumer<ItemStack,Level,Entity,Boolean> inventoryTick){
             this.inventoryTick = inventoryTick;
