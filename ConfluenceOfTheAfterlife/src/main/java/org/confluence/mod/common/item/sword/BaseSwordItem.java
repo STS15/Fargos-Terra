@@ -24,6 +24,7 @@ import org.confluence.mod.Confluence;
 import org.confluence.mod.common.item.sword.stagedy.EffectStrategy;
 import org.confluence.mod.common.item.sword.stagedy.InventoryTickStrategy;
 import org.confluence.mod.common.item.sword.stagedy.ProjectileStrategy;
+import org.confluence.mod.common.item.sword.stagedy.SwordPrefabs;
 import org.confluence.mod.common.item.sword.stagedy.projectile.AbstractProjContainer;
 import org.confluence.terra_curio.common.component.ModRarity;
 import org.confluence.terra_curio.common.init.TCDataComponentTypes;
@@ -37,15 +38,11 @@ import java.util.function.Consumer;
 
 public class BaseSwordItem extends SwordItem {
     public ModifierBuilder modifier;
-    /**
-     * MC白色剑
-     */
+    /**MC白色剑。无效果*/
     public BaseSwordItem(Tier tier, int rawDamage, float rawSpeed) {
         this(tier, ModRarity.WHITE, rawDamage, rawSpeed);
     }
-    /**
-     * MC带颜色的剑
-     */
+    /**MC带颜色的剑。无效果*/
     public BaseSwordItem(Tier tier, ModRarity rarity, int rawDamage, float rawSpeed) {
         super(tier, new Item.Properties()
                 .component(TCDataComponentTypes.MOD_RARITY, rarity)
@@ -54,9 +51,10 @@ public class BaseSwordItem extends SwordItem {
         );
         this.modifier = new ModifierBuilder();
     }
-    /**
-     * TR带特殊效果的刀
-     */
+    /**TR带特殊效果的剑。
+     * @param modifier 效果修饰器
+     * @see SwordPrefabs 预制体和半预制体
+     * */
     public BaseSwordItem(Tier tier, ModRarity rarity, int rawDamage, float rawSpeed, ModifierBuilder modifier) {
         super(tier, new Item.Properties()
                 .component(TCDataComponentTypes.MOD_RARITY, rarity)
@@ -76,54 +74,45 @@ public class BaseSwordItem extends SwordItem {
         public ItemAttributeModifiers.Builder attributeModifiersBuilder = ItemAttributeModifiers.builder();
         private int modifyCount = 0;
         public boolean canPerformSweep = true;
-        private float sweepRange = 3.0F;
+        private float sweepRange = 1.0F;
 
-        /**
-         * 添加击中效果
+        /**添加击中效果
          * @see EffectStrategy
-         */
+         * */
         public ModifierBuilder addOnHitEffect(BiConsumer<LivingEntity,LivingEntity> onHit){
             this.onHitEffects.add(onHit);
             return this;
         }
 
-        /**
-         * 添加属性修改器
-         */
+        /**添加属性修改器*/
         public ModifierBuilder addAttributeModifier(Holder<Attribute> attribute, float amount, AttributeModifier.Operation operation){
             this.attributeModifiersBuilder.add(attribute,new AttributeModifier(Confluence.asResource("sword.modifier."+modifyCount++),amount,operation),EquipmentSlotGroup.MAINHAND);
             return this;
         }
 
-        /**
-         * 设置弹幕
+        /**设置弹幕
          * @see ProjectileStrategy
-         */
+         * */
         public ModifierBuilder setProj(AbstractProjContainer proj){
             this.proj = proj;
             return this;
         }
 
-        /**
-         * 禁用横扫
-         */
+        /**禁用横扫*/
         public ModifierBuilder setCanNotPerformSweep(){
             this.canPerformSweep = false;
             return this;
         }
 
-        /**
-         * 设置横扫范围
-         */
+        /**设置横扫范围*/
         public ModifierBuilder setSweepRange(float sweepRange){
             this.sweepRange = sweepRange;
             return this;
         }
 
-        /**
-         * 背包每刻效果
+        /**背包每刻效果
          * @see InventoryTickStrategy
-         */
+         * */
         public ModifierBuilder setInventoryTick(QuaConsumer<ItemStack,Level,Entity,Boolean> inventoryTick){
             this.inventoryTick = inventoryTick;
             return this;
@@ -151,18 +140,6 @@ public class BaseSwordItem extends SwordItem {
         void accept(A a,B b,C c,D d);
     }
 
-
-
-    protected ItemAttributeModifiers modifiers;
-    protected void addAttributeModifiers(Consumer<ItemAttributeModifiers.Builder> consumer) {
-        ItemAttributeModifiers.Builder builder = ItemAttributeModifiers.builder();
-        consumer.accept(builder);
-        this.modifiers = builder.build();
-    }
-    @Override
-    public @NotNull ItemAttributeModifiers getDefaultAttributeModifiers(@NotNull ItemStack stack) {
-        return modifiers == null ? super.getDefaultAttributeModifiers(stack) : modifiers;
-    }
     @Override
     public @NotNull MutableComponent getName(@NotNull ItemStack pStack) {
         return Component.translatable(getDescriptionId()).withStyle(style -> style.withColor(pStack.get(TCDataComponentTypes.MOD_RARITY).getColor()));
