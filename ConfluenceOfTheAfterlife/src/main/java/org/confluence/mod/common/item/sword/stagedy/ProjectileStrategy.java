@@ -17,6 +17,8 @@ import org.confluence.mod.network.c2s.SwordShootingPacketC2S;
  * @author coffee
  */
 public class ProjectileStrategy {
+
+
     public static final AbstractProjContainer ICE_PROJ = new IceSwordProjContainer();
 
     public static final AbstractProjContainer STAR_FURY_PROJ = new StarFuryProjContainer();
@@ -24,6 +26,9 @@ public class ProjectileStrategy {
     public static final AbstractProjContainer ENCHANTED_SWORD_PROJ = new EnchantedSwordProjContainer();
 
 
+
+
+    public static final AbstractProjContainer UNDEFINED_PROJ = ICE_PROJ;
 
     public static void handle() {
         Minecraft minecraft = Minecraft.getInstance();

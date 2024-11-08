@@ -12,9 +12,8 @@ import java.util.function.BiConsumer;
  * @author coffee
  */
 public class EffectStrategy {
-    /**
-     * 血腥屠刀
-     */
+
+    /**血腥屠刀*/
     public static final BiConsumer<LivingEntity,LivingEntity> BLOOD_BUTCHERED_EFFECT = (owner,entity) -> {
         if (entity.hasEffect(ModEffects.BLOOD_BUTCHERED)) {
             if (entity.getEffect(ModEffects.BLOOD_BUTCHERED).getAmplifier() < 4) {
@@ -27,13 +26,11 @@ public class EffectStrategy {
         }
     };
 
-    /**
-     * 施加单一效果
-     */
+    /**施加单一效果*/
     public static final BiConsumer<LivingEntity,MobEffectInstance> SIMPLE_EFFECT = (entity,effect) ->
             entity.addEffect(new MobEffectInstance(effect.getEffect(), effect.getDuration(), effect.getAmplifier()));
 
-    // todo: 未定义效果，暂时用发光代替
+    /**占位符，未定义效果，暂时用发光代替*/
     public static final BiConsumer<LivingEntity,LivingEntity> UNDEFINED_EFFECT = (owner, entity) -> SIMPLE_EFFECT.accept(entity,new MobEffectInstance(MobEffects.GLOWING,5 * 20));
 
 
