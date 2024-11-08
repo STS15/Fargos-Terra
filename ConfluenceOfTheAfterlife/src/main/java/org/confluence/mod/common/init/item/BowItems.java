@@ -36,6 +36,15 @@ public class BowItems {
     public static final DeferredItem<RoutineBowItem> GOLDEN_BOW = BOWS.register("golden_bow", () -> new RoutineBowItem(4.5F, 1408, ModRarity.WHITE));
     public static final DeferredItem<RoutineBowItem> PLATINUM_BOW = BOWS.register("platinum_bow", () -> new RoutineBowItem(4.5F, 1536, ModRarity.WHITE));
 
+
+    public static final DeferredItem<RoutineBowItem> DEVELOPER_BOW = BOWS.register("developer_bow", () -> new RoutineBowItem(1F, 1536, ModRarity.MASTER,
+            modifier->modifier.causeFire(200)
+                    .damage(10)
+                    .speedFactor(2)
+                    .penetration(2)
+            ));
+
+
     @OnlyIn(Dist.CLIENT)
     public static void registerProperties() {
         ResourceLocation pull = ResourceLocation.withDefaultNamespace("pull");

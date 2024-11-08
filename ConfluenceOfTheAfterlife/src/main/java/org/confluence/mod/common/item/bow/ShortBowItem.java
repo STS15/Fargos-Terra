@@ -8,12 +8,12 @@ import org.confluence.terra_curio.common.component.ModRarity;
 import org.confluence.terra_curio.common.init.TCDataComponentTypes;
 import org.jetbrains.annotations.NotNull;
 
-public class ShortBowItem extends BowItem {
+public class ShortBowItem extends TerraBowItem {
     public static final int MAX_DRAW_DURATION = 4; // 满蓄力时间为4 tick
     private final float baseDamage;
 
     public ShortBowItem(float baseDamage, int durability, ModRarity rarity) {
-        super(new Properties().durability(durability).component(TCDataComponentTypes.MOD_RARITY, rarity));
+        super(baseDamage, durability, rarity);
         this.baseDamage = baseDamage;
     }
 

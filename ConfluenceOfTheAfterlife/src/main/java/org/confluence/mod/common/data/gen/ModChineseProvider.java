@@ -1516,6 +1516,7 @@ public class ModChineseProvider extends LanguageProvider {
         add(BowItems.TUNGSTEN_BOW.get(), "钨弓");
         add(BowItems.GOLDEN_BOW.get(), "金弓");
         add(BowItems.PLATINUM_BOW.get(), "铂金弓");
+        add(BowItems.DEVELOPER_BOW.get(), "开发者弓");
 
         // 子弹
         /*
