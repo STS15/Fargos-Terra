@@ -19,7 +19,6 @@ import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 import net.neoforged.neoforge.common.ItemAbility;
-import org.apache.commons.lang3.function.TriConsumer;
 import org.confluence.mod.Confluence;
 import org.confluence.mod.common.item.sword.stagedy.EffectStrategy;
 import org.confluence.mod.common.item.sword.stagedy.InventoryTickStrategy;
@@ -33,11 +32,11 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.BiConsumer;
-import java.util.function.Consumer;
 
 
 public class BaseSwordItem extends SwordItem {
     public ModifierBuilder modifier;
+
     /**MC白色剑。无效果*/
     public BaseSwordItem(Tier tier, int rawDamage, float rawSpeed) {
         this(tier, ModRarity.WHITE, rawDamage, rawSpeed);
@@ -50,6 +49,8 @@ public class BaseSwordItem extends SwordItem {
                         createAttributes(tier,rawDamage, rawSpeed))
         );
         this.modifier = new ModifierBuilder();
+        modifier.damage =rawDamage + tier.getAttackDamageBonus();
+        modifier.speed = rawSpeed;
     }
     /**TR带特殊效果的剑。
      * @param modifier 效果修饰器
@@ -65,9 +66,14 @@ public class BaseSwordItem extends SwordItem {
                                 .build())
         );
         this.modifier = modifier;
+        modifier.damage =rawDamage + tier.getAttackDamageBonus();
+        modifier.speed = rawSpeed;
     }
 
+
     public static class ModifierBuilder {
+        public float damage;
+        public float speed;
         public AbstractProjContainer proj;
         public List<BiConsumer<LivingEntity,LivingEntity>> onHitEffects = new ArrayList<>();
         public QuaConsumer<ItemStack,Level,Entity,Boolean> inventoryTick;
@@ -117,6 +123,8 @@ public class BaseSwordItem extends SwordItem {
             this.inventoryTick = inventoryTick;
             return this;
         }
+
+
 
 
     }
