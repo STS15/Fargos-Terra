@@ -41,7 +41,7 @@ public class TypeWikiScreen extends BaseWikiScreen{
             DeferredItem<?> d = (DeferredItem<?>) reg.getEntries().toArray()[i];
             Item item = d.asItem();
             if (item instanceof BlockItem) continue;
-            Button g =Button.builder(Component.empty(), (e) -> this.minecraft.setScreen(
+            Button g = Button.builder(Component.empty(), (e) -> this.minecraft.setScreen(
                             new ObjectWikiScreen(item, this, item.getDescriptionId())))
                     .bounds(31 + (z % 14) * 30, height - 245 + (z / 14 * 30), 20,
                             20).tooltip(Tooltip.create(item.getName(item.getDefaultInstance()))).build();
