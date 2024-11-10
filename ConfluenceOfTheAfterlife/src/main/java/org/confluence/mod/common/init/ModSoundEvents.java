@@ -29,7 +29,6 @@ public final class ModSoundEvents {
     public static final Supplier<SoundEvent> LIFE_CRYSTAL_USE = register("life_crystal_use");
     public static final Supplier<SoundEvent> MANA_STAR_USE = register("mana_star_use");
     public static final Supplier<SoundEvent> COINS = register("coins");
-    public static final Supplier<SoundEvent> ALPHA = register("alpha");
     public static final Supplier<SoundEvent> ROUTINE_HURT = register("routine_hurt");
     public static final Supplier<SoundEvent> ROUTINE_DEATH = register("routine_death");
     public static final Supplier<SoundEvent> COOLDOWN_RECOVERY = register("cooldown_recovery"); // CD冷却

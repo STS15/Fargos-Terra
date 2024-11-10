@@ -28,6 +28,7 @@ public final class ModTags {
         public static final TagKey<Block> POTS_SURVIVE = register("pots_survive");
         public static final TagKey<Block> COIN_PILE = register("coin_pile");
         public static final TagKey<Block> EASY_CRASH = register("easy_crash");
+        public static final TagKey<Block> VINES = register("vines");
 
         private static TagKey<Block> register(String id) {
             return BlockTags.create(Confluence.asResource(id));
@@ -35,17 +36,15 @@ public final class ModTags {
     }
 
     public static class Items {
-        public static final TagKey<Item> ACCESSORY = curios("accessory");
         public static final TagKey<Item> HOOK = curios("hook");
         public static final TagKey<Item> MINECART = curios("minecart");
         public static final TagKey<Item> PROVIDE_MANA = register("provide_mana");
         public static final TagKey<Item> PROVIDE_LIFE = register("provide_life");
         public static final TagKey<Item> COIN = register("coin");
-        public static final TagKey<Item> TORCH = register("torch");
-        public static final TagKey<Item> HARDCORE = register("hardcore");
-        public static final TagKey<Item> BOTTOMLESS = register("bottomless");
+        public static final TagKey<Item> TORCH = register("torch"); // todo
+        public static final TagKey<Item> HARDCORE = register("hardcore"); // todo
+        public static final TagKey<Item> BOTTOMLESS = register("bottomless"); // todo
         public static final TagKey<Item> FRUIT = register("fruit");
-        public static final TagKey<Item> RANGED_WEAPON = register("ranged_weapon");
         public static final TagKey<Item> DESERT_FOSSIL = register("desert_fossil");
         public static final TagKey<Item> GRAVEL = register("gravel");
         public static final TagKey<Item> JUNK = register("junk");

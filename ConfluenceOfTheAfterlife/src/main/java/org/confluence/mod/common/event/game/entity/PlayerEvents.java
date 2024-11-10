@@ -12,7 +12,7 @@ import net.neoforged.neoforge.event.entity.player.*;
 import org.confluence.mod.Confluence;
 import org.confluence.mod.common.init.ModAttachments;
 import org.confluence.mod.common.init.ModTags;
-import org.confluence.mod.common.item.accessory.LuckyCoin;
+import org.confluence.mod.common.init.item.AccessoryItems;
 import org.confluence.mod.util.PlayerUtils;
 
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.GAME, modid = Confluence.MODID)
@@ -63,7 +63,7 @@ public final class PlayerEvents {
         Player player = event.getEntity();
         if (PlayerUtils.isServerNotFake(player)) {
             Entity target = event.getTarget();
-            LuckyCoin.apply(player, target);
+            AccessoryItems.applyLuckyCoin(player, target);
         }
     }
 }

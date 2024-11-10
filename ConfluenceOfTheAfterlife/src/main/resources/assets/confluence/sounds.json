@@ -84,14 +84,6 @@
             "confluence:sparkle_shoot"
         ]
     },
-    "alpha": {
-        "sounds": [
-            {
-                "name": "minecraft:music/game/end/credits",
-                "stream": true
-            }
-        ]
-    },
     "routine_hurt": {
         "sounds": [
             "confluence:mob/routine_hurt"

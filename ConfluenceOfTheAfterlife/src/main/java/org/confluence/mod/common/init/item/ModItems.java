@@ -9,18 +9,30 @@ import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.confluence.mod.Confluence;
 import org.confluence.mod.common.entity.projectile.bombs.*;
+import org.confluence.mod.common.init.ModJukeboxSongs;
 import org.confluence.mod.common.init.armor.ArmorMaterials;
 import org.confluence.mod.common.init.armor.ModArmors;
 import org.confluence.mod.common.init.block.ModBlocks;
+import org.confluence.mod.common.item.CustomRarityItem;
 import org.confluence.mod.common.item.common.BombItem;
 import org.confluence.mod.common.item.common.HerbSeedItem;
 import org.confluence.mod.common.item.common.LifeCrystal;
 import org.confluence.mod.common.item.common.LifeFruit;
 import org.confluence.mod.common.item.mana.ManaStar;
+import org.confluence.terra_curio.common.component.ModRarity;
 
 public final class ModItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Confluence.MODID);
     public static final DeferredRegister.Items BLOCK_ITEMS = DeferredRegister.createItems(Confluence.MODID);
+
+    public static final DeferredItem<Item> ALPHA = ITEMS.register("alpha", () -> new CustomRarityItem(new Item.Properties().stacksTo(1).fireResistant().jukeboxPlayable(ModJukeboxSongs.ALPHA), ModRarity.EXPERT));
+
+    public static final DeferredItem<Item> STAR = ITEMS.register("star", () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> SOUL_CAKE = ITEMS.register("soul_cake", () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> SUGAR_PLUM = ITEMS.register("sugar_plum", () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> HEART = ITEMS.register("heart", () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> CANDY_APPLE = ITEMS.register("candy_apple", () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> CANDY_CANE = ITEMS.register("candy_cane", () -> new Item(new Item.Properties()));
 
     public static final DeferredItem<ManaStar> MANA_STAR = ITEMS.register("mana_star", ManaStar::new);
     public static final DeferredItem<LifeCrystal> LIFE_CRYSTAL = ITEMS.register("life_crystal", LifeCrystal::new);
