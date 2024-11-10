@@ -6,6 +6,8 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import org.confluence.mod.common.block.natural.LogBlockSet;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.concurrent.CompletableFuture;
@@ -18,12 +20,12 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
     }
 
     @Override
-    protected void addTags(HolderLookup.Provider provider) {
-
+    protected void addTags(HolderLookup.@NotNull Provider provider) {
+        LogBlockSet.acceptTags(this);
     }
 
     @Override
-    public IntrinsicTagAppender<Block> tag(TagKey<Block> tag){
+    public @NotNull IntrinsicTagAppender<Block> tag(@NotNull TagKey<Block> tag){
         return super.tag(tag);
     }
 }

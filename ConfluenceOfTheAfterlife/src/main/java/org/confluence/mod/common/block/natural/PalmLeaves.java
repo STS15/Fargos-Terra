@@ -53,7 +53,7 @@ public class  PalmLeaves extends Block implements SimpleWaterloggedBlock, IShear
         for (Direction direction : Direction.values()) {
             BlockPos blockPos = pos.relative(direction);
             BlockState neighborState = level.getBlockState(blockPos);
-            if (neighborState.is(ModBlocks.ASH_LOG_BLOCKS.WOOD) || neighborState.is(ModBlocks.ASH_LOG_BLOCKS.LOG)) {
+            if (neighborState.is(ModBlocks.ASH_LOG_BLOCKS.getWood()) || neighborState.is(ModBlocks.ASH_LOG_BLOCKS.getLog())) {
                 min = 0;
                 break;
             } else if (neighborState.is(this)) {
