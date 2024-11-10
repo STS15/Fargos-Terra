@@ -1,8 +1,6 @@
 package org.confluence.mod.common.event;
 
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.item.Items;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -17,6 +15,7 @@ import org.confluence.mod.Confluence;
 import org.confluence.mod.client.gui.screens.GroupWikiScreen;
 import org.confluence.mod.client.gui.screens.ObjectWikiScreen;
 import org.confluence.mod.common.CommonConfigs;
+import org.confluence.mod.common.block.natural.LogBlockSet;
 import org.confluence.mod.common.block.natural.spreadable.ISpreadable;
 import org.confluence.mod.common.init.item.*;
 import org.confluence.mod.network.c2s.SwordShootingPacketC2S;
@@ -53,6 +52,7 @@ public final class ModEvents {
     @SubscribeEvent
     public static void loadComplete(FMLLoadCompleteEvent event) {
         event.enqueueWork(() -> {
+            LogBlockSet.wrapStrip();
             Confluence.registerMinecartAbility();
             ISpreadable.Type.buildMap();
         });

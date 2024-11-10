@@ -6,6 +6,7 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.confluence.mod.Confluence;
+import org.confluence.mod.common.block.natural.LogBlockSet;
 import org.confluence.mod.common.init.armor.ModArmors;
 import org.confluence.mod.common.init.block.ModDecorativeBlocks;
 import org.confluence.mod.common.init.block.ModOreBlocks;
@@ -19,6 +20,7 @@ public final class ModTabs {
             () -> CreativeModeTab.builder().icon(() -> IconItems.BLOCKS_ICON.get().getDefaultInstance())
                     .title(Component.translatable("creativetab.confluence.building_blocks"))
                     .displayItems((parameters, output) -> {
+                        LogBlockSet.acceptBuilding(output);
                         ModDecorativeBlocks.BLOCKS.getEntries().forEach(block -> output.accept(block.get()));
                     })
                     .build()
