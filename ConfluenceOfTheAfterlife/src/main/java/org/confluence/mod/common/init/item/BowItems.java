@@ -3,49 +3,73 @@ package org.confluence.mod.common.init.item;
 import net.minecraft.client.renderer.item.ClampedItemPropertyFunction;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.BowItem;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.confluence.mod.Confluence;
-import org.confluence.mod.common.item.bow.RoutineBowItem;
+import org.confluence.mod.common.item.bow.DaedalusStormbow;
+import org.confluence.mod.common.item.bow.TerraBowItem;
 import org.confluence.mod.common.item.bow.ShortBowItem;
 import org.confluence.terra_curio.common.component.ModRarity;
+
+import java.util.function.Supplier;
 
 public class BowItems {
     public static final DeferredRegister.Items BOWS = DeferredRegister.createItems(Confluence.MODID);
 
-    public static final DeferredItem<ShortBowItem> WOODEN_SHORT_BOW = BOWS.register("wooden_short_bow", () -> new ShortBowItem(4.0F, 384, ModRarity.WHITE));
-    public static final DeferredItem<ShortBowItem> COPPER_SHORT_BOW = BOWS.register("copper_short_bow", () -> new ShortBowItem(4.5F, 640, ModRarity.WHITE));
-    public static final DeferredItem<ShortBowItem> TIN_SHORT_BOW = BOWS.register("tin_short_bow", () -> new ShortBowItem(4.5F, 768, ModRarity.WHITE));
-    public static final DeferredItem<ShortBowItem> IRON_SHORT_BOW = BOWS.register("iron_short_bow", () -> new ShortBowItem(5.0F, 896, ModRarity.WHITE));
-    public static final DeferredItem<ShortBowItem> LEAD_SHORT_BOW = BOWS.register("lead_short_bow", () -> new ShortBowItem(5.0F, 1024, ModRarity.WHITE));
-    public static final DeferredItem<ShortBowItem> SILVER_SHORT_BOW = BOWS.register("silver_short_bow", () -> new ShortBowItem(5.5F, 1152, ModRarity.WHITE));
-    public static final DeferredItem<ShortBowItem> TUNGSTEN_SHORT_BOW = BOWS.register("tungsten_short_bow", () -> new ShortBowItem(5.5F, 1280, ModRarity.WHITE));
-    public static final DeferredItem<ShortBowItem> GOLDEN_SHORT_BOW = BOWS.register("golden_short_bow", () -> new ShortBowItem(6.0F, 1408, ModRarity.WHITE));
-    public static final DeferredItem<ShortBowItem> PLATINUM_SHORT_BOW = BOWS.register("platinum_short_bow", () -> new ShortBowItem(6.0F, 1536, ModRarity.WHITE));
+    // 短弓
+    public static final DeferredItem<ShortBowItem> WOODEN_SHORT_BOW = BOWS.register("wooden_short_bow",() -> new ShortBowItem( 4.0F, 384));
+    public static final DeferredItem<ShortBowItem> COPPER_SHORT_BOW = BOWS.register("copper_short_bow", () -> new ShortBowItem(4.5F, 640));
+    public static final DeferredItem<ShortBowItem> TIN_SHORT_BOW = BOWS.register("tin_short_bow", () -> new ShortBowItem(4.5F, 768));
+    public static final DeferredItem<ShortBowItem> IRON_SHORT_BOW = BOWS.register("iron_short_bow", () -> new ShortBowItem(5.0F, 896));
+    public static final DeferredItem<ShortBowItem> LEAD_SHORT_BOW = BOWS.register("lead_short_bow", () -> new ShortBowItem(5.0F, 1024));
+    public static final DeferredItem<ShortBowItem> SILVER_SHORT_BOW = BOWS.register("silver_short_bow", () -> new ShortBowItem(5.5F, 1152));
+    public static final DeferredItem<ShortBowItem> TUNGSTEN_SHORT_BOW = BOWS.register("tungsten_short_bow", () -> new ShortBowItem(5.5F, 1280));
+    public static final DeferredItem<ShortBowItem> GOLDEN_SHORT_BOW = BOWS.register("golden_short_bow", () -> new ShortBowItem(6.0F, 1408));
+    public static final DeferredItem<ShortBowItem> PLATINUM_SHORT_BOW = BOWS.register("platinum_short_bow", () -> new ShortBowItem(6.0F, 1536));
 
 
-    public static final DeferredItem<RoutineBowItem> COPPER_BOW = BOWS.register("copper_bow", () -> new RoutineBowItem(3.0F, 640, ModRarity.WHITE));
-    public static final DeferredItem<RoutineBowItem> TIN_BOW = BOWS.register("tin_bow", () -> new RoutineBowItem(3.0F, 768, ModRarity.WHITE));
-    public static final DeferredItem<RoutineBowItem> IRON_BOW = BOWS.register("iron_bow", () -> new RoutineBowItem(3.5F, 896, ModRarity.WHITE));
-    public static final DeferredItem<RoutineBowItem> LEAD_BOW = BOWS.register("lead_bow", () -> new RoutineBowItem(3.5F, 1024, ModRarity.WHITE));
-    public static final DeferredItem<RoutineBowItem> SILVER_BOW = BOWS.register("silver_bow", () -> new RoutineBowItem(4.0F, 1152, ModRarity.WHITE));
-    public static final DeferredItem<RoutineBowItem> TUNGSTEN_BOW = BOWS.register("tungsten_bow", () -> new RoutineBowItem(4.0F, 1280, ModRarity.WHITE));
-    public static final DeferredItem<RoutineBowItem> GOLDEN_BOW = BOWS.register("golden_bow", () -> new RoutineBowItem(4.5F, 1408, ModRarity.WHITE));
-    public static final DeferredItem<RoutineBowItem> PLATINUM_BOW = BOWS.register("platinum_bow", () -> new RoutineBowItem(4.5F, 1536, ModRarity.WHITE));
+    // 无效果蓄力弓
+    public static final DeferredItem<TerraBowItem> COPPER_BOW = register("copper_bow", 3.0F, 640);
+    public static final DeferredItem<TerraBowItem> TIN_BOW = register("tin_bow", 3.0F, 768);
+    public static final DeferredItem<TerraBowItem> IRON_BOW = register("iron_bow", 3.5F, 896);
+    public static final DeferredItem<TerraBowItem> LEAD_BOW = register("lead_bow", 3.5F, 1024);
+    public static final DeferredItem<TerraBowItem> SILVER_BOW = register("silver_bow", 4.0F, 1152);
+    public static final DeferredItem<TerraBowItem> TUNGSTEN_BOW = register("tungsten_bow", 4.0F, 1280);
+    public static final DeferredItem<TerraBowItem> GOLDEN_BOW = register("golden_bow", 4.5F, 1408);
+    public static final DeferredItem<TerraBowItem> PLATINUM_BOW = register("platinum_bow", 4.5F, 1536);
 
 
-    public static final DeferredItem<RoutineBowItem> DEVELOPER_BOW = BOWS.register("developer_bow", () -> new RoutineBowItem(1F, 1536, ModRarity.MASTER,
-            modifier->modifier.causeFire(200)
-                    .damage(10)
-                    .speedFactor(2)
-                    .penetration(2)
+
+
+
+    public static final DeferredItem<TerraBowItem> DAEDALUS_STORM_BOW = register("daedalus_storm_bow", ()->new DaedalusStormbow(1.5F, 2000, ModRarity.PURPLE));
+
+
+    public static final DeferredItem<TerraBowItem> DEVELOPER_BOW = register("developer_bow", () -> new TerraBowItem(1F, 1536, ModRarity.MASTER,
+            modifier->modifier.setCauseFire(200)
+                    .setDamage(10)
+                    .setSpeedFactor(2)
+                    .setPenetration(2)
             ));
 
 
-    @OnlyIn(Dist.CLIENT)
+    public static DeferredItem<TerraBowItem> register(String name, Supplier<TerraBowItem> supplier) {
+        return BOWS.register(name, supplier);
+    }
+    public static DeferredItem<TerraBowItem> register(String name, float damage, int durability, ModRarity rarity) {
+        return BOWS.register(name, () -> new TerraBowItem(damage, durability, rarity));
+    }
+    public static DeferredItem<TerraBowItem> register(String name, float damage, int durability) {
+        return BOWS.register(name, () -> new TerraBowItem(damage, durability, ModRarity.WHITE));
+    }
+
+
+
+        @OnlyIn(Dist.CLIENT)
     public static void registerProperties() {
         ResourceLocation pull = ResourceLocation.withDefaultNamespace("pull");
         ClampedItemPropertyFunction shortBowPull = (itemStack, clientLevel, living, speed) -> living != null && living.getUseItem() == itemStack ? (float) (itemStack.getUseDuration(living) - living.getUseItemRemainingTicks()) / ShortBowItem.MAX_DRAW_DURATION : 0.0F;

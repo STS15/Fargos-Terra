@@ -5,6 +5,9 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.AbstractHurtingProjectile;
+import net.minecraft.world.entity.projectile.Projectile;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.*;
@@ -16,14 +19,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StarFuryProjContainer implements AbstractProjContainer {
-    private float maxAngle = 30;//索敌最大角度
-    private float range = 30;//索敌范围
-    private float predict = 10;//预判量
-    private float inAccuracy = 0.5f;
-    private float offsetV = 20;//发射时的高度偏移
-    private float offsetH = 5;//发射时的xy偏移
+    protected float maxAngle = 30;//索敌最大角度
+    protected float range = 30;//索敌范围
+    protected float predict = 10;//预判量
+    protected float inAccuracy = 0.5f;
+    protected float offsetV = 20;//发射时的高度偏移
+    protected float offsetH = 5;//发射时的xy偏移
+    protected float predictFactor = 0.5f;//预判量
+    protected float getOffsetV() {
+        return offsetV;
+    };
 
+    protected float getOffsetH() {
+        return offsetH;
+    };
 
+    protected void init(){};
+    public StarFuryProjContainer(){
+        init();
+    }
     @Override
     public int getCooldown() {
         return 10;
@@ -40,12 +54,12 @@ public class StarFuryProjContainer implements AbstractProjContainer {
     }
 
     @Override
-    public SwordProjectile getProjectile(Player player) {
+    public Projectile getProjectile(Player player, ItemStack weapon) {
         return new StarFuryProjectile(player);
     }
 
     @Override
-    public void genProjectile(Player owner) {
+    public void genProjectile(Player owner, ItemStack weapon) {
         owner.level().playSound(null, owner.getX(), owner.getY(), owner.getZ(), getSound(), SoundSource.AMBIENT, 1.0F, 1.0F);
 
         Vec3 eye = owner.position().add(0,1,0);
@@ -54,7 +68,7 @@ public class StarFuryProjContainer implements AbstractProjContainer {
 
         if(target!=null){
             //周围有目标 预判
-            waveTarget = target.position().add(target.getDeltaMovement().scale(predict)).add(0,0.5,0);
+            waveTarget = target.position().add(target.getDeltaMovement().scale(predict)).add(0,predictFactor,0);
 
         }else{
             //周围无目标 获取视线指向点
@@ -63,8 +77,8 @@ public class StarFuryProjContainer implements AbstractProjContainer {
             BlockHitResult blockHitResult = owner.level().clip(new ClipContext(ori,end, ClipContext.Block.OUTLINE,ClipContext.Fluid.NONE, owner));
             waveTarget = blockHitResult.getLocation();
         }
-        var proj = getProjectile(owner);
-        proj.setPos(waveTarget.add(Math.random() * offsetH - offsetH,offsetV,Math.random() * offsetH - offsetH));
+        var proj = getProjectile(owner,weapon);
+        proj.setPos(waveTarget.add(Math.random() * getOffsetH() - getOffsetH(), getOffsetV() ,Math.random() * getOffsetH() - getOffsetH()));
         proj.shoot(waveTarget.x - proj.getX(),waveTarget.y- proj.getY(),waveTarget.z - proj.getZ(),getBaseVelocity(),inAccuracy);
 
         owner.level().addFreshEntity(proj);

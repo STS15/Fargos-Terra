@@ -543,7 +543,7 @@ public class ModChineseProvider extends LanguageProvider {
         add("wiki.confluence.type_quested_fish", "任务鱼");
         add("wiki.confluence.type_sword", "剑");
         add("wiki.confluence.type_terra_potion", "药水");
-        add("wiki.confluence.damage", "攻击伤害：");
+        add("wiki.confluence.setDamage", "攻击伤害：");
         add("wiki.confluence.use", "耐久：");
         add("wiki.confluence.speed", "使用速度：");
         add("wiki.confluence.enchantment", "附魔等级：");
