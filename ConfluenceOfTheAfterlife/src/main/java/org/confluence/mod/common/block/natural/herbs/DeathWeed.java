@@ -14,7 +14,6 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.Vec3;
 import org.confluence.mod.common.block.natural.BaseHerbBlock;
-import org.confluence.mod.common.data.saved.ConfluenceData;
 import org.confluence.mod.common.init.item.ModItems;
 import org.jetbrains.annotations.NotNull;
 import org.joml.Vector3f;
@@ -39,7 +38,7 @@ public class DeathWeed extends BaseHerbBlock {
 
     @Override
     public boolean canBloom(ServerLevel world, BlockState state){
-        return world.isNight() && (world.getMoonPhase() == 0 || ConfluenceData.get(world).getSpecificMoon().isBloodyMoon());
+        return world.isNight() && (world.getMoonPhase() == 0/* todo 等事件API */);
     }
 
     @Override

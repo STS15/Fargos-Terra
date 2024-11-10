@@ -2,6 +2,7 @@ package org.confluence.mod.common.item.sword.stagedy.projectile;
 
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.BlockHitResult;
 import org.confluence.mod.common.entity.projectile.EnchantedSwordProjectile;
 import org.confluence.mod.common.entity.projectile.SwordProjectile;
@@ -20,7 +21,7 @@ public class EnchantedSwordProjContainer extends IceSwordProjContainer{
     }
 
     @Override
-    public SwordProjectile getProjectile(Player player) {
+    public SwordProjectile getProjectile(Player player, ItemStack weapon) {
         return new EnchantedSwordProjectile(player);
     }
 

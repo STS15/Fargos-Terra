@@ -22,6 +22,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
+import net.minecraft.world.phys.Vec3;
 import org.confluence.mod.common.init.ModEntities;
 import org.confluence.mod.common.init.item.ArrowItems;
 
@@ -43,13 +44,13 @@ public class BaseArrowEntity extends AbstractArrow {
         public Builder attr;
         static Tuple create(String path, Supplier<Builder> type){Tuple t = new Tuple();t.path = path;t.attr = type.get();return t;}
 
-        //构建箭的默认属性   mc原版木箭：   damage：2f
+        //构建箭的默认属性   mc原版木箭：   setDamage：2f
         static Tuple JESTERS_ARROW_ENTITY = create("textures/entity/arrow/jesters_arrow.png",()->new Builder()
-                .damage(4f).penetration(99).knockBackFactor(2).speedFactor(0.8f).auto_discard(50).low_gravity(0));
+                .setDamage(4f).setPenetration(99).setKnockBack(2).setSpeedFactor(0.8f).setAutoDiscard(50).setGravity(0));
         static Tuple UNHOLY_ARROW_ENTITY = create("textures/entity/arrow/unholy_arrow.png",()->new Builder()
-                .damage(4.5f).penetration(5).knockBackFactor(1.5f));
+                .setDamage(4.5f).setPenetration(5).setKnockBack(1.5f));
         static Tuple FLAMING_ARROW_ENTITY = create("textures/entity/arrow/flaming_arrow.png",()->new Builder()
-                .damage(4.5f).causeFire(10*20));
+                .setDamage(4.5f).setCauseFire(10*20));
     }
 
     public static Map<Item,Tuple> selectArrowFromItemMap = Map.of(
@@ -124,6 +125,7 @@ public class BaseArrowEntity extends AbstractArrow {
         float f = (float)this.getDeltaMovement().length();
         f = Math.max(f, minSpeedAttackFactor);//速度修正系数影响的最小速度值
         float i = (float) Mth.clamp((double)f * this.getBaseDamage(), 0.0D, Integer.MAX_VALUE);
+
         /*暴击增伤
         if (this.isCritArrow()) {
             long j = this.random.nextInt(i / 2 + 2);
@@ -156,14 +158,15 @@ public class BaseArrowEntity extends AbstractArrow {
                 livingentity.setArrowCount(livingentity.getArrowCount() + 1);
             }
             //todo 击退
-            /*
-            if (this.getKnockback() > 0) {
-                double d0 = Math.max(0.0D, 1.0D - livingentity.getAttributeValue(Attributes.KNOCKBACK_RESISTANCE));
-                Vec3 vec3 = this.getDeltaMovement().multiply(1.0D, 0.0D, 1.0D).normalize().scale((double) this.getKnockback() * 0.6D * d0);
+            this.doKnockback(livingentity,damagesource);
+
+            if (modify.knockBack > 0) {
+                double d0 = modify.knockBack;
+                Vec3 vec3 = this.getDeltaMovement().multiply(1.0D, 0.0D, 1.0D).normalize().scale(0.6 * d0);
                 if (vec3.lengthSqr() > 0.0D) {
                     livingentity.push(vec3.x, 0.1D, vec3.z);
                 }
-            }*/
+            }
 
             //箭药水效果
             if (!this.level().isClientSide && entity1 instanceof LivingEntity) {
@@ -222,7 +225,7 @@ public class BaseArrowEntity extends AbstractArrow {
 
         if(!level().isClientSide && tickCount> modify.auto_discard_tick)discard();
         //todo 重力调整
-
+        if((modify.type & Tag.low_gravity)!=0) this.addDeltaMovement(new Vec3(0, modify.gravity_count, 0));
 
         super.tick();
     }
@@ -265,41 +268,41 @@ public class BaseArrowEntity extends AbstractArrow {
         private int auto_discard_tick = 1200;
         private float base_damage = 2;
         private float speedFactor = 1;
-        private float knockBackFactor = 1;
+        private float knockBack = 0;
         private int causeFireTick = 0;
         private List<MobEffect> effects = new ArrayList<>();
         private Item attachArrow;
-        public Builder damage(float damage){//基本伤害
+        public Builder setDamage(float damage){//基本伤害
             base_damage = damage;
             return this;
         }
-        public Builder knockBackFactor(float factor){//击退修正系数
-            this.knockBackFactor = factor;
+        public Builder setKnockBack(float factor){//击退修正系数
+            this.knockBack = factor;
             return this;
         }
 
 
-        public Builder penetration(int count){//穿透次数
+        public Builder setPenetration(int count){//穿透次数
             type|= Tag.penetration;
             penetration_count = count;
             return this;
         }
-        public Builder low_gravity(int gravity){//重力
+        public Builder setGravity(int gravity){//重力
             type|= Tag.low_gravity;
             gravity_count = gravity;
             return this;
         }
-        public Builder auto_discard(int tick){//消失tick
+        public Builder setAutoDiscard(int tick){//消失tick
             type|= Tag.auto_discard;
             auto_discard_tick = tick;
             return this;
         }
-        public Builder speedFactor(float factor){//初始速度修正系数
+        public Builder setSpeedFactor(float factor){//初始速度修正系数
             type|= Tag.auto_discard;
             speedFactor = factor;
             return this;
         }
-        public Builder causeFire(int tick){//初始火焰增加
+        public Builder setCauseFire(int tick){//初始火焰增加
             type|= Tag.cause_fire;
             this.causeFireTick = tick;
             return this;

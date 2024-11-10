@@ -6,6 +6,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import org.confluence.mod.common.entity.projectile.IceBladeSwordProjectile;
 import org.confluence.mod.common.entity.projectile.SwordProjectile;
 import org.confluence.mod.common.init.ModSoundEvents;
@@ -26,13 +27,13 @@ public class IceSwordProjContainer implements AbstractProjContainer {
         return ModSoundEvents.FROZEN_ARROW.get();
     }
 
-    public SwordProjectile getProjectile(Player player){//先做逻辑，后面补模型
+    public SwordProjectile getProjectile(Player player, ItemStack weapon){//先做逻辑，后面补模型
         return new IceBladeSwordProjectile(player);
     }
 
-    public void genProjectile(Player owner){
+    public void genProjectile(Player owner, ItemStack weapon){
         owner.level().playSound(null, owner.getX(), owner.getY(), owner.getZ(), getSound(), SoundSource.AMBIENT, 1.0F, 1.0F);
-        SwordProjectile projectile = getProjectile(owner);
+        SwordProjectile projectile = getProjectile(owner,null);
         projectile.shootFromRotation(owner, owner.getXRot(), owner.getYRot(), 0.0F, getVelocity(owner), 0.0F);
         owner.level().addFreshEntity(projectile);
     }

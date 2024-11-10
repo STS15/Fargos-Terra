@@ -50,7 +50,7 @@ public class BaseSwordItem extends SwordItem {
         );
         this.modifier = new ModifierBuilder();
         modifier.damage =rawDamage + tier.getAttackDamageBonus();
-        modifier.speed = rawSpeed;
+        modifier.speed = rawSpeed + tier.getSpeed();
     }
     /**TR带特殊效果的剑。
      * @param modifier 效果修饰器
@@ -67,7 +67,7 @@ public class BaseSwordItem extends SwordItem {
         );
         this.modifier = modifier;
         modifier.damage =rawDamage + tier.getAttackDamageBonus();
-        modifier.speed = rawSpeed;
+        modifier.speed = rawSpeed + tier.getSpeed();
     }
 
 

@@ -67,9 +67,13 @@ public class TypeWikiScreen extends BaseWikiScreen{
             if (item instanceof BlockItem){
                 continue;
             }
-            GuiUtils.drawItem(guiGraphics, item,
-                    31 + (z % 14) * 30, height - 245 + (z / 14 * 30), 20,
-                    20, 16, 16, minecraft);
+            GuiUtils.drawItemWithoutTooltip(guiGraphics, item,minecraft,
+                    33 + (z % 14) * 30,
+                    height - 243 + (z / 14 * 30),
+                    20,
+                    20,
+                    1
+               );
             z++;
         }
     }

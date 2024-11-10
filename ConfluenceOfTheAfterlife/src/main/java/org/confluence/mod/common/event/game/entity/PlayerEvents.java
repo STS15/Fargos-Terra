@@ -1,6 +1,7 @@
 package org.confluence.mod.common.event.game.entity;
 
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -11,6 +12,7 @@ import net.neoforged.neoforge.event.entity.player.*;
 import org.confluence.mod.Confluence;
 import org.confluence.mod.common.init.ModAttachments;
 import org.confluence.mod.common.init.ModTags;
+import org.confluence.mod.common.item.accessory.LuckyCoin;
 import org.confluence.mod.util.PlayerUtils;
 
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.GAME, modid = Confluence.MODID)
@@ -21,6 +23,7 @@ public final class PlayerEvents {
         if (PlayerUtils.isServerNotFake(player)) {
             ServerPlayer serverPlayer = (ServerPlayer) player;
             PlayerUtils.syncMana2Client(serverPlayer);
+            PlayerUtils.syncSavedData(serverPlayer);
         }
     }
 
@@ -53,5 +56,14 @@ public final class PlayerEvents {
     @SubscribeEvent
     public static void arrowLoose(ArrowLooseEvent event) {
 
+    }
+
+    @SubscribeEvent
+    public static void attackEntity(AttackEntityEvent event) {
+        Player player = event.getEntity();
+        if (PlayerUtils.isServerNotFake(player)) {
+            Entity target = event.getTarget();
+            LuckyCoin.apply(player, target);
+        }
     }
 }

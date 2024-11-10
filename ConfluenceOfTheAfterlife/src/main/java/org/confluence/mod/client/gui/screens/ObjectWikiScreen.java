@@ -13,6 +13,7 @@ import org.confluence.mod.common.item.sword.BaseSwordItem;
 import org.confluence.mod.util.GuiUtils;
 
 import java.awt.*;
+import java.text.DecimalFormat;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicReference;
 
@@ -37,16 +38,19 @@ public class ObjectWikiScreen extends BaseWikiScreen{
     @Override
     public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick) {
         super.render(guiGraphics, mouseX, mouseY, partialTick);
-        GuiUtils.drawItem(guiGraphics, item, 367, 35, 80, 80, minecraft,
-                item.getDefaultInstance().getTooltipLines(Item.TooltipContext.EMPTY,
-                        null, TooltipFlag.ADVANCED), mouseX, mouseY);;
+
+
+        GuiUtils.drawItem(guiGraphics, item,minecraft,
+                367, 35, 80, 80, 5 ,
+                true, mouseX, mouseY);
+
         if (item instanceof TieredItem ti){
             if (ti.getTier() instanceof ModTiers.PoweredTier pt){
                 guiGraphics.drawString(minecraft.font, Component.translatable("wiki.confluence.power")
                         .append(String.valueOf(pt.getPower())) , 10, 60, Color.WHITE.getRGB());
-                if (item instanceof BaseSwordItem){
-                    guiGraphics.drawString(minecraft.font, Component.translatable("wiki.confluence.damage").append(String.valueOf(getItemDamage((BaseSwordItem) item))), 10, 10, Color.WHITE.getRGB());
-                    guiGraphics.drawString(minecraft.font, Component.translatable("wiki.confluence.speed").append(String.valueOf(getItemSpeed((BaseSwordItem) item))), 10, 30, Color.WHITE.getRGB());
+                if (item instanceof BaseSwordItem sword){
+                    guiGraphics.drawString(minecraft.font, Component.translatable("wiki.confluence.setDamage").append(new DecimalFormat("0.00").format(getItemDamage(sword))), 10, 10, Color.WHITE.getRGB());
+                    guiGraphics.drawString(minecraft.font, Component.translatable("wiki.confluence.speed").append(new DecimalFormat("0.00").format(getItemSpeed(sword))), 10, 30, Color.WHITE.getRGB());
                 }
                 guiGraphics.drawString(minecraft.font, Component.translatable("wiki.confluence.enchantment").append(String.valueOf(pt.getEnchantmentValue())), 10, 40, Color.WHITE.getRGB());
                 guiGraphics.drawString(minecraft.font, Component.translatable("wiki.confluence.use").append(pt.getUses() == 0 ? Component.translatable("item.unbreakable") : Component.literal(String.valueOf(ti.getTier().getUses()))), 10, 20, Color.WHITE.getRGB());
@@ -55,7 +59,7 @@ public class ObjectWikiScreen extends BaseWikiScreen{
                                 .replace("[", "").replace("]", "")),
                         10, 50, Color.WHITE.getRGB());
             } else {
-                guiGraphics.drawString(minecraft.font, Component.translatable("wiki.confluence.damage").append(String.valueOf(ti.getTier().getAttackDamageBonus())), 10, 10, Color.WHITE.getRGB());
+                guiGraphics.drawString(minecraft.font, Component.translatable("wiki.confluence.setDamage").append(String.valueOf(ti.getTier().getAttackDamageBonus())), 10, 10, Color.WHITE.getRGB());
                 guiGraphics.drawString(minecraft.font, Component.translatable("wiki.confluence.use").append(ti.getTier().getUses() == 0 ? Component.translatable("item.unbreakable") : Component.literal(String.valueOf(ti.getTier().getUses()))), 10, 20, Color.WHITE.getRGB());
                 guiGraphics.drawString(minecraft.font, Component.translatable("wiki.confluence.speed").append(String.valueOf(ti.getTier().getSpeed())), 10, 30, Color.WHITE.getRGB());
                 guiGraphics.drawString(minecraft.font, Component.translatable("wiki.confluence.enchantment").append(String.valueOf(ti.getTier().getEnchantmentValue())), 10, 40, Color.WHITE.getRGB());

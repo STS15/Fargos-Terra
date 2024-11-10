@@ -10,10 +10,15 @@ import org.jetbrains.annotations.NotNull;
 
 public class ShortBowItem extends TerraBowItem {
     public static final int MAX_DRAW_DURATION = 4; // 满蓄力时间为4 tick
-    private final float baseDamage;
 
     public ShortBowItem(float baseDamage, int durability, ModRarity rarity) {
         super(baseDamage, durability, rarity);
+        this.baseDamage = baseDamage;
+    }
+
+
+    public ShortBowItem(float baseDamage, int durability) {
+        super(baseDamage, durability, ModRarity.WHITE);
         this.baseDamage = baseDamage;
     }
 
@@ -28,12 +33,6 @@ public class ShortBowItem extends TerraBowItem {
 
     public float getVelocityMultiplier() {
         return 2.0F;
-    }
-
-    @Override
-    public @NotNull AbstractArrow customArrow(AbstractArrow arrow, ItemStack projectileStack, ItemStack weaponStack) {
-        arrow.setBaseDamage(baseDamage);
-        return arrow;
     }
 
     public static void applyToArrow(ItemStack itemStack, AbstractArrow arrow) {
