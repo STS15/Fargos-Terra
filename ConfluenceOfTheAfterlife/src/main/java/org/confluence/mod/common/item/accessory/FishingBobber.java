@@ -1,4 +1,4 @@
-package org.confluence.mod.common.item.accessory.fishing;
+package org.confluence.mod.common.item.accessory;
 
 import org.confluence.mod.common.entity.fishing.CurioFishingHook;
 import org.confluence.terra_curio.api.primitive.FloatValue;

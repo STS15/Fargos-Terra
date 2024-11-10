@@ -5,8 +5,12 @@ import net.minecraft.world.entity.player.Player;
 import net.neoforged.neoforge.common.util.FakePlayer;
 import net.neoforged.neoforge.network.PacketDistributor;
 import org.confluence.mod.common.attachment.ManaStorage;
+import org.confluence.mod.common.data.saved.ConfluenceData;
 import org.confluence.mod.common.init.ModAttachments;
+import org.confluence.mod.common.init.ModEffects;
+import org.confluence.mod.network.s2c.GamePhasePacketS2C;
 import org.confluence.mod.network.s2c.ManaPacketS2C;
+import org.confluence.terra_curio.network.s2c.WindSpeedPacketS2C;
 
 import java.util.function.IntSupplier;
 
@@ -27,7 +31,7 @@ public final class PlayerUtils {
         boolean notMove = Math.abs(serverPlayer.xCloak - serverPlayer.xCloakO) < 1.0E-7;
         if (delay > 0) {
             if (manaStorage.isArcaneCrystalUsed()) delay = (int) ((float) delay * (notMove ? 0.975F : 0.95F));
-//            if (delay > 20 && serverPlayer.hasEffect(ModEffects.MANA_REGENERATION.getPrefab())) delay = 20;
+            if (delay > 20 && serverPlayer.hasEffect(ModEffects.MANA_REGENERATION)) delay = 20;
             int delayReduce = notMove ? 2 : 1;
             if (manaStorage.hasManaRegenerationBand()) delayReduce += 1;
             manaStorage.setRegenerateDelay(delay - delayReduce);
@@ -63,5 +67,11 @@ public final class PlayerUtils {
 
     public static boolean isServerNotFake(Player player) {
         return player instanceof ServerPlayer && !(player instanceof FakePlayer);
+    }
+
+    public static void syncSavedData(ServerPlayer serverPlayer) {
+        ConfluenceData data = ConfluenceData.get(serverPlayer.serverLevel());
+        PacketDistributor.sendToPlayer(serverPlayer, new WindSpeedPacketS2C(data.getWindSpeedX(), data.getWindSpeedZ()));
+        PacketDistributor.sendToPlayer(serverPlayer, new GamePhasePacketS2C(data.getGamePhase()));
     }
 }
