@@ -1,11 +1,6 @@
 plugins {
     id 'net.neoforged.moddev'
 }
-var projectName = ["TerraEntity","MineTeam","EquipmentBenediction",
-                   "TerraCurio","ParticleStorm","HeavenDestinyMoment","PhaseJourney"
-]
-
-
 
 neoForge {
     version = project.neo_version
@@ -36,11 +31,6 @@ neoForge {
         "${mod_id}" {
             sourceSet(sourceSets.main)
         }
-        projectName.forEach {name -> {
-            create(name) {
-                sourceSet(project(":" + name).sourceSets["main"])
-            }
-        }}
     }
 }
 
@@ -89,6 +79,9 @@ repositories {
 }
 
 dependencies {
+    var projectName = ["TerraEntity","MineTeam","EquipmentBenediction",
+                       "TerraCurio","ParticleStorm","HeavenDestinyMoment","PhaseJourney"
+    ]
     projectName.forEach {name -> implementation jarJar(project(":" + name))}
 
 
@@ -127,7 +120,7 @@ tasks.withType(ProcessResources).configureEach {
 }
 
 
-tasks.withType(Copy).all{ duplicatesStrategy = DuplicatesStrategy.EXCLUDE }
+tasks.withType(Copy).configureEach { duplicatesStrategy = DuplicatesStrategy.EXCLUDE }
 
 tasks.withType(JavaCompile).configureEach {options.encoding = 'UTF-8'}
 
