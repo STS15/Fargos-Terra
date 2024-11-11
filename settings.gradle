@@ -10,9 +10,10 @@ plugins {
     id 'org.gradle.toolchains.foojay-resolver-convention' version '0.8.0'
 }
 
+
 include ":ConfluenceOfTheAfterlife"
 
-var projectName = ["Core","TerraEntity","MineTeam","EquipmentBenediction",
+var projectName = ["TerraEntity","MineTeam","EquipmentBenediction",
                    "TerraCurio","ParticleStorm","HeavenDestinyMoment","PhaseJourney"
 ]
 projectName.forEach {name -> include ":" + name}

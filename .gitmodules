@@ -1,28 +1,28 @@
 [submodule "TerraCurio"]
 	path = TerraCurio
 	url = https://github.com/westernat/TerraCurio
-	branch = Neo-1.21.1
+	branch = neoforge-dev/1.21
 [submodule "MineTeam"]
     path = MineTeam
     url = https://github.com/XiaoHuNao/MineTeam
-    branch = master
+    branch = neoforge-dev/1.21
 [submodule "EquipmentBenediction"]
     path = EquipmentBenediction
     url = https://github.com/XiaoHuNao/EquipmentBenediction
-    branch = NeoForge/1.21.1
+    branch = neoforge-dev/1.21
 [submodule "ParticleStorm"]
 	path = ParticleStorm
 	url = https://github.com/westernat/ParticleStorm
-	branch = master
+	branch = neoforge-dev/1.21
 [submodule "HeavenDestinyMoment"]
 	path = HeavenDestinyMoment
 	url = https://github.com/XiaoHuNao/HeavenDestinyMoment
-	branch = neo/1.21
+	branch = neoforge-dev/1.21
 [submodule "PhaseJourney"]
 	path = PhaseJourney
 	url = https://github.com/XiaoHuNao/PhaseJourney
-	branch = master
+	branch = neoforge-dev/1.21
 [submodule "TerraMoment"]
 	path = TerraMoment
 	url = https://github.com/XiaoHuNao/TerraMoment
-	branch = master
+	branch = neoforge-dev/1.21

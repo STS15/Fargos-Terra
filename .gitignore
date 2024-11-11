@@ -25,3 +25,20 @@ run-data
 
 ConfluenceOfTheAfterlife/src/generated
 otherworldly
+
+
+TerraEntity/run
+MineTeam/run
+EquipmentBenediction/run
+TerraCurio/run
+ParticleStorm/run
+HeavenDestinyMoment/run
+PhaseJourney/run
+
+TerraEntity/build
+MineTeam/build
+EquipmentBenediction/build
+TerraCurio/build
+ParticleStorm/build
+HeavenDestinyMoment/build
+PhaseJourney/build
