@@ -12,6 +12,7 @@ import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import org.confluence.mod.Confluence;
 import org.confluence.mod.common.init.ModTags;
+import org.confluence.mod.common.init.block.ModBlocks;
 import org.confluence.mod.common.init.item.*;
 import org.confluence.terra_curio.common.init.TCTags;
 import org.jetbrains.annotations.NotNull;
@@ -28,7 +29,7 @@ public class ModItemTagsProvider extends ItemTagsProvider {
     protected void addTags(HolderLookup.@NotNull Provider provider) {
         AccessoryItems.acceptTag(tag(TCTags.CURIO));
 
-//        Hooks.acceptTag(tag(ModTags.Items.HOOK));
+        HookItems.acceptTag(tag(ModTags.Items.HOOK));
         tag(ModTags.Items.MINECART).add(Items.MINECART);
         tag(ModTags.Items.PROVIDE_MANA).add(ModItems.STAR.get(), ModItems.SOUL_CAKE.get(), ModItems.SUGAR_PLUM.get());
         tag(ModTags.Items.PROVIDE_LIFE).add(ModItems.HEART.get(), ModItems.CANDY_APPLE.get(), ModItems.CANDY_CANE.get());
@@ -42,8 +43,8 @@ public class ModItemTagsProvider extends ItemTagsProvider {
                 Blocks.DEAD_TUBE_CORAL.asItem(), Blocks.DEAD_TUBE_CORAL_FAN.asItem(), Blocks.DEAD_TUBE_CORAL_BLOCK.asItem(), Blocks.DEAD_BRAIN_CORAL.asItem(), Blocks.DEAD_BRAIN_CORAL_FAN.asItem(), Blocks.DEAD_BRAIN_CORAL_BLOCK.asItem(),
                 Blocks.DEAD_BUBBLE_CORAL.asItem(), Blocks.DEAD_BUBBLE_CORAL_FAN.asItem(), Blocks.DEAD_BUBBLE_CORAL_BLOCK.asItem(), Blocks.DEAD_FIRE_CORAL.asItem(), Blocks.DEAD_FIRE_CORAL_FAN.asItem(), Blocks.DEAD_FIRE_CORAL_BLOCK.asItem(), Blocks.DEAD_HORN_CORAL.asItem(), Blocks.DEAD_HORN_CORAL_FAN.asItem(), Blocks.DEAD_HORN_CORAL_BLOCK.asItem());
         tag(ModTags.Items.TR_PLANKS).add(
-//                ModBlocks.EBONY_LOG_BLOCKS.PLANKS.get().asItem(), ModBlocks.SHADOW_LOG_BLOCKS.PLANKS.get().asItem(), ModBlocks.PALM_LOG_BLOCKS.PLANKS.get().asItem(),
-//                ModBlocks.SPOOKY_LOG_BLOCKS.PLANKS.get().asItem(), ModBlocks.ASH_LOG_BLOCKS.PLANKS.get().asItem(), ModBlocks.PEARL_LOG_BLOCKS.PLANKS.get().asItem(), Blocks.OAK_PLANKS.asItem(), Blocks.SPRUCE_PLANKS.asItem(),
+                ModBlocks.EBONY_LOG_BLOCKS.getPlanks().asItem(), ModBlocks.SHADOW_LOG_BLOCKS.getPlanks().asItem(), ModBlocks.PALM_LOG_BLOCKS.getPlanks().asItem(),
+                ModBlocks.SPOOKY_LOG_BLOCKS.getPlanks().asItem(), ModBlocks.ASH_LOG_BLOCKS.getPlanks().asItem(), ModBlocks.PEARL_LOG_BLOCKS.getPlanks().asItem(), Blocks.OAK_PLANKS.asItem(), Blocks.SPRUCE_PLANKS.asItem(),
                 Blocks.ACACIA_PLANKS.asItem(), Blocks.DARK_OAK_PLANKS.asItem(), Blocks.JUNGLE_PLANKS.asItem(), Blocks.MANGROVE_PLANKS.asItem(), Blocks.CHERRY_PLANKS.asItem(), Blocks.BAMBOO_PLANKS.asItem(), Blocks.CRIMSON_PLANKS.asItem(),
                 Blocks.BIRCH_PLANKS.asItem(), Blocks.WARPED_PLANKS.asItem());
         tag(ModTags.Items.LEAD_AND_IRON).add(Items.IRON_INGOT, MaterialItems.LEAD_INGOT.get());

@@ -30,17 +30,15 @@ public class ProjectileStrategy {
 
     public static final AbstractProjContainer UNDEFINED_PROJ = ICE_PROJ;
 
-    public static void handle() {
-        Minecraft minecraft = Minecraft.getInstance();
-        LocalPlayer localPlayer = minecraft.player;
+    public static void handle(Minecraft minecraft, LocalPlayer player) {
         if (minecraft.gameMode == null || minecraft.gameMode.isDestroying() || !minecraft.options.keyAttack.isDown()) {return;}
-        Item item = localPlayer.getMainHandItem().getItem();
-        if (item instanceof BaseSwordItem sword && !localPlayer.getCooldowns().isOnCooldown(item)
+        Item item = player.getMainHandItem().getItem();
+        if (item instanceof BaseSwordItem sword && !player.getCooldowns().isOnCooldown(item)
             && sword.modifier.proj!= null
         ) {
             PacketDistributor.sendToServer((new SwordShootingPacketC2S()));
-            localPlayer.getCooldowns().addCooldown(sword,sword.modifier.proj.getAttackSpeed(localPlayer));
-            localPlayer.swing(InteractionHand.MAIN_HAND);
+            player.getCooldowns().addCooldown(sword,sword.modifier.proj.getAttackSpeed(player));
+            player.swing(InteractionHand.MAIN_HAND);
         }
     }
 }
