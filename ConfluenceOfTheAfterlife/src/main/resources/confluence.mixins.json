@@ -1,29 +1,30 @@
 {
-    "required": true,
-    "minVersion": "0.8",
-    "package": "org.confluence.mod.mixin",
-    "compatibilityLevel": "JAVA_8",
-    "refmap": "confluence.refmap.json",
-    "mixins": [
-        "accessor.EntityAccessor",
-        "accessor.FishingHookAccessor",
-        "entity.AbstractArrowMixin",
-        "integration.terra_curio.AnglerEarringMixin",
-        "integration.terra_curio.AnkhCharmMixin",
-        "integration.terra_curio.AnkhShieldMixin",
-        "integration.terra_curio.BaseSpeedBootsMixin",
-        "integration.terra_curio.ModTabsMixin",
-        "item.BowItemMixin",
-        "item.BucketItemMixin",
-        "item.FishingRodItemMixin",
-        "item.HoneyBottleItemMixin",
-        "item.ProjectileWeaponItemMixin"
-    ],
-    "client": [
-        "client.PauseScreenMixin",
-        "client.TitleScreenMixin"
-    ],
-    "injectors": {
-        "defaultRequire": 1
-    }
+  "required": true,
+  "minVersion": "0.8",
+  "package": "org.confluence.mod.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "confluence.refmap.json",
+  "mixins": [
+    "accessor.EntityAccessor",
+    "accessor.FishingHookAccessor",
+    "entity.AbstractArrowMixin",
+    "integration.terra_curio.AnglerEarringMixin",
+    "integration.terra_curio.AnkhCharmMixin",
+    "integration.terra_curio.AnkhShieldMixin",
+    "integration.terra_curio.BaseSpeedBootsMixin",
+    "integration.terra_curio.ModTabsMixin",
+    "item.BowItemMixin",
+    "item.BucketItemMixin",
+    "item.FishingRodItemMixin",
+    "item.HoneyBottleItemMixin",
+    "item.ProjectileWeaponItemMixin"
+  ],
+  "client": [
+    "client.ItemRendererMixin",
+    "client.PauseScreenMixin",
+    "client.TitleScreenMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
 }

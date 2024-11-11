@@ -10,6 +10,7 @@ import net.neoforged.api.distmarker.OnlyIn;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.confluence.mod.Confluence;
+import org.confluence.mod.client.gui.hud.ArrowInBowHud;
 import org.confluence.mod.common.item.bow.DaedalusStormbow;
 import org.confluence.mod.common.item.bow.TerraBowItem;
 import org.confluence.mod.common.item.bow.ShortBowItem;
@@ -17,7 +18,12 @@ import org.confluence.terra_curio.common.component.ModRarity;
 
 import java.util.function.Supplier;
 
+/**
+ * 弓箭位置修正参考{@link ArrowInBowHud}
+ *
+ */
 public class BowItems {
+
     public static final DeferredRegister.Items BOWS = DeferredRegister.createItems(Confluence.MODID);
 
     // 短弓
@@ -43,9 +49,7 @@ public class BowItems {
     public static final DeferredItem<TerraBowItem> PLATINUM_BOW = register("platinum_bow", 4.5F, 1536);
 
 
-
-
-
+    // 代达罗斯风暴弓
     public static final DeferredItem<TerraBowItem> DAEDALUS_STORM_BOW = register("daedalus_storm_bow", ()->new DaedalusStormbow(1.5F, 2000, ModRarity.PURPLE));
 
 

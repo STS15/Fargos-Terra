@@ -9,6 +9,7 @@ import net.neoforged.neoforge.client.event.*;
 import net.neoforged.neoforge.client.gui.VanillaGuiLayers;
 import org.confluence.mod.Confluence;
 import org.confluence.mod.client.ClientConfigs;
+import org.confluence.mod.client.gui.hud.ArrowInBowHud;
 import org.confluence.mod.client.model.entity.bomb.*;
 import org.confluence.mod.client.model.entity.fishing.BaseFishingHookModel;
 import org.confluence.mod.client.model.entity.fishing.BloodyFishingHookModel;
@@ -49,6 +50,7 @@ public final class ModClientEvents {
             ClientConfigs.onLoad();
             BowItems.registerProperties();
             FishingPoleItems.registerCast();
+            ArrowInBowHud.initAdaptionMap();
         });
     }
 
