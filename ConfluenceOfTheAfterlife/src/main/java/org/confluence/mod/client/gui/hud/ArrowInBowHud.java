@@ -35,7 +35,7 @@ public class ArrowInBowHud {
             float f19 = f11 > 0.1F? Mth.sin((f7 - 0.1F) * 1.3F) * (f11 - 0.1F):0;
             //应用抖动
             //               左右偏移        上下抖动系数
-            pose.translate(0.29, f19 * 0.004F-0.1,0);
+            pose.translate(0.305, f19 * 0.004F-0.1,0);
             if(bow.getItem() instanceof ShortBowItem){
                 float f12 = Math.min(f7 / 20.0F,1);
                 //                                  前后帧偏移系数
@@ -46,9 +46,9 @@ public class ArrowInBowHud {
             }
 
             pose.scale(scale,scale,scale+f11*0.2f);
-            pose.mulPose(Axis.YP.rotationDegrees(8));
+            pose.mulPose(Axis.YP.rotationDegrees(-3));
             pose.mulPose(Axis.XP.rotationDegrees(-110));
-
+//            pose.mulPose(Axis.ZP.rotationDegrees(5));
             ItemStack arrowItem = mc.player.getProjectile(bow);
             ItemInHandRenderer renderer = mc .gameRenderer.itemInHandRenderer;
 

@@ -26,8 +26,8 @@ public class DaedalusStormbow extends TerraBowItem {
         @Override
         protected void init(){
             this.offsetV = 25;
-            this.inAccuracy = 2;
-            this.predictFactor = 2f;
+            this.inAccuracy = 10;
+            this.predict = 25;
         }
         @Override
         public float getBaseVelocity() {

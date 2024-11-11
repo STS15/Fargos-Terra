@@ -61,15 +61,15 @@ public class BowItems {
         return BOWS.register(name, supplier);
     }
     public static DeferredItem<TerraBowItem> register(String name, float damage, int durability, ModRarity rarity) {
-        return BOWS.register(name, () -> new TerraBowItem(damage, durability, rarity));
+        return register(name, () -> new TerraBowItem(damage, durability, rarity));
     }
     public static DeferredItem<TerraBowItem> register(String name, float damage, int durability) {
-        return BOWS.register(name, () -> new TerraBowItem(damage, durability, ModRarity.WHITE));
+        return register(name, damage, durability, ModRarity.WHITE);
     }
 
 
 
-        @OnlyIn(Dist.CLIENT)
+    @OnlyIn(Dist.CLIENT)
     public static void registerProperties() {
         ResourceLocation pull = ResourceLocation.withDefaultNamespace("pull");
         ClampedItemPropertyFunction shortBowPull = (itemStack, clientLevel, living, speed) -> living != null && living.getUseItem() == itemStack ? (float) (itemStack.getUseDuration(living) - living.getUseItemRemainingTicks()) / ShortBowItem.MAX_DRAW_DURATION : 0.0F;
@@ -112,5 +112,8 @@ public class BowItems {
         ItemProperties.register(GOLDEN_BOW.get(), pulling, bowPulling);
         ItemProperties.register(PLATINUM_BOW.get(), pull, bowPull);
         ItemProperties.register(PLATINUM_BOW.get(), pulling, bowPulling);
+
+        ItemProperties.register(DAEDALUS_STORM_BOW.get(), pull, bowPull);
+        ItemProperties.register(DAEDALUS_STORM_BOW.get(), pulling, bowPulling);
     }
 }
