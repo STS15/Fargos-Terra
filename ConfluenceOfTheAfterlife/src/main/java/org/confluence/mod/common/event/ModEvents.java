@@ -51,7 +51,6 @@ public final class ModEvents {
     public static void loadComplete(FMLLoadCompleteEvent event) {
         event.enqueueWork(() -> {
             LogBlockSet.wrapStrip();
-            Confluence.registerMinecartAbility();
             ISpreadable.Type.buildMap();
         });
     }
