@@ -14,6 +14,9 @@ import org.confluence.mod.client.model.entity.fishing.BaseFishingHookModel;
 import org.confluence.mod.client.model.entity.fishing.BloodyFishingHookModel;
 import org.confluence.mod.client.model.entity.fishing.GlowingFishingHookModel;
 import org.confluence.mod.client.model.entity.fishing.HotlineFishingHookModel;
+import org.confluence.mod.client.model.entity.hook.BaseHookModel;
+import org.confluence.mod.client.model.entity.hook.SkeletronHandModel;
+import org.confluence.mod.client.model.entity.hook.WebSlingerModel;
 import org.confluence.mod.client.model.entity.projectile.EnchantedSwordProjectileModel;
 import org.confluence.mod.client.model.entity.projectile.IceBladeSwordProjectileModel;
 import org.confluence.mod.client.renderer.entity.bomb.*;
@@ -21,6 +24,7 @@ import org.confluence.mod.client.renderer.entity.fishing.BaseFishingHookRenderer
 import org.confluence.mod.client.renderer.entity.fishing.BloodyFishingHookRenderer;
 import org.confluence.mod.client.renderer.entity.fishing.GlowingFishingHookRenderer;
 import org.confluence.mod.client.renderer.entity.fishing.HotlineFishingHookRenderer;
+import org.confluence.mod.client.renderer.entity.hook.*;
 import org.confluence.mod.client.renderer.entity.projectile.EnchantedSwordProjectileRenderer;
 import org.confluence.mod.client.renderer.entity.projectile.IceBladeSwordProjectileRenderer;
 import org.confluence.mod.client.renderer.entity.projectile.StarFuryProjectileRenderer;
@@ -80,6 +84,10 @@ public final class ModClientEvents {
         event.registerLayerDefinition(IceBladeSwordProjectileModel.LAYER_LOCATION, IceBladeSwordProjectileModel::createBodyLayer);
         event.registerLayerDefinition(EnchantedSwordProjectileModel.LAYER_LOCATION, EnchantedSwordProjectileModel::createBodyLayer);
 
+        event.registerLayerDefinition(BaseHookModel.LAYER_LOCATION, BaseHookModel::createBodyLayer);
+        event.registerLayerDefinition(WebSlingerModel.LAYER_LOCATION, WebSlingerModel::createBodyLayer);
+        event.registerLayerDefinition(SkeletronHandModel.LAYER_LOCATION, SkeletronHandModel::createBodyLayer);
+        /* todo 静止钩 */
     }
 
     @SubscribeEvent
@@ -101,6 +109,24 @@ public final class ModClientEvents {
         event.registerEntityRenderer(BASE_FISHING_HOOK.get(), BaseFishingHookRenderer::new);
         event.registerEntityRenderer(BLOODY_FISHING_HOOK.get(), BloodyFishingHookRenderer::new);
         event.registerEntityRenderer(CURIO_FISHING_HOOK.get(), GlowingFishingHookRenderer::new);
+
+        event.registerEntityRenderer(BASE_HOOK.get(), BaseHookRenderer::new);
+        event.registerEntityRenderer(WEB_SLINGER.get(), WebSlingerRenderer::new);
+        event.registerEntityRenderer(SKELETRON_HAND.get(), SkeletronHandRenderer::new);
+        event.registerEntityRenderer(SLIME_HOOK.get(), SlimeHookRenderer::new);
+        event.registerEntityRenderer(FISH_HOOK.get(), FishHookRenderer::new);
+        event.registerEntityRenderer(IVY_WHIP.get(), IvyWhipRenderer::new);
+        event.registerEntityRenderer(BAT_HOOK.get(), BatHookRenderer::new);
+        event.registerEntityRenderer(CANDY_CANE_HOOK.get(), CandyCaneHookRenderer::new);
+        event.registerEntityRenderer(DUAL_HOOK.get(), DualHookRenderer::new);
+        event.registerEntityRenderer(HOOK_OF_DISSONANCE.get(), HookOfDissonanceRenderer::new);
+        event.registerEntityRenderer(THORN_HOOK.get(), ThornHookRenderer::new);
+        event.registerEntityRenderer(MIMIC_HOOK.get(), MimicHookRenderer::new);
+        event.registerEntityRenderer(ANTI_GRAVITY_HOOK.get(), AntiGravityHookRenderer::new);
+        event.registerEntityRenderer(SPOOKY_HOOK.get(), SpookyHookRenderer::new);
+        event.registerEntityRenderer(CHRISTMAS_HOOK.get(), ChristmasHookRenderer::new);
+        event.registerEntityRenderer(LUNAR_HOOK.get(), LunarHookRenderer::new);
+        /* todo 静止钩 */
     }
 
     @SubscribeEvent

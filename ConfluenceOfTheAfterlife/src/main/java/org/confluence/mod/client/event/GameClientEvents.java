@@ -1,7 +1,7 @@
 package org.confluence.mod.client.event;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.world.entity.player.Player;
+import net.minecraft.client.player.LocalPlayer;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -9,6 +9,7 @@ import net.neoforged.neoforge.client.event.*;
 import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
 import org.confluence.mod.Confluence;
 import org.confluence.mod.client.gui.hud.ArrowInBowHud;
+import org.confluence.mod.client.handler.HookThrowingHandler;
 import org.confluence.mod.common.init.ModEffects;
 import org.confluence.mod.common.item.sword.stagedy.ProjectileStrategy;
 import org.confluence.terra_curio.api.event.PerformJumpingEvent;
@@ -23,12 +24,12 @@ public final class GameClientEvents {
 
     @SubscribeEvent
     public static void clientTick$Post(ClientTickEvent.Post event) {
-        Player player = Minecraft.getInstance().player;
-        // 弹幕
-        if (player != null) {
-            ProjectileStrategy.handle();
-        }
+        Minecraft minecraft = Minecraft.getInstance();
+        LocalPlayer player = minecraft.player;
+        if (player == null) return;
 
+        ProjectileStrategy.handle(minecraft, player);
+        HookThrowingHandler.handle(player);
     }
 
     @SubscribeEvent
