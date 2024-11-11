@@ -5,11 +5,12 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.confluence.mod.Confluence;
-import org.confluence.mod.common.entity.projectile.*;
 import org.confluence.mod.common.entity.fishing.BaseFishingHook;
 import org.confluence.mod.common.entity.fishing.BloodyFishingHook;
 import org.confluence.mod.common.entity.fishing.CurioFishingHook;
 import org.confluence.mod.common.entity.fishing.HotlineFishingHook;
+import org.confluence.mod.common.entity.hook.*;
+import org.confluence.mod.common.entity.projectile.*;
 import org.confluence.mod.common.entity.projectile.bombs.*;
 
 import java.util.function.Supplier;
@@ -34,4 +35,26 @@ public final class ModEntities {
     public static final Supplier<EntityType<HotlineFishingHook>> HOTLINE_FISHING_HOOK = ENTITIES.register("hotline_fishing_hook", () -> EntityType.Builder.<HotlineFishingHook>of(HotlineFishingHook::new, MobCategory.MISC).noSave().noSummon().sized(0.25F, 0.25F).clientTrackingRange(4).updateInterval(5).build("confluence:hotline_fishing_hook"));
     public static final Supplier<EntityType<CurioFishingHook>> CURIO_FISHING_HOOK = ENTITIES.register("curio_fishing_hook", () -> EntityType.Builder.<CurioFishingHook>of(CurioFishingHook::new, MobCategory.MISC).noSave().noSummon().sized(0.25F, 0.25F).clientTrackingRange(4).updateInterval(5).build("confluence:curio_fishing_hook"));
     public static final Supplier<EntityType<BloodyFishingHook>> BLOODY_FISHING_HOOK = ENTITIES.register("bloody_fishing_hook", () -> EntityType.Builder.<BloodyFishingHook>of(BloodyFishingHook::new, MobCategory.MISC).noSave().noSummon().sized(0.25F, 0.25F).clientTrackingRange(4).updateInterval(5).build("confluence:bloody_fishing_hook"));
+
+    public static final Supplier<EntityType<BaseHookEntity>> BASE_HOOK = registerHook("base_hook", BaseHookEntity::new);
+    public static final Supplier<EntityType<AbstractHookEntity.Impl>> WEB_SLINGER = registerHook("web_slinger", AbstractHookEntity.Impl::new);
+    public static final Supplier<EntityType<AbstractHookEntity.Impl>> SKELETRON_HAND = registerHook("skeletron_hand", AbstractHookEntity.Impl::new);
+    public static final Supplier<EntityType<AbstractHookEntity.Impl>> SLIME_HOOK = registerHook("slime_hook", AbstractHookEntity.Impl::new);
+    public static final Supplier<EntityType<AbstractHookEntity.Impl>> FISH_HOOK = registerHook("fish_hook", AbstractHookEntity.Impl::new);
+    public static final Supplier<EntityType<AbstractHookEntity.Impl>> IVY_WHIP = registerHook("ivy_whip", AbstractHookEntity.Impl::new);
+    public static final Supplier<EntityType<AbstractHookEntity.Impl>> BAT_HOOK = registerHook("bat_hook", AbstractHookEntity.Impl::new);
+    public static final Supplier<EntityType<AbstractHookEntity.Impl>> CANDY_CANE_HOOK = registerHook("candy_cane_hook", AbstractHookEntity.Impl::new);
+    public static final Supplier<EntityType<DualHookEntity>> DUAL_HOOK = registerHook("dual_hook", DualHookEntity::new);
+    public static final Supplier<EntityType<AbstractHookEntity.Impl>> HOOK_OF_DISSONANCE = registerHook("hook_of_dissonance", AbstractHookEntity.Impl::new);
+    public static final Supplier<EntityType<AbstractHookEntity.Impl>> THORN_HOOK = registerHook("thorn_hook", AbstractHookEntity.Impl::new);
+    public static final Supplier<EntityType<MimicHookEntity>> MIMIC_HOOK = registerHook("mimic_hook", MimicHookEntity::new);
+    public static final Supplier<EntityType<AbstractHookEntity.Impl>> ANTI_GRAVITY_HOOK = registerHook("anti_gravity_hook", AbstractHookEntity.Impl::new);
+    public static final Supplier<EntityType<AbstractHookEntity.Impl>> SPOOKY_HOOK = registerHook("spooky_hook", AbstractHookEntity.Impl::new);
+    public static final Supplier<EntityType<AbstractHookEntity.Impl>> CHRISTMAS_HOOK = registerHook("christmas_hook", AbstractHookEntity.Impl::new);
+    public static final Supplier<EntityType<LunarHookEntity>> LUNAR_HOOK = registerHook("lunar_hook", LunarHookEntity::new);
+    /* todo 静止钩 */
+
+    private static <E extends AbstractHookEntity> Supplier<EntityType<E>> registerHook(String id, EntityType.EntityFactory<E> supplier) {
+        return ENTITIES.register(id, () -> EntityType.Builder.of(supplier, MobCategory.MISC).sized(0.5F, 0.5F).clientTrackingRange(4).updateInterval(20).build("confluence:" + id));
+    }
 }

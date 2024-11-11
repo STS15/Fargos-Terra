@@ -205,6 +205,16 @@ public class ModBlocks {
     public static final DeferredBlock<Block> ASH_SAPLING = registerWithItem("ash_sapling", () -> new AshSaplingBlock(ModTreeGrower.ASH_GROWER, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
     public static final DeferredBlock<Block> LIVING_SAPLING = registerWithItem("living_sapling", () -> new LivingSaplingBlock(ModTreeGrower.LIVING_GROWER, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
 
+    public static final DeferredBlock<ChainBlock> RUBY_CHAIN = registerWithItem("ruby_chain", () -> new ChainBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHAIN).mapColor(MapColor.COLOR_RED)));
+    public static final DeferredBlock<ChainBlock> AMBER_CHAIN = registerWithItem("amber_chain", () -> new ChainBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHAIN).mapColor(MapColor.COLOR_ORANGE)));
+    public static final DeferredBlock<ChainBlock> TOPAZ_CHAIN = registerWithItem("topaz_chain", () -> new ChainBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHAIN).mapColor(MapColor.COLOR_YELLOW)));
+    public static final DeferredBlock<ChainBlock> EMERALD_CHAIN = registerWithItem("emerald_chain", () -> new ChainBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHAIN).mapColor(MapColor.EMERALD)));
+    public static final DeferredBlock<ChainBlock> SAPPHIRE_CHAIN = registerWithItem("sapphire_chain", () -> new ChainBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHAIN).mapColor(MapColor.COLOR_BLUE)));
+    public static final DeferredBlock<ChainBlock> DIAMOND_CHAIN = registerWithItem("diamond_chain", () -> new ChainBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHAIN).mapColor(MapColor.DIAMOND)));
+    public static final DeferredBlock<ChainBlock> AMETHYST_CHAIN = registerWithItem("amethyst_chain", () -> new ChainBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHAIN).mapColor(MapColor.COLOR_PURPLE)));
+    public static final DeferredBlock<ChainBlock> SILK_CHAIN = registerWithItem("silk_chain", () -> new ChainBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHAIN).mapColor(MapColor.TERRACOTTA_WHITE)));
+    public static final DeferredBlock<ChainBlock> BONE_CHAIN = registerWithItem("bone_chain", () -> new ChainBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHAIN).mapColor(MapColor.TERRACOTTA_WHITE)));
+
     public static <B extends Block> DeferredBlock<B> registerWithItem(String id, Supplier<B> block) {
         return registerWithItem(id, block, new Item.Properties());
     }
