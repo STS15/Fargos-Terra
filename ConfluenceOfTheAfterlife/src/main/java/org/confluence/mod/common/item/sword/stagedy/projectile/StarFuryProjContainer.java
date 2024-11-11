@@ -2,6 +2,7 @@ package org.confluence.mod.common.item.sword.stagedy.projectile;
 
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -25,7 +26,6 @@ public class StarFuryProjContainer implements AbstractProjContainer {
     protected float inAccuracy = 0.5f;
     protected float offsetV = 20;//发射时的高度偏移
     protected float offsetH = 5;//发射时的xy偏移
-    protected float predictFactor = 0.5f;//预判量
     protected float getOffsetV() {
         return offsetV;
     };
@@ -62,27 +62,30 @@ public class StarFuryProjContainer implements AbstractProjContainer {
     public void genProjectile(Player owner, ItemStack weapon) {
         owner.level().playSound(null, owner.getX(), owner.getY(), owner.getZ(), getSound(), SoundSource.AMBIENT, 1.0F, 1.0F);
 
-        Vec3 eye = owner.position().add(0,1,0);
-        Entity target = getTargets(eye,eye.add(owner.getForward().normalize().scale(range)),owner.level(), owner);
-        Vec3 waveTarget = Vec3.ZERO;
-
+        Vec3 eye = owner.getEyePosition();
+        LivingEntity target = getTargets(eye,eye.add(owner.getForward().normalize().scale(range)),owner.level(), owner);
+        Vec3 waveTarget;
+        float angle;
+        float actualInaccuracy;
         if(target!=null){
             //周围有目标 预判
-            waveTarget = target.position().add(target.getDeltaMovement().scale(predict)).add(0,predictFactor,0);
-
+            waveTarget = target.getEyePosition().add(target.getDeltaMovement().scale(predict));
+            //根据夹角减少不精准度
+            angle = (float) angle(target.getEyePosition().subtract(owner.getEyePosition()),owner.getForward());
+            actualInaccuracy = inAccuracy * Mth.lerp(angle/maxAngle,0,inAccuracy) * 5;
         }else{
             //周围无目标 获取视线指向点
-            Vec3 ori = owner.position().add(0,1,0);
+            Vec3 ori = owner.getEyePosition().add(0,1,0);
             Vec3 end = ori.add(owner.getForward().normalize().scale(range));
             BlockHitResult blockHitResult = owner.level().clip(new ClipContext(ori,end, ClipContext.Block.OUTLINE,ClipContext.Fluid.NONE, owner));
             waveTarget = blockHitResult.getLocation();
+            //取中值
+            actualInaccuracy = inAccuracy / 2;
         }
         var proj = getProjectile(owner,weapon);
         proj.setPos(waveTarget.add(Math.random() * getOffsetH() - getOffsetH(), getOffsetV() ,Math.random() * getOffsetH() - getOffsetH()));
-        proj.shoot(waveTarget.x - proj.getX(),waveTarget.y- proj.getY(),waveTarget.z - proj.getZ(),getBaseVelocity(),inAccuracy);
-
+        proj.shoot(waveTarget.x - proj.getX(),waveTarget.y- proj.getY(),waveTarget.z - proj.getZ(),getBaseVelocity(),actualInaccuracy);
         owner.level().addFreshEntity(proj);
-
     }
 
 
