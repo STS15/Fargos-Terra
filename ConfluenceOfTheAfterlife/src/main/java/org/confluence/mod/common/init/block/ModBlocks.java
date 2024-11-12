@@ -126,7 +126,7 @@ public class ModBlocks {
             .strippedLog(RotatedPillarBlock::new)
             .wood(RotatedPillarBlock::new)
             .strippedWood(RotatedPillarBlock::new)
-            .leaves(properties -> new LeavesBlock(properties)) // todo 自定义树叶
+            .leaves(PalmLeaves::new)
             .button(properties -> new ButtonBlock(PALM.SET, 30, properties))
             .fence(FenceBlock::new)
             .fenceGate(properties -> new FenceGateBlock(PALM.TYPE, properties))

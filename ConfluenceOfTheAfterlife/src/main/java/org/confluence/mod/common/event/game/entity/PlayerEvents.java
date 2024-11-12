@@ -63,6 +63,7 @@ public final class PlayerEvents {
                 level.addFreshEntity(minecart);
                 player.startRiding(minecart, true);
             }
+            event.setCanceled(true);
         }
     }
 

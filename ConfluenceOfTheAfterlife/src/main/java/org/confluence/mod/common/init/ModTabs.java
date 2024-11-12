@@ -29,6 +29,7 @@ public final class ModTabs {
             () -> CreativeModeTab.builder().icon(() -> IconItems.NATURE_ICON.get().getDefaultInstance())
                     .title(Component.translatable("creativetab.confluence.natural_blocks"))
                     .displayItems((parameters, output) -> {
+                        LogBlockSet.acceptNature(output);
                         ModOreBlocks.BLOCKS.getEntries().forEach(block -> output.accept(block.get()));
                     })
                     .build()

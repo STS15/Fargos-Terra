@@ -275,6 +275,18 @@ public class LogBlockSet {
         }
     }
 
+    public static void acceptNature(CreativeModeTab.Output output) {
+        for (LogBlockSet logBlocks : LOG_BLOCK_SETS) {
+            Builder builder1 = logBlocks.builder;
+            if (builder1.LOG != null) {
+                output.accept(builder1.LOG);
+            }
+            if (builder1.LEAVES != null) {
+                output.accept(builder1.LEAVES);
+            }
+        }
+    }
+
     public static void wrapStrip() {
         STRIP_TABLE.forEach((s1, s2) -> WRAPPED_STRIP_TABLE.put(s1.get(), s2.get()));
         STRIP_TABLE.clear();
