@@ -10,14 +10,12 @@ import net.minecraft.world.entity.monster.Enemy;
 import net.minecraft.world.level.Level;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.event.entity.living.*;
 import org.confluence.mod.Confluence;
 import org.confluence.mod.common.CommonConfigs;
 import org.confluence.mod.common.effect.beneficial.ArcheryEffect;
 import org.confluence.mod.common.effect.beneficial.ThornsEffect;
 import org.confluence.mod.common.effect.harmful.ManaSicknessEffect;
-import org.confluence.mod.common.init.ModDamageTypes;
 import org.confluence.mod.common.item.sword.BaseSwordItem;
 import org.confluence.mod.util.ModUtils;
 
@@ -77,11 +75,6 @@ public final class LivingEntityEvents {
         if (living.level().isClientSide) return;
         DamageSource damageSource = event.getSource();
         if (damageSource.is(DamageTypes.FELL_OUT_OF_WORLD) || damageSource.is(DamageTypes.GENERIC_KILL)) return;
-
-        if (damageSource.is(ModDamageTypes.BOULDER) && living.getType().is(Tags.EntityTypes.BOSSES)) {
-            event.setNewDamage(0.0F);
-            return;
-        }
 
         float amount = event.getNewDamage();
 

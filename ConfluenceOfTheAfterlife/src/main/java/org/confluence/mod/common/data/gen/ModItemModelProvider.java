@@ -14,7 +14,7 @@ import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.confluence.mod.Confluence;
 import org.confluence.mod.common.init.armor.ArmorItems;
-import org.confluence.mod.common.init.block.ModBlocks;
+import org.confluence.mod.common.init.block.BoxBlocks;
 import org.confluence.mod.common.init.item.*;
 import software.bernie.geckolib.animatable.GeoItem;
 
@@ -25,7 +25,7 @@ import static net.minecraft.world.item.ItemDisplayContext.*;
 import static org.confluence.mod.Confluence.MODID;
 
 public class ModItemModelProvider extends ItemModelProvider {
-    private static final Set<Item> SKIP_ITEMS = Set.of(ModBlocks.BEACH_BOX.asItem());
+    private static final Set<Item> SKIP_ITEMS = Set.of(BoxBlocks.BEACH_BOX.asItem());
     private static final ResourceLocation MISSING_ITEM = Confluence.asResource("item/item_icon");
     private static final ResourceLocation MISSING_BLOCK = Confluence.asResource("item/blocks_icon");
     private Map<DeferredItem<? extends Item>, Consumer<ItemModelBuilder>> dispatcher;

@@ -15,6 +15,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 import static org.confluence.mod.Confluence.MODID;
+import static org.confluence.mod.common.init.block.ModBlocks.*;
 
 public class ModBlockTagsProvider extends BlockTagsProvider {
     public ModBlockTagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, @Nullable ExistingFileHelper existingFileHelper) {
@@ -33,10 +34,18 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
                 Blocks.CAVE_VINES,
                 Blocks.CAVE_VINES_PLANT
         );
+        tag(ModTags.Blocks.EASY_CRASH).add(
+                THIN_ICE_BLOCK.get(),
+                SWORD_IN_STONE.get(),
+                CRACKED_BLUE_BRICK.get(),
+                CRACKED_GREEN_BRICK.get(),
+                CRACKED_PINK_BRICK.get(),
+                CRISPY_HONEY_BLOCK.get()
+        );
     }
 
     @Override
-    public @NotNull IntrinsicTagAppender<Block> tag(@NotNull TagKey<Block> tag){
+    public @NotNull IntrinsicTagAppender<Block> tag(@NotNull TagKey<Block> tag) {
         return super.tag(tag);
     }
 }

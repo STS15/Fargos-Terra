@@ -8,12 +8,15 @@ import net.neoforged.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.neoforged.neoforge.event.AddPackFindersEvent;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import net.neoforged.neoforge.network.registration.PayloadRegistrar;
+import net.neoforged.neoforge.registries.RegisterEvent;
 import org.confluence.mod.Confluence;
 import org.confluence.mod.client.gui.screens.GroupWikiScreen;
 import org.confluence.mod.client.gui.screens.ObjectWikiScreen;
 import org.confluence.mod.common.CommonConfigs;
 import org.confluence.mod.common.block.natural.LogBlockSet;
 import org.confluence.mod.common.block.natural.spreadable.ISpreadable;
+import org.confluence.mod.common.fluid.FluidBuilder;
+import org.confluence.mod.common.init.ModFluids;
 import org.confluence.mod.common.init.item.*;
 import org.confluence.mod.network.c2s.SwordShootingPacketC2S;
 import org.confluence.mod.network.s2c.GamePhasePacketS2C;
@@ -31,6 +34,8 @@ public final class ModEvents {
         event.enqueueWork(() -> {
             CommonConfigs.onLoad();
             Confluence.registerGameRules();
+            ModFluids.registerInteraction();
+            ModFluids.registerShimmerTransform();
             GroupWikiScreen.putWikiType("item",
                     List.of(AccessoryItems.ACCESSORIES, ArrowItems.ARROWS, AxeItems.AXE,
                             BaitItems.BAITS, BowItems.BOWS, FishingPoleItems.POLES,
@@ -58,6 +63,11 @@ public final class ModEvents {
     @SubscribeEvent
     public static void addPackFinders(AddPackFindersEvent event) {
 
+    }
+
+    @SubscribeEvent
+    public static void register(RegisterEvent event) {
+        FluidBuilder.register(event);
     }
 
     @SubscribeEvent

@@ -6,8 +6,10 @@ import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.*;
+import net.neoforged.neoforge.client.gui.VanillaGuiLayers;
 import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
 import org.confluence.mod.Confluence;
+import org.confluence.mod.client.ClientConfigs;
 import org.confluence.mod.client.gui.hud.ArrowInBowHud;
 import org.confluence.mod.client.handler.HookThrowingHandler;
 import org.confluence.mod.common.init.ModEffects;
@@ -33,18 +35,20 @@ public final class GameClientEvents {
     }
 
     @SubscribeEvent
-    public static void movementInputUpdate(MovementInputUpdateEvent event) {
-
-    }
-
-    @SubscribeEvent
     public static void gatherComponents(RenderTooltipEvent.GatherComponents event) {
 
     }
 
     @SubscribeEvent
     public static void leftClick(InputEvent.InteractionKeyMappingTriggered event) {
-
+        Minecraft minecraft = Minecraft.getInstance();
+        LocalPlayer localPlayer = minecraft.player;
+        if (localPlayer == null) return;
+        if (event.isUseItem() || event.isAttack() || event.isPickBlock()) {
+            if (localPlayer.hasEffect(ModEffects.STONED) || localPlayer.hasEffect(ModEffects.CURSED)) {
+                event.setCanceled(true);
+            }
+        }
     }
 
     @SubscribeEvent
@@ -53,33 +57,10 @@ public final class GameClientEvents {
     }
 
     @SubscribeEvent
-    public static void computeCameraAngles(ViewportEvent.ComputeCameraAngles event) {
-
-    }
-
-    @SubscribeEvent
-    public static void renderFog(ViewportEvent.RenderFog event) {
-
-    }
-
-    @SubscribeEvent
-    public static void computeFogColor(ViewportEvent.ComputeFogColor event) {
-
-    }
-
-    @SubscribeEvent
-    public static void fov(ComputeFovModifierEvent event) {
-
-    }
-
-    @SubscribeEvent
-    public static void interactionKeyMappingTriggered(InputEvent.InteractionKeyMappingTriggered event) {
-
-    }
-
-    @SubscribeEvent
     public static void renderGuiOverlay$Pre(RenderGuiLayerEvent.Pre event) {
-
+        if (ClientConfigs.terraStyleHealth && VanillaGuiLayers.PLAYER_HEALTH.equals(event.getName())) {
+            event.setCanceled(true);
+        }
     }
 
     @SubscribeEvent

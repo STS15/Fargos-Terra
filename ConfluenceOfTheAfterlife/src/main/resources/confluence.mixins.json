@@ -5,13 +5,14 @@
     "compatibilityLevel": "JAVA_21",
     "refmap": "confluence.refmap.json",
     "mixins": [
+        "ItemUtilsMixin",
         "accessor.EntityAccessor",
         "accessor.FishingHookAccessor",
         "entity.AbstractArrowMixin",
+        "entity.LivingEntityMixin",
         "integration.terra_curio.BaseSpeedBootsMixin",
-        "integration.terra_curio.ModTabsMixin",
+        "integration.terra_curio.TCTabsMixin",
         "item.BowItemMixin",
-        "item.BucketItemMixin",
         "item.FishingRodItemMixin",
         "item.HoneyBottleItemMixin",
         "item.ProjectileWeaponItemMixin"

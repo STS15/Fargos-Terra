@@ -1,11 +1,19 @@
 package org.confluence.mod.client.event;
 
+import com.mojang.blaze3d.shaders.FogShape;
+import com.mojang.blaze3d.systems.RenderSystem;
+import net.minecraft.client.Camera;
+import net.minecraft.client.multiplayer.ClientLevel;
+import net.minecraft.client.renderer.FogRenderer;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
+import net.minecraft.resources.ResourceLocation;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.*;
+import net.neoforged.neoforge.client.extensions.common.IClientFluidTypeExtensions;
+import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent;
 import net.neoforged.neoforge.client.gui.VanillaGuiLayers;
 import org.confluence.mod.Confluence;
 import org.confluence.mod.client.ClientConfigs;
@@ -29,8 +37,11 @@ import org.confluence.mod.client.renderer.entity.hook.*;
 import org.confluence.mod.client.renderer.entity.projectile.*;
 import org.confluence.mod.client.renderer.gui.HealthHudLayer;
 import org.confluence.mod.client.renderer.gui.ManaHudLayer;
+import org.confluence.mod.common.init.ModFluids;
 import org.confluence.mod.common.init.item.BowItems;
 import org.confluence.mod.common.init.item.FishingPoleItems;
+import org.jetbrains.annotations.NotNull;
+import org.joml.Vector3f;
 
 import static org.confluence.mod.common.init.ModEntities.*;
 
@@ -147,5 +158,61 @@ public final class ModClientEvents {
     @SubscribeEvent
     public static void registerEntitySpectatorShaders(RegisterEntitySpectatorShadersEvent event) {
 
+    }
+
+    @SubscribeEvent
+    public static void registerClientExtensions(RegisterClientExtensionsEvent event) {
+        event.registerFluidType(new IClientFluidTypeExtensions() {
+            private static final ResourceLocation STILL = Confluence.asResource("block/fluid/honey_still");
+            private static final ResourceLocation FLOWING = Confluence.asResource("block/fluid/honey_flowing");
+            private static final Vector3f FOG_COLOR = new Vector3f(1.0F, 1.0F, 0.0F);
+
+            @Override
+            public @NotNull ResourceLocation getStillTexture() {
+                return STILL;
+            }
+
+            @Override
+            public @NotNull ResourceLocation getFlowingTexture() {
+                return FLOWING;
+            }
+
+            @Override
+            public @NotNull Vector3f modifyFogColor(@NotNull Camera camera, float partialTick, @NotNull ClientLevel level, int renderDistance, float darkenWorldAmount, @NotNull Vector3f fluidFogColor) {
+                return FOG_COLOR;
+            }
+
+            @Override
+            public void modifyFogRender(@NotNull Camera camera, FogRenderer.@NotNull FogMode mode, float renderDistance, float partialTick, float nearDistance, float farDistance, @NotNull FogShape shape) {
+                RenderSystem.setShaderFogStart(0.125F);
+                RenderSystem.setShaderFogEnd(5.0F);
+            }
+        }, ModFluids.HONEY.type());
+        event.registerFluidType(new IClientFluidTypeExtensions() {
+            private static final ResourceLocation STILL = Confluence.asResource("block/fluid/shimmer_still");
+            private static final ResourceLocation FLOWING = Confluence.asResource("block/fluid/shimmer_flowing");
+            private static final Vector3f FOG_COLOR = new Vector3f(1.0F, 0.5882F, 1.0F);
+
+            @Override
+            public @NotNull ResourceLocation getStillTexture() {
+                return STILL;
+            }
+
+            @Override
+            public @NotNull ResourceLocation getFlowingTexture() {
+                return FLOWING;
+            }
+
+            @Override
+            public @NotNull Vector3f modifyFogColor(@NotNull Camera camera, float partialTick, @NotNull ClientLevel level, int renderDistance, float darkenWorldAmount, @NotNull Vector3f fluidFogColor) {
+                return FOG_COLOR;
+            }
+
+            @Override
+            public void modifyFogRender(@NotNull Camera camera, FogRenderer.@NotNull FogMode mode, float renderDistance, float partialTick, float nearDistance, float farDistance, @NotNull FogShape shape) {
+                RenderSystem.setShaderFogStart(0.125F);
+                RenderSystem.setShaderFogEnd(10.0F);
+            }
+        }, ModFluids.SHIMMER.type());
     }
 }

@@ -20,6 +20,9 @@ import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.common.util.TriState;
 import net.neoforged.neoforge.event.entity.player.*;
 import org.confluence.mod.Confluence;
+import org.confluence.mod.common.effect.harmful.CursedEffect;
+import org.confluence.mod.common.effect.harmful.SilencedEffect;
+import org.confluence.mod.common.effect.harmful.StonedEffect;
 import org.confluence.mod.common.init.ModAttachments;
 import org.confluence.mod.common.init.ModTags;
 import org.confluence.mod.common.init.item.AccessoryItems;
@@ -91,6 +94,14 @@ public final class PlayerEvents {
     @SubscribeEvent
     public static void arrowLoose(ArrowLooseEvent event) {
 
+    }
+
+    @SubscribeEvent
+    public static void rightClickItem(PlayerInteractEvent.RightClickItem event) {
+        Player player = event.getEntity();
+        SilencedEffect.onRightClick(player, event);
+        CursedEffect.onRightClick(player, event::setCanceled);
+        StonedEffect.onRightClick(player, event::setCanceled);
     }
 
     @SubscribeEvent

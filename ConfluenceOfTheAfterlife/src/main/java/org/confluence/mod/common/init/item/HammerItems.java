@@ -1,5 +1,7 @@
 package org.confluence.mod.common.init.item;
 
+import net.minecraft.data.tags.IntrinsicHolderTagsProvider;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Tiers;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -21,4 +23,8 @@ public class HammerItems {
     public static final DeferredItem<HammerItem> EBONY_HAMMER = HAMMERS.register("ebony_hammer", () -> new HammerItem(ModTiers.EBONY, 6, 1));
     public static final DeferredItem<HammerItem> TR_CRIMSON_HAMMER = HAMMERS.register("tr_crimson_hammer", () -> new HammerItem(ModTiers.TR_CRIMSON, 6, 1));
     public static final DeferredItem<HammerItem> PWNHAMMER = HAMMERS.register("pwnhammer", () -> new HammerItem(ModTiers.HALLOWED, 7, 1));
+
+    public static void acceptTag(IntrinsicHolderTagsProvider.IntrinsicTagAppender<Item> tag) {
+        HAMMERS.getEntries().forEach(item -> tag.add(item.get()));
+    }
 }

@@ -51,12 +51,12 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         IntrinsicTagAppender<Item> torch = tag(ModTags.Items.TORCH);
         torch.add(Items.TORCH, Items.SOUL_TORCH);
 //        for (Torches torches : Torches.values()) torch.add(torches.item.get());
-//        tag(ModTags.Items.BOTTOMLESS).add(
-//                ModItems.BOTTOMLESS_WATER_BUCKET.get(),
-//                ModItems.BOTTOMLESS_LAVA_BUCKET.get(),
-//                ModItems.BOTTOMLESS_HONEY_BUCKET.get(),
-//                ModItems.BOTTOMLESS_SHIMMER_BUCKET.get()
-//        );
+        tag(ModTags.Items.BOTTOMLESS).add(
+                ModItems.BOTTOMLESS_WATER_BUCKET.get(),
+                ModItems.BOTTOMLESS_LAVA_BUCKET.get(),
+                ModItems.BOTTOMLESS_HONEY_BUCKET.get(),
+                ModItems.BOTTOMLESS_SHIMMER_BUCKET.get()
+        );
         tag(ModTags.Items.FRUIT).add(
                 Items.APPLE, Items.MELON_SLICE, FoodItems.APRICOT.get(),
                 FoodItems.BANANA.get(), FoodItems.CHERRY.get(), FoodItems.COCONUT.get(),
@@ -67,13 +67,10 @@ public class ModItemTagsProvider extends ItemTagsProvider {
                 FoodItems.BLOOD_ORANGE.get(), FoodItems.ELDERBERRY.get(), FoodItems.BLACKCURRANT.get()
         );
 
-        BowItems.BOWS.getEntries().forEach(entry -> tag(Tags.Items.TOOLS_BOW).add(entry.get()));
+        BowItems.acceptTag(tag(Tags.Items.TOOLS_BOW));
+        ArrowItems.acceptTag(tag(ItemTags.ARROWS));
+        HammerItems.acceptTag(tag(ModTags.Items.HAMMER));
 
-        ArrowItems.ARROWS.getEntries().forEach(entry -> tag(ItemTags.ARROWS).add(entry.get()));
-
-//        for (ManaWeapons manaWeapons : ManaWeapons.values()) rangedWeapon.add(manaWeapons.get());
         tag(ModTags.Items.COIN).add(ModItems.COPPER_COIN.get(), ModItems.SILVER_COIN.get(), ModItems.GOLDEN_COIN.get(), ModItems.PLATINUM_COIN.get());
-//        IntrinsicTagAppender<Item> hammer = tag(ModTags.Items.HAMMER);
-//        for (Hammers hammers : Hammers.values()) hammer.add(hammers.get());
     }
 }

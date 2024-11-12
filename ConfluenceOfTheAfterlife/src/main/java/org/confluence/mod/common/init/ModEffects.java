@@ -3,7 +3,6 @@ package org.confluence.mod.common.init;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
-import net.minecraft.world.entity.LivingEntity;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.confluence.mod.Confluence;
@@ -12,7 +11,6 @@ import org.confluence.mod.common.effect.beneficial.*;
 import org.confluence.mod.common.effect.harmful.*;
 import org.confluence.mod.common.effect.neutral.LoveEffect;
 import org.confluence.mod.common.effect.neutral.ShimmerEffect;
-import org.confluence.terra_curio.common.init.TCEffects;
 
 public final class ModEffects {
     public static final DeferredRegister<MobEffect> EFFECTS = DeferredRegister.create(BuiltInRegistries.MOB_EFFECT, Confluence.MODID);
@@ -56,11 +54,4 @@ public final class ModEffects {
     public static final DeferredHolder<MobEffect, TentacleSpikesEffect> TENTACLE_SPIKES = EFFECTS.register("tentacle_spikes", TentacleSpikesEffect::new);
     public static final DeferredHolder<MobEffect, LoveEffect> LOVE = EFFECTS.register("love", LoveEffect::new);
     public static final DeferredHolder<MobEffect, ShimmerEffect> SHIMMER = EFFECTS.register("shimmer", ShimmerEffect::new);
-
-    public static void healPerSecond(LivingEntity living, float amount) {
-        if (living.level().getGameTime() % 20 == 0) {
-            if (living.hasEffect(TCEffects.HONEY)) amount += 1;
-            living.heal(amount);
-        }
-    }
 }

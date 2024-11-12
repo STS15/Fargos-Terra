@@ -43,7 +43,7 @@ public final class ModTags {
         public static final TagKey<Item> COIN = register("coin");
         public static final TagKey<Item> TORCH = register("torch"); // todo
         public static final TagKey<Item> HARDCORE = register("hardcore"); // todo
-        public static final TagKey<Item> BOTTOMLESS = register("bottomless"); // todo
+        public static final TagKey<Item> BOTTOMLESS = register("bottomless");
         public static final TagKey<Item> FRUIT = register("fruit");
         public static final TagKey<Item> DESERT_FOSSIL = register("desert_fossil");
         public static final TagKey<Item> GRAVEL = register("gravel");

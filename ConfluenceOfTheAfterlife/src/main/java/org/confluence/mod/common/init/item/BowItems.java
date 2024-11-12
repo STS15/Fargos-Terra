@@ -2,9 +2,10 @@ package org.confluence.mod.common.init.item;
 
 import net.minecraft.client.renderer.item.ClampedItemPropertyFunction;
 import net.minecraft.client.renderer.item.ItemProperties;
+import net.minecraft.data.tags.IntrinsicHolderTagsProvider;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.BowItem;
+import net.minecraft.world.item.Item;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -12,8 +13,8 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import org.confluence.mod.Confluence;
 import org.confluence.mod.client.gui.hud.ArrowInBowHud;
 import org.confluence.mod.common.item.bow.DaedalusStormbow;
-import org.confluence.mod.common.item.bow.TerraBowItem;
 import org.confluence.mod.common.item.bow.ShortBowItem;
+import org.confluence.mod.common.item.bow.TerraBowItem;
 import org.confluence.terra_curio.common.component.ModRarity;
 
 import java.util.function.Supplier;
@@ -71,7 +72,9 @@ public class BowItems {
         return register(name, damage, durability, ModRarity.WHITE);
     }
 
-
+    public static void acceptTag(IntrinsicHolderTagsProvider.IntrinsicTagAppender<Item> tag) {
+        BOWS.getEntries().forEach(entry -> tag.add(entry.get()));
+    }
 
     @OnlyIn(Dist.CLIENT)
     public static void registerProperties() {

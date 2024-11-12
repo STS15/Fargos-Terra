@@ -1,5 +1,7 @@
 package org.confluence.mod.common.init.item;
 
+import net.minecraft.data.tags.IntrinsicHolderTagsProvider;
+import net.minecraft.world.item.Item;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.confluence.mod.Confluence;
@@ -16,4 +18,8 @@ public class ArrowItems {
     public static final DeferredItem<BaseArrowItem> FROSTBURN_ARROW = ARROWS.register("frostburn_arrow", () -> new  BaseArrowItem(ModRarity.WHITE));
     public static final DeferredItem<BaseArrowItem> BONE_ARROW = ARROWS.register("bone_arrow", () -> new  BaseArrowItem(ModRarity.WHITE));
     public static final DeferredItem<BaseArrowItem> SHIMMER_ARROW = ARROWS.register("shimmer_arrow", () -> new BaseArrowItem(ModRarity.WHITE));
+
+    public static void acceptTag(IntrinsicHolderTagsProvider.IntrinsicTagAppender<Item> tag) {
+        ARROWS.getEntries().forEach(item -> tag.add(item.get()));
+    }
 }

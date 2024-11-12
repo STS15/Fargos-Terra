@@ -1,31 +1,27 @@
 package org.confluence.mod.common.effect.harmful;
 
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.phys.Vec3;
-import net.neoforged.neoforge.client.event.InputEvent;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import org.confluence.mod.Confluence;
 import org.confluence.mod.common.init.ModEffects;
 
 import java.util.function.Consumer;
 
 public class StonedEffect extends MobEffect {
-    public static final Vec3 DOWN = new Vec3(0.0, -1.0, 0.0);
+    public static final ResourceLocation ID = Confluence.asResource("stoned");
 
     public StonedEffect() {
         super(MobEffectCategory.HARMFUL, 0x999999);
+        addAttributeModifier(Attributes.SAFE_FALL_DISTANCE, ID, -3.0, AttributeModifier.Operation.ADD_VALUE);
     }
 
     public static void onRightClick(LivingEntity entity, Consumer<Boolean> consumer) {
         if (!entity.isSpectator() && !entity.getUseItem().isEmpty() && entity.hasEffect(ModEffects.STONED)) {
             consumer.accept(true);
-        }
-    }
-
-    public static void onLeftClick(Player player, InputEvent.InteractionKeyMappingTriggered event) {
-        if (player.hasEffect(ModEffects.STONED) && (event.isUseItem() || event.isAttack() || event.isPickBlock())) {
-            event.setCanceled(true);
         }
     }
 }

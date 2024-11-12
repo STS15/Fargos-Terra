@@ -4,20 +4,19 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemNameBlockItem;
 import net.minecraft.world.item.Rarity;
+import net.minecraft.world.level.material.Fluids;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.confluence.mod.Confluence;
 import org.confluence.mod.common.entity.projectile.bombs.*;
+import org.confluence.mod.common.init.ModFluids;
 import org.confluence.mod.common.init.ModJukeboxSongs;
 import org.confluence.mod.common.init.armor.ArmorItems;
 import org.confluence.mod.common.init.armor.ArmorMaterials;
 import org.confluence.mod.common.init.block.ModBlocks;
 import org.confluence.mod.common.item.CustomRarityItem;
-import org.confluence.mod.common.item.common.BombItem;
-import org.confluence.mod.common.item.common.HerbSeedItem;
-import org.confluence.mod.common.item.common.LifeCrystal;
-import org.confluence.mod.common.item.common.LifeFruit;
+import org.confluence.mod.common.item.common.*;
 import org.confluence.mod.common.item.mana.ManaStar;
 import org.confluence.terra_curio.common.component.ModRarity;
 
@@ -60,6 +59,12 @@ public final class ModItems {
     public static final DeferredItem<Item> SHIVERINGTHORNS_SEED = ITEMS.register("shiveringthorns_seed", () -> new HerbSeedItem(ModBlocks.SHIVERINGTHORNS.get()));
     public static final DeferredItem<Item> SUNFLOWERS_SEED = ITEMS.register("sunflowers_seed", () -> new HerbSeedItem(ModBlocks.SUNFLOWERS.get()));
     public static final DeferredItem<Item> DEATHWEED_SEED = ITEMS.register("deathweed_seed", () -> new HerbSeedItem(ModBlocks.DEATHWEED.get()));
+
+    public static final DeferredItem<HoneyBucketItem> HONEY_BUCKET = ITEMS.register("honey_bucket", () -> new HoneyBucketItem());
+    public static final DeferredItem<BottomlessBucketItem> BOTTOMLESS_WATER_BUCKET = ITEMS.register("bottomless_water_bucket", () -> new BottomlessBucketItem(Fluids.WATER, ModRarity.LIME));
+    public static final DeferredItem<BottomlessBucketItem> BOTTOMLESS_LAVA_BUCKET = ITEMS.register("bottomless_lava_bucket", () -> new BottomlessBucketItem(Fluids.LAVA, ModRarity.LIME));
+    public static final DeferredItem<BottomlessBucketItem> BOTTOMLESS_HONEY_BUCKET = ITEMS.register("bottomless_honey_bucket", () -> new BottomlessBucketItem(ModFluids.HONEY.fluid().get(), ModRarity.LIME));
+    public static final DeferredItem<BottomlessBucketItem> BOTTOMLESS_SHIMMER_BUCKET = ITEMS.register("bottomless_shimmer_bucket", () -> new BottomlessBucketItem(ModFluids.SHIMMER.fluid().get(), ModRarity.RED));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
