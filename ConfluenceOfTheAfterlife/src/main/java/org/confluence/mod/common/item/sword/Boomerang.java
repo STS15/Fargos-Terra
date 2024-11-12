@@ -115,12 +115,14 @@ public class Boomerang extends CustomRarityItem {
         public float damage;
         public float flySpeed = 0.5f;               //向前飞行速度
         public float backSpeed = 0.5f;              //向后飞行速度//返回速度
+        public float knockback = 3f;                //击退力度
         public int cd = 20;                         //冷却时间
         public int forwardTick = 20;                //前进时间
         public boolean canPenetrate = false;        //是否可穿透，否则命中生物返回
         public boolean shouldWaitForBack = true;    //是否等待返回
         public boolean shouldApplyCd = false;       //是否应用冷却
         public boolean fire = false;                //是否渲染火焰
+
 
         private AbstractProjContainer proj;
         public List<BiConsumer<LivingEntity, LivingEntity>> onHitEffects = new ArrayList<>();
@@ -173,7 +175,7 @@ public class Boomerang extends CustomRarityItem {
             return this;
         }
         /**
-         * 设置火焰附加
+         * 设置渲染火焰
          */
         public BoomerangModifier setFire() {
             this.fire = true;
@@ -194,6 +196,13 @@ public class Boomerang extends CustomRarityItem {
          */
         public BoomerangModifier setNotWaitForBack() {
             this.shouldWaitForBack = false;
+            return this;
+        }
+        /**
+         * 设置击退力度
+         */
+        public BoomerangModifier setKnockbackFactor(float knockback) {
+            this.knockback *= knockback;
             return this;
         }
 

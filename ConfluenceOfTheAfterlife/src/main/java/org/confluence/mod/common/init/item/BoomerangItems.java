@@ -14,7 +14,7 @@ public class BoomerangItems {
 
 
 
-    public static DeferredItem<Boomerang> DEVELOPER_BOOMERANG = register("developer_boomerang",20,100,ModRarity.WHITE,
+    public static DeferredItem<Boomerang> DEVELOPER_BOOMERANG = register("developer_boomerang",20,100,ModRarity.EPIC,
             new Boomerang.BoomerangModifier()
     );
 
