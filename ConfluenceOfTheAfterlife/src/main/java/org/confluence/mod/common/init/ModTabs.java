@@ -66,6 +66,7 @@ public final class ModTabs {
                     .title(Component.translatable("creativetab.confluence.warriors"))
                     .displayItems((parameters, output) -> {
                         SwordItems.SWORDS.getEntries().forEach(item -> output.accept(item.get()));
+                        BoomerangItems.BOOMERANG_ITEMS.getEntries().forEach(item -> output.accept(item.get()));
                     })
                     .build());
     // 射手武器

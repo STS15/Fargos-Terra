@@ -80,5 +80,6 @@ public final class ModItems {
         AccessoryItems.ACCESSORIES.register(eventBus);
         HammerItems.HAMMERS.register(eventBus);
         HookItems.HOOKS.register(eventBus);
+        BoomerangItems.BOOMERANG_ITEMS.register(eventBus);
     }
 }

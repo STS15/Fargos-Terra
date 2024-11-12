@@ -81,6 +81,13 @@ public class BowItems {
         ResourceLocation pulling = ResourceLocation.withDefaultNamespace("pulling");
         ClampedItemPropertyFunction bowPulling = (itemStack, clientLevel, living, speed) -> living != null && living.isUsingItem() && living.getUseItem() == itemStack ? 1.0F : 0.0F;
 
+        BOWS.getEntries().forEach(item -> {
+            if(item.get() instanceof ShortBowItem) ItemProperties.register(item.get(), pull, shortBowPull);
+            else ItemProperties.register(item.get(), pull, bowPull);
+            ItemProperties.register(item.get(), pulling, bowPulling);
+        });
+
+        /*
         ItemProperties.register(WOODEN_SHORT_BOW.get(), pull, shortBowPull);
         ItemProperties.register(WOODEN_SHORT_BOW.get(), pulling, bowPulling);
         ItemProperties.register(COPPER_SHORT_BOW.get(), pull, shortBowPull);
@@ -119,5 +126,7 @@ public class BowItems {
 
         ItemProperties.register(DAEDALUS_STORM_BOW.get(), pull, bowPull);
         ItemProperties.register(DAEDALUS_STORM_BOW.get(), pulling, bowPulling);
+        */
+
     }
 }

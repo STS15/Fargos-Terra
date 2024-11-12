@@ -8,36 +8,50 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.ItemStack;
+import org.confluence.mod.common.entity.projectile.BoomerangProjectile;
 import org.confluence.mod.common.entity.projectile.IceBladeSwordProjectile;
 import org.confluence.mod.common.entity.projectile.SwordProjectile;
 import org.confluence.mod.common.init.ModSoundEvents;
+import org.confluence.mod.common.item.sword.Boomerang;
 import org.confluence.terra_curio.common.init.TCAttributes;
 
 
-public class IceSwordProjContainer implements AbstractProjContainer {
+public class BoomerangProjContainer extends IceSwordProjContainer {
+    Boomerang.BoomerangModifier modifier;
+    private Projectile projectile;
+    public BoomerangProjContainer(Boomerang.BoomerangModifier modifier) {
+        this.modifier = modifier;
+    }
 
     public int getCooldown() {
-        return 10;
+        return modifier.cd;
+    }
+
+    public float getDamage() {
+        return modifier.damage;
     }
 
     public float getBaseVelocity() {
-        return 1.5f;
+        return modifier.flySpeed;
     }
 
-    public SoundEvent getSound(){//默认冰雪剑声音
+    public SoundEvent getSound(){// todo 默认冰雪剑声音
         return ModSoundEvents.FROZEN_ARROW.get();
     }
 
-    public Projectile getProjectile(Player player, ItemStack weapon){//先做逻辑，后面补模型
-        return new IceBladeSwordProjectile(player);
+    //todo 生成弹幕
+    public Projectile getProjectile(Player player, ItemStack weapon){
+        return new BoomerangProjectile(player,modifier,weapon);
     }
 
     public void genProjectile(Player owner, ItemStack weapon){
         owner.level().playSound(null, owner.getX(), owner.getY(), owner.getZ(), getSound(), SoundSource.AMBIENT, 1.0F, 1.0F);
-        Projectile projectile = getProjectile(owner,null);
+        Projectile projectile = getProjectile(owner,weapon);
+        projectile.setPos(owner.position().add(0,1.5,0));
         projectile.shootFromRotation(owner, owner.getXRot(), owner.getYRot(), 0.0F, getVelocity(owner), 0.0F);
         owner.level().addFreshEntity(projectile);
     }
+
 
     public float getVelocity(LivingEntity living) {
         float velocity = getBaseVelocity();
@@ -46,10 +60,4 @@ public class IceSwordProjContainer implements AbstractProjContainer {
         return velocity;
     }
 
-    public int getAttackSpeed(LivingEntity living) {
-        int cooldown = getCooldown();
-        AttributeInstance attributeInstance = living.getAttribute(Attributes.ATTACK_SPEED);
-        if (attributeInstance != null) return Math.max(cooldown - (int) (attributeInstance.getValue() / 3.0), 0);
-        return cooldown;
-    }
 }

@@ -20,14 +20,15 @@ public class DaedalusStormbow extends TerraBowItem {
 
     private AbstractProjContainer container = new StarFuryProjContainer() {
         @Override
-        protected float getOffsetV(){
+        protected float getOffsetV(){//随机高度
             return super.getOffsetV() + (float) ((Math.random()*2-1) * 5);
         }
         @Override
         protected void init(){
-            this.offsetV = 25;
-            this.inAccuracy = 10;
-            this.predict = 25;
+            this.offsetV = 25;//初始y高度
+            this.inAccuracy = 10;//不精准度
+            this.predict = 25;//提前量
+            this.range = 60; //攻击范围
         }
         @Override
         public float getBaseVelocity() {
@@ -51,11 +52,8 @@ public class DaedalusStormbow extends TerraBowItem {
         super.onUseTick(level, livingEntity, stack, remainingUseDuration);
         if (!level.isClientSide && livingEntity instanceof Player player && remainingUseDuration % 4 == 0) {
             container.genProjectile(player,stack);
-
         }
     }
 
-    protected void shoot(ServerLevel level, LivingEntity shooter, InteractionHand hand, ItemStack weapon, List<ItemStack> projectileItems, float velocity, float inaccuracy, boolean isCrit, @Nullable LivingEntity target) {
-
-    }
+    protected void shoot(ServerLevel level, LivingEntity shooter, InteractionHand hand, ItemStack weapon, List<ItemStack> projectileItems, float velocity, float inaccuracy, boolean isCrit, @Nullable LivingEntity target) {}
 }

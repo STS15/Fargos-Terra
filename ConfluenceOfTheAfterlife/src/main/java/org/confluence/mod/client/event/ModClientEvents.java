@@ -26,10 +26,7 @@ import org.confluence.mod.client.renderer.entity.fishing.BloodyFishingHookRender
 import org.confluence.mod.client.renderer.entity.fishing.GlowingFishingHookRenderer;
 import org.confluence.mod.client.renderer.entity.fishing.HotlineFishingHookRenderer;
 import org.confluence.mod.client.renderer.entity.hook.*;
-import org.confluence.mod.client.renderer.entity.projectile.EnchantedSwordProjectileRenderer;
-import org.confluence.mod.client.renderer.entity.projectile.IceBladeSwordProjectileRenderer;
-import org.confluence.mod.client.renderer.entity.projectile.StarFuryProjectileRenderer;
-import org.confluence.mod.client.renderer.entity.projectile.TerraArrowRenderer;
+import org.confluence.mod.client.renderer.entity.projectile.*;
 import org.confluence.mod.client.renderer.gui.HealthHudLayer;
 import org.confluence.mod.client.renderer.gui.ManaHudLayer;
 import org.confluence.mod.common.init.item.BowItems;
@@ -105,6 +102,7 @@ public final class ModClientEvents {
         event.registerEntityRenderer(ICE_BLADE_SWORD_PROJECTILE.get(), IceBladeSwordProjectileRenderer::new);
         event.registerEntityRenderer(STAR_FURY_PROJECTILE.get(), StarFuryProjectileRenderer::new);
         event.registerEntityRenderer(ENCHANTED_SWORD_PROJECTILE.get(), EnchantedSwordProjectileRenderer::new);
+        event.registerEntityRenderer(BOOMERANG_PROJECTILE.get(), BoomerangProjRenderer::new);
 
 
         event.registerEntityRenderer(HOTLINE_FISHING_HOOK.get(), HotlineFishingHookRenderer::new);

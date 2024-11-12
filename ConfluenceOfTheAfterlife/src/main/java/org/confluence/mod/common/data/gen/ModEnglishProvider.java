@@ -469,7 +469,7 @@ public class ModEnglishProvider extends LanguageProvider {
                 although its high attack rate makes it
                 somewhat effective against weaker fighter type enemies.
                 
-                Its best modifier is Legendary.""");
+                Its best boomerangModifier is Legendary.""");
 
 
 

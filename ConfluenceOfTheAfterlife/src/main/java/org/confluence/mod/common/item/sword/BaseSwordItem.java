@@ -1,5 +1,6 @@
 package org.confluence.mod.common.item.sword;
 
+import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
@@ -36,6 +37,10 @@ import java.util.function.BiConsumer;
 
 public class BaseSwordItem extends SwordItem {
     public ModifierBuilder modifier;
+
+    public BaseSwordItem(Tier tier, Item.Properties properties) {
+        super(tier, properties);
+    }
 
     /**MC白色剑。无效果*/
     public BaseSwordItem(Tier tier, int rawDamage, float rawSpeed) {

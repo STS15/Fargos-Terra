@@ -6,10 +6,7 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.item.Item;
 import net.neoforged.neoforge.network.PacketDistributor;
 import org.confluence.mod.common.item.sword.BaseSwordItem;
-import org.confluence.mod.common.item.sword.stagedy.projectile.AbstractProjContainer;
-import org.confluence.mod.common.item.sword.stagedy.projectile.EnchantedSwordProjContainer;
-import org.confluence.mod.common.item.sword.stagedy.projectile.IceSwordProjContainer;
-import org.confluence.mod.common.item.sword.stagedy.projectile.StarFuryProjContainer;
+import org.confluence.mod.common.item.sword.stagedy.projectile.*;
 import org.confluence.mod.network.c2s.SwordShootingPacketC2S;
 
 /**
@@ -24,6 +21,7 @@ public class ProjectileStrategy {
     public static final AbstractProjContainer STAR_FURY_PROJ = new StarFuryProjContainer();
 
     public static final AbstractProjContainer ENCHANTED_SWORD_PROJ = new EnchantedSwordProjContainer();
+
 
 
 
