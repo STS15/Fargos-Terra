@@ -57,6 +57,7 @@ public final class ModTabs {
                     .displayItems((parameters, output) -> {
                         AxeItems.AXE.getEntries().forEach(item -> output.accept(item.get()));
                         HammerItems.HAMMERS.getEntries().forEach(item -> output.accept(item.get()));
+                        HookItems.HOOKS.getEntries().forEach(item -> output.accept(item.get()));
                     })
                     .build());
     // 战士武器

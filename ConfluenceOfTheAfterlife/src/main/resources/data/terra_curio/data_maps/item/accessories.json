@@ -1,0 +1,17 @@
+{
+    "values": {
+        "terra_curio:ice_skates": {
+            "terra_curio:ice_safe": {}
+        },
+        "terra_curio:angler_earring": {
+            "terra_curio:fishing_power": 10.0,
+            "terra_curio:attributes": {}
+        }
+    },
+    "neoforge:conditions": [
+        {
+            "type": "neoforge:mod_loaded",
+            "modid": "terra_curio"
+        }
+    ]
+}

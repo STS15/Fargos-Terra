@@ -79,5 +79,6 @@ public final class ModItems {
         ArmorItems.ARMORS.register(eventBus);
         AccessoryItems.ACCESSORIES.register(eventBus);
         HammerItems.HAMMERS.register(eventBus);
+        HookItems.HOOKS.register(eventBus);
     }
 }

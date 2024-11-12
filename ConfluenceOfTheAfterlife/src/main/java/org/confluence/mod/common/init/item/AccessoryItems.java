@@ -44,6 +44,7 @@ public class AccessoryItems {
 
     public static final ValueType<Unit, UnitValue> LUCKY$COIN = ValueType.ofUnit("lucky_coin");
     public static final ValueType<Unit, UnitValue> SHEARS$DIG = ValueType.ofUnit("shears_dig");
+    public static final ValueType<Unit, UnitValue> ICE$SAFE = ValueType.ofUnit("ice_safe");
     public static final ValueType<Float, FloatValue> COIN$PICKUP$RANGE = ValueType.ofFloat("coin_pickup_range", FloatValue.ADDITION, 2.0F);
 
     public static final Supplier<BaseCurioItem> ADHESIVE_BANDAGE = registerCurio("adhesive_bandage", builder -> builder.rarity(ModRarity.LIGHT_RED).effectImmunities(ModEffects.BLEEDING)),

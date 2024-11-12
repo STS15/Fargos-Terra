@@ -33,6 +33,4 @@ public class ThinIceBlock extends IceBlock {
         player.awardStat(Stats.BLOCK_MINED.get(this));
         player.causeFoodExhaustion(0.005F);
     }
-
-    public interface IceSafe {}
 }
