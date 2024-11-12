@@ -1,7 +1,6 @@
 package org.confluence.mod.common.data.gen;
 
 import com.google.common.util.concurrent.Runnables;
-import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
@@ -13,18 +12,14 @@ import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
-import org.apache.logging.log4j.util.TriConsumer;
 import org.confluence.mod.Confluence;
-import org.confluence.mod.common.init.armor.ModArmors;
+import org.confluence.mod.common.init.armor.ArmorItems;
 import org.confluence.mod.common.init.block.ModBlocks;
 import org.confluence.mod.common.init.item.*;
 import software.bernie.geckolib.animatable.GeoItem;
 
 import java.util.*;
-import java.util.function.BiConsumer;
-import java.util.function.BiFunction;
 import java.util.function.Consumer;
-import java.util.function.Supplier;
 
 import static net.minecraft.world.item.ItemDisplayContext.*;
 import static org.confluence.mod.Confluence.MODID;
@@ -71,7 +66,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         customModels.add(createDir(ArrowItems.ARROWS,          "arrow/"));
         customModels.add(createDir(FoodItems.FOODS,            "food/"));
         customModels.add(createDir(FishingPoleItems.POLES,     "fishingpole/"));
-        customModels.add(createDir(ModArmors.ARMOR,            "armor_item/"));
+        customModels.add(createDir(ArmorItems.ARMORS,            "armor_item/"));
         customModels.add(createDir(AccessoryItems.ACCESSORIES, "accessory/"));
         customModels.add(createDir(ModItems.ITEMS,             "misc/", "seed/", "consumables/", "materials/"));
         customModels.add(createDir(HammerItems.HAMMERS,        "hammer/"));

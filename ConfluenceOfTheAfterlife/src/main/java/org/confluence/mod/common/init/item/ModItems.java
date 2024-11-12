@@ -10,8 +10,8 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import org.confluence.mod.Confluence;
 import org.confluence.mod.common.entity.projectile.bombs.*;
 import org.confluence.mod.common.init.ModJukeboxSongs;
+import org.confluence.mod.common.init.armor.ArmorItems;
 import org.confluence.mod.common.init.armor.ArmorMaterials;
-import org.confluence.mod.common.init.armor.ModArmors;
 import org.confluence.mod.common.init.block.ModBlocks;
 import org.confluence.mod.common.item.CustomRarityItem;
 import org.confluence.mod.common.item.common.BombItem;
@@ -76,7 +76,7 @@ public final class ModItems {
         FoodItems.FOODS.register(eventBus);
         AxeItems.AXE.register(eventBus);
         ArmorMaterials.ARMOR_MATERIALS.register(eventBus);
-        ModArmors.ARMOR.register(eventBus);
+        ArmorItems.ARMORS.register(eventBus);
         AccessoryItems.ACCESSORIES.register(eventBus);
         HammerItems.HAMMERS.register(eventBus);
     }
