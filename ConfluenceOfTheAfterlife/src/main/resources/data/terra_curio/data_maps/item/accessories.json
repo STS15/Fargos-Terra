@@ -6,6 +6,34 @@
         "terra_curio:angler_earring": {
             "terra_curio:fishing_power": 10.0,
             "terra_curio:attributes": {}
+        },
+        "terra_curio:ankh_charm": {
+            "terra_curio:effect_immunities": [
+                "minecraft:poison",
+                "minecraft:blindness",
+                "minecraft:slowness",
+                "minecraft:weakness",
+                "confluence:bleeding",
+                "confluence:broken_armor",
+                "terra_curio:confused",
+                "confluence:cursed",
+                "confluence:silenced",
+                "confluence:stoned"
+            ]
+        },
+        "terra_curio:ankh_shield": {
+            "terra_curio:effect_immunities": [
+                "minecraft:poison",
+                "minecraft:blindness",
+                "minecraft:slowness",
+                "minecraft:weakness",
+                "confluence:bleeding",
+                "confluence:broken_armor",
+                "terra_curio:confused",
+                "confluence:cursed",
+                "confluence:silenced",
+                "confluence:stoned"
+            ]
         }
     },
     "neoforge:conditions": [

@@ -8,8 +8,6 @@
         "accessor.EntityAccessor",
         "accessor.FishingHookAccessor",
         "entity.AbstractArrowMixin",
-        "integration.terra_curio.AnkhCharmMixin",
-        "integration.terra_curio.AnkhShieldMixin",
         "integration.terra_curio.BaseSpeedBootsMixin",
         "integration.terra_curio.ModTabsMixin",
         "item.BowItemMixin",
