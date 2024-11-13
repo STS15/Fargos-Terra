@@ -26,9 +26,7 @@ public final class HookThrowingHandler {
     public static void handle(LocalPlayer localPlayer) {
         boolean isDown = false;
         while (ModKeyBindings.HOOK.get().consumeClick()) isDown = true;
-        if (isDown) {
-            HookThrowingPacketC2S.push();
-        }
+        if (isDown) HookThrowingPacketC2S.push();
 
         CuriosUtils.getSlot(localPlayer, "hook", 0).ifPresent(itemStack -> {
             CompoundTag tag = TCUtils.getItemStackNbt(itemStack);

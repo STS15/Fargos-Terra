@@ -7,7 +7,6 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.*;
 import net.neoforged.neoforge.client.gui.VanillaGuiLayers;
-import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
 import org.confluence.mod.Confluence;
 import org.confluence.mod.client.ClientConfigs;
 import org.confluence.mod.client.gui.hud.ArrowInBowHud;
@@ -18,7 +17,6 @@ import org.confluence.terra_curio.api.event.PerformJumpingEvent;
 
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.GAME, value = Dist.CLIENT, modid = Confluence.MODID)
 public final class GameClientEvents {
-
     @SubscribeEvent
     public static void mouseClickEvent(InputEvent.MouseButton.Pre event) {
 
@@ -35,11 +33,6 @@ public final class GameClientEvents {
     }
 
     @SubscribeEvent
-    public static void gatherComponents(RenderTooltipEvent.GatherComponents event) {
-
-    }
-
-    @SubscribeEvent
     public static void leftClick(InputEvent.InteractionKeyMappingTriggered event) {
         Minecraft minecraft = Minecraft.getInstance();
         LocalPlayer localPlayer = minecraft.player;
@@ -49,11 +42,6 @@ public final class GameClientEvents {
                 event.setCanceled(true);
             }
         }
-    }
-
-    @SubscribeEvent
-    public static void itemToolTip(ItemTooltipEvent event) {
-
     }
 
     @SubscribeEvent
