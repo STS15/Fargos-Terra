@@ -525,9 +525,6 @@ public class ModChineseProvider extends LanguageProvider {
         add("entity.minecraft.villager.confluence.sky_miller", "天师");
         add("entity.minecraft.villager.confluence.banker", "银行家");
 
-        add("container.confluence.workshop", "工匠作坊");
-        add("title.confluence.workshop", "工匠作坊");
-
         add("title.confluence.wiki", "汇流来世Wiki");
         add("wiki.confluence.back", "返回上级菜单");
         add("title.confluence.group", "组Wiki");

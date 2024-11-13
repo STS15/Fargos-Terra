@@ -3,6 +3,7 @@ package org.confluence.terraentity.entity.monster;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -16,18 +17,22 @@ import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.animation.AnimatableManager;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.BiConsumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
 public class AbstractMonster extends Monster implements GeoEntity {
-
+    private int attackInternal = 0;
+    private int _attackInternal = 20;
     public Builder builder;
     public AbstractMonster(EntityType<? extends Monster> type, Level level,Builder builder) {
         super(type, level);
         this.builder = builder;
         this.registerGoals();
         this.navigation = createNavigation(level);
+        this.setDiscardFriction(true);
 
         this.setHealth(builder.MAX_HEALTH);
         this.getAttribute(Attributes.ARMOR).setBaseValue(builder.ARMOR);
@@ -44,13 +49,8 @@ public class AbstractMonster extends Monster implements GeoEntity {
     }
 
     protected void registerGoals() {
-        if(builder!= null && builder.goal!= null)
-            builder.goal.accept(goalSelector,this);
-        if(builder!= null && builder.target!= null)
-            builder.target.accept(targetSelector,this);
-//        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class,false));
-//        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, IronGolem.class,false));
-
+        if(builder!= null) builder.goals.forEach(g->g.accept(goalSelector,this));
+        if(builder!= null) builder.targets.forEach(t->t.accept(targetSelector,this));
     }
 
     public static AttributeSupplier.Builder createAttributes() {
@@ -130,43 +130,59 @@ public class AbstractMonster extends Monster implements GeoEntity {
         if(builder == null)return true;
         return builder.noGravity;
     }
+    public void tick(){
+        super.tick();
+
+        if(!level().isClientSide && --attackInternal<0 && builder.attachAttack){
+            var entities = level().getEntities(this, this.getBoundingBox());
+            if (!entities.isEmpty()) {
+                for (var e : entities) {
+                    if (e instanceof LivingEntity living && canAttack(living)){
+                        attackInternal = _attackInternal;
+                        e.hurt(this.damageSources().generic(),(float) this.getAttribute(Attributes.ATTACK_DAMAGE).getValue());
+                    }
+                }
+            }
+        }
+
+    }
+
+
+    public boolean canAttack(LivingEntity entity) {
+        return entity.getType() == EntityType.PLAYER || entity == getTarget();
+    }
+
 
 
     public static class Builder {
-        private int ATTACK_DAMAGE = 15;
-        private int MAX_HEALTH = 31;
-        private int ARMOR = 2;
-        private float MOVEMENT_SPEED = 0.38f;
-        private int FOLLOW_RANGE = 32;
-        private float SPAWN_REINFORCEMENTS_CHANCE = 0.01f;
-        private float KNOCKBACK_RESISTANCE = 0.8f;
-        private float ATTACK_KNOCKBACK = 0.5f;
-        private float ATTACK_SPEED = 0.6f;
-        private float FLYING_SPEED = 0.4f;
-        private float SAFE_FALL = 5f;
-        boolean noGravity = false;
+        public int ATTACK_DAMAGE = 15;
+        public int MAX_HEALTH = 31;
+        public int ARMOR = 2;
+        public float MOVEMENT_SPEED = 0.38f;
+        public int FOLLOW_RANGE = 32;
+        public float SPAWN_REINFORCEMENTS_CHANCE = 0.01f;
+        public float KNOCKBACK_RESISTANCE = 0.8f;
+        public float ATTACK_KNOCKBACK = 0.5f;
+        public float ATTACK_SPEED = 0.6f;
+        public float FLYING_SPEED = 0.4f;
+        public float SAFE_FALL = 5f;
+        public boolean attachAttack = true;
+
+        public boolean noGravity = false;
+
+        public Supplier<SoundEvent> deathSound;
+        public Supplier<SoundEvent> ambientSound;
+        public Supplier<SoundEvent> hurtSound;
+
+        public BiConsumer<AnimatableManager.ControllerRegistrar,AbstractMonster> controller;
+        public List<BiConsumer<GoalSelector,AbstractMonster>> goals = new ArrayList<>();
+        public List<BiConsumer<GoalSelector,AbstractMonster>> targets = new ArrayList<>();
+        public Function<AbstractMonster,PathNavigation> navigation;
 
 
-
-        private Supplier<SoundEvent> deathSound;
-        private Supplier<SoundEvent> ambientSound;
-        private Supplier<SoundEvent> hurtSound;
-
-        private BiConsumer<AnimatableManager.ControllerRegistrar,AbstractMonster> controller;
-        private BiConsumer<GoalSelector,AbstractMonster> goal;
-        private BiConsumer<GoalSelector,AbstractMonster> target;
-        private Function<AbstractMonster,PathNavigation> navigation;
-/*
-        public AttributeSupplier.Builder createAttributes() {
-            return LivingEntity.createLivingAttributes()
-                    .add(Attributes.ATTACK_DAMAGE, ATTACK_DAMAGE)  // 攻击力
-                    .add(Attributes.MAX_HEALTH, MAX_HEALTH)        // 生命值
-                    .add(Attributes.ARMOR, ARMOR)                 // 防御值
-                    .add(Attributes.MOVEMENT_SPEED, MOVEMENT_SPEED)          // 移动速度
-                    .add(Attributes.FOLLOW_RANGE, FOLLOW_RANGE)             // 跟随距离
-                    .add(Attributes.SPAWN_REINFORCEMENTS_CHANCE, SPAWN_REINFORCEMENTS_CHANCE)  // 召唤物品的几率
-                    .add(Attributes.KNOCKBACK_RESISTANCE, KNOCKBACK_RESISTANCE);     // 击退抗性
-        }*/
+        public Builder modify(Function<Builder, Builder> modifier){
+            return modifier.apply(this);
+        }
 
         public Builder setAttackDamage(int attackDamage) {
             this.ATTACK_DAMAGE = attackDamage;
@@ -189,11 +205,6 @@ public class AbstractMonster extends Monster implements GeoEntity {
 
         public Builder setFollowRange(int followRange) {
             this.FOLLOW_RANGE = followRange;
-            return this;
-        }
-
-        public Builder setSpawnReinforcementsChance(float spawnReinforcementsChance) {
-            this.SPAWN_REINFORCEMENTS_CHANCE = spawnReinforcementsChance;
             return this;
         }
 
@@ -222,13 +233,14 @@ public class AbstractMonster extends Monster implements GeoEntity {
             return this;
         }
 
-        public Builder setGoal(BiConsumer<GoalSelector,AbstractMonster> goal) {
-            this.goal = goal;
+
+        public Builder addGoal(BiConsumer<GoalSelector,AbstractMonster> goal) {
+            this.goals.add(goal) ;
             return this;
         }
 
-        public Builder setTarget(BiConsumer<GoalSelector,AbstractMonster> target) {
-            this.target = target;
+        public Builder addTarget(BiConsumer<GoalSelector,AbstractMonster> target) {
+            this.targets.add(target);
             return this;
         }
 
@@ -245,21 +257,22 @@ public class AbstractMonster extends Monster implements GeoEntity {
             this.ATTACK_KNOCKBACK = knockBack;
             return this;
         }
-        public Builder setAttackSpeed(float attackSpeed) {
-            this.ATTACK_SPEED = attackSpeed;
-            return this;
-        }
-        public Builder setFlyingSpeed(float flyingSpeed) {
-            this.FLYING_SPEED = flyingSpeed;
-            return this;
-        }
+
         public Builder setSafeFall(float value) {
             this.SAFE_FALL = value;
             return this;
         }
-
+        public Builder setNoAttackAttack() {
+            this.attachAttack = false;
+            return this;
+        }
     }
+
+
+
     public static AbstractMonster.Builder copyFrom(Supplier<AbstractMonster.Builder> supplier) {
         return supplier.get();
     }
+
+
 }

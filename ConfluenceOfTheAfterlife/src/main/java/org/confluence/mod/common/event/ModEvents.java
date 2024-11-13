@@ -18,6 +18,7 @@ import org.confluence.mod.common.block.natural.spreadable.ISpreadable;
 import org.confluence.mod.common.fluid.FluidBuilder;
 import org.confluence.mod.common.init.ModFluids;
 import org.confluence.mod.common.init.item.*;
+import org.confluence.mod.network.c2s.HookThrowingPacketC2S;
 import org.confluence.mod.network.c2s.SwordShootingPacketC2S;
 import org.confluence.mod.network.s2c.GamePhasePacketS2C;
 import org.confluence.mod.network.s2c.ManaPacketS2C;
@@ -73,21 +74,11 @@ public final class ModEvents {
     @SubscribeEvent
     public static void registerPayloadHandlers(RegisterPayloadHandlersEvent event) {
         PayloadRegistrar registrar = event.registrar("1");
-        registrar.playToClient(
-                ManaPacketS2C.TYPE,
-                ManaPacketS2C.STREAM_CODEC,
-                ManaPacketS2C::handle
-        );
-        registrar.playToClient(
-                GamePhasePacketS2C.TYPE,
-                GamePhasePacketS2C.STREAM_CODEC,
-                GamePhasePacketS2C::handle
-        );
-        registrar.playToServer(
-                SwordShootingPacketC2S.TYPE,
-                SwordShootingPacketC2S.STREAM_CODEC,
-                SwordShootingPacketC2S::receive
-        );
+        registrar.playToClient(ManaPacketS2C.TYPE, ManaPacketS2C.STREAM_CODEC, ManaPacketS2C::handle);
+        registrar.playToClient(GamePhasePacketS2C.TYPE, GamePhasePacketS2C.STREAM_CODEC, GamePhasePacketS2C::handle);
+
+        registrar.playToServer(SwordShootingPacketC2S.TYPE, SwordShootingPacketC2S.STREAM_CODEC, SwordShootingPacketC2S::receive);
+        registrar.playToServer(HookThrowingPacketC2S.TYPE, HookThrowingPacketC2S.STREAM_CODEC, HookThrowingPacketC2S::handle);
     }
 
     @SubscribeEvent
