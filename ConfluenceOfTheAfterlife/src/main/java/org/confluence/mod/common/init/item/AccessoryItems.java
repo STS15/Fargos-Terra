@@ -49,15 +49,15 @@ public class AccessoryItems {
     public static final ValueType<Unit, UnitValue> FALL$ON$EASY$CRASH$SAFE = ValueType.ofUnit("fall_on_easy_crash_safe"); // todo
     public static final ValueType<Float, FloatValue> COIN$PICKUP$RANGE = ValueType.ofFloat("coin_pickup_range", FloatValue.ADDITION, 2.0F);
 
-    public static final Supplier<BaseCurioItem> ADHESIVE_BANDAGE = registerCurio("adhesive_bandage", builder -> builder.rarity(ModRarity.LIGHT_RED).accessories(of(ValueType.EFFECT_IMMUNITIES, Set.of(ModEffects.BLEEDING)))),
-            MEDICATED_BANDAGE = registerCurio("medicated_bandage", builder -> builder.rarity(PINK).accessories(of(ValueType.EFFECT_IMMUNITIES, Set.of(MobEffects.POISON, ModEffects.BLEEDING)))),
-            POCKET_MIRROR = registerCurio("pocket_mirror", builder -> builder.rarity(ORANGE).accessories(of(ValueType.EFFECT_IMMUNITIES, Set.of(ModEffects.STONED)))),
-            REFLECTIVE_SHADES = registerCurio("reflective_shades", builder -> builder.rarity(PINK).accessories(of(ValueType.EFFECT_IMMUNITIES, Set.of(MobEffects.BLINDNESS, ModEffects.STONED)))),
-            ARMOR_POLISH = registerCurio("armor_polish", builder -> builder.rarity(LIGHT_RED).accessories(of(ValueType.EFFECT_IMMUNITIES, Set.of(ModEffects.BROKEN_ARMOR)))),
-            ARMOR_BRACING = registerCurio("armor_bracing", builder -> builder.rarity(PINK).accessories(of(ValueType.EFFECT_IMMUNITIES, Set.of(MobEffects.WEAKNESS, ModEffects.BROKEN_ARMOR)))),
-            MEGAPHONE = registerCurio("megaphone", builder -> builder.rarity(LIGHT_RED).accessories(of(ValueType.EFFECT_IMMUNITIES, Set.of(ModEffects.SILENCED)))),
-            NAZAR = registerCurio("nazar", builder -> builder.rarity(GREEN).accessories(of(ValueType.EFFECT_IMMUNITIES, Set.of(ModEffects.CURSED)))),
-            COUNTERCURSE_MANTRA = registerCurio("countercurse_mantra", builder -> builder.rarity(LIGHT_RED).accessories(of(ValueType.EFFECT_IMMUNITIES, Set.of(ModEffects.SILENCED, ModEffects.CURSED))));
+    public static final Supplier<BaseCurioItem> ADHESIVE_BANDAGE = registerCurio("adhesive_bandage", builder -> builder.rarity(ModRarity.LIGHT_RED).accessories(of(ValueType.EFFECT$IMMUNITIES, Set.of(ModEffects.BLEEDING)))),
+            MEDICATED_BANDAGE = registerCurio("medicated_bandage", builder -> builder.rarity(PINK).accessories(of(ValueType.EFFECT$IMMUNITIES, Set.of(MobEffects.POISON, ModEffects.BLEEDING)))),
+            POCKET_MIRROR = registerCurio("pocket_mirror", builder -> builder.rarity(ORANGE).accessories(of(ValueType.EFFECT$IMMUNITIES, Set.of(ModEffects.STONED)))),
+            REFLECTIVE_SHADES = registerCurio("reflective_shades", builder -> builder.rarity(PINK).accessories(of(ValueType.EFFECT$IMMUNITIES, Set.of(MobEffects.BLINDNESS, ModEffects.STONED)))),
+            ARMOR_POLISH = registerCurio("armor_polish", builder -> builder.rarity(LIGHT_RED).accessories(of(ValueType.EFFECT$IMMUNITIES, Set.of(ModEffects.BROKEN_ARMOR)))),
+            ARMOR_BRACING = registerCurio("armor_bracing", builder -> builder.rarity(PINK).accessories(of(ValueType.EFFECT$IMMUNITIES, Set.of(MobEffects.WEAKNESS, ModEffects.BROKEN_ARMOR)))),
+            MEGAPHONE = registerCurio("megaphone", builder -> builder.rarity(LIGHT_RED).accessories(of(ValueType.EFFECT$IMMUNITIES, Set.of(ModEffects.SILENCED)))),
+            NAZAR = registerCurio("nazar", builder -> builder.rarity(GREEN).accessories(of(ValueType.EFFECT$IMMUNITIES, Set.of(ModEffects.CURSED)))),
+            COUNTERCURSE_MANTRA = registerCurio("countercurse_mantra", builder -> builder.rarity(LIGHT_RED).accessories(of(ValueType.EFFECT$IMMUNITIES, Set.of(ModEffects.SILENCED, ModEffects.CURSED))));
 
     public static final Supplier<BaseCurioItem> NATURES_GIFT = registerCurio("natures_gift", builder -> builder.rarity(ORANGE)/*TODO: 减魔耗*/);
 

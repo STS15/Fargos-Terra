@@ -27,7 +27,7 @@ public class ModItemTagsProvider extends ItemTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.@NotNull Provider provider) {
-        AccessoryItems.acceptTag(tag(TCTags.CURIO));
+        AccessoryItems.acceptTag(tag(TCTags.ACCESSORY));
 
         HookItems.acceptTag(tag(ModTags.Items.HOOK));
         tag(ModTags.Items.MINECART).add(Items.MINECART);
