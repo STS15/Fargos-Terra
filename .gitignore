@@ -34,6 +34,8 @@ TerraCurio/run
 ParticleStorm/run
 HeavenDestinyMoment/run
 PhaseJourney/run
+TerraMoment/run
+ExtraWorldInvaded/run
 
 TerraEntity/build
 MineTeam/build
@@ -42,3 +44,5 @@ TerraCurio/build
 ParticleStorm/build
 HeavenDestinyMoment/build
 PhaseJourney/build
+TerraMoment/build
+ExtraWorldInvaded/build
