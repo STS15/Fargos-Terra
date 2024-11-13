@@ -49,6 +49,7 @@ public class BaseSwordItem extends SwordItem {
     /**MC带颜色的剑。无效果*/
     public BaseSwordItem(Tier tier, ModRarity rarity, int rawDamage, float rawSpeed) {
         super(tier, new Item.Properties()
+                .durability(tier.getUses())
                 .component(TCDataComponentTypes.MOD_RARITY, rarity)
                 .component(DataComponents.ATTRIBUTE_MODIFIERS,
                         createAttributes(tier,rawDamage, rawSpeed))
@@ -63,6 +64,7 @@ public class BaseSwordItem extends SwordItem {
      * */
     public BaseSwordItem(Tier tier, ModRarity rarity, int rawDamage, float rawSpeed, ModifierBuilder modifier) {
         super(tier, new Item.Properties()
+                .durability(tier.getUses())
                 .component(TCDataComponentTypes.MOD_RARITY, rarity)
                 .component(DataComponents.ATTRIBUTE_MODIFIERS,
                         modifier.attributeModifiersBuilder
