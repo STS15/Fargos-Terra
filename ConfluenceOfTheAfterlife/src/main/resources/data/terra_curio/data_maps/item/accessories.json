@@ -34,6 +34,20 @@
                 "confluence:silenced",
                 "confluence:stoned"
             ]
+        },
+        "terra_curio:everlasting": {
+            "terra_curio:effect_immunities": [
+                "minecraft:poison",
+                "minecraft:blindness",
+                "minecraft:slowness",
+                "minecraft:weakness",
+                "confluence:bleeding",
+                "confluence:broken_armor",
+                "terra_curio:confused",
+                "confluence:cursed",
+                "confluence:silenced",
+                "confluence:stoned"
+            ]
         }
     },
     "neoforge:conditions": [
