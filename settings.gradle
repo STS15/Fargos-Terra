@@ -14,7 +14,8 @@ plugins {
 include ":ConfluenceOfTheAfterlife"
 
 var projectName = ["TerraEntity","MineTeam","EquipmentBenediction",
-                   "TerraCurio","ParticleStorm","HeavenDestinyMoment","PhaseJourney"
+                   "TerraCurio","ParticleStorm","HeavenDestinyMoment","PhaseJourney",
+                    "ExtraWorldInvaded","TerraMoment"
 ]
 projectName.forEach {name -> include ":" + name}
 

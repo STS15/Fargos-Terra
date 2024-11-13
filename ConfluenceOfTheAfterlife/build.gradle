@@ -2,7 +2,8 @@ plugins {
     id 'net.neoforged.moddev'
 }
 var projectName = ["TerraEntity","MineTeam","EquipmentBenediction",
-                   "TerraCurio","ParticleStorm","HeavenDestinyMoment","PhaseJourney"
+                   "TerraCurio","ParticleStorm","HeavenDestinyMoment","PhaseJourney",
+                   "ExtraWorldInvaded","TerraMoment"
 ]
 
 
