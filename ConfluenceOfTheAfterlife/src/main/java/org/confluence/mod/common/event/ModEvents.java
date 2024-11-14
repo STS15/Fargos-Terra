@@ -68,10 +68,16 @@ public final class ModEvents {
         event.register(AccessoryItems.LUCKY$COIN);
         event.register(AccessoryItems.SHEARS$DIG);
         event.register(AccessoryItems.ICE$SAFE);
+        event.register(AccessoryItems.AUTO$GET$MANA);
+        event.register(AccessoryItems.HURT$GET$MANA);
+        event.register(AccessoryItems.FAST$MANA$GENERATION);
     }
 
     @SubscribeEvent
     public static void registerOtherType(RegisterAccessoriesComponentUpdateEvent.OtherType event) {
+        event.register(AccessoryItems.ADDITIONAL$MANA);
+        event.register(AccessoryItems.MANA$USE$REDUCE);
+        event.register(AccessoryItems.MANA$PICKUP$RANGE);
         event.register(AccessoryItems.COIN$PICKUP$RANGE);
     }
 }

@@ -1,6 +1,8 @@
 package org.confluence.mod.util;
 
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.neoforged.neoforge.common.util.FakePlayer;
@@ -12,6 +14,7 @@ import org.confluence.mod.common.init.ModEffects;
 import org.confluence.mod.network.s2c.GamePhasePacketS2C;
 import org.confluence.mod.network.s2c.ManaPacketS2C;
 import org.confluence.terra_curio.api.primitive.ValueType;
+import org.confluence.terra_curio.common.init.TCTags;
 import org.confluence.terra_curio.network.s2c.WindSpeedPacketS2C;
 import org.confluence.terra_curio.util.TCUtils;
 
@@ -35,13 +38,13 @@ public final class PlayerUtils {
             if (manaStorage.isArcaneCrystalUsed()) delay = (int) ((float) delay * (notMove ? 0.975F : 0.95F));
             if (delay > 20 && serverPlayer.hasEffect(ModEffects.MANA_REGENERATION)) delay = 20;
             int delayReduce = notMove ? 2 : 1;
-            if (manaStorage.hasManaRegenerationBand()) delayReduce += 1;
+            if (manaStorage.isFastManaRegeneration()) delayReduce += 1;
             manaStorage.setRegenerateDelay(delay - delayReduce);
             return;
         }
 
         IntSupplier receive = () -> {
-            float a = manaStorage.getMaxMana() / 7.0F + (manaStorage.hasManaRegenerationBand() ? 25 : 0) + 1;
+            float a = manaStorage.getMaxMana() / 7.0F + (manaStorage.isFastManaRegeneration() ? 25 : 0) + 1;
             float b = manaStorage.getCurrentMana() * 0.8F / manaStorage.getMaxMana() + 0.2F;
             if (notMove) a += manaStorage.getMaxMana() / 2.0F;
             return Math.max(Math.round(a * b * 0.0115F), 1);
@@ -97,5 +100,10 @@ public final class PlayerUtils {
         };
         // todo 血月加成
         return base + player.getLuck();
+    }
+
+    public static void getManaWhenBeHurt(ServerPlayer serverPlayer, DamageSource damageSource, float amount) {
+        if (damageSource.is(DamageTypes.DROWN) || damageSource.is(TCTags.HARMFUL_EFFECT)) return;
+        receiveMana(serverPlayer, () -> (int) amount);
     }
 }

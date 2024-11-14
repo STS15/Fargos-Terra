@@ -18,6 +18,7 @@ import org.confluence.mod.common.effect.beneficial.ThornsEffect;
 import org.confluence.mod.common.effect.harmful.ManaSicknessEffect;
 import org.confluence.mod.common.item.sword.BaseSwordItem;
 import org.confluence.mod.util.ModUtils;
+import org.confluence.mod.util.PlayerUtils;
 
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.GAME, modid = Confluence.MODID)
 public final class LivingEntityEvents {
@@ -55,18 +56,15 @@ public final class LivingEntityEvents {
     }
 
     @SubscribeEvent
-    public static void finalizeSpawn(FinalizeSpawnEvent event) {
-
-    }
-
-    @SubscribeEvent
-    public static void livingEquipmentChange(LivingEquipmentChangeEvent event) {
-
-    }
-
-    @SubscribeEvent
     public static void livingEntityUseItem$tick(LivingEntityUseItemEvent.Tick event) {
 
+    }
+
+    @SubscribeEvent
+    public static void livingIncomingDamage(LivingIncomingDamageEvent event) {
+        if (event.getEntity() instanceof ServerPlayer serverPlayer) {
+            PlayerUtils.getManaWhenBeHurt(serverPlayer, event.getSource(), event.getAmount());
+        }
     }
 
     @SubscribeEvent
@@ -95,7 +93,7 @@ public final class LivingEntityEvents {
         if (damageSource.getEntity() instanceof LivingEntity livingEntity) {
             if (livingEntity.getItemInHand(event.getEntity().getUsedItemHand()).getItem() instanceof BaseSwordItem sword) {
                 if (sword.modifier != null) {
-                    sword.modifier.onHitEffects.forEach(effect -> effect.accept(livingEntity,damageEntity));
+                    sword.modifier.onHitEffects.forEach(effect -> effect.accept(livingEntity, damageEntity));
                 }
             }
         }

@@ -8,7 +8,6 @@ import net.neoforged.neoforge.event.tick.EntityTickEvent;
 import net.neoforged.neoforge.event.tick.LevelTickEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import org.confluence.mod.Confluence;
-import org.confluence.mod.common.init.item.AccessoryItems;
 import org.confluence.mod.util.PlayerUtils;
 
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.GAME, modid = Confluence.MODID)
@@ -33,7 +32,6 @@ public final class TickEvents {
         Player player = event.getEntity();
         if (PlayerUtils.isServerNotFake(player)) {
             PlayerUtils.regenerateMana((ServerPlayer) player);
-            AccessoryItems.applyCoinPickup(player);
         }
     }
 }

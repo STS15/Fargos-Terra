@@ -4,7 +4,11 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.common.util.INBTSerializable;
+import org.confluence.mod.common.init.item.AccessoryItems;
+import org.confluence.mod.common.item.potion.ManaPotionItem;
+import org.confluence.terra_curio.util.TCUtils;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.function.IntSupplier;
@@ -15,8 +19,7 @@ public class ManaStorage implements INBTSerializable<CompoundTag> {
     private int currentMana;
     private transient int regenerateDelay;
     private transient Integer maxMana;
-    private float extractRatio;
-    private boolean manaRegenerationBand;
+    private boolean fastManaRegeneration;
 
     private boolean arcaneCrystalUsed;
 
@@ -25,8 +28,7 @@ public class ManaStorage implements INBTSerializable<CompoundTag> {
         this.additionalMana = 0;
         this.currentMana = 20;
         this.regenerateDelay = 0;
-        this.extractRatio = 1.0F;
-        this.manaRegenerationBand = false;
+        this.fastManaRegeneration = false;
 
         this.arcaneCrystalUsed = false;
     }
@@ -37,8 +39,7 @@ public class ManaStorage implements INBTSerializable<CompoundTag> {
         nbt.putInt("stars", stars);
         nbt.putInt("additionalMana", additionalMana);
         nbt.putInt("currentMana", currentMana);
-        nbt.putFloat("extractRatio", extractRatio);
-        nbt.putBoolean("manaRegenerationBand", manaRegenerationBand);
+        nbt.putBoolean("fastManaRegeneration", fastManaRegeneration);
         nbt.putBoolean("arcaneCrystalUsed", arcaneCrystalUsed);
         return nbt;
     }
@@ -48,8 +49,7 @@ public class ManaStorage implements INBTSerializable<CompoundTag> {
         this.stars = nbt.getInt("stars");
         this.additionalMana = nbt.getInt("additionalMana");
         this.currentMana = nbt.getInt("currentMana");
-        this.extractRatio = nbt.getFloat("extractRatio");
-        this.manaRegenerationBand = nbt.getBoolean("manaRegenerationBand");
+        this.fastManaRegeneration = nbt.getBoolean("fastManaRegeneration");
         this.arcaneCrystalUsed = nbt.getBoolean("arcaneCrystalUsed");
     }
 
@@ -60,24 +60,23 @@ public class ManaStorage implements INBTSerializable<CompoundTag> {
         return true;
     }
 
-    // todo
     public boolean extractMana(IntSupplier sup, ServerPlayer serverPlayer) {
         if (!canExtract()) return false;
-        int extract = (int) (sup.getAsInt() * extractRatio);
-//        if (currentMana < extract) {
-//            if (CuriosUtils.noSameCurio(serverPlayer, IAutoGetMana.class)) return false;
-//            ItemStack toUse = null;
-//            for (ItemStack itemStack : serverPlayer.getInventory().items) {
-//                if (itemStack.getItem() instanceof ManaPotionItem manaPotion) {
-//                    int amount = manaPotion.getAmount();
-//                    if (currentMana + amount < extract) continue;
-//                    if (toUse == null || amount < ((ManaPotionItem) toUse.getItem()).getAmount()) toUse = itemStack;
-//                    if (amount == 50) break;
-//                }
-//            }
-//            if (toUse == null) return false;
-//            toUse.finishUsingItem(serverPlayer.level(), serverPlayer);
-//        }
+        int extract = (int) (sup.getAsInt() * (1.0F - TCUtils.getAccessoriesValue(serverPlayer, AccessoryItems.MANA$USE$REDUCE)));
+        if (currentMana < extract) {
+            if (!TCUtils.hasAccessoriesType(serverPlayer, AccessoryItems.AUTO$GET$MANA)) return false;
+            ItemStack toUse = null;
+            for (ItemStack itemStack : serverPlayer.getInventory().items) {
+                if (itemStack.getItem() instanceof ManaPotionItem manaPotion) {
+                    int amount = manaPotion.getAmount();
+                    if (currentMana + amount < extract) continue;
+                    if (toUse == null || amount < ((ManaPotionItem) toUse.getItem()).getAmount()) toUse = itemStack;
+                    if (amount == 50) break;
+                }
+            }
+            if (toUse == null) return false;
+            toUse.finishUsingItem(serverPlayer.level(), serverPlayer);
+        }
         this.currentMana -= extract;
         return true;
     }
@@ -125,33 +124,13 @@ public class ManaStorage implements INBTSerializable<CompoundTag> {
         return false;
     }
 
-    // todo
     public void flushAbility(LivingEntity living) {
-//        MutableFloat ratio = new MutableFloat(1.0);
-//        AtomicBoolean band = new AtomicBoolean();
-//        AtomicInteger mana = new AtomicInteger();
-//        CuriosApi.getCuriosInventory(living).ifPresent(curiosItemHandler -> {
-//            IItemHandlerModifiable itemHandlerModifiable = curiosItemHandler.getEquippedCurios();
-//            for (int i = 0; i < itemHandlerModifiable.getSlots(); i++) {
-//                ItemStack itemStack = itemHandlerModifiable.getStackInSlot(i);
-//                Item item = itemStack.getItem();
-//                if (item instanceof IManaReduce iManaReduce) {
-//                    ratio.addAndGet(-iManaReduce.getManaReduce());
-//                }
-//                if (item == CurioItems.MANA_REGENERATION_BAND.getPrefab()) {
-//                    band.set(true);
-//                }
-//                PrefixProvider.getPrefix(itemStack)
-//                        .ifPresent(itemPrefix -> mana.addAndGet(itemPrefix.additionalMana));
-//            }
-//        });
-//        this.extractRatio = ratio.getValue();
-//        this.manaRegenerationBand = band.getPrefab();
-//        this.additionalMana = mana.getPrefab();
+        this.fastManaRegeneration = TCUtils.hasAccessoriesType(living, AccessoryItems.FAST$MANA$GENERATION);
+        this.additionalMana = TCUtils.getAccessoriesValue(living, AccessoryItems.ADDITIONAL$MANA);
     }
 
-    public boolean hasManaRegenerationBand() {
-        return manaRegenerationBand;
+    public boolean isFastManaRegeneration() {
+        return fastManaRegeneration;
     }
 
     public void setArcaneCrystalUsed() {

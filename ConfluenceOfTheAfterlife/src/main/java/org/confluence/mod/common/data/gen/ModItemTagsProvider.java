@@ -70,6 +70,5 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         tag(ModTags.Items.COIN).add(ModItems.COPPER_COIN.get(), ModItems.SILVER_COIN.get(), ModItems.GOLDEN_COIN.get(), ModItems.PLATINUM_COIN.get());
 
         AccessoryItems.acceptTag(tag(TCTags.ACCESSORY));
-        tag(TCTags.RANGE_PICKUP_IGNORE).addTags(ModTags.Items.PROVIDE_MANA, ModTags.Items.PROVIDE_LIFE);
     }
 }
