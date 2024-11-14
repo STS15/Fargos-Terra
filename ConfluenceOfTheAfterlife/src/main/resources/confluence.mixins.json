@@ -20,7 +20,8 @@
     "client": [
         "client.ItemRendererMixin",
         "client.PauseScreenMixin",
-        "client.TitleScreenMixin"
+        "client.TitleScreenMixin",
+        "integration.terra_curio.InformationHandlerMixin"
     ],
     "injectors": {
         "defaultRequire": 1
