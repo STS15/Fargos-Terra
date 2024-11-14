@@ -2,10 +2,8 @@ package org.confluence.mod.common.block.natural;
 
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseEntityBlock;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -23,7 +21,7 @@ public class EvaporativeCloudBlock extends BaseEntityBlock {
     }
 
     @Override
-    protected @NotNull MapCodec<? extends BaseEntityBlock> codec() {
+    protected @NotNull MapCodec<EvaporativeCloudBlock> codec() {
         return CODEC;
     }
 
@@ -40,30 +38,17 @@ public class EvaporativeCloudBlock extends BaseEntityBlock {
     }
 
     @Override
-    public <T extends BlockEntity> BlockEntityTicker getTicker(@NotNull Level pLevel, @NotNull BlockState pState, @NotNull BlockEntityType<T> pBlockEntityType) {
-        if (pLevel.isClientSide) {
-            return null;
-        }
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(@NotNull Level pLevel, @NotNull BlockState pState, @NotNull BlockEntityType<T> pBlockEntityType) {
+        if (pLevel.isClientSide) return null;
         return ModUtils.getTicker(pBlockEntityType, ModBlocks.EVAPORATIVE_CLOUD_BLOCK_ENTITY.get(), (level, blockPos, blockState, e) -> {
-            for (Direction direction : Direction.values()) {
-                BlockPos neighborPos = blockPos.relative(direction);
-                BlockState neighborState = level.getBlockState(neighborPos);
-
-                if (neighborState.getBlock() == Blocks.WATER) {
-                    level.setBlockAndUpdate(neighborPos, Blocks.WATER.defaultBlockState());
-                    level.removeBlock(blockPos, false);
-                }
-            }
+            level.updateNeighborsAt(blockPos, blockState.getBlock());
+            level.removeBlock(blockPos, false);
         });
     }
 
-    public static final class EvaporativeCloudBlockEntity extends BlockEntity {
-        public EvaporativeCloudBlockEntity(BlockEntityType<EvaporativeCloudBlockEntity> type, BlockPos pos, BlockState state) {
-            super(type, pos, state);
-        }
-
+    public static class EvaporativeCloudBlockEntity extends BlockEntity {
         public EvaporativeCloudBlockEntity(BlockPos pos, BlockState state) {
-            this(ModBlocks.EVAPORATIVE_CLOUD_BLOCK_ENTITY.get(), pos, state);
+            super(ModBlocks.EVAPORATIVE_CLOUD_BLOCK_ENTITY.get(), pos, state);
         }
     }
 }
