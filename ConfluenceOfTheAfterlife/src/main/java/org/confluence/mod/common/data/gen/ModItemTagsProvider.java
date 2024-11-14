@@ -27,8 +27,6 @@ public class ModItemTagsProvider extends ItemTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.@NotNull Provider provider) {
-        AccessoryItems.acceptTag(tag(TCTags.ACCESSORY));
-
         HookItems.acceptTag(tag(ModTags.Items.HOOK));
         tag(ModTags.Items.MINECART).add(Items.MINECART);
         tag(ModTags.Items.PROVIDE_MANA).add(ModItems.STAR.get(), ModItems.SOUL_CAKE.get(), ModItems.SUGAR_PLUM.get());
@@ -66,11 +64,12 @@ public class ModItemTagsProvider extends ItemTagsProvider {
                 FoodItems.STAR_FRUIT.get(), FoodItems.POMEGRANATE.get(), FoodItems.RAMBUTAN.get(),
                 FoodItems.BLOOD_ORANGE.get(), FoodItems.ELDERBERRY.get(), FoodItems.BLACKCURRANT.get()
         );
-
         BowItems.acceptTag(tag(Tags.Items.TOOLS_BOW));
         ArrowItems.acceptTag(tag(ItemTags.ARROWS));
         HammerItems.acceptTag(tag(ModTags.Items.HAMMER));
-
         tag(ModTags.Items.COIN).add(ModItems.COPPER_COIN.get(), ModItems.SILVER_COIN.get(), ModItems.GOLDEN_COIN.get(), ModItems.PLATINUM_COIN.get());
+
+        AccessoryItems.acceptTag(tag(TCTags.ACCESSORY));
+        tag(TCTags.RANGE_PICKUP_IGNORE).addTags(ModTags.Items.PROVIDE_MANA, ModTags.Items.PROVIDE_LIFE);
     }
 }
