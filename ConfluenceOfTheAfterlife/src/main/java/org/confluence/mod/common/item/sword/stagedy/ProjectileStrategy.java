@@ -4,9 +4,14 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.item.Item;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 import net.neoforged.neoforge.network.PacketDistributor;
 import org.confluence.mod.common.item.sword.BaseSwordItem;
-import org.confluence.mod.common.item.sword.stagedy.projectile.*;
+import org.confluence.mod.common.item.sword.stagedy.projectile.AbstractProjContainer;
+import org.confluence.mod.common.item.sword.stagedy.projectile.EnchantedSwordProjContainer;
+import org.confluence.mod.common.item.sword.stagedy.projectile.IceSwordProjContainer;
+import org.confluence.mod.common.item.sword.stagedy.projectile.StarFuryProjContainer;
 import org.confluence.mod.network.c2s.SwordShootingPacketC2S;
 
 /**
@@ -28,6 +33,7 @@ public class ProjectileStrategy {
 
     public static final AbstractProjContainer UNDEFINED_PROJ = ICE_PROJ;
 
+    @OnlyIn(Dist.CLIENT)
     public static void handle(Minecraft minecraft, LocalPlayer player) {
         if (minecraft.gameMode == null || minecraft.gameMode.isDestroying() || !minecraft.options.keyAttack.isDown()) {return;}
         Item item = player.getMainHandItem().getItem();

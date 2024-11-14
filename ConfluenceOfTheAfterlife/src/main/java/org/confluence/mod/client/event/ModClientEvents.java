@@ -6,6 +6,7 @@ import net.minecraft.client.Camera;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.FogRenderer;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -18,6 +19,8 @@ import net.neoforged.neoforge.client.gui.VanillaGuiLayers;
 import org.confluence.mod.Confluence;
 import org.confluence.mod.client.ClientConfigs;
 import org.confluence.mod.client.gui.hud.ArrowInBowHud;
+import org.confluence.mod.client.gui.screens.GroupWikiScreen;
+import org.confluence.mod.client.gui.screens.ObjectWikiScreen;
 import org.confluence.mod.client.model.entity.bomb.*;
 import org.confluence.mod.client.model.entity.fishing.BaseFishingHookModel;
 import org.confluence.mod.client.model.entity.fishing.BloodyFishingHookModel;
@@ -38,10 +41,11 @@ import org.confluence.mod.client.renderer.entity.projectile.*;
 import org.confluence.mod.client.renderer.gui.HealthHudLayer;
 import org.confluence.mod.client.renderer.gui.ManaHudLayer;
 import org.confluence.mod.common.init.ModFluids;
-import org.confluence.mod.common.init.item.BowItems;
-import org.confluence.mod.common.init.item.FishingPoleItems;
+import org.confluence.mod.common.init.item.*;
 import org.jetbrains.annotations.NotNull;
 import org.joml.Vector3f;
+
+import java.util.List;
 
 import static org.confluence.mod.common.init.ModEntities.*;
 
@@ -59,6 +63,18 @@ public final class ModClientEvents {
             BowItems.registerProperties();
             FishingPoleItems.registerCast();
             ArrowInBowHud.initAdaptionMap();
+            GroupWikiScreen.putWikiType("item",
+                    List.of(AccessoryItems.ACCESSORIES, ArrowItems.ARROWS, AxeItems.AXE,
+                            BaitItems.BAITS, BowItems.BOWS, FishingPoleItems.POLES,
+                            FoodItems.FOODS, MaterialItems.MATERIALS,
+                            ModItems.ITEMS, QuestedFishes.FISHES,
+                            SwordItems.SWORDS, TerraPotions.POTIONS),
+                    List.of("accessories", "arrow", "axe", "bait", "bow",
+                            "fishing_pole", "food", "material", "misc", "quested_fish",
+                            "sword", "terra_potion"));
+//            ObjectWikiScreen.putDescription("confluence:copper_short_sword",
+//                    Component.translatable("key"));
+            ObjectWikiScreen.putDescription("confluence:copper_short_sword", Component.translatable("wiki.confluence.copper_short_sword"));
         });
     }
 

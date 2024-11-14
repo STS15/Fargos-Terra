@@ -28,8 +28,8 @@ public class LifeFruit extends CustomRarityItem {
     public @NotNull InteractionResultHolder<ItemStack> use(@NotNull Level level, @NotNull Player player, @NotNull InteractionHand hand) {
         ItemStack itemStack = player.getItemInHand(hand);
         if (!level.isClientSide) {
-            GamePlay gamePlay = player.getData(ModAttachments.GAMEPLAY.get());
-            if (gamePlay.increaseFruits() && !level.isClientSide) {
+            GamePlay gamePlay = player.getData(ModAttachments.GAMEPLAY);
+            if (gamePlay.increaseFruits()) {
                 itemStack.shrink(1);
                 applyModifier(player, gamePlay);
                 player.heal(1.0F);

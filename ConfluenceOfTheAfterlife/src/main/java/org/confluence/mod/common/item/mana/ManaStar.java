@@ -25,7 +25,7 @@ public class ManaStar extends CustomRarityItem {
 
         ItemStack itemStack = player.getItemInHand(hand);
         if (player instanceof ServerPlayer serverPlayer) {
-            if (serverPlayer.getData(ModAttachments.MANA_STORAGE.get()).addStar()) {
+            if (serverPlayer.getData(ModAttachments.MANA_STORAGE).addStar()) {
                 itemStack.shrink(1);
             }
             CriteriaTriggers.CONSUME_ITEM.trigger(serverPlayer, itemStack);

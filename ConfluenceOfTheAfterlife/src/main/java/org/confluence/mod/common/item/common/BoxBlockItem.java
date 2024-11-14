@@ -17,10 +17,10 @@ import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import org.confluence.mod.common.component.LootComponent;
-import org.confluence.mod.common.init.ModAttachments;
 import org.confluence.mod.common.init.ModDataComponentTypes;
 import org.confluence.mod.common.init.ModLootTables;
 import org.confluence.mod.common.init.ModSoundEvents;
+import org.confluence.mod.util.PlayerUtils;
 import org.jetbrains.annotations.NotNull;
 
 public class BoxBlockItem extends BlockItem {
@@ -32,7 +32,7 @@ public class BoxBlockItem extends BlockItem {
     public @NotNull InteractionResultHolder<ItemStack> use(@NotNull Level level, @NotNull Player player, @NotNull InteractionHand hand) {
         ItemStack itemStack = player.getItemInHand(hand);
         if (level instanceof ServerLevel serverLevel && hand == InteractionHand.MAIN_HAND && !player.isCrouching()) {
-            float fishingPower = player.getData(ModAttachments.GAMEPLAY.get()).getFishingPower(player);
+            float fishingPower = PlayerUtils.getFishingPower(player);
             LootParams lootparams = new LootParams.Builder(serverLevel)
                     .withParameter(LootContextParams.ORIGIN, player.position())
                     .withParameter(LootContextParams.THIS_ENTITY, player)
