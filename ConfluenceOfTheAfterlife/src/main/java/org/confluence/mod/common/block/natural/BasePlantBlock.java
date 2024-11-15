@@ -1,12 +1,10 @@
 package org.confluence.mod.common.block.natural;
 
-import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
@@ -18,29 +16,16 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.confluence.mod.common.block.natural.spreadable.ISpreadable;
-import org.confluence.mod.common.data.gen.limit.CustomItemModel;
-import org.confluence.mod.common.data.gen.limit.CustomModel;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
-public class BasePlantBlock extends BushBlock implements CustomModel, CustomItemModel {
+public class BasePlantBlock extends BushBlock {
     public static final MapCodec<BasePlantBlock> CODEC = RecordCodecBuilder.mapCodec(
         builder -> builder.group(propertiesCodec(),
-            ResourceLocation.CODEC.listOf().fieldOf("ground").forGetter(block -> {
-                ArrayList<ResourceLocation> keys = new ArrayList<>();
-                for(Block ground : block.survive){
-                    keys.add(BuiltInRegistries.BLOCK.getKey(ground));
-                }
-                return keys;
-            })).apply(builder, (prop, keys) -> {
-            ArrayList<Block> ground = new ArrayList<>();
-            for(ResourceLocation key : keys){
-                ground.add(BuiltInRegistries.BLOCK.get(key));
-            }
-            return new BasePlantBlock(prop, ground.toArray(new Block[0]));
-        })
+            BuiltInRegistries.BLOCK.byNameCodec().listOf().fieldOf("ground").forGetter(basePlantBlock ->
+                Arrays.asList(basePlantBlock.survive)))
+            .apply(builder, (prop, ground) -> new BasePlantBlock(prop, ground.toArray(new Block[0])))
     );
 
     private final Block[] survive;
@@ -56,12 +41,14 @@ public class BasePlantBlock extends BushBlock implements CustomModel, CustomItem
     }
 
     @Override
+    @NotNull
     protected MapCodec<? extends BushBlock> codec(){
         return CODEC;
     }
 
     @Override
-    public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context){
+    @NotNull
+    public VoxelShape getShape(BlockState state, @NotNull BlockGetter world, @NotNull BlockPos pos, @NotNull CollisionContext context){
         Vec3 offset = state.getOffset(world, pos);
         return box(2, 0, 2, 14, 13, 14).move(offset.x, offset.y, offset.z);
     }
