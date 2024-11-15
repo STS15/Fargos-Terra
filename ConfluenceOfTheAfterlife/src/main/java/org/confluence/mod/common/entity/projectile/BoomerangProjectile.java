@@ -2,6 +2,9 @@ package org.confluence.mod.common.entity.projectile;
 
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Mth;
 import net.minecraft.world.damagesource.DamageSource;
@@ -25,9 +28,12 @@ import org.confluence.mod.common.item.sword.Boomerang.BoomerangModifier;
 
 public class BoomerangProjectile extends AbstractHurtingProjectile {
     private BoomerangModifier modifier;
-    private boolean isBacking;
-    private ItemStack weapon;
-    
+    public boolean isBacking;
+    public ItemStack weapon = ItemStack.EMPTY;
+    public static final EntityDataAccessor<ItemStack> DATA_WEAPON = SynchedEntityData.defineId(BoomerangProjectile.class, EntityDataSerializers.ITEM_STACK);
+    public static final EntityDataAccessor<Boolean> DATA_BACKING = SynchedEntityData.defineId(BoomerangProjectile.class, EntityDataSerializers.BOOLEAN);
+
+
     public BoomerangProjectile(EntityType<? extends AbstractHurtingProjectile> entityType, Level level) {
         super(entityType, level);
         modifier = new BoomerangModifier();
@@ -39,7 +45,10 @@ public class BoomerangProjectile extends AbstractHurtingProjectile {
         this.setOwner(owner);
         this.modifier = modifier;
         this.weapon = weapon;
+        if(!level().isClientSide) this.entityData.set(DATA_WEAPON, weapon);
     }
+
+
 
     protected void onHitEntity(EntityHitResult result) {
         if(!level().isClientSide){
@@ -70,6 +79,7 @@ public class BoomerangProjectile extends AbstractHurtingProjectile {
     protected void onHitBlock(BlockHitResult result) {
         isBacking = true;
         this.noPhysics = true;
+        entityData.set(DATA_BACKING, true);
         super.onHitBlock(result);
     }
     
@@ -79,6 +89,7 @@ public class BoomerangProjectile extends AbstractHurtingProjectile {
         if(!level().isClientSide && this.modifier.forwardTick < this.tickCount) {
             isBacking = true;
             this.noPhysics = true;
+            entityData.set(DATA_BACKING, true);
         }
 
         if(!level().isClientSide && isBacking && this.getOwner()!= null && this.getOwner() instanceof LivingEntity living){
@@ -112,11 +123,15 @@ public class BoomerangProjectile extends AbstractHurtingProjectile {
     public void onAddedToLevel(){
         super.onAddedToLevel();
         if(modifier==null) discard();
+        if(level().isClientSide) weapon = this.entityData.get(DATA_WEAPON);
     }
-    public String getTexturePath(){
-        return "textures/entity/ice_blade_sword_projectile.png";
-//        return "textures/entity/projectiles/boomerang.png";
+
+    protected void defineSynchedData(SynchedEntityData.Builder builder) {
+        super.defineSynchedData(builder);
+        builder.define(DATA_WEAPON, ItemStack.EMPTY);
+        builder.define(DATA_BACKING, false);
     }
+
 
 
     public void onRemovedFromLevel(){
