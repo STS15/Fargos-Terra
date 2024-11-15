@@ -6,6 +6,7 @@
     "refmap": "confluence.refmap.json",
     "mixins": [
         "ItemUtilsMixin",
+        "LootModifierManagerMixin",
         "accessor.EntityAccessor",
         "accessor.FishingHookAccessor",
         "accessor.LanguageProviderAccessor",
