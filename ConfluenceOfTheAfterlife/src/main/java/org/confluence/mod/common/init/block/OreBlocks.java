@@ -6,16 +6,16 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.confluence.mod.Confluence;
+import org.confluence.mod.common.block.common.CustomModelBlock;
 import org.confluence.mod.common.block.natural.HellStoneBlock;
 import org.confluence.mod.common.block.natural.MeteoriteOre;
-import org.confluence.mod.common.block.common.CustomModelBlock;
 import org.confluence.mod.common.init.item.ModItems;
 
 import java.util.function.Supplier;
 
 import static org.confluence.mod.common.init.block.ModBlocks.registerWithItem;
 
-public class ModOreBlocks {
+public class OreBlocks {
     //TODO 未附带Tag标记
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(Confluence.MODID);
 

@@ -10,7 +10,7 @@ import org.confluence.mod.common.init.item.ModItems;
 import org.confluence.mod.common.item.common.BoxBlockItem;
 
 public class BoxBlocks {
-    public static final DeferredRegister.Blocks BOXES = DeferredRegister.createBlocks(Confluence.MODID);
+    public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(Confluence.MODID);
 
     public static final DeferredBlock<Block> WOODEN_BOX = register("wooden_box");
     public static final DeferredBlock<Block> IRON_BOX = register("iron_box");
@@ -41,7 +41,7 @@ public class BoxBlocks {
     public static final DeferredBlock<Block> BEACH_BOX = register("beach_box");
 
     private static DeferredBlock<Block> register(String name) {
-        DeferredBlock<Block> block = BOXES.register(name, () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
+        DeferredBlock<Block> block = BLOCKS.register(name, () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
         ModItems.ITEMS.register(name, () -> new BoxBlockItem(block.get(), Confluence.asResource(name)));
         return block;
     }

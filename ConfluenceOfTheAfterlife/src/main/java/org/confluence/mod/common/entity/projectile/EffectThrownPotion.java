@@ -10,7 +10,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.LevelEvent;
 import net.minecraft.world.phys.HitResult;
 import org.confluence.mod.common.init.ModEntities;
-import org.confluence.mod.common.init.item.TerraPotions;
+import org.confluence.mod.common.init.item.PotionItems;
 import org.confluence.mod.common.item.potion.EffectThrowablePotionItem;
 import org.jetbrains.annotations.NotNull;
 
@@ -39,7 +39,7 @@ public class EffectThrownPotion extends ThrowableItemProjectile {
 
     @Override
     protected @NotNull EffectThrowablePotionItem getDefaultItem() {
-        return TerraPotions.LOVE_POTION.get();
+        return PotionItems.LOVE_POTION.get();
     }
 
     @Override

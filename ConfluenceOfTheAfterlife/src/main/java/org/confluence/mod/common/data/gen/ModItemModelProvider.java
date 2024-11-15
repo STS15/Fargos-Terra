@@ -62,7 +62,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         List<Map<DeferredRegister.Items,List<String>>> customModels = new ArrayList<>();
         customModels.add(createDir(IconItems.ICONS,            "icon/"));
         customModels.add(createDir(MaterialItems.MATERIALS,    "materials/","gem/","ingot/","ore/"));
-        customModels.add(createDir(TerraPotions.POTIONS,       "potion/"));
+        customModels.add(createDir(PotionItems.POTIONS,       "potion/"));
         customModels.add(createDir(ArrowItems.ARROWS,          "arrow/"));
         customModels.add(createDir(FoodItems.FOODS,            "food/"));
         customModels.add(createDir(FishingPoleItems.POLES,     "fishingpole/"));

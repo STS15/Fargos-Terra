@@ -1,13 +1,13 @@
 package org.confluence.mod.common.event.game;
 
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.ItemStackedOnOtherEvent;
-import net.neoforged.neoforge.event.RegisterCommandsEvent;
 import org.confluence.mod.Confluence;
 import org.confluence.mod.api.event.ShimmerItemTransmutationEvent;
 import org.confluence.mod.common.data.saved.ConfluenceData;
@@ -16,6 +16,7 @@ import org.confluence.mod.common.init.ModAttachments;
 import org.confluence.mod.common.init.ModTags;
 import org.confluence.mod.common.init.item.AccessoryItems;
 import org.confluence.mod.common.init.item.ModItems;
+import org.confluence.mod.network.s2c.FishingPowerInfoPacketS2C;
 import org.confluence.terra_curio.api.event.AfterAccessoryAbilitiesFlushedEvent;
 import org.confluence.terra_curio.api.event.RangePickupItemEvent;
 import org.confluence.terra_curio.util.TCUtils;
@@ -24,11 +25,6 @@ import java.util.Collections;
 
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.GAME, modid = Confluence.MODID)
 public final class GameEvents {
-    @SubscribeEvent
-    public static void registerCommand(RegisterCommandsEvent event) {
-
-    }
-
     @SubscribeEvent
     public static void itemStackedOnOther(ItemStackedOnOtherEvent event) {
         // todo 凝胶堆叠
@@ -80,5 +76,8 @@ public final class GameEvents {
     public static void afterAccessoryAbilitiesFlushed(AfterAccessoryAbilitiesFlushedEvent event) {
         LivingEntity living = event.getEntity();
         living.getData(ModAttachments.MANA_STORAGE).flushAbility(living);
+        if (living instanceof ServerPlayer serverPlayer) {
+            FishingPowerInfoPacketS2C.sendToPlayer(serverPlayer);
+        }
     }
 }

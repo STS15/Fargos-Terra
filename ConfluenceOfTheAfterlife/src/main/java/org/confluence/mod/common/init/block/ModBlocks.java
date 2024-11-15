@@ -219,8 +219,8 @@ public final class ModBlocks {
     public static void register(IEventBus eventBus) {
         BLOCKS.register(eventBus);
         BLOCK_ENTITIES.register(eventBus);
-        ModOreBlocks.BLOCKS.register(eventBus);
-        ModDecorativeBlocks.BLOCKS.register(eventBus);
-        BoxBlocks.BOXES.register(eventBus);
+        OreBlocks.BLOCKS.register(eventBus);
+        DecorativeBlocks.BLOCKS.register(eventBus);
+        BoxBlocks.BLOCKS.register(eventBus);
     }
 }

@@ -9,7 +9,7 @@ import org.confluence.mod.common.init.ModEffects;
 import org.confluence.mod.common.item.potion.*;
 import org.confluence.terra_curio.common.init.TCEffects;
 
-public class TerraPotions{
+public class PotionItems {
     public static final DeferredRegister.Items POTIONS = DeferredRegister.createItems(Confluence.MODID);
 
     public static final DeferredItem<AbstractPotionItem> ARCHERY_POTION = POTIONS.register("archery_potion", () -> new EffectPotionItem(ModEffects.ARCHERY, 9600));

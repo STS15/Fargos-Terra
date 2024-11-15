@@ -8,8 +8,8 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import org.confluence.mod.Confluence;
 import org.confluence.mod.common.block.natural.LogBlockSet;
 import org.confluence.mod.common.init.armor.ArmorItems;
-import org.confluence.mod.common.init.block.ModDecorativeBlocks;
-import org.confluence.mod.common.init.block.ModOreBlocks;
+import org.confluence.mod.common.init.block.DecorativeBlocks;
+import org.confluence.mod.common.init.block.OreBlocks;
 import org.confluence.mod.common.init.item.*;
 
 
@@ -21,7 +21,7 @@ public final class ModTabs {
                     .title(Component.translatable("creativetab.confluence.building_blocks"))
                     .displayItems((parameters, output) -> {
                         LogBlockSet.acceptBuilding(output);
-                        ModDecorativeBlocks.BLOCKS.getEntries().forEach(block -> output.accept(block.get()));
+                        DecorativeBlocks.BLOCKS.getEntries().forEach(block -> output.accept(block.get()));
                     })
                     .build()
     );
@@ -30,7 +30,7 @@ public final class ModTabs {
                     .title(Component.translatable("creativetab.confluence.natural_blocks"))
                     .displayItems((parameters, output) -> {
                         LogBlockSet.acceptNature(output);
-                        ModOreBlocks.BLOCKS.getEntries().forEach(block -> output.accept(block.get()));
+                        OreBlocks.BLOCKS.getEntries().forEach(block -> output.accept(block.get()));
                     })
                     .build()
     );
@@ -107,7 +107,7 @@ public final class ModTabs {
             () -> CreativeModeTab.builder().icon(() -> IconItems.POTION_ICON.get().getDefaultInstance())
                     .title(Component.translatable("creativetab.confluence.food_and_potions"))
                     .displayItems((parameters, output) -> {
-                        TerraPotions.POTIONS.getEntries().forEach(item -> output.accept(item.get()));
+                        PotionItems.POTIONS.getEntries().forEach(item -> output.accept(item.get()));
                         FoodItems.FOODS.getEntries().forEach(item -> output.accept(item.get()));
                     })
                     .build());

@@ -2,18 +2,17 @@ package org.confluence.mod.common.data.gen;
 
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.LiquidBlock;
+import net.minecraft.world.level.block.SignBlock;
+import net.minecraft.world.level.block.SlimeBlock;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
-import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
-import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.confluence.mod.Confluence;
-import org.confluence.mod.common.init.block.ModDecorativeBlocks;
-import org.confluence.mod.common.init.block.ModOreBlocks;
+import org.confluence.mod.common.init.block.DecorativeBlocks;
+import org.confluence.mod.common.init.block.OreBlocks;
 
-
-import java.util.Arrays;
 import java.util.List;
 
 import static org.confluence.mod.Confluence.MODID;
@@ -31,8 +30,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         // 一般方块
         List<DeferredRegister.Blocks> normalBlocks = List.of(
-                ModOreBlocks.BLOCKS,
-                ModDecorativeBlocks.BLOCKS
+                OreBlocks.BLOCKS,
+                DecorativeBlocks.BLOCKS
         );
         normalBlocks.forEach(blocks -> blocks.getEntries().forEach(block -> {
             Block value = block.get();

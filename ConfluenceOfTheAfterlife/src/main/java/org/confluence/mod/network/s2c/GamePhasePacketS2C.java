@@ -25,7 +25,7 @@ public record GamePhasePacketS2C(GamePhase gamePhase) implements CustomPacketPay
     public void handle(IPayloadContext context) {
         context.enqueueWork(() -> {
             if (context.player().isLocalPlayer()) {
-                ClientPacketHandler.handleGamePhase(this, context.player());
+                ClientPacketHandler.handleGamePhase(this);
             }
         }).exceptionally(e -> {
             context.disconnect(Component.translatable("neoforge.network.invalid_flow", e.getMessage()));
