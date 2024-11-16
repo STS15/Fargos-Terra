@@ -50,7 +50,7 @@ public abstract class LivingEntityMixin extends Entity implements ILivingEntity,
     @Inject(method = "checkFallDamage", at = @At("HEAD"), cancellable = true)
     private void fall(double motionY, boolean onGround, BlockState blockState, BlockPos blockPos, CallbackInfo ci) {
         LivingEntity self = self();
-        if (fallDistance >= 2.5F && blockState.is(ModBlocks.THIN_ICE_BLOCK) && TCUtils.hasAccessoriesType(self, AccessoryItems.ICE$SAFE)) {
+        if (fallDistance >= 2.5F && blockState.is(ModBlocks.THIN_ICE_BLOCK) && !TCUtils.hasAccessoriesType(self, AccessoryItems.ICE$SAFE)) {
             if (!level().isClientSide) {
                 BlockPos.betweenClosedStream(getBoundingBox().move(0.0, -0.5, 0.0)).forEach(pos -> {
                     if (pos.equals(blockPos) || level().getBlockState(pos).is(ModBlocks.THIN_ICE_BLOCK)) {

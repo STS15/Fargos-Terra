@@ -5,6 +5,7 @@ import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
 import org.confluence.mod.common.data.saved.GamePhase;
 import org.confluence.mod.common.init.ModSoundEvents;
+import org.confluence.mod.network.s2c.FishingPowerInfoPacketS2C;
 import org.confluence.mod.network.s2c.GamePhasePacketS2C;
 import org.confluence.mod.network.s2c.ManaPacketS2C;
 
@@ -13,6 +14,7 @@ public final class ClientPacketHandler {
     private static int maxMana = 20;
     private static int currentMana = 20;
     private static GamePhase gamePhase = GamePhase.BEFORE_SKELETRON;
+    private static float fishingPower = 0.0F;
 
     public static int getCurrentMana() {
         return currentMana;
@@ -34,6 +36,10 @@ public final class ClientPacketHandler {
         return gamePhase.ordinal() == 6;
     }
 
+    public static float getFishingPower() {
+        return fishingPower;
+    }
+
     public static void handleMana(ManaPacketS2C packet, Player player) {
         maxMana = packet.maxMana();
         currentMana = packet.currentMana();
@@ -42,7 +48,11 @@ public final class ClientPacketHandler {
         }
     }
 
-    public static void handleGamePhase(GamePhasePacketS2C gamePhasePacketS2C, Player player) {
+    public static void handleGamePhase(GamePhasePacketS2C gamePhasePacketS2C) {
         gamePhase = gamePhasePacketS2C.gamePhase();
+    }
+
+    public static void handleFishingPower(FishingPowerInfoPacketS2C fishingPowerInfoPacketS2C) {
+        fishingPower = fishingPowerInfoPacketS2C.value();
     }
 }

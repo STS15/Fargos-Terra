@@ -76,7 +76,7 @@ public final class ModItems {
         IconItems.ICONS.register(eventBus);
         MaterialItems.MATERIALS.register(eventBus);
         SwordItems.SWORDS.register(eventBus);
-        TerraPotions.POTIONS.register(eventBus);
+        PotionItems.POTIONS.register(eventBus);
         QuestedFishes.FISHES.register(eventBus);
         FoodItems.FOODS.register(eventBus);
         AxeItems.AXE.register(eventBus);

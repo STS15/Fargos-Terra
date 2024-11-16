@@ -11,9 +11,9 @@ import org.confluence.mod.common.attachment.ManaStorage;
 import org.confluence.mod.common.data.saved.ConfluenceData;
 import org.confluence.mod.common.init.ModAttachments;
 import org.confluence.mod.common.init.ModEffects;
+import org.confluence.mod.common.init.item.AccessoryItems;
 import org.confluence.mod.network.s2c.GamePhasePacketS2C;
 import org.confluence.mod.network.s2c.ManaPacketS2C;
-import org.confluence.terra_curio.api.primitive.ValueType;
 import org.confluence.terra_curio.common.init.TCTags;
 import org.confluence.terra_curio.network.s2c.WindSpeedPacketS2C;
 import org.confluence.terra_curio.util.TCUtils;
@@ -81,7 +81,7 @@ public final class PlayerUtils {
     }
 
     public static float getFishingPower(Player player) {
-        float base = TCUtils.getAccessoriesValue(player, ValueType.FISHING$POWER);
+        float base = TCUtils.getAccessoriesValue(player, AccessoryItems.FISHING$POWER);
         if (player.getData(ModAttachments.EVER_BENEFICIAL).isGummyWormUsed()) base += 3.0F;
         Level level = player.level();
         long dayTime = level.dayTime() % 24000; // [0, 24000]

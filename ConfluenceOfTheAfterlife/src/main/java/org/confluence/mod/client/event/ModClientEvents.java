@@ -68,7 +68,7 @@ public final class ModClientEvents {
                             BaitItems.BAITS, BowItems.BOWS, FishingPoleItems.POLES,
                             FoodItems.FOODS, MaterialItems.MATERIALS,
                             ModItems.ITEMS, QuestedFishes.FISHES,
-                            SwordItems.SWORDS, TerraPotions.POTIONS),
+                            SwordItems.SWORDS, PotionItems.POTIONS),
                     List.of("accessories", "arrow", "axe", "bait", "bow",
                             "fishing_pole", "food", "material", "misc", "quested_fish",
                             "sword", "terra_potion"));
