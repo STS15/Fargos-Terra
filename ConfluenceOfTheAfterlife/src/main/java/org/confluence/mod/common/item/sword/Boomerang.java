@@ -115,7 +115,7 @@ public class Boomerang extends CustomRarityItem {
         public float damage;
         public float flySpeed = 0.5f;               //向前飞行速度
         public float backSpeed = 0.5f;              //向后飞行速度//返回速度
-        public float knockback = 3f;                //击退力度
+        public float knockback = 1f;                //击退力度
         public int cd = 20;                         //冷却时间
         public int forwardTick = 20;                //前进时间
         public boolean canPenetrate = false;        //是否可穿透，否则命中生物返回

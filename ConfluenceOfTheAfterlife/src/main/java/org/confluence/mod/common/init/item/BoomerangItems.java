@@ -11,11 +11,16 @@ import java.util.function.Supplier;
 public class BoomerangItems {
     public static final DeferredRegister.Items BOOMERANG_ITEMS = DeferredRegister.createItems(Confluence.MODID);
 
-
+    public static DeferredItem<Boomerang> WOOD_BOOMERANG = register("wood_boomerang",3,100,
+            new Boomerang.BoomerangModifier()
+    );
+    public static DeferredItem<Boomerang> ICE_BOOMERANG = register("ice_boomerang",4,150,ModRarity.BLUE,
+            new Boomerang.BoomerangModifier()
+    );
 
 
     public static DeferredItem<Boomerang> DEVELOPER_BOOMERANG = register("developer_boomerang",20,100,ModRarity.EPIC,
-            new Boomerang.BoomerangModifier()
+            new Boomerang.BoomerangModifier().setNotWaitForBack().setCd(10)
     );
 
     public static DeferredItem<Boomerang> register(String name, Supplier<Boomerang> supplier) {

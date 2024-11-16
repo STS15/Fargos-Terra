@@ -7,27 +7,20 @@ import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.texture.OverlayTexture;
-import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.Mth;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.phys.Vec3;
-import org.confluence.mod.Confluence;
-import org.confluence.mod.client.model.entity.projectile.IceBladeSwordProjectileModel;
 import org.confluence.mod.common.entity.projectile.BoomerangProjectile;
 
 public class BoomerangProjRenderer extends EntityRenderer<BoomerangProjectile> {
-//    BakedModel model;
+
     public BoomerangProjRenderer(EntityRendererProvider.Context pContext) {
         super(pContext);
-
     }
 
     public void render(BoomerangProjectile entity, float entityYaw, float partialTick, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight) {
         int pack = OverlayTexture.pack((int) (partialTick*Math.sin(partialTick/10)), (int) (partialTick*Math.cos(partialTick/10)));
-        if(entity.weapon.isEmpty()) entity.weapon = entity.getEntityData().get(BoomerangProjectile.DATA_WEAPON);
-        if(!entity.isBacking) entity.isBacking = entity.getEntityData().get(BoomerangProjectile.DATA_BACKING);
+
         // 位置插值
         Vec3 v = entity.getDeltaMovement();
         /*
@@ -37,15 +30,17 @@ public class BoomerangProjRenderer extends EntityRenderer<BoomerangProjectile> {
         System.out.println(partialTick+" "+x+" "+y+" "+z);
         poseStack.translate(x, y, z);
         */
-        // 旋转到水平位置
-        poseStack.mulPose(Axis.XN.rotationDegrees(90));
 
         float yaw = (float) Math.atan2(v.z, v.x);
         // 旋转到正前方yaw
-        poseStack.mulPose(Axis.ZN.rotation( (yaw + (float) Math.PI * (entity.isBacking?1:0))));
+        poseStack.mulPose(Axis.YN.rotation( (yaw + (float) Math.PI * (entity.isBacking?1:0))));
         float pitch = (float) Math.atan2(v.y, Math.sqrt(v.x*v.x + v.z*v.z));
         // 旋转到正前方pitch
-        poseStack.mulPose(Axis.YN.rotation( pitch * (entity.isBacking? -1:1) ));
+        poseStack.mulPose(Axis.ZN.rotation( pitch * (entity.isBacking? 1:-1) ));
+
+        // 旋转到水平位置
+        poseStack.mulPose(Axis.XN.rotationDegrees((float) (90 -  20 *Math.cos((entity.tickCount + entity.randomRotation) / 10.0)  )));
+
         // 随时间旋转
         poseStack.mulPose(Axis.ZN.rotation((entity.tickCount + partialTick)));
 
