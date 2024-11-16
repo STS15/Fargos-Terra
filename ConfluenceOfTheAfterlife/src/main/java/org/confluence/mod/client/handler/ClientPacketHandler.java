@@ -32,6 +32,10 @@ public final class ClientPacketHandler {
         return gamePhase.ordinal() > 1;
     }
 
+    public static boolean hasMechanicalView() {
+        return false; // todo
+    }
+
     public boolean isGraduated() {
         return gamePhase.ordinal() == 6;
     }

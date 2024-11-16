@@ -1,14 +1,11 @@
 package org.confluence.mod.common.item.sword.stagedy;
 
 
-import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
 import org.confluence.mod.common.item.sword.BaseSwordItem.ModifierBuilder;
 import org.confluence.mod.common.item.sword.stagedy.projectile.AbstractProjContainer;
 
 import java.util.function.BiConsumer;
-import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
 

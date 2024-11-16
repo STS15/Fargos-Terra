@@ -1,4 +1,4 @@
-package org.confluence.mod.mixinauxi;
+package org.confluence.mod.mixed;
 
 public interface IAbstractArrow {
     boolean confluence$isShootFromShortBow();

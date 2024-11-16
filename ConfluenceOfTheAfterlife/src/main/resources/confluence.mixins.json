@@ -7,9 +7,11 @@
     "mixins": [
         "ItemUtilsMixin",
         "LootModifierManagerMixin",
+        "accessor.ChestBlockEntityAccessor",
         "accessor.EntityAccessor",
         "accessor.FishingHookAccessor",
         "accessor.LanguageProviderAccessor",
+        "block.BaseContainerBlockEntityMixin",
         "entity.AbstractArrowMixin",
         "entity.LivingEntityMixin",
         "integration.terra_curio.BaseSpeedBootsMixin",
@@ -17,7 +19,9 @@
         "item.BowItemMixin",
         "item.FishingRodItemMixin",
         "item.HoneyBottleItemMixin",
-        "item.ProjectileWeaponItemMixin"
+        "item.ProjectileWeaponItemMixin",
+        "level.ServerLevelMixin",
+        "level.WorldGenRegionMixin"
     ],
     "client": [
         "client.ItemRendererMixin",

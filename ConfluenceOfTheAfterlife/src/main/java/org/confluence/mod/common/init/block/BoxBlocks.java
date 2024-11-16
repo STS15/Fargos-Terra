@@ -42,7 +42,7 @@ public class BoxBlocks {
 
     private static DeferredBlock<Block> register(String name) {
         DeferredBlock<Block> block = BLOCKS.register(name, () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
-        ModItems.ITEMS.register(name, () -> new BoxBlockItem(block.get(), Confluence.asResource(name)));
+        ModItems.BLOCK_ITEMS.register(name, () -> new BoxBlockItem(block.get(), Confluence.asResource(name)));
         return block;
     }
 }

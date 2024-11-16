@@ -5,11 +5,10 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
-import org.confluence.mod.common.data.gen.limit.CustomModel;
 import org.confluence.mod.common.init.block.ModBlocks;
 import org.jetbrains.annotations.NotNull;
 
-public class AshGrassBlock extends CustomModelSpreadingBlock implements CustomModel {
+public class AshGrassBlock extends SpreadingGrassBlock {
     public AshGrassBlock(){
         super(Type.PURE, Properties.ofFullCopy(Blocks.GRASS_BLOCK));
     }

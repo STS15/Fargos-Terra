@@ -14,6 +14,7 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import org.confluence.mod.common.init.block.ModBlocks;
+import org.confluence.mod.mixed.IWorldGenRegion;
 
 import java.util.HashSet;
 import java.util.function.Predicate;
@@ -48,6 +49,7 @@ public class ThinIcePatchFeature extends Feature<ThinIcePatchFeature.Config> {
     }
 
     private boolean carvePatch(Config config, WorldGenLevel level, BlockPos.MutableBlockPos mutablePos, int minY) {
+        IWorldGenRegion worldGenRegion = (IWorldGenRegion) level;
         int radiusSqr = config.radius * config.radius;
         int ox = mutablePos.getX();
         int oy = mutablePos.getY();
@@ -74,8 +76,8 @@ public class ThinIcePatchFeature extends Feature<ThinIcePatchFeature.Config> {
         if ((air.size() + ice.size()) / (config.maxDepth * config.radius * config.radius * Mth.PI) > config.successRatio) {
             BlockState airState = Blocks.AIR.defaultBlockState();
             BlockState iceState = ModBlocks.THIN_ICE_BLOCK.get().defaultBlockState();
-            air.forEach(blockPos -> level.setBlock(blockPos, airState, 2));
-            ice.forEach(blockPos -> level.setBlock(blockPos, iceState, 2));
+            air.forEach(blockPos -> worldGenRegion.confluence$setBlock(blockPos, airState, 2));
+            ice.forEach(blockPos -> worldGenRegion.confluence$setBlock(blockPos, iceState, 2));
             return true;
         }
         return false;
@@ -83,11 +85,11 @@ public class ThinIcePatchFeature extends Feature<ThinIcePatchFeature.Config> {
 
     public record Config(int stepHeight, int radius, int maxDepth, int maxSearchHeight, float successRatio) implements FeatureConfiguration {
         public static final Codec<Config> CODEC = RecordCodecBuilder.create(instance -> instance.group(
-            ExtraCodecs.POSITIVE_INT.fieldOf("step_height").orElse(3).forGetter(Config::stepHeight),
-            ExtraCodecs.POSITIVE_INT.fieldOf("radius").orElse(4).forGetter(Config::radius),
-            ExtraCodecs.POSITIVE_INT.fieldOf("max_depth").orElse(32).forGetter(Config::maxDepth),
-            ExtraCodecs.POSITIVE_INT.fieldOf("max_search_height").orElse(32).forGetter(Config::maxDepth),
-            ExtraCodecs.POSITIVE_FLOAT.fieldOf("success_ratio").orElse(0.5F).forGetter(Config::successRatio)
+                ExtraCodecs.POSITIVE_INT.fieldOf("step_height").orElse(3).forGetter(Config::stepHeight),
+                ExtraCodecs.POSITIVE_INT.fieldOf("radius").orElse(4).forGetter(Config::radius),
+                ExtraCodecs.POSITIVE_INT.fieldOf("max_depth").orElse(32).forGetter(Config::maxDepth),
+                ExtraCodecs.POSITIVE_INT.fieldOf("max_search_height").orElse(32).forGetter(Config::maxDepth),
+                ExtraCodecs.POSITIVE_FLOAT.fieldOf("success_ratio").orElse(0.5F).forGetter(Config::successRatio)
         ).apply(instance, Config::new));
     }
 }

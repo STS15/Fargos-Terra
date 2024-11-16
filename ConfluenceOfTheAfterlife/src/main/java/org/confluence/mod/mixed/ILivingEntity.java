@@ -1,4 +1,4 @@
-package org.confluence.mod.mixinauxi;
+package org.confluence.mod.mixed;
 
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 

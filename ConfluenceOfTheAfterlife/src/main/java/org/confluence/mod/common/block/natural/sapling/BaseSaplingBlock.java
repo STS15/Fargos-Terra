@@ -6,11 +6,9 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.grower.TreeGrower;
 import net.minecraft.world.level.block.state.BlockState;
-import org.confluence.mod.common.data.gen.limit.CustomItemModel;
-import org.confluence.mod.common.data.gen.limit.CustomModel;
 import org.jetbrains.annotations.NotNull;
 
-public class BaseSaplingBlock extends SaplingBlock implements CustomModel, CustomItemModel {
+public class BaseSaplingBlock extends SaplingBlock {
     private final Block block;
 
     public BaseSaplingBlock(TreeGrower pTreeGrower, Properties pProperties, Block block) {

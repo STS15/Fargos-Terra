@@ -14,14 +14,13 @@ import org.confluence.mod.common.attachment.GamePlay;
 import org.confluence.mod.common.init.ModAttachments;
 import org.confluence.mod.common.item.CustomRarityItem;
 import org.confluence.terra_curio.common.component.ModRarity;
-import org.confluence.terra_curio.common.init.TCDataComponentTypes;
 import org.jetbrains.annotations.NotNull;
 
 public class LifeFruit extends CustomRarityItem {
     public static final ResourceLocation ID = Confluence.asResource("life_fruit");
 
     public LifeFruit() {
-        super(new Properties().component(TCDataComponentTypes.MOD_RARITY, ModRarity.LIME));
+        super(ModRarity.LIME);
     }
 
     @Override

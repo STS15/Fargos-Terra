@@ -7,7 +7,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
 
-public class MushroomGrassBlock extends CustomModelSpreadingBlock {
+public class MushroomGrassBlock extends SpreadingGrassBlock {
     public MushroomGrassBlock() {
         super(Type.PURE, Properties.ofFullCopy(Blocks.GRASS_BLOCK).lightLevel(value -> 5));
     }

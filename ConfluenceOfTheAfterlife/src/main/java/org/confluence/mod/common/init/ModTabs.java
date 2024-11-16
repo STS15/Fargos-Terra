@@ -3,12 +3,16 @@ package org.confluence.mod.common.init;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.confluence.mod.Confluence;
+import org.confluence.mod.common.block.common.BaseChestBlock;
+import org.confluence.mod.common.block.functional.DeathChestBlock;
 import org.confluence.mod.common.block.natural.LogBlockSet;
 import org.confluence.mod.common.init.armor.ArmorItems;
 import org.confluence.mod.common.init.block.DecorativeBlocks;
+import org.confluence.mod.common.init.block.FunctionalBlocks;
 import org.confluence.mod.common.init.block.OreBlocks;
 import org.confluence.mod.common.init.item.*;
 
@@ -34,7 +38,7 @@ public final class ModTabs {
                     })
                     .build()
     );
-    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> CREATIVES = TABS.register("misc",
+    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> MISC = TABS.register("misc",
             () -> CreativeModeTab.builder().icon(() -> IconItems.PRECIOUS_ICON.get().getDefaultInstance())
                     .title(Component.translatable("creativetab.confluence.misc"))
                     .displayItems((parameters, output) -> {
@@ -55,7 +59,7 @@ public final class ModTabs {
             () -> CreativeModeTab.builder().icon(() -> IconItems.TOOLS_ICON.get().getDefaultInstance())
                     .title(Component.translatable("creativetab.confluence.tools"))
                     .displayItems((parameters, output) -> {
-                        AxeItems.AXE.getEntries().forEach(item -> output.accept(item.get()));
+                        AxeItems.AXES.getEntries().forEach(item -> output.accept(item.get()));
                         HammerItems.HAMMERS.getEntries().forEach(item -> output.accept(item.get()));
                         HookItems.HOOKS.getEntries().forEach(item -> output.accept(item.get()));
                     })
@@ -121,10 +125,18 @@ public final class ModTabs {
                     .build());
     // 器械
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> MECHANICAL = TABS.register("mechanical",
-            () -> CreativeModeTab.builder().icon(() -> IconItems.TOOLS_ICON.get().getDefaultInstance())
+            () -> CreativeModeTab.builder().icon(() -> IconItems.MECHANICAL_ICON.get().getDefaultInstance())
                     .title(Component.translatable("creativetab.confluence.mechanical"))
                     .displayItems((parameters, output) -> {
-
+                        Item base = FunctionalBlocks.BASE_CHEST_BLOCK.get().asItem();
+                        Item death = FunctionalBlocks.DEATH_CHEST_BLOCK.get().asItem();
+                        for (BaseChestBlock.Variant variant : BaseChestBlock.Variant.values()) {
+                            output.accept(BaseChestBlock.setData(base.getDefaultInstance(), variant));
+                            if (variant.getSerializedName().startsWith("unlocked")) { // 只放解锁的
+                                output.accept(DeathChestBlock.setData(death.getDefaultInstance(), variant));
+                            }
+                        }
+                        FunctionalBlocks.BLOCKS.getEntries().forEach(block -> output.accept(block.get()));
                     })
                     .build());
 }

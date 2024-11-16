@@ -9,7 +9,7 @@ import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.confluence.mod.Confluence;
 import org.confluence.mod.common.init.ModTiers;
-import org.confluence.mod.common.item.sword.*;
+import org.confluence.mod.common.item.sword.BaseSwordItem;
 import org.confluence.mod.common.item.sword.stagedy.EffectStrategy;
 import org.confluence.mod.common.item.sword.stagedy.InventoryTickStrategy;
 import org.confluence.mod.common.item.sword.stagedy.ProjectileStrategy;
@@ -18,7 +18,8 @@ import org.confluence.terra_curio.common.component.ModRarity;
 
 import java.util.function.Supplier;
 
-import static org.confluence.mod.common.item.sword.stagedy.EffectStrategy.*;
+import static org.confluence.mod.common.item.sword.stagedy.EffectStrategy.BLOOD_BUTCHERED_EFFECT;
+import static org.confluence.mod.common.item.sword.stagedy.EffectStrategy.UNDEFINED_EFFECT;
 import static org.confluence.mod.common.item.sword.stagedy.ProjectileStrategy.*;
 import static org.confluence.mod.common.item.sword.stagedy.SwordPrefabs.*;
 

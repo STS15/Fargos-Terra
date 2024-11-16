@@ -10,10 +10,11 @@ import org.jetbrains.annotations.NotNull;
 import java.util.List;
 import java.util.Set;
 
-public class FloatingWheatBlock extends BaseCropBlock{
+public class FloatingWheatBlock extends BaseCropBlock {
     public FloatingWheatBlock(Properties pProperties) {
         super(pProperties);
     }
+
     @Override
     protected @NotNull ItemLike getBaseSeedId() {
         return ModItems.FLOATING_WHEAT_SEED.get();
@@ -23,7 +24,6 @@ public class FloatingWheatBlock extends BaseCropBlock{
     public Set<Block> getCanPlaceBlocks() {
         return Set.of(ModBlocks.CLOUD_BLOCK.get());
     }
-
 
     @Override
     public List<ItemStack> getCropDrops() {

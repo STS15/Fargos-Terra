@@ -9,7 +9,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.ItemStack;
 import org.confluence.mod.common.entity.projectile.IceBladeSwordProjectile;
-import org.confluence.mod.common.entity.projectile.SwordProjectile;
 import org.confluence.mod.common.init.ModSoundEvents;
 import org.confluence.terra_curio.common.init.TCAttributes;
 

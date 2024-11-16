@@ -14,15 +14,13 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.confluence.mod.common.data.gen.limit.CustomItemModel;
-import org.confluence.mod.common.data.gen.limit.CustomModel;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 
 import static net.minecraft.world.level.block.state.properties.BlockStateProperties.LAYERS;
 
-public class SandLayerBlock extends Block implements CustomModel, CustomItemModel {
+public class SandLayerBlock extends Block {
     protected static final VoxelShape[] SHAPE_BY_LAYER = new VoxelShape[]{
         Shapes.empty(), box(0.0, 0.0, 0.0, 16.0, 2.0, 16.0), box(0.0, 0.0, 0.0, 16.0, 4.0, 16.0),
         box(0.0, 0.0, 0.0, 16.0, 6.0, 16.0), box(0.0, 0.0, 0.0, 16.0, 8.0, 16.0),

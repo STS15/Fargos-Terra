@@ -156,7 +156,7 @@
                         "operation": "add_multiplied_total"
                     }
                 ],
-                "terra_curio:generic.aggro": [
+                "terra_curio:player.aggro": [
                     {
                         "id": "terra_curio:putrid_scent",
                         "amount": -400,

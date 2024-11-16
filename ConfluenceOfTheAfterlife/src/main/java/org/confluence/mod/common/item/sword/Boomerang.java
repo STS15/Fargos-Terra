@@ -11,9 +11,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.level.Level;
 import org.confluence.mod.Confluence;
@@ -22,7 +20,6 @@ import org.confluence.mod.common.init.ModDataComponentTypes;
 import org.confluence.mod.common.item.CustomRarityItem;
 import org.confluence.mod.common.item.sword.stagedy.EffectStrategy;
 import org.confluence.mod.common.item.sword.stagedy.InventoryTickStrategy;
-import org.confluence.mod.common.item.sword.stagedy.ProjectileStrategy;
 import org.confluence.mod.common.item.sword.stagedy.projectile.AbstractProjContainer;
 import org.confluence.mod.common.item.sword.stagedy.projectile.BoomerangProjContainer;
 import org.confluence.terra_curio.common.component.ModRarity;
@@ -115,7 +112,7 @@ public class Boomerang extends CustomRarityItem {
         public float damage;
         public float flySpeed = 0.5f;               //向前飞行速度
         public float backSpeed = 0.5f;              //向后飞行速度//返回速度
-        public float knockback = 3f;                //击退力度
+        public float knockback = 1f;                //击退力度
         public int cd = 20;                         //冷却时间
         public int forwardTick = 20;                //前进时间
         public boolean canPenetrate = false;        //是否可穿透，否则命中生物返回

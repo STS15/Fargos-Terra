@@ -11,10 +11,9 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
-import org.confluence.mod.common.data.gen.limit.CustomModel;
 import org.jetbrains.annotations.NotNull;
 
-public class SpreadingSandBlock extends ColoredFallingBlock implements ISpreadable, CustomModel {
+public class SpreadingSandBlock extends ColoredFallingBlock implements ISpreadable {
     private final Type type;
 
     public SpreadingSandBlock(Type type, int color, BlockBehaviour.Properties properties) {

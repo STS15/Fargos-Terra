@@ -9,13 +9,12 @@ import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
-import org.confluence.mod.common.data.gen.limit.CustomModel;
 import org.confluence.mod.common.effect.harmful.PotionSicknessEffect;
 import org.confluence.mod.common.init.ModEffects;
 import org.confluence.mod.common.init.item.MaterialItems;
 import org.jetbrains.annotations.NotNull;
 
-public class MushroomItem extends BlockItem implements CustomModel {
+public class MushroomItem extends BlockItem {
 
     private final float amount;
 

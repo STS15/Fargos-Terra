@@ -9,8 +9,6 @@ import org.confluence.mod.common.entity.projectile.BaseArrowEntity;
 import org.confluence.terra_curio.common.component.ModRarity;
 import org.confluence.terra_curio.common.init.TCDataComponentTypes;
 
-import java.util.function.Consumer;
-
 public class BaseArrowItem extends ArrowItem {
     public BaseArrowItem(ModRarity rarity) {
         super(new Properties().component(TCDataComponentTypes.MOD_RARITY, rarity));

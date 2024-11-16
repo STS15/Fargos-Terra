@@ -3,10 +3,10 @@ package org.confluence.mod.client.gui.screens;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TieredItem;
 import org.confluence.mod.common.init.ModTiers;
 import org.confluence.mod.common.item.food.BaseFoodItem;
 import org.confluence.mod.common.item.sword.BaseSwordItem;
@@ -14,8 +14,10 @@ import org.confluence.mod.util.GuiUtils;
 
 import java.awt.*;
 import java.text.DecimalFormat;
-import java.util.*;
-import java.util.concurrent.atomic.AtomicReference;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ObjectWikiScreen extends BaseWikiScreen{
     private Item item;

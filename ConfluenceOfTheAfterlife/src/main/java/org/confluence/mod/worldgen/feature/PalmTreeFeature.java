@@ -12,6 +12,7 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
+import org.confluence.mod.mixed.IWorldGenRegion;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -21,6 +22,7 @@ public class PalmTreeFeature extends Feature<PalmTreeFeature.Config> {
     public PalmTreeFeature(Codec<Config> pCodec) {
         super(pCodec);
     }
+
     @Override
     public boolean place(FeaturePlaceContext<Config> pContext) {
         int height = 7 + pContext.random().nextInt(3);
@@ -34,6 +36,7 @@ public class PalmTreeFeature extends Feature<PalmTreeFeature.Config> {
         int bl = facingF ? 1 : -1;
         Config config = pContext.config();
         WorldGenLevel level = pContext.level();
+        IWorldGenRegion worldGenRegion = (IWorldGenRegion) level;
         BlockPos trunkBlockPos = pContext.origin();
         BlockPos leavesBlockPos = pContext.origin();
         BlockState trunkBlockState = config.trunk().getState(pContext.random(), trunkBlockPos);
@@ -44,10 +47,11 @@ public class PalmTreeFeature extends Feature<PalmTreeFeature.Config> {
         for (int checkY = 1; checkY <= height; checkY++) {
             treeX = 0;
             treeZ = 0;
+            double v = (Math.sqrt(-checkY + height) - Math.sqrt(height)) * bl;
             if (facingT) {
-                treeZ = (int) ((Math.sqrt(-checkY + height) - Math.sqrt(height)) * bl);
+                treeZ = (int) v;
             } else {
-                treeX = (int) ((Math.sqrt(-checkY + height) - Math.sqrt(height)) * bl);
+                treeX = (int) v;
             }
             BlockPos trunkBlockPosPlace = new BlockPos(trunkBlockPos.getX() + treeX, trunkBlockPos.getY() + checkY - 1, trunkBlockPos.getZ() + treeZ);
             BlockState trunkPos = level.getBlockState(trunkBlockPosPlace);
@@ -61,13 +65,14 @@ public class PalmTreeFeature extends Feature<PalmTreeFeature.Config> {
             for (int treeY = 1; treeY <= height; treeY++) {
                 treeX = 0;
                 treeZ = 0;
+                double v = (Math.sqrt(-treeY + height) - Math.sqrt(height)) * bl;
                 if (facingT) {
-                    treeZ = (int) ((Math.sqrt(-treeY + height) - Math.sqrt(height)) * bl);
+                    treeZ = (int) v;
                 } else {
-                    treeX = (int) ((Math.sqrt(-treeY + height) - Math.sqrt(height)) * bl);
+                    treeX = (int) v;
                 }
                 BlockPos trunkBlockPosPlace = new BlockPos(trunkBlockPos.getX() + treeX, trunkBlockPos.getY() + treeY - 1, trunkBlockPos.getZ() + treeZ);
-                level.setBlock(trunkBlockPosPlace, trunkBlockState, 2);
+                worldGenRegion.confluence$setBlock(trunkBlockPosPlace, trunkBlockState, 2);
             }
             treeX = 0;
             treeZ = 0;
@@ -78,12 +83,12 @@ public class PalmTreeFeature extends Feature<PalmTreeFeature.Config> {
                 treeX = (int) (Math.sqrt(height)) * bl;
             }
             leavesBlockPos = new BlockPos(leavesBlockPos.getX() - treeX, leavesBlockPos.getY() + height - 1, leavesBlockPos.getZ() - treeZ);
-            level.setBlock(leavesBlockPos.atY(leavesBlockPos.getY() + 1), leavesBlockState, 2);
+            worldGenRegion.confluence$setBlock(leavesBlockPos.atY(leavesBlockPos.getY() + 1), leavesBlockState, 2);
             for (int i = 0; i < 40; i++) {
                 BlockPos leavesBlockPosPlace = new BlockPos(leavesBlockPos.getX() + leavesListX.get(i), leavesBlockPos.getY() + leavesListY.get(i), leavesBlockPos.getZ() + leavesListZ.get(i));
                 BlockState leavesPos = level.getBlockState(leavesBlockPosPlace);
                 if (leavesPos.isAir()) {
-                    level.setBlock(leavesBlockPosPlace, leavesBlockState, 2);
+                    worldGenRegion.confluence$setBlock(leavesBlockPosPlace, leavesBlockState, 2);
                 }
             }
 
@@ -94,8 +99,8 @@ public class PalmTreeFeature extends Feature<PalmTreeFeature.Config> {
 
     public record Config(BlockStateProvider trunk, BlockStateProvider leaves) implements FeatureConfiguration {
         public static final Codec<Config> CODEC = RecordCodecBuilder.create(instance -> instance.group(
-            BlockStateProvider.CODEC.fieldOf("trunk_block").forGetter(Config::trunk),
-            BlockStateProvider.CODEC.fieldOf("leaves_block").forGetter(Config::leaves)
+                BlockStateProvider.CODEC.fieldOf("trunk_block").forGetter(Config::trunk),
+                BlockStateProvider.CODEC.fieldOf("leaves_block").forGetter(Config::leaves)
         ).apply(instance, Config::new));
     }
 }

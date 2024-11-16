@@ -3,6 +3,7 @@ package org.confluence.mod.worldgen.feature;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -10,6 +11,7 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
+import org.confluence.mod.mixed.IWorldGenRegion;
 import org.confluence.mod.util.ModUtils;
 import org.joml.Vector3d;
 
@@ -22,7 +24,8 @@ public class LivingTreeFeature extends Feature<LivingTreeFeature.Config> {
     }
 
     private static void placeBlock(List<Vector3d> posListToPlace, double rMax, double rMin, BlockState blockStateToPlace, WorldGenLevel level, double rPer, double placePer, boolean repAir, FeaturePlaceContext<Config> context) {
-
+        IWorldGenRegion worldGenRegion = (IWorldGenRegion) level;
+        RandomSource random = context.random();
         int rCheck = (int) (rMax + 2.0);
 
         for (int posList = 0; posList < posListToPlace.size(); posList++) {
@@ -41,8 +44,8 @@ public class LivingTreeFeature extends Feature<LivingTreeFeature.Config> {
                             if (trunkBlockPosX1 != trunkBlockPosX2) {
                                 for (int trunkBlockPosXli = trunkBlockPosX2; trunkBlockPosXli <= trunkBlockPosX1; trunkBlockPosXli++) {
                                     BlockPos trunkBlockPosPlace = new BlockPos(trunkBlockPosXli, trunkBlockPosY, trunkBlockPosZ);
-                                    if (((double) context.random().nextInt(10001) / 10000) <= placePer && (level.getBlockState(trunkBlockPosPlace).isAir() || repAir) && !(level.getBlockState(trunkBlockPosPlace) == blockStateToPlace)) {
-                                        level.setBlock(trunkBlockPosPlace, blockStateToPlace, 2);
+                                    if (((double) random.nextInt(10001) / 10000) <= placePer && (level.getBlockState(trunkBlockPosPlace).isAir() || repAir) && !(level.getBlockState(trunkBlockPosPlace) == blockStateToPlace)) {
+                                        worldGenRegion.confluence$setBlock(trunkBlockPosPlace, blockStateToPlace, 2);
                                     }
                                 }
                             }
@@ -54,7 +57,7 @@ public class LivingTreeFeature extends Feature<LivingTreeFeature.Config> {
     }
 
     private static List<Vector3d> placeList(List<Vector3d> posListToPlace, double rMax, double rMin, double rPer, double placePer, FeaturePlaceContext<Config> context) {
-
+        RandomSource random = context.random();
         int rCheck = (int) (rMax + 2.0);
         List<Vector3d> listToReturn = new ArrayList<>();
 
@@ -74,7 +77,7 @@ public class LivingTreeFeature extends Feature<LivingTreeFeature.Config> {
                             if (trunkBlockPosX1 != trunkBlockPosX2) {
                                 for (int trunkBlockPosXli = trunkBlockPosX2; trunkBlockPosXli <= trunkBlockPosX1; trunkBlockPosXli++) {
                                     BlockPos trunkBlockPosPlace = new BlockPos(trunkBlockPosXli, trunkBlockPosY, trunkBlockPosZ);
-                                    if (((double) context.random().nextInt(10001) / 10000) <= placePer) {
+                                    if (((double) random.nextInt(10001) / 10000) <= placePer) {
                                         Vector3d posS = new Vector3d();
                                         posS.x = trunkBlockPosPlace.getX();
                                         posS.y = trunkBlockPosPlace.getY();
@@ -92,6 +95,7 @@ public class LivingTreeFeature extends Feature<LivingTreeFeature.Config> {
     }
 
     private static void placeRoot(BlockPos blockPos, FeaturePlaceContext<Config> context, double rWoodMax, double rWoodMin, double rAirMax, double rAirMin, BlockState blockStateForWood, BlockState blockStateForAir, WorldGenLevel level) {
+        IWorldGenRegion worldGenRegion = (IWorldGenRegion) level;
         int rCheck = (int) rWoodMax + 2;
         int lengthWood = 40 + context.random().nextInt(20);
         int lengthAir = 5 + lengthWood;
@@ -105,11 +109,11 @@ public class LivingTreeFeature extends Feature<LivingTreeFeature.Config> {
                     if (xToPlace != xToPlace2) {
                         for (int xPlaceLi = xToPlace2; xPlaceLi <= xToPlace; xPlaceLi++) {
                             BlockPos posToPlaceWood = new BlockPos(blockPos.getX() + xPlaceLi, blockPos.getY() - 1 - yToPlace, blockPos.getZ() + zToPlace);
-                            level.setBlock(posToPlaceWood, blockStateForWood, 2);
+                            worldGenRegion.confluence$setBlock(posToPlaceWood, blockStateForWood, 2);
                         }
                     } else {
                         BlockPos posToPlaceAir = new BlockPos(blockPos.getX() + xToPlace, blockPos.getY() - 1 - yToPlace, blockPos.getZ() + zToPlace);
-                        level.setBlock(posToPlaceAir, blockStateForWood, 2);
+                        worldGenRegion.confluence$setBlock(posToPlaceAir, blockStateForWood, 2);
                     }
                 }
             }
@@ -124,11 +128,11 @@ public class LivingTreeFeature extends Feature<LivingTreeFeature.Config> {
                     if (xToPlace != xToPlace2) {
                         for (int xPlaceLi = xToPlace2; xPlaceLi <= xToPlace; xPlaceLi++) {
                             BlockPos posToPlaceAir = new BlockPos(blockPos.getX() + xPlaceLi, blockPos.getY() - 1 - yToPlace, blockPos.getZ() + zToPlace);
-                            level.setBlock(posToPlaceAir, blockStateForAir, 2);
+                            worldGenRegion.confluence$setBlock(posToPlaceAir, blockStateForAir, 2);
                         }
                     } else {
                         BlockPos posToPlaceAir = new BlockPos(blockPos.getX() + xToPlace, blockPos.getY() - 1 - yToPlace, blockPos.getZ() + zToPlace);
-                        level.setBlock(posToPlaceAir, blockStateForAir, 2);
+                        worldGenRegion.confluence$setBlock(posToPlaceAir, blockStateForAir, 2);
                     }
                 }
             }
@@ -137,13 +141,15 @@ public class LivingTreeFeature extends Feature<LivingTreeFeature.Config> {
 
     @Override
     public boolean place(FeaturePlaceContext<Config> pContext) {
-        int bl = pContext.random().nextBoolean() ? 1 : -1;
+        RandomSource random = pContext.random();
+        int bl = random.nextBoolean() ? 1 : -1;
         Config config = pContext.config();
         WorldGenLevel level = pContext.level();
+        IWorldGenRegion worldGenRegion = (IWorldGenRegion) level;
         BlockPos trunkBlockPos = pContext.origin();
         BlockPos leavesBlockPos = pContext.origin();
-        BlockState trunkBlockState = config.trunk().getState(pContext.random(), trunkBlockPos);
-        BlockState leavesBlockState = config.leaves().getState(pContext.random(), leavesBlockPos);
+        BlockState trunkBlockState = config.trunk().getState(random, trunkBlockPos);
+        BlockState leavesBlockState = config.leaves().getState(random, leavesBlockPos);
         double dis = Math.sqrt(Math.pow(trunkBlockPos.getZ(), 2) + Math.pow(trunkBlockPos.getX(), 2));
 
         if (dis >= 700) {
@@ -155,9 +161,9 @@ public class LivingTreeFeature extends Feature<LivingTreeFeature.Config> {
             locationStart.x = (trunkBlockPos.getX());
             locationStart.y = (trunkBlockPos.getY());
             locationStart.z = (trunkBlockPos.getZ());
-            locationEnd.x = (trunkBlockPos.getX() + bl * pContext.random().nextInt(5));
-            locationEnd.y = (trunkBlockPos.getY() + 55 + pContext.random().nextInt(10));
-            locationEnd.z = (trunkBlockPos.getZ() + bl * pContext.random().nextInt(5));
+            locationEnd.x = (trunkBlockPos.getX() + bl * random.nextInt(5));
+            locationEnd.y = (trunkBlockPos.getY() + 55 + random.nextInt(10));
+            locationEnd.z = (trunkBlockPos.getZ() + bl * random.nextInt(5));
 
             locationList1.add(locationStart);
             locationList1.add(locationEnd);
@@ -168,16 +174,16 @@ public class LivingTreeFeature extends Feature<LivingTreeFeature.Config> {
             ModUtils.lightningPathList(locationList1, 1.0, pContext);
             placeBlock(locationList1, 6.0, 1.0, trunkBlockState, level, 1.0, 1.0, true, pContext);
 
-            int stickCount = 5 + pContext.random().nextInt(5);
+            int stickCount = 5 + random.nextInt(5);
             for (int stickPlace = 0; stickPlace < stickCount; stickPlace++) {
                 double anCs = 360.0 / stickCount;
                 double everyA = anCs * stickPlace / 180 * Math.PI;
-                double everyB = ((((double) pContext.random().nextInt(110) - 20) * Math.pow((double) pContext.random().nextInt(101) / 100, 3)) / 180 * Math.PI);
-                int len = 20 + pContext.random().nextInt(15);
+                double everyB = ((((double) random.nextInt(110) - 20) * Math.pow((double) random.nextInt(101) / 100, 3)) / 180 * Math.PI);
+                int len = 20 + random.nextInt(15);
                 double endX = len * Math.cos(everyA) * Math.cos(everyB);
                 double endY = len * Math.sin(everyB);
                 double endZ = len * Math.sin(everyA) * Math.cos(everyB);
-                Vector3d stickStart = locationList1.get(locationList1.size() - (locationList1.size() / 11 * 7) - pContext.random().nextInt(10));
+                Vector3d stickStart = locationList1.get(locationList1.size() - (locationList1.size() / 11 * 7) - random.nextInt(10));
                 Vector3d stickEnd = new Vector3d();
                 stickEnd.x = (locationEnd.x + endX);
                 stickEnd.y = (locationEnd.y + endY - 20);
@@ -187,7 +193,7 @@ public class LivingTreeFeature extends Feature<LivingTreeFeature.Config> {
                 stickList.add(stickStart);
                 stickList.add(stickEnd);
                 ModUtils.lightningPathList(stickList, 1.0, pContext);
-                placeBlock(stickList, 2.0 + pContext.random().nextInt(2), 1.0, trunkBlockState, level, 1.0, 1.0, true, pContext);
+                placeBlock(stickList, 2.0 + random.nextInt(2), 1.0, trunkBlockState, level, 1.0, 1.0, true, pContext);
                 leavesList.add(stickEnd);
                 placeBlock(placeList(leavesList, 20.0, 20.0, 0.5, 0.005, pContext), 4.0, 4.0, leavesBlockState, level, 0.5, 0.5, false, pContext);
             }
@@ -195,12 +201,12 @@ public class LivingTreeFeature extends Feature<LivingTreeFeature.Config> {
             for (int stickPlace = 0; stickPlace < stickCount; stickPlace++) {
                 double anCs = 360.0 / stickCount;
                 double everyA = anCs * stickPlace / 180 * Math.PI;
-                double everyB = ((double) pContext.random().nextInt(50) / 180 * Math.PI);
-                int len = 20 + pContext.random().nextInt(15);
+                double everyB = ((double) random.nextInt(50) / 180 * Math.PI);
+                int len = 20 + random.nextInt(15);
                 double endX = len * Math.cos(everyA) * Math.cos(everyB);
                 double endY = len * Math.sin(everyB);
                 double endZ = len * Math.sin(everyA) * Math.cos(everyB);
-                Vector3d stickStart = locationList1.get(pContext.random().nextInt(10));
+                Vector3d stickStart = locationList1.get(random.nextInt(10));
                 Vector3d stickEnd = new Vector3d();
                 BlockPos stickEndPos = new BlockPos((int) (locationStart.get(0) + endX), (int) (locationStart.get(1) - endY), (int) (locationStart.get(2) + endZ));
                 if (!level.getBlockState(stickEndPos).isAir()) {
@@ -211,7 +217,7 @@ public class LivingTreeFeature extends Feature<LivingTreeFeature.Config> {
                     stickList.add(stickStart);
                     stickList.add(stickEnd);
                     ModUtils.lightningPathList(stickList, 1.0, pContext);
-                    placeBlock(stickList, 2.0 + pContext.random().nextInt(2), 1.0, trunkBlockState, level, 1.0, 1.0, true, pContext);
+                    placeBlock(stickList, 2.0 + random.nextInt(2), 1.0, trunkBlockState, level, 1.0, 1.0, true, pContext);
                 }
             }
 
@@ -230,11 +236,11 @@ public class LivingTreeFeature extends Feature<LivingTreeFeature.Config> {
                             if (trunkBlockPosX1 == trunkBlockPosX2) {
                                 trunkBlockPosX = trunkBlockPosX1;
                                 BlockPos trunkBlockPosPlace = new BlockPos(trunkBlockPosX, trunkBlockPosY, trunkBlockPosZ);
-                                level.setBlock(trunkBlockPosPlace, trunkBlockState, 2);
+                                worldGenRegion.confluence$setBlock(trunkBlockPosPlace, trunkBlockState, 2);
                             } else {
                                 for (int trunkBlockPosXli = trunkBlockPosX2; trunkBlockPosXli <= trunkBlockPosX1; trunkBlockPosXli++) {
                                     BlockPos trunkBlockPosPlace = new BlockPos(trunkBlockPosXli, trunkBlockPosY, trunkBlockPosZ);
-                                    level.setBlock(trunkBlockPosPlace, Blocks.AIR.defaultBlockState(), 2);
+                                    worldGenRegion.confluence$setBlock(trunkBlockPosPlace, Blocks.AIR.defaultBlockState(), 2);
                                 }
                             }
                         }
@@ -248,10 +254,10 @@ public class LivingTreeFeature extends Feature<LivingTreeFeature.Config> {
             //BlockPos trunkBlockPosPlace3 = new BlockPos(trunkBlockPos.getX(), trunkBlockPos.getY() + 3, trunkBlockPos.getZ() + 3);
             //BlockPos trunkBlockPosPlace4 = new BlockPos(trunkBlockPos.getX(), trunkBlockPos.getY() + 3, trunkBlockPos.getZ() - 3);
 
-            //level.setBlock(trunkBlockPosPlace1, Blocks.WALL_TORCH.defaultBlockState().setValue(DirectionalBlock.FACING, Direction.EAST), 2);
-            //level.setBlock(trunkBlockPosPlace2, Blocks.WALL_TORCH.defaultBlockState().setValue(DirectionalBlock.FACING, Direction.WEST), 2);
-            //level.setBlock(trunkBlockPosPlace3, Blocks.WALL_TORCH.defaultBlockState().setValue(DirectionalBlock.FACING, Direction.SOUTH), 2);
-            //level.setBlock(trunkBlockPosPlace4, Blocks.WALL_TORCH.defaultBlockState().setValue(DirectionalBlock.FACING, Direction.NORTH), 2);
+            //worldGenRegion.confluence$setBlock(trunkBlockPosPlace1, Blocks.WALL_TORCH.defaultBlockState().setValue(DirectionalBlock.FACING, Direction.EAST), 2);
+            //worldGenRegion.confluence$setBlock(trunkBlockPosPlace2, Blocks.WALL_TORCH.defaultBlockState().setValue(DirectionalBlock.FACING, Direction.WEST), 2);
+            //worldGenRegion.confluence$setBlock(trunkBlockPosPlace3, Blocks.WALL_TORCH.defaultBlockState().setValue(DirectionalBlock.FACING, Direction.SOUTH), 2);
+            //worldGenRegion.confluence$setBlock(trunkBlockPosPlace4, Blocks.WALL_TORCH.defaultBlockState().setValue(DirectionalBlock.FACING, Direction.NORTH), 2);
 
             return true;
         }
@@ -260,8 +266,8 @@ public class LivingTreeFeature extends Feature<LivingTreeFeature.Config> {
 
     public record Config(BlockStateProvider trunk, BlockStateProvider leaves) implements FeatureConfiguration {
         public static final Codec<Config> CODEC = RecordCodecBuilder.create(instance -> instance.group(
-            BlockStateProvider.CODEC.fieldOf("trunk_block").forGetter(Config::trunk),
-            BlockStateProvider.CODEC.fieldOf("leaves_block").forGetter(Config::leaves)
+                BlockStateProvider.CODEC.fieldOf("trunk_block").forGetter(Config::trunk),
+                BlockStateProvider.CODEC.fieldOf("leaves_block").forGetter(Config::leaves)
         ).apply(instance, Config::new));
     }
 }

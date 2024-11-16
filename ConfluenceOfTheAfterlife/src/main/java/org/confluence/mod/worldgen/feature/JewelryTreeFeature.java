@@ -39,11 +39,11 @@ public class JewelryTreeFeature extends Feature<JewelryTreeFeature.Config> {
 
     public record Config(BlockStateProvider base, BlockStateProvider trunk, BlockStateProvider brunch, int extraRadius, int minHeight) implements FeatureConfiguration {
         public static final Codec<Config> CODEC = RecordCodecBuilder.create(instance -> instance.group(
-            BlockStateProvider.CODEC.fieldOf("base").forGetter(Config::base),
-            BlockStateProvider.CODEC.fieldOf("trunk").forGetter(Config::trunk),
-            BlockStateProvider.CODEC.fieldOf("brunch").forGetter(Config::brunch),
-            ExtraCodecs.POSITIVE_INT.fieldOf("extraRadius").forGetter(Config::extraRadius),
-            ExtraCodecs.POSITIVE_INT.fieldOf("minHeight").forGetter(Config::minHeight)
+                BlockStateProvider.CODEC.fieldOf("base").forGetter(Config::base),
+                BlockStateProvider.CODEC.fieldOf("trunk").forGetter(Config::trunk),
+                BlockStateProvider.CODEC.fieldOf("brunch").forGetter(Config::brunch),
+                ExtraCodecs.POSITIVE_INT.fieldOf("extraRadius").forGetter(Config::extraRadius),
+                ExtraCodecs.POSITIVE_INT.fieldOf("minHeight").forGetter(Config::minHeight)
         ).apply(instance, Config::new));
     }
 }

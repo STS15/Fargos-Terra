@@ -10,14 +10,12 @@ import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
-import org.confluence.mod.common.data.gen.limit.CustomItemModel;
-import org.confluence.mod.common.data.gen.limit.CustomModel;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 import java.util.Set;
 
-public abstract class BaseCropBlock extends CropBlock implements CustomModel, CustomItemModel {
+public abstract class BaseCropBlock extends CropBlock {
     public static final IntegerProperty AGE = IntegerProperty.create("age", 0, 7);
     public static final int MAX_AGE = 7;
 

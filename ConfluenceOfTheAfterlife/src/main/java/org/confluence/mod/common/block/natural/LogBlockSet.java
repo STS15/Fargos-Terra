@@ -433,7 +433,7 @@ public class LogBlockSet {
             this.SIGN = registerWithoutItem(id + "_sign", () -> standingSign.apply(ignitedByLava ? sign.ignitedByLava() : sign));
             BlockBehaviour.Properties wall_sign = BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).forceSolidOn().instrument(NoteBlockInstrument.BASS).noCollission().strength(1.0F).lootFrom(SIGN);
             this.WALL_SIGN = registerWithoutItem(id + "_wall_sign", () -> wallSign.apply(ignitedByLava ? wall_sign.ignitedByLava() : wall_sign));
-            this.SIGN_ITEM = ModItems.ITEMS.register(id + "_sign", () -> signItem.apply(new Item.Properties().stacksTo(16), SIGN.get(), WALL_SIGN.get()));
+            this.SIGN_ITEM = ModItems.BLOCK_ITEMS.register(id + "_sign", () -> signItem.apply(new Item.Properties().stacksTo(16), SIGN.get(), WALL_SIGN.get()));
             return this;
         }
 

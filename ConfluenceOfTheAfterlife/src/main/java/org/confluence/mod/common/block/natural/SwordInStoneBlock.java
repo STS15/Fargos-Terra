@@ -11,11 +11,9 @@ import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.confluence.mod.common.data.gen.limit.CustomItemModel;
-import org.confluence.mod.common.data.gen.limit.CustomModel;
 import org.jetbrains.annotations.NotNull;
 
-public class SwordInStoneBlock extends Block implements CustomModel, CustomItemModel {
+public class SwordInStoneBlock extends Block {
     public static final EnumProperty<SwordType> SWORD_TYPE = EnumProperty.create("sword_type", SwordType.class);
     private static final VoxelShape NULL_SHAPE = Shapes.or(box(2, 0, 2, 14, 3, 14), box(3, 3, 3, 13, 6, 13));
     private static final VoxelShape SHAPE = Shapes.or(box(2, 0, 2, 14, 3, 14), box(3, 3, 3, 13, 6, 13), box(5, 6, 5, 11, 16, 11));

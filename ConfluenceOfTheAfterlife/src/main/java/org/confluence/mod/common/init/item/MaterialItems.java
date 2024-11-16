@@ -6,7 +6,6 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import org.confluence.mod.Confluence;
 import org.confluence.mod.common.init.block.ModBlocks;
 import org.confluence.mod.common.item.CustomRarityItem;
-import org.confluence.mod.common.item.common.CustomModelItem;
 import org.confluence.mod.common.item.common.MushroomItem;
 import org.confluence.terra_curio.common.component.ModRarity;
 
@@ -77,9 +76,6 @@ public class MaterialItems{
     public static final DeferredItem<Item> HOOK = register("hook");
     public static final DeferredItem<Item> LENS = register("lens");
     public static final DeferredItem<Item> BLACK_LENS = register("black_lens");
-//    public static final DeferredItem<Item> LIFE_CRYSTAL = register("life_crystal", ModRarity.WHITE);
-//    public static final DeferredItem<Item> LIFE_FRUIT = register("life_fruit");
-//    public static final DeferredItem<Item> MANA_STAR = register("mana_star");
     public static final DeferredItem<Item> STURDY_FOSSIL = register("sturdy_fossil");
     public static final DeferredItem<Item> SHADOW_SCALE = register("shadow_scale");
     public static final DeferredItem<Item> TISSUE_SAMPLE = register("tissue_sample");
@@ -94,13 +90,13 @@ public class MaterialItems{
     public static final DeferredItem<Item> PINK_PEARL = register("pink_pearl");
 
     // 草药
-    public static final DeferredItem<Item> WATERLEAF = MATERIALS.register("waterleaf", () -> new CustomModelItem());
-    public static final DeferredItem<Item> FLAMEFLOWERS = MATERIALS.register("flameflowers", () -> new CustomModelItem(new Item.Properties().fireResistant()));
-    public static final DeferredItem<Item> MOONSHINE_GRASS = MATERIALS.register("moonshine_grass", () -> new CustomModelItem());
-    public static final DeferredItem<Item> SHINE_ROOT = MATERIALS.register("shine_root", () -> new CustomModelItem());
-    public static final DeferredItem<Item> SHIVERINGTHORNS = MATERIALS.register("shiveringthorns", () -> new CustomModelItem());
-    public static final DeferredItem<Item> SUNFLOWERS = MATERIALS.register("sunflowers", () -> new CustomModelItem());
-    public static final DeferredItem<Item> DEATHWEED = MATERIALS.register("deathweed", () -> new CustomModelItem());
+    public static final DeferredItem<Item> WATERLEAF = MATERIALS.registerSimpleItem("waterleaf");
+    public static final DeferredItem<Item> FLAMEFLOWERS = MATERIALS.registerSimpleItem("flameflowers", new Item.Properties().fireResistant());
+    public static final DeferredItem<Item> MOONSHINE_GRASS = MATERIALS.registerSimpleItem("moonshine_grass");
+    public static final DeferredItem<Item> SHINE_ROOT = MATERIALS.registerSimpleItem("shine_root");
+    public static final DeferredItem<Item> SHIVERINGTHORNS = MATERIALS.registerSimpleItem("shiveringthorns");
+    public static final DeferredItem<Item> SUNFLOWERS = MATERIALS.registerSimpleItem("sunflowers");
+    public static final DeferredItem<Item> DEATHWEED = MATERIALS.registerSimpleItem("deathweed");
     // 蘑菇
     public static final DeferredItem<Item> TR_CRIMSON_MUSHROOM = MATERIALS.register("tr_crimson_mushroom", () -> new MushroomItem(ModBlocks.TR_CRIMSON_MUSHROOM.get(), 0.0F));
     public static final DeferredItem<Item> EBONY_MUSHROOM = MATERIALS.register("ebony_mushroom", () -> new MushroomItem(ModBlocks.EBONY_MUSHROOM.get(), 0.0F));
@@ -110,13 +106,11 @@ public class MaterialItems{
     public static final DeferredItem<Item> JUNGLE_SPORE = MATERIALS.register("jungle_spore", () -> new Item(new Item.Properties()));
 
     public static DeferredItem<Item> register(String id) {
-        DeferredItem<Item> item = MATERIALS.register(id, () -> new Item(new Item.Properties()));
-        return item;
+        return MATERIALS.register(id, () -> new Item(new Item.Properties()));
 
     }
     public static DeferredItem<Item> register(String id, ModRarity rarity) {
-        DeferredItem<Item> item = MATERIALS.register(id, () -> new CustomRarityItem(rarity));
-        return item;
+        return MATERIALS.register(id, () -> new CustomRarityItem(rarity));
     }
 
     public static void init(){}

@@ -5,12 +5,10 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.grower.TreeGrower;
 import net.minecraft.world.level.block.state.BlockState;
-import org.confluence.mod.common.data.gen.limit.CustomItemModel;
-import org.confluence.mod.common.data.gen.limit.CustomModel;
 import org.confluence.mod.common.init.block.ModBlocks;
 import org.jetbrains.annotations.NotNull;
 
-public class AshSaplingBlock extends SaplingBlock implements CustomModel, CustomItemModel {
+public class AshSaplingBlock extends SaplingBlock {
     public AshSaplingBlock(TreeGrower pTreeGrower, Properties pProperties) {
         super(pTreeGrower, pProperties);
     }

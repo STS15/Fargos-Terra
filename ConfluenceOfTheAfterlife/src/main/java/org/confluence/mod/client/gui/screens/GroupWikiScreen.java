@@ -8,11 +8,12 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
-import org.confluence.mod.common.init.item.FoodItems;
-import org.confluence.mod.common.init.item.SwordItems;
 import org.confluence.mod.util.GuiUtils;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class GroupWikiScreen extends BaseWikiScreen{
     private static Map<String, List<DeferredRegister<?>>> wikiMap = new HashMap<>();

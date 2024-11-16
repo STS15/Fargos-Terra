@@ -1,4 +1,4 @@
-package org.confluence.mod.mixinauxi;
+package org.confluence.mod.mixed;
 
 import com.google.common.collect.ImmutableMap;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
@@ -13,7 +13,6 @@ import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.damagesource.DamageTypes;
 
 import static net.minecraft.world.damagesource.DamageTypes.*;
-import static net.minecraft.world.damagesource.DamageTypes.PLAYER_EXPLOSION;
 
 public interface Immunity {
     enum Types {
