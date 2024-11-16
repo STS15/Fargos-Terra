@@ -7,7 +7,6 @@
     "mixins": [
         "ItemUtilsMixin",
         "LootModifierManagerMixin",
-        "WorldGenRegionMixin",
         "accessor.ChestBlockEntityAccessor",
         "accessor.EntityAccessor",
         "accessor.FishingHookAccessor",
@@ -20,7 +19,9 @@
         "item.BowItemMixin",
         "item.FishingRodItemMixin",
         "item.HoneyBottleItemMixin",
-        "item.ProjectileWeaponItemMixin"
+        "item.ProjectileWeaponItemMixin",
+        "level.ServerLevelMixin",
+        "level.WorldGenRegionMixin"
     ],
     "client": [
         "client.ItemRendererMixin",

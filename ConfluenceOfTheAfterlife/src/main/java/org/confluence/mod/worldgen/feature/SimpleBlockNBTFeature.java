@@ -11,6 +11,7 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
+import org.confluence.mod.mixed.IWorldGenRegion;
 
 public class SimpleBlockNBTFeature extends Feature<SimpleBlockNBTFeature.Config> {
     public SimpleBlockNBTFeature(Codec<Config> pCodec) {
@@ -24,7 +25,7 @@ public class SimpleBlockNBTFeature extends Feature<SimpleBlockNBTFeature.Config>
         BlockPos blockPos = pContext.origin();
         BlockState blockState = config.toPlace().getState(pContext.random(), blockPos);
         if (blockState.canSurvive(level, blockPos)) {
-            level.setBlock(blockPos, blockState, 2);
+            ((IWorldGenRegion) level).confluence$setBlock(blockPos, blockState, 2);
             BlockEntity blockEntity = ModFeatures.getBlockEntity(level, blockPos);
             if (blockEntity != null) blockEntity.loadWithComponents(config.nbt, level.registryAccess());
             return true;
@@ -34,8 +35,8 @@ public class SimpleBlockNBTFeature extends Feature<SimpleBlockNBTFeature.Config>
 
     public record Config(BlockStateProvider toPlace, CompoundTag nbt) implements FeatureConfiguration {
         public static final Codec<Config> CODEC = RecordCodecBuilder.create(instance -> instance.group(
-            BlockStateProvider.CODEC.fieldOf("to_place").forGetter(Config::toPlace),
-            CompoundTag.CODEC.fieldOf("nbt").forGetter(Config::nbt)
+                BlockStateProvider.CODEC.fieldOf("to_place").forGetter(Config::toPlace),
+                CompoundTag.CODEC.fieldOf("nbt").forGetter(Config::nbt)
         ).apply(instance, Config::new));
     }
 }

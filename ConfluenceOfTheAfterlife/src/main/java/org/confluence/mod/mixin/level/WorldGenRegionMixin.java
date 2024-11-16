@@ -1,4 +1,4 @@
-package org.confluence.mod.mixin;
+package org.confluence.mod.mixin.level;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
