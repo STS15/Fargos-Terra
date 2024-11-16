@@ -20,7 +20,7 @@
         "item.FishingRodItemMixin",
         "item.HoneyBottleItemMixin",
         "item.ProjectileWeaponItemMixin",
-        "level.ServerLevelMixin",
+        "level.ImposterProtoChunkMixin",
         "level.WorldGenRegionMixin"
     ],
     "client": [
