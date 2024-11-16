@@ -8,7 +8,7 @@ import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import org.confluence.mod.common.init.ModEffects;
-import org.confluence.mod.mixinauxi.IAbstractArrow;
+import org.confluence.mod.mixed.IAbstractArrow;
 import org.confluence.terra_curio.mixinauxi.SelfGetter;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;

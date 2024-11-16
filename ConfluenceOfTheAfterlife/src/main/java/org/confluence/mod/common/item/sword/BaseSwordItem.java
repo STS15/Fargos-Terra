@@ -1,6 +1,5 @@
 package org.confluence.mod.common.item.sword;
 
-import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;

@@ -24,8 +24,6 @@ import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.neoforged.neoforge.registries.DeferredBlock;
-import org.confluence.mod.common.data.gen.limit.CustomItemModel;
-import org.confluence.mod.common.data.gen.limit.CustomModel;
 import org.confluence.mod.common.init.block.ModBlocks;
 import org.confluence.mod.util.ModUtils;
 import org.jetbrains.annotations.NotNull;
@@ -35,7 +33,7 @@ import java.util.Map;
 import java.util.Set;
 
 /** @author voila1106 */
-public abstract class BaseHerbBlock extends CropBlock implements CustomModel, CustomItemModel, EntityBlock {
+public abstract class BaseHerbBlock extends CropBlock implements EntityBlock {
     public static final int MAX_AGE = 2;
     public static final int BRIGHTNESS = 3;
     public static final IntegerProperty AGE = BlockStateProperties.AGE_2;

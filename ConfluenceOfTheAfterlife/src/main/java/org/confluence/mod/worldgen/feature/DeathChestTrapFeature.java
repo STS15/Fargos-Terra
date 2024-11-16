@@ -1,12 +1,5 @@
 package org.confluence.mod.worldgen.feature;
 
-import com.mojang.serialization.Codec;
-import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.minecraft.util.ExtraCodecs;
-import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
-import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
-
 /*
 public class DeathChestTrapFeature  extends Feature<DeathChestTrapFeature.Config> {
     public DeathChestTrapFeature(Codec<Config> pCodec) {

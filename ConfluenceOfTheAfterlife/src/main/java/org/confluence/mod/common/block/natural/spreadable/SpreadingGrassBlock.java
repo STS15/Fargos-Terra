@@ -9,7 +9,7 @@ import org.confluence.mod.common.block.natural.ThornBlock;
 import org.confluence.mod.common.init.block.ModBlocks;
 import org.jetbrains.annotations.NotNull;
 
-public class SpreadingGrassBlock extends CustomModelSpreadingBlock {
+public class SpreadingGrassBlock extends SpreadingBlock {
     public SpreadingGrassBlock(Type type, Properties properties) {
         super(type, properties);
     }

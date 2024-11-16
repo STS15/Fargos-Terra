@@ -78,7 +78,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         List<Map<DeferredRegister.Items,List<String>>> handheld = new ArrayList<>();
         handheld.add(createDir(SwordItems.SWORDS,"sword/"));
         handheld.add(createDir(BowItems.BOWS,"bow/"));
-        handheld.add(createDir(AxeItems.AXE,"axe/"));
+        handheld.add(createDir(AxeItems.AXES,"axe/"));
         handheld.add(createDir(HammerItems.HAMMERS, "hammer/"));
         handheld.add(createDir(BoomerangItems.BOOMERANG_ITEMS,  "boomerang/"));
 

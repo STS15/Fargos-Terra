@@ -9,14 +9,12 @@ import org.confluence.mod.common.init.item.ModItems;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
-import java.util.Random;
 import java.util.Set;
 
-public class CloudWeaverBlock extends BaseCropBlock{
+public class CloudWeaverBlock extends BaseCropBlock {
     public CloudWeaverBlock(BlockBehaviour.Properties pProperties) {
         super(pProperties);
     }
-    private static final Random RANDOM = new Random();
 
     @Override
     protected @NotNull ItemLike getBaseSeedId() {

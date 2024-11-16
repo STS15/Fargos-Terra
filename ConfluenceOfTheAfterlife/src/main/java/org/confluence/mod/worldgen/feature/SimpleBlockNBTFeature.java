@@ -12,7 +12,6 @@ import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 
-/*
 public class SimpleBlockNBTFeature extends Feature<SimpleBlockNBTFeature.Config> {
     public SimpleBlockNBTFeature(Codec<Config> pCodec) {
         super(pCodec);
@@ -27,7 +26,7 @@ public class SimpleBlockNBTFeature extends Feature<SimpleBlockNBTFeature.Config>
         if (blockState.canSurvive(level, blockPos)) {
             level.setBlock(blockPos, blockState, 2);
             BlockEntity blockEntity = ModFeatures.getBlockEntity(level, blockPos);
-            if (blockEntity != null) blockEntity.deserializeNBT(config.nbt);
+            if (blockEntity != null) blockEntity.loadWithComponents(config.nbt, level.registryAccess());
             return true;
         }
         return false;
@@ -40,4 +39,3 @@ public class SimpleBlockNBTFeature extends Feature<SimpleBlockNBTFeature.Config>
         ).apply(instance, Config::new));
     }
 }
- */

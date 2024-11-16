@@ -11,7 +11,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.List;
 import java.util.Set;
 
-public class StellarBlossomBlock extends BaseCropBlock{
+public class StellarBlossomBlock extends BaseCropBlock {
     public StellarBlossomBlock(BlockBehaviour.Properties pProperties) {
         super(pProperties);
     }
@@ -26,10 +26,8 @@ public class StellarBlossomBlock extends BaseCropBlock{
         return Set.of(ModBlocks.CLOUD_BLOCK.get());
     }
 
-
     @Override
     public List<ItemStack> getCropDrops() {
         return List.of(); // No drops
     }
-
 }

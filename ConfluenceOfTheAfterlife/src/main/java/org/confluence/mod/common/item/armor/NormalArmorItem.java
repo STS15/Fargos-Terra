@@ -11,8 +11,8 @@ import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
 import org.confluence.mod.Confluence;
 import org.confluence.mod.client.renderer.item.NormalArmorItemRenderer;
-import org.confluence.mod.common.data.gen.limit.NormalGeoItem;
 import org.jetbrains.annotations.Nullable;
+import software.bernie.geckolib.animatable.GeoItem;
 import software.bernie.geckolib.animatable.client.GeoRenderProvider;
 import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.animation.AnimatableManager;
@@ -20,7 +20,7 @@ import software.bernie.geckolib.util.GeckoLibUtil;
 
 import java.util.function.Consumer;
 
-public class NormalArmorItem extends ArmorItem implements NormalGeoItem {
+public class NormalArmorItem extends ArmorItem implements GeoItem {
     private final AnimatableInstanceCache CACHE = GeckoLibUtil.createInstanceCache(this);
     private final String name;
 

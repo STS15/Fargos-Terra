@@ -18,6 +18,7 @@ import org.confluence.mod.common.block.natural.LogBlockSet;
 import org.confluence.mod.common.block.natural.spreadable.ISpreadable;
 import org.confluence.mod.common.fluid.FluidBuilder;
 import org.confluence.mod.common.init.ModFluids;
+import org.confluence.mod.common.init.block.FunctionalBlocks;
 import org.confluence.mod.common.init.item.AccessoryItems;
 import org.confluence.mod.network.c2s.HookThrowingPacketC2S;
 import org.confluence.mod.network.c2s.SwordShootingPacketC2S;
@@ -45,6 +46,7 @@ public final class ModEvents {
     @SubscribeEvent
     public static void loadComplete(FMLLoadCompleteEvent event) {
         event.enqueueWork(() -> {
+            FunctionalBlocks.MECHANICAL_BLOCKS = null; // 销毁
             LogBlockSet.wrapStrip();
             ISpreadable.Type.buildMap();
         });

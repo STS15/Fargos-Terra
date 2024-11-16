@@ -11,14 +11,12 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.MapColor;
-import org.confluence.mod.common.data.gen.limit.CustomItemModel;
-import org.confluence.mod.common.data.gen.limit.CustomModel;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 
 // TODO: 这些是get fixed boi和for the worthy的特性
-public class CrispyHoneyBlock extends Block implements CustomModel, CustomItemModel {
+public class CrispyHoneyBlock extends Block {
     public CrispyHoneyBlock() {
         super(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(1.2F));
     }

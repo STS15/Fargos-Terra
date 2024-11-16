@@ -9,7 +9,6 @@ import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import org.confluence.mod.Confluence;
-
 import org.confluence.mod.client.model.entity.projectile.IceBladeSwordProjectileModel;
 import org.confluence.mod.common.entity.projectile.SwordProjectile;
 import org.jetbrains.annotations.NotNull;

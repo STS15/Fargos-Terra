@@ -7,9 +7,12 @@
     "mixins": [
         "ItemUtilsMixin",
         "LootModifierManagerMixin",
+        "WorldGenRegionMixin",
+        "accessor.ChestBlockEntityAccessor",
         "accessor.EntityAccessor",
         "accessor.FishingHookAccessor",
         "accessor.LanguageProviderAccessor",
+        "block.BaseContainerBlockEntityMixin",
         "entity.AbstractArrowMixin",
         "entity.LivingEntityMixin",
         "integration.terra_curio.BaseSpeedBootsMixin",

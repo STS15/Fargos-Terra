@@ -3,8 +3,13 @@ package org.confluence.mod.client.event;
 import com.mojang.blaze3d.shaders.FogShape;
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.Camera;
+import net.minecraft.client.color.block.BlockColor;
+import net.minecraft.client.color.item.ItemColor;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.FogRenderer;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -12,7 +17,10 @@ import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
-import net.neoforged.neoforge.client.event.*;
+import net.neoforged.neoforge.client.event.EntityRenderersEvent;
+import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
+import net.neoforged.neoforge.client.event.RegisterEntitySpectatorShadersEvent;
+import net.neoforged.neoforge.client.event.RegisterGuiLayersEvent;
 import net.neoforged.neoforge.client.extensions.common.IClientFluidTypeExtensions;
 import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent;
 import net.neoforged.neoforge.client.gui.VanillaGuiLayers;
@@ -21,6 +29,7 @@ import org.confluence.mod.client.ClientConfigs;
 import org.confluence.mod.client.gui.hud.ArrowInBowHud;
 import org.confluence.mod.client.gui.screens.GroupWikiScreen;
 import org.confluence.mod.client.gui.screens.ObjectWikiScreen;
+import org.confluence.mod.client.model.entity.FallingStarRenderer;
 import org.confluence.mod.client.model.entity.bomb.*;
 import org.confluence.mod.client.model.entity.fishing.BaseFishingHookModel;
 import org.confluence.mod.client.model.entity.fishing.BloodyFishingHookModel;
@@ -29,8 +38,12 @@ import org.confluence.mod.client.model.entity.fishing.HotlineFishingHookModel;
 import org.confluence.mod.client.model.entity.hook.BaseHookModel;
 import org.confluence.mod.client.model.entity.hook.SkeletronHandModel;
 import org.confluence.mod.client.model.entity.hook.WebSlingerModel;
+import org.confluence.mod.client.model.entity.projectile.BoulderModel;
 import org.confluence.mod.client.model.entity.projectile.EnchantedSwordProjectileModel;
 import org.confluence.mod.client.model.entity.projectile.IceBladeSwordProjectileModel;
+import org.confluence.mod.client.renderer.block.BaseChestBlockRenderer;
+import org.confluence.mod.client.renderer.block.DeathChestBlockRenderer;
+import org.confluence.mod.client.renderer.block.MechanicalBlockRenderer;
 import org.confluence.mod.client.renderer.entity.bomb.*;
 import org.confluence.mod.client.renderer.entity.fishing.BaseFishingHookRenderer;
 import org.confluence.mod.client.renderer.entity.fishing.BloodyFishingHookRenderer;
@@ -41,7 +54,11 @@ import org.confluence.mod.client.renderer.entity.projectile.*;
 import org.confluence.mod.client.renderer.gui.HealthHudLayer;
 import org.confluence.mod.client.renderer.gui.ManaHudLayer;
 import org.confluence.mod.common.init.ModFluids;
+import org.confluence.mod.common.init.block.FunctionalBlocks;
+import org.confluence.mod.common.init.block.ModBlocks;
 import org.confluence.mod.common.init.item.*;
+import org.confluence.mod.common.item.common.ColoredItem;
+import org.confluence.mod.util.color.IntegerRGB;
 import org.jetbrains.annotations.NotNull;
 import org.joml.Vector3f;
 
@@ -49,11 +66,22 @@ import java.util.List;
 
 import static org.confluence.mod.common.init.ModEntities.*;
 
+@SuppressWarnings("deprecation")
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT, modid = Confluence.MODID)
 public final class ModClientEvents {
-    @SubscribeEvent
-    public static void onRegisterClientReload(RegisterClientReloadListenersEvent event) {
+    private static final BlockColor HALLOW_LEAVES_COLOR = (blockState, getter, pos, tint) -> {
+        if (pos == null) return -1;
+        IntegerRGB x = hallowMixture(Math.abs(pos.getX()) % 12);
+        IntegerRGB y = hallowMixture(Math.abs(pos.getY()) % 12);
+        IntegerRGB z = hallowMixture(Math.abs(pos.getZ()) % 12);
+        return x.mixture(y, 0.5F).mixture(z, 0.5F).get();
+    };
+    private static final ItemColor SIMPLE = (pStack, pTintIndex) -> ColoredItem.getColor(pStack);
 
+    private static IntegerRGB hallowMixture(int m) {
+        if (m <= 4) return IntegerRGB.HALLOW_A.mixture(IntegerRGB.HALLOW_B, m * 0.25F);
+        if (m <= 8) return IntegerRGB.HALLOW_B.mixture(IntegerRGB.HALLOW_C, (m - 4) * 0.25F);
+        return IntegerRGB.HALLOW_C.mixture(IntegerRGB.HALLOW_A, (m - 8) * 0.25F);
     }
 
     @SubscribeEvent
@@ -63,17 +91,24 @@ public final class ModClientEvents {
             BowItems.registerProperties();
             FishingPoleItems.registerCast();
             ArrowInBowHud.initAdaptionMap();
+
+            ItemBlockRenderTypes.setRenderLayer(ModBlocks.RED_ICE.get(), RenderType.translucent());
+            ItemBlockRenderTypes.setRenderLayer(ModBlocks.PURPLE_ICE.get(), RenderType.translucent());
+            ItemBlockRenderTypes.setRenderLayer(ModBlocks.PINK_ICE.get(), RenderType.translucent());
+            ItemBlockRenderTypes.setRenderLayer(ModBlocks.THIN_ICE_BLOCK.get(), RenderType.translucent());
+            ItemBlockRenderTypes.setRenderLayer(ModBlocks.EBONY_LOG_BLOCKS.getDoor().get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(ModBlocks.EBONY_LOG_BLOCKS.getTrapdoor().get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(ModBlocks.PALM_LOG_BLOCKS.getDoor().get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(ModFluids.SHIMMER.fluid().get(), RenderType.translucent());
+            ItemBlockRenderTypes.setRenderLayer(ModFluids.SHIMMER.flowing().get(), RenderType.translucent());
+            ItemBlockRenderTypes.setRenderLayer(ModFluids.HONEY.fluid().get(), RenderType.translucent());
+            ItemBlockRenderTypes.setRenderLayer(ModFluids.HONEY.flowing().get(), RenderType.translucent());
+
             GroupWikiScreen.putWikiType("item",
-                    List.of(AccessoryItems.ACCESSORIES, ArrowItems.ARROWS, AxeItems.AXE,
-                            BaitItems.BAITS, BowItems.BOWS, FishingPoleItems.POLES,
-                            FoodItems.FOODS, MaterialItems.MATERIALS,
-                            ModItems.ITEMS, QuestedFishes.FISHES,
-                            SwordItems.SWORDS, PotionItems.POTIONS),
-                    List.of("accessories", "arrow", "axe", "bait", "bow",
-                            "fishing_pole", "food", "material", "misc", "quested_fish",
-                            "sword", "terra_potion"));
-//            ObjectWikiScreen.putDescription("confluence:copper_short_sword",
-//                    Component.translatable("key"));
+                    List.of(AccessoryItems.ACCESSORIES, ArrowItems.ARROWS, AxeItems.AXES, BaitItems.BAITS, BowItems.BOWS, FishingPoleItems.POLES,
+                            FoodItems.FOODS, MaterialItems.MATERIALS, ModItems.ITEMS, QuestedFishes.FISHES, SwordItems.SWORDS, PotionItems.POTIONS),
+                    List.of("accessories", "arrow", "axe", "bait", "bow", "fishing_pole",
+                            "food", "material", "misc", "quested_fish", "sword", "terra_potion"));
             ObjectWikiScreen.putDescription("confluence:copper_short_sword", Component.translatable("wiki.confluence.copper_short_sword"));
         });
     }
@@ -109,6 +144,7 @@ public final class ModClientEvents {
 
         event.registerLayerDefinition(IceBladeSwordProjectileModel.LAYER_LOCATION, IceBladeSwordProjectileModel::createBodyLayer);
         event.registerLayerDefinition(EnchantedSwordProjectileModel.LAYER_LOCATION, EnchantedSwordProjectileModel::createBodyLayer);
+        event.registerLayerDefinition(BoulderModel.LAYER_LOCATION, BoulderModel::createBodyLayer);
 
         event.registerLayerDefinition(BaseHookModel.LAYER_LOCATION, BaseHookModel::createBodyLayer);
         event.registerLayerDefinition(WebSlingerModel.LAYER_LOCATION, WebSlingerModel::createBodyLayer);
@@ -130,7 +166,9 @@ public final class ModClientEvents {
         event.registerEntityRenderer(STAR_FURY_PROJECTILE.get(), StarFuryProjectileRenderer::new);
         event.registerEntityRenderer(ENCHANTED_SWORD_PROJECTILE.get(), EnchantedSwordProjectileRenderer::new);
         event.registerEntityRenderer(BOOMERANG_PROJECTILE.get(), BoomerangProjRenderer::new);
+        event.registerEntityRenderer(BOULDER.get(), BoulderRenderer::new);
 
+        event.registerEntityRenderer(FALLING_STAR_ITEM_ENTITY.get(), FallingStarRenderer::new);
 
         event.registerEntityRenderer(HOTLINE_FISHING_HOOK.get(), HotlineFishingHookRenderer::new);
         event.registerEntityRenderer(BASE_FISHING_HOOK.get(), BaseFishingHookRenderer::new);
@@ -154,11 +192,17 @@ public final class ModClientEvents {
         event.registerEntityRenderer(CHRISTMAS_HOOK.get(), ChristmasHookRenderer::new);
         event.registerEntityRenderer(LUNAR_HOOK.get(), LunarHookRenderer::new);
         /* todo 静止钩 */
-    }
 
-    @SubscribeEvent
-    public static void registerParticles(RegisterParticleProvidersEvent event) {
+        //event.registerBlockEntityRenderer(ModBlocks.ALTAR_BLOCK_ENTITY.get(), AltarBlockRenderer::new);
+        //event.registerBlockEntityRenderer(ModBlocks.SKY_MILL_ENTITY.get(), SkyMillBlockRenderer::new);
+        //event.registerBlockEntityRenderer(ModBlocks.EXTRACTINATOR_ENTITY.get(), ExtractinatorBlockRenderer::new);
 
+        event.registerBlockEntityRenderer(ModBlocks.SIGN_BLOCK_ENTITY.get(), SignRenderer::new);
+        event.registerBlockEntityRenderer(FunctionalBlocks.MECHANICAL_BLOCK_ENTITY.get(), MechanicalBlockRenderer::new);
+        event.registerBlockEntityRenderer(FunctionalBlocks.BASE_CHEST_BLOCK_ENTITY.get(), BaseChestBlockRenderer::new);
+        event.registerBlockEntityRenderer(FunctionalBlocks.DEATH_CHEST_BLOCK_ENTITY.get(), DeathChestBlockRenderer::new);
+
+        //event.registerBlockEntityRenderer(ModBlocks.LIFE_CRYSTAL_BLOCK_ENTITY.get(), LifeCrystalBlockRenderer::new);
     }
 
     @SubscribeEvent
@@ -168,7 +212,7 @@ public final class ModClientEvents {
 
     @SubscribeEvent
     public static void registerItemColors(RegisterColorHandlersEvent.Item event) {
-
+        event.register(SIMPLE, MaterialItems.GEL.get());
     }
 
     @SubscribeEvent

@@ -89,47 +89,5 @@ public class BowItems {
             else ItemProperties.register(item.get(), pull, bowPull);
             ItemProperties.register(item.get(), pulling, bowPulling);
         });
-
-        /*
-        ItemProperties.register(WOODEN_SHORT_BOW.get(), pull, shortBowPull);
-        ItemProperties.register(WOODEN_SHORT_BOW.get(), pulling, bowPulling);
-        ItemProperties.register(COPPER_SHORT_BOW.get(), pull, shortBowPull);
-        ItemProperties.register(COPPER_SHORT_BOW.get(), pulling, bowPulling);
-        ItemProperties.register(TIN_SHORT_BOW.get(), pull, shortBowPull);
-        ItemProperties.register(TIN_SHORT_BOW.get(), pulling, bowPulling);
-        ItemProperties.register(IRON_SHORT_BOW.get(), pull, shortBowPull);
-        ItemProperties.register(IRON_SHORT_BOW.get(), pulling, bowPulling);
-        ItemProperties.register(LEAD_SHORT_BOW.get(), pull, shortBowPull);
-        ItemProperties.register(LEAD_SHORT_BOW.get(), pulling, bowPulling);
-        ItemProperties.register(SILVER_SHORT_BOW.get(), pull, shortBowPull);
-        ItemProperties.register(SILVER_SHORT_BOW.get(), pulling, bowPulling);
-        ItemProperties.register(TUNGSTEN_SHORT_BOW.get(), pull, shortBowPull);
-        ItemProperties.register(TUNGSTEN_SHORT_BOW.get(), pulling, bowPulling);
-        ItemProperties.register(GOLDEN_SHORT_BOW.get(), pull, shortBowPull);
-        ItemProperties.register(GOLDEN_SHORT_BOW.get(), pulling, bowPulling);
-        ItemProperties.register(PLATINUM_SHORT_BOW.get(), pull, shortBowPull);
-        ItemProperties.register(PLATINUM_SHORT_BOW.get(), pulling, bowPulling);
-
-        ItemProperties.register(COPPER_BOW.get(), pull, bowPull);
-        ItemProperties.register(COPPER_BOW.get(), pulling, bowPulling);
-        ItemProperties.register(TIN_BOW.get(), pull, bowPull);
-        ItemProperties.register(TIN_BOW.get(), pulling, bowPulling);
-        ItemProperties.register(IRON_BOW.get(), pull, bowPull);
-        ItemProperties.register(IRON_BOW.get(), pulling, bowPulling);
-        ItemProperties.register(LEAD_BOW.get(), pull, bowPull);
-        ItemProperties.register(LEAD_BOW.get(), pulling, bowPulling);
-        ItemProperties.register(SILVER_BOW.get(), pull, bowPull);
-        ItemProperties.register(SILVER_BOW.get(), pulling, bowPulling);
-        ItemProperties.register(TUNGSTEN_BOW.get(), pull, bowPull);
-        ItemProperties.register(TUNGSTEN_BOW.get(), pulling, bowPulling);
-        ItemProperties.register(GOLDEN_BOW.get(), pull, bowPull);
-        ItemProperties.register(GOLDEN_BOW.get(), pulling, bowPulling);
-        ItemProperties.register(PLATINUM_BOW.get(), pull, bowPull);
-        ItemProperties.register(PLATINUM_BOW.get(), pulling, bowPulling);
-
-        ItemProperties.register(DAEDALUS_STORM_BOW.get(), pull, bowPull);
-        ItemProperties.register(DAEDALUS_STORM_BOW.get(), pulling, bowPulling);
-        */
-
     }
 }

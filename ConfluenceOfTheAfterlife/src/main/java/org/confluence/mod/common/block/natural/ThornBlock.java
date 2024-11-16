@@ -5,7 +5,6 @@ import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.RandomSource;
@@ -22,14 +21,12 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.material.PushReaction;
-import org.confluence.mod.common.data.gen.limit.CustomItemModel;
-import org.confluence.mod.common.data.gen.limit.CustomModel;
 import org.confluence.mod.common.init.ModDamageTypes;
 import org.confluence.mod.common.init.block.ModBlocks;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class ThornBlock extends PipeBlock implements CustomModel, CustomItemModel {
+public class ThornBlock extends PipeBlock {
     public static final MapCodec<ThornBlock> CODEC = RecordCodecBuilder.mapCodec(
         builder -> builder.group(Codec.FLOAT.fieldOf("damage_amount").forGetter(thornBlock -> thornBlock.damageAmount),
                 Block.CODEC.fieldOf("ground_block").forGetter(thornBlock -> thornBlock.ground))

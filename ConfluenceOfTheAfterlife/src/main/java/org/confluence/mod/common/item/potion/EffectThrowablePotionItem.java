@@ -14,8 +14,6 @@ import net.minecraft.world.level.Level;
 import org.confluence.mod.common.entity.projectile.EffectThrownPotion;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.function.Supplier;
-
 public class EffectThrowablePotionItem extends EffectPotionItem {
     public EffectThrowablePotionItem(Properties properties, Holder<MobEffect> mobEffect, int duration, int amplifier) {
         super(properties, mobEffect, duration, amplifier);

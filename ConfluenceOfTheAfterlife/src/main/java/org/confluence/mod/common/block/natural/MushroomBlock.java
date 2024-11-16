@@ -7,11 +7,9 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.confluence.mod.common.data.gen.limit.CustomItemModel;
-import org.confluence.mod.common.data.gen.limit.CustomModel;
 import org.jetbrains.annotations.NotNull;
 
-public class MushroomBlock extends BasePlantBlock implements CustomModel, CustomItemModel {
+public class MushroomBlock extends BasePlantBlock {
     private static final VoxelShape SHAPE=Block.box(5.0D, 0.0D, 5.0D, 11.0D, 6.0D, 11.0D);
     public MushroomBlock(Block... surviveBlock){
         super(surviveBlock);
