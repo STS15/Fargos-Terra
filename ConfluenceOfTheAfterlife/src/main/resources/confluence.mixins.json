@@ -13,6 +13,7 @@
         "accessor.LanguageProviderAccessor",
         "block.BaseContainerBlockEntityMixin",
         "entity.AbstractArrowMixin",
+        "entity.AbstractMinecartMixin",
         "entity.LivingEntityMixin",
         "integration.terra_curio.BaseSpeedBootsMixin",
         "integration.terra_curio.StarClockEntityMixin",

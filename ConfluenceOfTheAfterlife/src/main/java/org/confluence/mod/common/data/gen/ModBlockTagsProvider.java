@@ -2,6 +2,7 @@ package org.confluence.mod.common.data.gen;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -9,6 +10,7 @@ import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import org.confluence.mod.common.block.natural.LogBlockSet;
 import org.confluence.mod.common.init.ModTags;
+import org.confluence.mod.common.init.block.FunctionalBlocks;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -42,6 +44,7 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
                 CRACKED_PINK_BRICK.get(),
                 CRISPY_HONEY_BLOCK.get()
         );
+        tag(BlockTags.RAILS).add(FunctionalBlocks.EVER_POWERED_RAIL.get());
     }
 
     @Override

@@ -23,9 +23,12 @@ import org.confluence.mod.Confluence;
 import org.confluence.mod.common.effect.harmful.CursedEffect;
 import org.confluence.mod.common.effect.harmful.SilencedEffect;
 import org.confluence.mod.common.effect.harmful.StonedEffect;
+import org.confluence.mod.common.entity.minecart.BaseMinecartEntity;
 import org.confluence.mod.common.init.ModAttachments;
+import org.confluence.mod.common.init.ModEntities;
 import org.confluence.mod.common.init.ModTags;
 import org.confluence.mod.common.init.item.AccessoryItems;
+import org.confluence.mod.mixed.IAbstractMinecart;
 import org.confluence.mod.util.PlayerUtils;
 import org.confluence.terra_curio.util.CuriosUtils;
 
@@ -55,9 +58,8 @@ public final class PlayerEvents {
         BlockState blockState = level.getBlockState(blockPos);
         if (blockState.getBlock() instanceof BaseRailBlock railBlock) {
             Optional<ItemStack> optionalItemStack = CuriosUtils.getSlot(player, "minecart", 0);
-            if (optionalItemStack.isEmpty()) return;
             player.swing(InteractionHand.MAIN_HAND, true);
-            ItemStack itemStack = optionalItemStack.get();
+            ItemStack itemStack = optionalItemStack.orElse(ItemStack.EMPTY);
             RightClickRailBlock e = NeoForge.EVENT_BUS.post(new RightClickRailBlock(player, itemStack, blockState, railBlock, blockPos));
             if (e.isCanceled()) return;
             AbstractMinecart minecart = e.getMinecart();
@@ -126,10 +128,16 @@ public final class PlayerEvents {
         double y = blockPos.getY() + 0.0625 + offsetY;
         double z = blockPos.getZ() + 0.5;
         ItemStack minecartItem = event.getMinecartItem();
-        Item item = minecartItem.getItem();
 
-        if (item == Items.MINECART) {
-            event.setMinecart(new Minecart(level, x, y, z));
+        if (minecartItem == ItemStack.EMPTY) {
+            BaseMinecartEntity baseMinecart = new BaseMinecartEntity(ModEntities.WOODEN_MINECART.get(), level, () -> Items.AIR, 0.308F, 0.16);
+            baseMinecart.setPos(x, y, z);
+            event.setMinecart(baseMinecart);
+        } else {
+            Item item = minecartItem.getItem();
+            if (item == Items.MINECART) {
+                event.setMinecart(new Minecart(level, x, y, z));
+            }
         }
     }
 
@@ -139,7 +147,7 @@ public final class PlayerEvents {
         AbstractMinecart.Type type = event.getMinecart().getMinecartType();
 
         if (type == AbstractMinecart.Type.RIDEABLE) {
-            event.setMinecartItem(Items.MINECART.getDefaultInstance());
+            event.setMinecartItem(((IAbstractMinecart) event.getMinecart()).confluence$getDropItem().getDefaultInstance());
         }
     }
 }
