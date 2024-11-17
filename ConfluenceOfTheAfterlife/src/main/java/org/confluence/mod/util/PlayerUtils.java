@@ -2,19 +2,27 @@ package org.confluence.mod.util;
 
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.DiggerItem;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.Tiers;
 import net.minecraft.world.level.Level;
+import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.common.util.FakePlayer;
 import net.neoforged.neoforge.network.PacketDistributor;
+import org.confluence.mod.api.event.GetCustomDiggingPowerEvent;
 import org.confluence.mod.common.attachment.ManaStorage;
 import org.confluence.mod.common.data.saved.ConfluenceData;
 import org.confluence.mod.common.init.ModAttachments;
 import org.confluence.mod.common.init.ModEffects;
+import org.confluence.mod.common.init.ModTiers;
 import org.confluence.mod.common.init.item.AccessoryItems;
 import org.confluence.mod.network.s2c.GamePhasePacketS2C;
 import org.confluence.mod.network.s2c.ManaPacketS2C;
 import org.confluence.terra_curio.network.s2c.WindSpeedPacketS2C;
 import org.confluence.terra_curio.util.TCUtils;
 
+import java.util.Optional;
 import java.util.function.IntSupplier;
 
 public final class PlayerUtils {
@@ -77,7 +85,7 @@ public final class PlayerUtils {
         PacketDistributor.sendToPlayer(serverPlayer, new GamePhasePacketS2C(data.getGamePhase()));
     }
 
-    public static float getFishingPower(Player player) {
+    public static float getFishingPower(ServerPlayer player) {
         float base = TCUtils.getAccessoriesValue(player, AccessoryItems.FISHING$POWER);
         if (player.getData(ModAttachments.EVER_BENEFICIAL).isGummyWormUsed()) base += 3.0F;
         Level level = player.level();
@@ -97,5 +105,35 @@ public final class PlayerUtils {
         };
         // todo 血月加成
         return base + player.getLuck();
+    }
+
+    public static Optional<ItemStack> getMaxDiggingPowerItem(Player player) {
+        int max = 0;
+        ItemStack ret = null;
+        for (ItemStack itemStack : player.getInventory().items) {
+            if (!itemStack.isEmpty() && itemStack.getItem() instanceof DiggerItem diggerItem) {
+                Tier tier = diggerItem.getTier();
+                if (tier instanceof ModTiers.PoweredTier poweredTier) {
+                    if (poweredTier.getPower() > max) {
+                        max = poweredTier.getPower();
+                        ret = itemStack;
+                        continue;
+                    }
+                } else if (tier instanceof Tiers tiers) {
+                    int power = ModTiers.getPowerForVanillaTiers(tiers);
+                    if (power > max) {
+                        max = power;
+                        ret = itemStack;
+                        continue;
+                    }
+                }
+            }
+            GetCustomDiggingPowerEvent e = NeoForge.EVENT_BUS.post(new GetCustomDiggingPowerEvent(itemStack));
+            if (e.getPower() > max) {
+                max = e.getPower();
+                ret = itemStack;
+            }
+        }
+        return Optional.ofNullable(ret);
     }
 }

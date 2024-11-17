@@ -2,6 +2,7 @@ package org.confluence.mod.common.item.common;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -32,7 +33,7 @@ public class BoxBlockItem extends BlockItem {
     public @NotNull InteractionResultHolder<ItemStack> use(@NotNull Level level, @NotNull Player player, @NotNull InteractionHand hand) {
         ItemStack itemStack = player.getItemInHand(hand);
         if (level instanceof ServerLevel serverLevel && hand == InteractionHand.MAIN_HAND && !player.isCrouching()) {
-            float fishingPower = PlayerUtils.getFishingPower(player);
+            float fishingPower = PlayerUtils.getFishingPower((ServerPlayer) player);
             LootParams lootparams = new LootParams.Builder(serverLevel)
                     .withParameter(LootContextParams.ORIGIN, player.position())
                     .withParameter(LootContextParams.THIS_ENTITY, player)
