@@ -16,9 +16,13 @@ import org.confluence.mod.common.CommonConfigs;
 import org.confluence.mod.common.effect.beneficial.ArcheryEffect;
 import org.confluence.mod.common.effect.beneficial.ThornsEffect;
 import org.confluence.mod.common.effect.harmful.ManaSicknessEffect;
+import org.confluence.mod.common.init.ModAttachments;
+import org.confluence.mod.common.init.item.AccessoryItems;
 import org.confluence.mod.common.item.sword.BaseSwordItem;
 import org.confluence.mod.util.ModUtils;
 import org.confluence.mod.util.PlayerUtils;
+import org.confluence.terra_curio.common.init.TCTags;
+import org.confluence.terra_curio.util.TCUtils;
 
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.GAME, modid = Confluence.MODID)
 public final class LivingEntityEvents {
@@ -47,7 +51,11 @@ public final class LivingEntityEvents {
 
     @SubscribeEvent
     public static void livingHeal(LivingHealEvent event) {
-
+        LivingEntity living = event.getEntity();
+        if (living.level().isClientSide) return;
+        if (living.getData(ModAttachments.EVER_BENEFICIAL).isVitalCrystalUsed()) {
+            event.setAmount(event.getAmount() * 1.2F);
+        }
     }
 
     @SubscribeEvent
@@ -63,7 +71,13 @@ public final class LivingEntityEvents {
     @SubscribeEvent
     public static void livingIncomingDamage(LivingIncomingDamageEvent event) {
         if (event.getEntity() instanceof ServerPlayer serverPlayer) {
-            PlayerUtils.getManaWhenBeHurt(serverPlayer, event.getSource(), event.getAmount());
+            DamageSource damageSource = event.getSource();
+            float amount = event.getAmount();
+            if (TCUtils.hasAccessoriesType(serverPlayer, AccessoryItems.HURT$GET$MANA)) {
+                if (!damageSource.is(DamageTypes.DROWN) && !damageSource.is(TCTags.HARMFUL_EFFECT)) {
+                    PlayerUtils.receiveMana(serverPlayer, () -> (int) amount);
+                }
+            }
         }
     }
 
@@ -77,11 +91,11 @@ public final class LivingEntityEvents {
         float amount = event.getNewDamage();
 
         ThornsEffect.apply(living, damageSource.getEntity(), amount);
-        //MagicCuffs.apply(living, damageSource, amount);
+        //MagicCuffs.consumer(living, damageSource, amount);
 
         amount = ArcheryEffect.apply(living, damageSource, amount);
         amount = ManaSicknessEffect.apply(damageSource, amount);
-        //amount = BreathingReed.apply(living, damageSource, amount);
+        //amount = BreathingReed.consumer(living, damageSource, amount);
 
         event.setNewDamage(amount);
     }

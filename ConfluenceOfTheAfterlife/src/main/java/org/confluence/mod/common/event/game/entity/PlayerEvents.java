@@ -1,6 +1,7 @@
 package org.confluence.mod.common.event.game.entity;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.Entity;
@@ -8,7 +9,6 @@ import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.vehicle.AbstractMinecart;
 import net.minecraft.world.entity.vehicle.Minecart;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
@@ -20,14 +20,16 @@ import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.common.util.TriState;
 import net.neoforged.neoforge.event.entity.player.*;
 import org.confluence.mod.Confluence;
+import org.confluence.mod.common.attachment.EverBeneficial;
 import org.confluence.mod.common.effect.harmful.CursedEffect;
 import org.confluence.mod.common.effect.harmful.SilencedEffect;
 import org.confluence.mod.common.effect.harmful.StonedEffect;
 import org.confluence.mod.common.entity.minecart.BaseMinecartEntity;
 import org.confluence.mod.common.init.ModAttachments;
-import org.confluence.mod.common.init.ModEntities;
 import org.confluence.mod.common.init.ModTags;
 import org.confluence.mod.common.init.item.AccessoryItems;
+import org.confluence.mod.common.item.common.BaseMinecartItem;
+import org.confluence.mod.common.item.common.EverBeneficialItem;
 import org.confluence.mod.mixed.IAbstractMinecart;
 import org.confluence.mod.util.PlayerUtils;
 import org.confluence.terra_curio.util.CuriosUtils;
@@ -53,7 +55,7 @@ public final class PlayerEvents {
     public static void rightClickBlock(PlayerInteractEvent.RightClickBlock event) {
         Player player = event.getEntity();
         Level level = event.getLevel();
-        if (level.isClientSide || player.isCrouching() || event.getItemStack().is(ModTags.Items.MINECART)) return;
+        if (!(level instanceof ServerLevel) || player.isCrouching() || event.getItemStack().is(ModTags.Items.MINECART)) return;
         BlockPos blockPos = event.getPos();
         BlockState blockState = level.getBlockState(blockPos);
         if (blockState.getBlock() instanceof BaseRailBlock railBlock) {
@@ -120,24 +122,21 @@ public final class PlayerEvents {
         AbstractMinecart minecart = event.getMinecart();
         if (event.isCanceled() || minecart != null) return;
 
-        Level level = event.getEntity().level();
+        ServerLevel level = (ServerLevel) event.getEntity().level();
         BlockPos blockPos = event.getBlockPos();
         boolean ascending = event.getRailBlock().getRailDirection(event.getBlockState(), level, blockPos, null).isAscending();
-        double offsetY = ascending ? 0.5 : 0.0;
         double x = blockPos.getX() + 0.5;
-        double y = blockPos.getY() + 0.0625 + offsetY;
+        double y = blockPos.getY() + 0.0625 + (ascending ? 0.5 : 0.0);
         double z = blockPos.getZ() + 0.5;
         ItemStack minecartItem = event.getMinecartItem();
 
         if (minecartItem == ItemStack.EMPTY) {
-            BaseMinecartEntity baseMinecart = new BaseMinecartEntity(ModEntities.WOODEN_MINECART.get(), level, () -> Items.AIR, 0.308F, 0.16);
-            baseMinecart.setPos(x, y, z);
+            BaseMinecartEntity baseMinecart = new BaseMinecartEntity(level, x, y, z, BaseMinecartEntity.WOODEN);
             event.setMinecart(baseMinecart);
-        } else {
-            Item item = minecartItem.getItem();
-            if (item == Items.MINECART) {
-                event.setMinecart(new Minecart(level, x, y, z));
-            }
+        } else if (minecartItem.getItem() == Items.MINECART) {
+            event.setMinecart(new Minecart(level, x, y, z));
+        } else if (minecartItem.getItem() instanceof BaseMinecartItem baseMinecartItem) {
+            event.setMinecart(baseMinecartItem.createMinecart(level, x, y, z, AbstractMinecart.Type.RIDEABLE, minecartItem, event.getEntity()));
         }
     }
 
@@ -148,6 +147,38 @@ public final class PlayerEvents {
 
         if (type == AbstractMinecart.Type.RIDEABLE) {
             event.setMinecartItem(((IAbstractMinecart) event.getMinecart()).confluence$getDropItem().getDefaultInstance());
+        }
+    }
+
+    @SubscribeEvent // 可以拿到复制前的玩家
+    public static void respawnPosition(PlayerRespawnPositionEvent event) {
+        if (!(event.getEntity() instanceof ServerPlayer serverPlayer)) return;
+        if (event.isFromEndFight()) {
+            serverPlayer.getPersistentData().putFloat("confluence:cached_health", serverPlayer.getHealth());
+        }
+    }
+
+    @SubscribeEvent
+    public static void respawn(PlayerEvent.PlayerRespawnEvent event) {
+        if (!(event.getEntity() instanceof ServerPlayer serverPlayer)) return;
+        EverBeneficial everBeneficial = serverPlayer.getData(ModAttachments.EVER_BENEFICIAL);
+        if (everBeneficial.getUsedLifeCrystals() > 0) {
+            EverBeneficialItem.LIFE_CRYSTAL.post().accept(EverBeneficialItem.LIFE_CRYSTAL.id(), serverPlayer, everBeneficial, true);
+        }
+        if (everBeneficial.getUsedLifeFruits() > 0) {
+            EverBeneficialItem.LIFE_FRUITS.post().accept(EverBeneficialItem.LIFE_FRUITS.id(), serverPlayer, everBeneficial, true);
+        }
+        if (everBeneficial.isAegisAppleUsed()) {
+            EverBeneficialItem.AEGIS_APPLE.post().accept(EverBeneficialItem.AEGIS_APPLE.id(), serverPlayer, everBeneficial, true);
+        }
+        if (everBeneficial.isAmbrosiaUsed()) {
+            EverBeneficialItem.AMBROSIA.post().accept(EverBeneficialItem.AMBROSIA.id(), serverPlayer, everBeneficial, true);
+        }
+        if (everBeneficial.isGalaxyPearlUsed()) {
+            EverBeneficialItem.GALAXY_PEARL.post().accept(EverBeneficialItem.GALAXY_PEARL.id(), serverPlayer, everBeneficial, true);
+        }
+        if (event.isEndConquered()) {
+            serverPlayer.setHealth(serverPlayer.getPersistentData().getFloat("confluence:cached_health"));
         }
     }
 }

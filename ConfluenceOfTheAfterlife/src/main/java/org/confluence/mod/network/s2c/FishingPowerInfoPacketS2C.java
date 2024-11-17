@@ -10,8 +10,7 @@ import net.neoforged.neoforge.network.PacketDistributor;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
 import org.confluence.mod.Confluence;
 import org.confluence.mod.client.handler.ClientPacketHandler;
-import org.confluence.mod.common.init.item.AccessoryItems;
-import org.confluence.terra_curio.util.TCUtils;
+import org.confluence.mod.util.PlayerUtils;
 import org.jetbrains.annotations.NotNull;
 
 public record FishingPowerInfoPacketS2C(float value) implements CustomPacketPayload {
@@ -38,7 +37,7 @@ public record FishingPowerInfoPacketS2C(float value) implements CustomPacketPayl
     }
 
     public static void sendToPlayer(ServerPlayer serverPlayer) {
-        float fishingPower = TCUtils.getAccessoriesValue(serverPlayer, AccessoryItems.FISHING$POWER);
+        float fishingPower = PlayerUtils.getFishingPower(serverPlayer);
         PacketDistributor.sendToPlayer(serverPlayer, new FishingPowerInfoPacketS2C(fishingPower));
     }
 }

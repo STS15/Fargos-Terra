@@ -3,6 +3,7 @@ package org.confluence.mod.common.init;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
+import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.confluence.mod.Confluence;
 import org.confluence.mod.common.entity.FallingStarItemEntity;
@@ -14,6 +15,7 @@ import org.confluence.mod.common.entity.hook.*;
 import org.confluence.mod.common.entity.minecart.BaseMinecartEntity;
 import org.confluence.mod.common.entity.projectile.*;
 import org.confluence.mod.common.entity.projectile.bombs.*;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Supplier;
 
@@ -58,7 +60,12 @@ public final class ModEntities {
     public static final Supplier<EntityType<LunarHookEntity>> LUNAR_HOOK = registerHook("lunar_hook", LunarHookEntity::new);
     /* todo 静止钩 */
 
-    public static final Supplier<EntityType<BaseMinecartEntity>> WOODEN_MINECART = ENTITIES.register("wooden_minecart", () -> EntityType.Builder.<BaseMinecartEntity>of(BaseMinecartEntity::new, MobCategory.MISC).sized(0.98F, 0.7F).passengerAttachments(0.1875F).clientTrackingRange(8).build("confluence:wooden_minecart"));
+    public static final Supplier<EntityType<? extends BaseMinecartEntity>> WOODEN_MINECART = registerMinecart("wooden_minecart");
+    public static final Supplier<EntityType<? extends BaseMinecartEntity>> MECHANICAL_CART = registerMinecart("mechanical_cart");
+
+    private static @NotNull DeferredHolder<EntityType<?>, EntityType<? extends BaseMinecartEntity>> registerMinecart(String id) {
+        return ENTITIES.register(id, () -> EntityType.Builder.<BaseMinecartEntity>of(BaseMinecartEntity::new, MobCategory.MISC).sized(0.98F, 0.7F).passengerAttachments(0.1875F).clientTrackingRange(8).build("confluence:" + id));
+    }
 
     private static <E extends AbstractHookEntity> Supplier<EntityType<E>> registerHook(String id, EntityType.EntityFactory<E> supplier) {
         return ENTITIES.register(id, () -> EntityType.Builder.of(supplier, MobCategory.MISC).sized(0.5F, 0.5F).clientTrackingRange(4).updateInterval(20).build("confluence:" + id));

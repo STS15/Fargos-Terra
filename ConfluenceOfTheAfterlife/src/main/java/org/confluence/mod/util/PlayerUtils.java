@@ -1,8 +1,6 @@
 package org.confluence.mod.util;
 
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.neoforged.neoforge.common.util.FakePlayer;
@@ -14,7 +12,6 @@ import org.confluence.mod.common.init.ModEffects;
 import org.confluence.mod.common.init.item.AccessoryItems;
 import org.confluence.mod.network.s2c.GamePhasePacketS2C;
 import org.confluence.mod.network.s2c.ManaPacketS2C;
-import org.confluence.terra_curio.common.init.TCTags;
 import org.confluence.terra_curio.network.s2c.WindSpeedPacketS2C;
 import org.confluence.terra_curio.util.TCUtils;
 
@@ -100,10 +97,5 @@ public final class PlayerUtils {
         };
         // todo 血月加成
         return base + player.getLuck();
-    }
-
-    public static void getManaWhenBeHurt(ServerPlayer serverPlayer, DamageSource damageSource, float amount) {
-        if (damageSource.is(DamageTypes.DROWN) || damageSource.is(TCTags.HARMFUL_EFFECT)) return;
-        receiveMana(serverPlayer, () -> (int) amount);
     }
 }

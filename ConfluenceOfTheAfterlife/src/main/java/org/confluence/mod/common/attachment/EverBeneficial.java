@@ -7,77 +7,137 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.UnknownNullability;
 
 public class EverBeneficial implements INBTSerializable<CompoundTag> {
-    private boolean vitalCrystalUsed;
-    private boolean aegisAppleUsed;
-    private boolean ambrosiaUsed;
-    private boolean gummyWormUsed;
-    private boolean galaxyPearlUsed;
+    private int lifeCrystals;
+    private int lifeFruits;
+
+    private boolean vitalCrystal;
+    private boolean aegisApple;
+    private boolean ambrosia;
+    private boolean gummyWorm;
+    private boolean galaxyPearl;
+    private boolean minecartUpgradeKit;
 
     public EverBeneficial() {
-        this.vitalCrystalUsed = false;
-        this.aegisAppleUsed = false;
-        this.ambrosiaUsed = false;
-        this.gummyWormUsed = false;
-        this.galaxyPearlUsed = false;
+        this.lifeCrystals = 0;
+        this.lifeFruits = 0;
+
+        this.vitalCrystal = false;
+        this.aegisApple = false;
+        this.ambrosia = false;
+        this.gummyWorm = false;
+        this.galaxyPearl = false;
+        this.minecartUpgradeKit = false;
     }
 
-    public void setVitalCrystalUsed() {
-        this.vitalCrystalUsed = true;
+    public boolean increaseCrystals() {
+        if (lifeCrystals < 15) {
+            this.lifeCrystals++;
+            return true;
+        }
+        return false;
+    }
+
+    public int getUsedLifeCrystals() {
+        return lifeCrystals;
+    }
+
+    public boolean increaseFruits() {
+        if (lifeFruits < 20) {
+            this.lifeFruits++;
+            return true;
+        }
+        return false;
+    }
+
+    public int getUsedLifeFruits() {
+        return lifeFruits;
+    }
+
+    public boolean setVitalCrystalUsed() {
+        if (vitalCrystal) return false;
+        this.vitalCrystal = true;
+        return true;
     }
 
     public boolean isVitalCrystalUsed() {
-        return vitalCrystalUsed;
+        return vitalCrystal;
     }
 
-    public void setAegisAppleUsed() {
-        this.aegisAppleUsed = true;
+    public boolean setAegisAppleUsed() {
+        if (aegisApple) return false;
+        this.aegisApple = true;
+        return true;
     }
 
     public boolean isAegisAppleUsed() {
-        return aegisAppleUsed;
+        return aegisApple;
     }
 
-    public void setAmbrosiaUsed() {
-        this.ambrosiaUsed = true;
+    public boolean setAmbrosiaUsed() {
+        if (ambrosia) return false;
+        this.ambrosia = true;
+        return true;
     }
 
     public boolean isAmbrosiaUsed() {
-        return ambrosiaUsed;
+        return ambrosia;
     }
 
-    public void setGummyWormUsed() {
-        this.gummyWormUsed = true;
+    public boolean setGummyWormUsed() {
+        if (gummyWorm) return false;
+        this.gummyWorm = true;
+        return true;
     }
 
     public boolean isGummyWormUsed() {
-        return gummyWormUsed;
+        return gummyWorm;
     }
 
-    public void setGalaxyPearlUsed() {
-        this.galaxyPearlUsed = true;
+    public boolean setGalaxyPearlUsed() {
+        if (galaxyPearl) return false;
+        this.galaxyPearl = true;
+        return true;
     }
 
     public boolean isGalaxyPearlUsed() {
-        return galaxyPearlUsed;
+        return galaxyPearl;
+    }
+
+    public boolean setMinecartUpgradeKitUsed() {
+        if (minecartUpgradeKit) return false;
+        this.minecartUpgradeKit = true;
+        return true;
+    }
+
+    public boolean isMinecartUpgradeKitUsed() {
+        return minecartUpgradeKit;
     }
 
     @Override
     public @UnknownNullability CompoundTag serializeNBT(HolderLookup.@NotNull Provider provider) {
         CompoundTag nbt = new CompoundTag();
-        nbt.putBoolean("vitalCrystalUsed", vitalCrystalUsed);
-        nbt.putBoolean("aegisAppleUsed", aegisAppleUsed);
-        nbt.putBoolean("ambrosiaUsed", ambrosiaUsed);
-        nbt.putBoolean("gummyWormUsed", gummyWormUsed);
-        nbt.putBoolean("galaxyPearlUsed", galaxyPearlUsed);
+        nbt.putInt("lifeCrystals", lifeCrystals);
+        nbt.putInt("lifeFruits", lifeFruits);
+
+        nbt.putBoolean("vitalCrystal", vitalCrystal);
+        nbt.putBoolean("aegisApple", aegisApple);
+        nbt.putBoolean("ambrosia", ambrosia);
+        nbt.putBoolean("gummyWorm", gummyWorm);
+        nbt.putBoolean("galaxyPearl", galaxyPearl);
+        nbt.putBoolean("minecartUpgradeKit", minecartUpgradeKit);
         return nbt;
     }
 
     @Override
     public void deserializeNBT(HolderLookup.@NotNull Provider provider, @NotNull CompoundTag nbt) {
-        this.vitalCrystalUsed = nbt.getBoolean("vitalCrystalUsed");
-        this.aegisAppleUsed = nbt.getBoolean("aegisAppleUsed");
-        this.ambrosiaUsed = nbt.getBoolean("ambrosiaUsed");
-        this.gummyWormUsed = nbt.getBoolean("gummyWormUsed");
-        this.galaxyPearlUsed = nbt.getBoolean("galaxyPearlUsed");
+        this.lifeCrystals = nbt.getInt("lifeCrystals");
+        this.lifeFruits = nbt.getInt("lifeFruits");
+
+        this.vitalCrystal = nbt.getBoolean("vitalCrystal");
+        this.aegisApple = nbt.getBoolean("aegisApple");
+        this.ambrosia = nbt.getBoolean("ambrosia");
+        this.gummyWorm = nbt.getBoolean("gummyWorm");
+        this.galaxyPearl = nbt.getBoolean("galaxyPearl");
+        this.minecartUpgradeKit = nbt.getBoolean("minecartUpgradeKit");
     }
 }

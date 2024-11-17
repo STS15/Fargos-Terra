@@ -37,7 +37,7 @@ public class VanillaPotionItem extends AbstractPotionItem {
 
     /*
     @Override
-    protected void apply(ItemStack itemStack, Level level, LivingEntity living) {
+    protected void consumer(ItemStack itemStack, Level level, LivingEntity living) {
         MobEffect effect;
         if (!itemStack.getTags().toList().isEmpty()) {
             effect = ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation(itemStack.getTag().getString("Potion")));

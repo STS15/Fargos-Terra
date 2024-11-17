@@ -3,37 +3,54 @@ package org.confluence.mod.common.entity.minecart;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MoverType;
 import net.minecraft.world.entity.vehicle.Minecart;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
+import org.confluence.mod.common.init.ModAttachments;
+import org.confluence.mod.common.init.ModEntities;
+import org.confluence.mod.common.init.item.MinecartItems;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Supplier;
 
 public class BaseMinecartEntity extends Minecart {
+    public static final double MECHANICAL_CART_MAX_SPEED = 0.615;
+    private static final double MECHANICAL_CART_ACCELERATION = 2.5;
+    public static final double MECHANICAL_CART_DRAG_AIR = 0.99;
+    public static final Abilities WOODEN = new Abilities(ModEntities.WOODEN_MINECART, () -> Items.AIR, 0.308F, 0.16, 0.94);
+    public static final Abilities MECHANICAL = new Abilities(ModEntities.MECHANICAL_CART, MinecartItems.MECHANICAL_CART, (float) MECHANICAL_CART_MAX_SPEED, MECHANICAL_CART_ACCELERATION, MECHANICAL_CART_DRAG_AIR);
+
+
     private Supplier<? extends Item> dropItem = () -> Items.AIR;
-    private float maxSpeed = 0.615F; // 机械矿车的最大速度
-    private double acceleration = 2.5; // 机械矿车的加速度
+    private float maxSpeed = (float) MECHANICAL_CART_MAX_SPEED;
+    private double acceleration = MECHANICAL_CART_ACCELERATION;
 
     public BaseMinecartEntity(EntityType<? extends BaseMinecartEntity> entityType, Level level) {
         super(entityType, level);
     }
 
-    public BaseMinecartEntity(EntityType<? extends BaseMinecartEntity> entityType, Level level, Supplier<? extends Item> dropItem, float maxSpeed, double acceleration) {
-        super(entityType, level);
-        this.dropItem = dropItem;
-        this.maxSpeed = maxSpeed;
-        this.acceleration = acceleration;
+    public BaseMinecartEntity(Level level, double x, double y, double z, Abilities abilities) {
+        super(abilities.entityType.get(), level);
+        this.dropItem = abilities.dropItem;
+        this.acceleration = abilities.acceleration;
         setCurrentCartSpeedCapOnRail(maxSpeed);
+        setDragAir(abilities.dragAir);
+        setPos(x, y, z);
+        this.xo = x;
+        this.yo = y;
+        this.zo = z;
     }
 
     @Override
     public void moveMinecartOnRail(@NotNull BlockPos pos) {
-        double d24 = (isVehicle() ? acceleration : 1.0);
-        double d25 = getMaxSpeedWithRail();
+        boolean upgradeKit = getFirstPassenger() instanceof LivingEntity living && living.getData(ModAttachments.EVER_BENEFICIAL).isMinecartUpgradeKitUsed();
+        if (upgradeKit) setDragAir(MECHANICAL_CART_DRAG_AIR);
+        double d25 = upgradeKit ? MECHANICAL_CART_MAX_SPEED : getMaxCartSpeedOnRail();
+        double d24 = upgradeKit ? MECHANICAL_CART_ACCELERATION : (isVehicle() ? acceleration : 1.0);
         Vec3 vec3d1 = getDeltaMovement();
         move(MoverType.SELF, new Vec3(Mth.clamp(d24 * vec3d1.x, -d25, d25), 0.0D, Mth.clamp(d24 * vec3d1.z, -d25, d25)));
     }
@@ -44,7 +61,20 @@ public class BaseMinecartEntity extends Minecart {
     }
 
     @Override
+    public void setCurrentCartSpeedCapOnRail(float value) {
+        this.maxSpeed = value;
+        super.setCurrentCartSpeedCapOnRail(value);
+    }
+
+    @Override
     public float getMaxCartSpeedOnRail() {
         return maxSpeed;
     }
+
+    @Override
+    protected double getMaxSpeed() {
+        return super.getMaxSpeed() * 2.0;
+    }
+
+    public record Abilities(Supplier<EntityType<? extends BaseMinecartEntity>> entityType, Supplier<? extends Item> dropItem, float maxSpeed, double acceleration, double dragAir) {}
 }

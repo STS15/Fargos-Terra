@@ -62,6 +62,7 @@ public final class ModTabs {
                         AxeItems.AXES.getEntries().forEach(item -> output.accept(item.get()));
                         HammerItems.HAMMERS.getEntries().forEach(item -> output.accept(item.get()));
                         HookItems.HOOKS.getEntries().forEach(item -> output.accept(item.get()));
+                        MinecartItems.ITEMS.getEntries().forEach(item -> output.accept(item.get()));
                     })
                     .build());
     // 战士武器

@@ -28,7 +28,9 @@ public class ModItemTagsProvider extends ItemTagsProvider {
     @Override
     protected void addTags(HolderLookup.@NotNull Provider provider) {
         HookItems.acceptTag(tag(ModTags.Items.HOOK));
-        tag(ModTags.Items.MINECART).add(Items.MINECART);
+        IntrinsicTagAppender<Item> minecart = tag(ModTags.Items.MINECART);
+        minecart.add(Items.MINECART);
+        MinecartItems.ITEMS.getEntries().forEach(item -> minecart.add(item.get()));
         tag(ModTags.Items.PROVIDE_MANA).add(ModItems.STAR.get(), ModItems.SOUL_CAKE.get(), ModItems.SUGAR_PLUM.get());
         tag(ModTags.Items.PROVIDE_LIFE).add(ModItems.HEART.get(), ModItems.CANDY_APPLE.get(), ModItems.CANDY_CANE.get());
 //        tag(ModTags.Items.DESERT_FOSSIL).add(ModBlocks.DESERT_FOSSIL.get().asItem());

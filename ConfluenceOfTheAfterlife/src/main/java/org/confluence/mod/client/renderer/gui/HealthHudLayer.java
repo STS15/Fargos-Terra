@@ -12,7 +12,7 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import org.confluence.mod.Confluence;
 import org.confluence.mod.client.ClientConfigs;
-import org.confluence.mod.common.item.common.LifeFruit;
+import org.confluence.mod.common.item.common.EverBeneficialItem;
 
 public class HealthHudLayer implements LayeredDraw.Layer {
     public static final ResourceLocation HEART_SINGLE_FANCY = Confluence.asResource("textures/gui/screens/heart_single_fancy.png");
@@ -40,7 +40,7 @@ public class HealthHudLayer implements LayeredDraw.Layer {
             maxHealth = player.getMaxHealth();
             currentHealth = player.getHealth();
             AttributeInstance instance = player.getAttribute(Attributes.MAX_HEALTH);
-            AttributeModifier modifier = instance.getModifier(LifeFruit.ID);
+            AttributeModifier modifier = instance.getModifier(EverBeneficialItem.LIFE_FRUITS.id());
             if (modifier != null) {
                 lifeFruitHealth = (float) modifier.amount();
             }
