@@ -3,6 +3,7 @@ package org.confluence.mod.common.data.gen;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
@@ -70,12 +71,10 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         ArrowItems.acceptTag(tag(ItemTags.ARROWS));
         HammerItems.acceptTag(tag(ModTags.Items.HAMMER));
         AxeItems.acceptTag(tag(ItemTags.AXES));
+        copy(BlockTags.RAILS, ItemTags.RAILS);
         tag(ModTags.Items.COIN).add(ModItems.COPPER_COIN.get(), ModItems.SILVER_COIN.get(), ModItems.GOLDEN_COIN.get(), ModItems.PLATINUM_COIN.get());
-        tag(org.confluence.terraentity.init.ModTags.Items.HONEY_TRANSLATION_BUCKET)
-                .add(ModItems.HONEY_BUCKET.get());
-        tag(org.confluence.terraentity.init.ModTags.Items.HONEY_TRANSLATION_NOT_CONSUMED)
-                .add(ModItems.BOTTOMLESS_HONEY_BUCKET.get());
-
+        tag(org.confluence.terraentity.init.ModTags.Items.HONEY_TRANSLATION_BUCKET).add(ModItems.HONEY_BUCKET.get());
+        tag(org.confluence.terraentity.init.ModTags.Items.HONEY_TRANSLATION_NOT_CONSUMED).add(ModItems.BOTTOMLESS_HONEY_BUCKET.get());
 
         AccessoryItems.acceptTag(tag(TCTags.ACCESSORY));
     }

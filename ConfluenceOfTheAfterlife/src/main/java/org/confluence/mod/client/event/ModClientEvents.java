@@ -198,6 +198,7 @@ public final class ModClientEvents {
 
         event.registerEntityRenderer(WOODEN_MINECART.get(), context -> new MinecartRenderer<>(context, ModelLayers.MINECART)); // todo 模型
         event.registerEntityRenderer(MECHANICAL_CART.get(), context -> new MinecartRenderer<>(context, ModelLayers.MINECART));
+        event.registerEntityRenderer(DIGGING_MOLECART.get(), context -> new MinecartRenderer<>(context, ModelLayers.MINECART));
 
         //event.registerBlockEntityRenderer(ModBlocks.ALTAR_BLOCK_ENTITY.get(), AltarBlockRenderer::new);
         //event.registerBlockEntityRenderer(ModBlocks.SKY_MILL_ENTITY.get(), SkyMillBlockRenderer::new);

@@ -22,7 +22,8 @@ public class BaseMinecartEntity extends Minecart {
     public static final double MECHANICAL_CART_ACCELERATION = 2.5;
     public static final double MECHANICAL_CART_DRAG_AIR = 0.99;
     public static final Abilities<BaseMinecartEntity> WOODEN = new Abilities<>(ModEntities.WOODEN_MINECART, () -> Items.AIR, 0.308F, 0.16, 0.94);
-    public static final Abilities<BaseMinecartEntity> MECHANICAL = new Abilities<>(ModEntities.MECHANICAL_CART, MinecartItems.MECHANICAL_CART, (float) MECHANICAL_CART_MAX_SPEED, MECHANICAL_CART_ACCELERATION, MECHANICAL_CART_DRAG_AIR);
+    public static final Abilities<MechanicalCartEntity> MECHANICAL = new Abilities<>(ModEntities.MECHANICAL_CART, MinecartItems.MECHANICAL_CART, (float) MECHANICAL_CART_MAX_SPEED, MECHANICAL_CART_ACCELERATION, MECHANICAL_CART_DRAG_AIR);
+    public static final Abilities<DiggingMolecartEntity> MOLECART = new Abilities<>(ModEntities.DIGGING_MOLECART, MinecartItems.DIGGING_MOLECART, 0.185F, 0.15, 0.93);
 
     protected Supplier<? extends Item> dropItem = () -> Items.AIR;
     protected float maxSpeed = (float) MECHANICAL_CART_MAX_SPEED;

@@ -1,9 +1,10 @@
 package org.confluence.mod.util;
 
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.util.Tuple;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.DiggerItem;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.PickaxeItem;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.Tiers;
 import net.minecraft.world.level.Level;
@@ -22,7 +23,6 @@ import org.confluence.mod.network.s2c.ManaPacketS2C;
 import org.confluence.terra_curio.network.s2c.WindSpeedPacketS2C;
 import org.confluence.terra_curio.util.TCUtils;
 
-import java.util.Optional;
 import java.util.function.IntSupplier;
 
 public final class PlayerUtils {
@@ -107,12 +107,12 @@ public final class PlayerUtils {
         return base + player.getLuck();
     }
 
-    public static Optional<ItemStack> getMaxDiggingPowerItem(Player player) {
+    public static Tuple<ItemStack, Integer> getMaxDiggingPowerItem(Player player) {
         int max = 0;
-        ItemStack ret = null;
+        ItemStack ret = ItemStack.EMPTY;
         for (ItemStack itemStack : player.getInventory().items) {
-            if (!itemStack.isEmpty() && itemStack.getItem() instanceof DiggerItem diggerItem) {
-                Tier tier = diggerItem.getTier();
+            if (!itemStack.isEmpty() && itemStack.getItem() instanceof PickaxeItem pickaxeItem) {
+                Tier tier = pickaxeItem.getTier();
                 if (tier instanceof ModTiers.PoweredTier poweredTier) {
                     if (poweredTier.getPower() > max) {
                         max = poweredTier.getPower();
@@ -134,6 +134,6 @@ public final class PlayerUtils {
                 ret = itemStack;
             }
         }
-        return Optional.ofNullable(ret);
+        return new Tuple<>(ret, max);
     }
 }
