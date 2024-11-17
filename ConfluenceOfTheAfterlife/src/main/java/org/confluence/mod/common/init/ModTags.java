@@ -54,6 +54,9 @@ public final class ModTags {
         public static final TagKey<Item> TR_PLANKS = register("tr_planks");
         public static final TagKey<Item> LEAD_AND_IRON = register("lead_and_iron");
         public static final TagKey<Item> HAMMER = register("hammer");
+        public static final TagKey<Item> HONEY_TRANSLATION_BUCKET = register("honey_translation_with_bucket");
+        public static final TagKey<Item> HONEY_TRANSLATION = register("honey_translation");
+        public static final TagKey<Item> HONEY_TRANSLATION_NOT_CONSUMED = register("honey_translation_not_consumed");
 
         private static TagKey<Item> curios(String id) {
             return ItemTags.create(ResourceLocation.fromNamespaceAndPath("curios", id));

@@ -69,6 +69,11 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         HammerItems.acceptTag(tag(ModTags.Items.HAMMER));
         AxeItems.acceptTag(tag(ItemTags.AXES));
         tag(ModTags.Items.COIN).add(ModItems.COPPER_COIN.get(), ModItems.SILVER_COIN.get(), ModItems.GOLDEN_COIN.get(), ModItems.PLATINUM_COIN.get());
+        tag(ModTags.Items.HONEY_TRANSLATION_BUCKET)
+                .add(ModItems.HONEY_BUCKET.get());
+        tag(ModTags.Items.HONEY_TRANSLATION_NOT_CONSUMED)
+                .add(ModItems.BOTTOMLESS_HONEY_BUCKET.get());
+
 
         AccessoryItems.acceptTag(tag(TCTags.ACCESSORY));
     }
