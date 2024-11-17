@@ -1,13 +1,13 @@
 {
     "variants": {
         "type=bottom": {
-            "model": "minecraft:block/oak_slab"
+            "model": "confluence:block/palm_leaves_bottom"
         },
         "type=double": {
             "model": "minecraft:block/oak_planks"
         },
         "type=top": {
-            "model": "minecraft:block/oak_slab_top"
+            "model": "confluence:block/palm_leaves_top"
         }
     }
 }

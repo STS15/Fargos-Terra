@@ -386,7 +386,7 @@ public final class ModUtils {
         });
     }
 
-    public static void lightningPathList(List<Vector3d> locationList, double dis, FeaturePlaceContext<LivingTreeFeature.Config> context) {
+    public static void lightningPathList(List<Vector3d> locationList, double dis, int move, FeaturePlaceContext<LivingTreeFeature.Config> context) {
         boolean refined;
         do {
             refined = false;
@@ -399,7 +399,7 @@ public final class ModUtils {
                     midpoint.x = ((point1.x + point2.x) / 2);
                     midpoint.y = ((point1.y + point2.y) / 2);
                     midpoint.z = ((point1.z + point2.z) / 2);
-                    double offset = distance / 8;
+                    double offset = distance / move;
                     midpoint.x = midpoint.x + (context.random().nextDouble() - 0.5) * offset * 2;
                     midpoint.y = midpoint.y + (context.random().nextDouble() - 0.5) * offset * 2;
                     midpoint.z = midpoint.z + (context.random().nextDouble() - 0.5) * offset * 2;
