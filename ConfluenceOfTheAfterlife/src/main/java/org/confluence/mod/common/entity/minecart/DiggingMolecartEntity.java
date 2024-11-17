@@ -30,10 +30,6 @@ public class DiggingMolecartEntity extends BaseMinecartEntity {
         super(level, x, y, z, abilities);
     }
 
-    protected boolean canDigging() {
-        return getY() <= level().getSeaLevel();
-    }
-
     @Override
     public void moveMinecartOnRail(@NotNull BlockPos pos) {
         super.moveMinecartOnRail(pos);
@@ -47,23 +43,24 @@ public class DiggingMolecartEntity extends BaseMinecartEntity {
                 setYRot((float) -(Mth.atan2(motion.x, motion.z) * Mth.RAD_TO_DEG));
                 Direction facing = Direction.fromYRot(getYRot());
                 BlockPos facingPos = blockPosition().relative(facing);
-                BlockPos.betweenClosedStream(getDiggingRange(facingPos, facing)).forEach(blockPos -> {
-                    BlockState blockState = level().getBlockState(blockPos);
-                    if (!blockState.isAir() && ! blockState.is(BlockTags.RAILS) && ModTiers.isCorrectToolForDrops(power, pickaxeItem, blockState)) {
-                        pickaxeItem.mineBlock(level(), blockState, blockPos, player);
-                        level().destroyBlock(blockPos, true, player);
-                    }
-                });
-                if (level().getBlockState(facingPos).canBeReplaced()) {
-                    player.getInventory().items.stream().filter(itemStack -> itemStack.is(ItemTags.RAILS)).findAny().ifPresent(itemStack -> {
-                        if (itemStack.getItem() instanceof BlockItem blockItem) {
-                            BlockHitResult hitResult = new BlockHitResult(facingPos.getBottomCenter(), facing, facingPos, true);
-                            blockItem.place(new BlockPlaceContext(player, InteractionHand.MAIN_HAND, itemStack, hitResult));
-                        }
-                    });
-                }
+                diggingBlocks(player, facingPos, facing, power, pickaxeItem);
+                placeRail(player, facingPos, facing);
             }
         }
+    }
+
+    protected boolean canDigging() {
+        return getY() <= level().getSeaLevel();
+    }
+
+    protected void diggingBlocks(Player player, BlockPos facingPos, Direction facing, int power, ItemStack pickaxeItem) {
+        BlockPos.betweenClosedStream(getDiggingRange(facingPos, facing)).forEach(blockPos -> {
+            BlockState blockState = level().getBlockState(blockPos);
+            if (!blockState.isAir() && !blockState.is(BlockTags.RAILS) && ModTiers.isCorrectToolForDrops(power, pickaxeItem, blockState)) {
+                pickaxeItem.mineBlock(level(), blockState, blockPos, player);
+                level().destroyBlock(blockPos, true, player);
+            }
+        });
     }
 
     protected AABB getDiggingRange(BlockPos facingPos, Direction facing) {
@@ -72,5 +69,16 @@ public class DiggingMolecartEntity extends BaseMinecartEntity {
         BlockPos rightBottom = facingPos.relative(right);
         BlockPos leftTop = facingPos.above(2).relative(left);
         return new AABB(rightBottom.getCenter(), leftTop.getCenter());
+    }
+
+    protected void placeRail(Player player, BlockPos facingPos, Direction facing) {
+        if (level().getBlockState(facingPos).canBeReplaced()) {
+            player.getInventory().items.stream().filter(itemStack -> itemStack.is(ItemTags.RAILS)).findAny().ifPresent(itemStack -> {
+                if (itemStack.getItem() instanceof BlockItem blockItem) {
+                    BlockHitResult hitResult = new BlockHitResult(facingPos.getBottomCenter(), facing, facingPos, true);
+                    blockItem.place(new BlockPlaceContext(player, InteractionHand.MAIN_HAND, itemStack, hitResult));
+                }
+            });
+        }
     }
 }
