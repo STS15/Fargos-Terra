@@ -18,25 +18,24 @@ import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.Vec3;
 import org.confluence.mod.common.component.SingleBooleanComponent;
 import org.confluence.mod.common.init.ModEntities;
+import org.confluence.mod.common.init.item.BoomerangItems;
 import org.confluence.mod.common.item.sword.Boomerang;
 import org.confluence.mod.common.item.sword.Boomerang.BoomerangModifier;
 
 public class BoomerangProjectile extends AbstractHurtingProjectile {
-    private BoomerangModifier modifier;
-    private int backTime;
-    public int randomRotation;
-    private float backSpeed;
-    public boolean isBacking;
-    public ItemStack weapon = ItemStack.EMPTY;
-    public static final EntityDataAccessor<ItemStack> DATA_WEAPON = SynchedEntityData.defineId(BoomerangProjectile.class, EntityDataSerializers.ITEM_STACK);
-    public static final EntityDataAccessor<Boolean> DATA_BACKING = SynchedEntityData.defineId(BoomerangProjectile.class, EntityDataSerializers.BOOLEAN);
-    public static final EntityDataAccessor<Integer> DATA_BACKING_TIME = SynchedEntityData.defineId(BoomerangProjectile.class, EntityDataSerializers.INT);
 
+    public ItemStack weapon = ItemStack.EMPTY;
+    private BoomerangModifier modifier;
+    public int randomRotation;//随机初始旋转角度
+    private float backSpeed;//碰撞返回的速度
+    public boolean isBacking;//正在返回
+    private int backTime;//返回时间
 
     public BoomerangProjectile(EntityType<? extends AbstractHurtingProjectile> entityType, Level level) {
         super(entityType, level);
-        modifier = new BoomerangModifier();
+        this.modifier = new BoomerangModifier();
         this.randomRotation = this.random.nextInt(114514);
+        //BoomerangItems.DEVELOPER_BOOMERANG.get().boomerangModifier
     }
 
     public BoomerangProjectile(LivingEntity owner, BoomerangModifier modifier, ItemStack weapon) {
@@ -44,23 +43,39 @@ public class BoomerangProjectile extends AbstractHurtingProjectile {
         this.setOwner(owner);
         this.modifier = modifier;
         this.weapon = weapon;
-        if(!level().isClientSide) this.entityData.set(DATA_WEAPON, weapon);
-
+        this.entityData.set(DATA_WEAPON, weapon);
     }
 
+    //同步客户端数据
+    public static final EntityDataAccessor<ItemStack> DATA_WEAPON = SynchedEntityData.defineId(BoomerangProjectile.class, EntityDataSerializers.ITEM_STACK);
+    public static final EntityDataAccessor<Boolean> DATA_BACKING = SynchedEntityData.defineId(BoomerangProjectile.class, EntityDataSerializers.BOOLEAN);
+    public static final EntityDataAccessor<Integer> DATA_BACKING_TIME = SynchedEntityData.defineId(BoomerangProjectile.class, EntityDataSerializers.INT);
+
+    @Override
+    protected void defineSynchedData(SynchedEntityData.Builder builder) {
+        super.defineSynchedData(builder);
+        builder.define(DATA_WEAPON, ItemStack.EMPTY);
+        builder.define(DATA_BACKING, false);
+        builder.define(DATA_BACKING_TIME, 0);
+    }
+    @Override
     public void onSyncedDataUpdated(EntityDataAccessor<?> var1){
         if(var1 == DATA_BACKING_TIME){
             this.backTime = this.entityData.get(DATA_BACKING_TIME);
-        }
-        if(var1 == DATA_BACKING){
+        }else if(var1 == DATA_BACKING){
             this.isBacking = this.entityData.get(DATA_BACKING);
+        }else if(var1 == DATA_WEAPON){
+            weapon = this.entityData.get(DATA_WEAPON);
+            modifier = ((Boomerang) weapon.getItem()).boomerangModifier;
         }
-        if(var1 == DATA_WEAPON){
-            this.weapon = this.entityData.get(DATA_WEAPON);
-            }
+    }
+    @Override
+    public void onAddedToLevel(){
+        super.onAddedToLevel();
+
     }
 
-
+    @Override
     protected void onHitEntity(EntityHitResult result) {
 //        if(!level().isClientSide){
             if(result.getEntity() instanceof LivingEntity living && living.isAlive()
@@ -94,15 +109,16 @@ public class BoomerangProjectile extends AbstractHurtingProjectile {
         }
 
     }
-
+    @Override
     protected void onHitBlock(BlockHitResult result) {
         isBacking = true;
         this.noPhysics = true;
         entityData.set(DATA_BACKING, true);
         super.onHitBlock(result);
     }
-    
+    @Override
     public void tick(){
+        super.tick();
 
         if(this.getOwner()!= null && this.getOwner() instanceof LivingEntity living){
             if(!isBacking){
@@ -122,13 +138,8 @@ public class BoomerangProjectile extends AbstractHurtingProjectile {
             }else{
                 Vec3 dir = living.position().add(0,1,0).subtract(this.position()).normalize();
                 int delta = 10;
-
                 double actualSpeed = Math.min(Mth.lerp((float) (tickCount - backTime) / delta,backSpeed+0.01F,modifier.backSpeed),modifier.backSpeed);
-//                System.out.println(actualSpeed);
-
                 Vec3 motion = dir.scale(actualSpeed);
-//            Vec3 motion = this.position().add(dir.scale(1));
-
                 this.setDeltaMovement(motion);
 //                this.move(MoverType.SELF, this.getDeltaMovement());
                 if(this.distanceToSqr(living.position().add(0,1,0)) < 1){
@@ -136,8 +147,9 @@ public class BoomerangProjectile extends AbstractHurtingProjectile {
                 }
             }
         }
-        super.tick();
+
     }
+    @Override
     public void shootFromRotation(Entity shooter, float x, float y, float z, float velocity, float inaccuracy) {
         float f = -Mth.sin(y * 0.017453292F) * Mth.cos(x * 0.017453292F);
         float f1 = -Mth.sin((x + z) * 0.017453292F);
@@ -145,28 +157,16 @@ public class BoomerangProjectile extends AbstractHurtingProjectile {
         this.shoot(f, f1, f2, velocity, inaccuracy);
         this.setDeltaMovement(this.getDeltaMovement());
     }
+    @Override
     protected ParticleOptions getTrailParticle() {
         return null;
     }
+    @Override
     public boolean isOnFire() {
         return modifier.fire && (this.level().isClientSide && this.getSharedFlag(0));
     }
 
-    public void onAddedToLevel(){
-        super.onAddedToLevel();
-        if(modifier==null) discard();
-        if(level().isClientSide) weapon = this.entityData.get(DATA_WEAPON);
-    }
-
-    protected void defineSynchedData(SynchedEntityData.Builder builder) {
-        super.defineSynchedData(builder);
-        builder.define(DATA_WEAPON, ItemStack.EMPTY);
-        builder.define(DATA_BACKING, false);
-        builder.define(DATA_BACKING_TIME, 0);
-    }
-
-
-
+    @Override
     public void onRemovedFromLevel(){
         if(weapon!=null && !level().isClientSide) {
             Boomerang.setBacked(weapon, SingleBooleanComponent.TRUE);

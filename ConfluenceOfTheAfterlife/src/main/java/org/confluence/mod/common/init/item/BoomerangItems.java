@@ -20,7 +20,9 @@ public class BoomerangItems {
 
 
     public static DeferredItem<Boomerang> DEVELOPER_BOOMERANG = register("developer_boomerang",20,100,ModRarity.EPIC,
-            new Boomerang.BoomerangModifier().setNotWaitForBack().setCd(10)
+            new Boomerang.BoomerangModifier().setNotWaitForBack().setCd(10) // 不需要等待返回，设置cd
+                    .setForwardTick(50).setFlySpeedFactor(1.5f) // 设置向前飞行速度
+                    .setBackSpeedFactor(2f) // 设置后退速度
     );
 
     public static DeferredItem<Boomerang> register(String name, Supplier<Boomerang> supplier) {

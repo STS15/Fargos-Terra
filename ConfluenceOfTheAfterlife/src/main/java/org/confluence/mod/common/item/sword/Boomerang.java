@@ -65,10 +65,7 @@ public class Boomerang extends CustomRarityItem {
 
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand usedHand) {
-
-
         ItemStack stack = player.getItemInHand(usedHand);
-
 
         // 等待返回且未到达最大等待时间
         if(boomerangModifier.shouldWaitForBack && !isBacked(stack)
@@ -112,7 +109,7 @@ public class Boomerang extends CustomRarityItem {
         public float damage;
         public float flySpeed = 0.5f;               //向前飞行速度
         public float backSpeed = 0.5f;              //向后飞行速度//返回速度
-        public float knockback = 1f;                //击退力度
+        public float knockback = 0.2f;              //基础击退力度
         public int cd = 20;                         //冷却时间
         public int forwardTick = 20;                //前进时间
         public boolean canPenetrate = false;        //是否可穿透，否则命中生物返回
@@ -196,10 +193,18 @@ public class Boomerang extends CustomRarityItem {
             return this;
         }
         /**
-         * 设置击退力度
+         * 设置击退力度倍率
          */
         public BoomerangModifier setKnockbackFactor(float knockback) {
             this.knockback *= knockback;
+            return this;
+        }
+        public BoomerangModifier setFlySpeedFactor(float flySpeed) {
+            this.flySpeed *= flySpeed;
+            return this;
+        }
+        public BoomerangModifier setBackSpeedFactor(float backSpeed) {
+            this.backSpeed *= backSpeed;
             return this;
         }
 
