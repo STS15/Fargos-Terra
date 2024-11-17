@@ -107,16 +107,17 @@ public class Boomerang extends CustomRarityItem {
     public static class BoomerangModifier {
 
         public float damage;
-        public float flySpeed = 0.5f;               //向前飞行速度
-        public float backSpeed = 0.5f;              //向后飞行速度//返回速度
+        public float flySpeed = 1.52f;               //向前飞行速度
+        public float backSpeed = 1.52f;              //向后飞行速度//返回速度
         public float knockback = 0.2f;              //基础击退力度
         public int cd = 20;                         //冷却时间
-        public int forwardTick = 20;                //前进时间
+        public int forwardTick = 15;                //前进时间
         public boolean canPenetrate = false;        //是否可穿透，否则命中生物返回
         public boolean shouldWaitForBack = true;    //是否等待返回
         public boolean shouldApplyCd = false;       //是否应用冷却
         public boolean fire = false;                //是否渲染火焰
 
+//调参后这是木回旋镖的数值
 
         private AbstractProjContainer proj;
         public List<BiConsumer<LivingEntity, LivingEntity>> onHitEffects = new ArrayList<>();

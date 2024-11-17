@@ -11,12 +11,28 @@ import java.util.function.Supplier;
 public class BoomerangItems {
     public static final DeferredRegister.Items BOOMERANG_ITEMS = DeferredRegister.createItems(Confluence.MODID);
 
-    public static DeferredItem<Boomerang> WOOD_BOOMERANG = register("wood_boomerang",3,100,
+    public static DeferredItem<Boomerang> WOOD_BOOMERANG = register("wood_boomerang",3,640,ModRarity.BLUE,
             new Boomerang.BoomerangModifier()
     );
-    public static DeferredItem<Boomerang> ICE_BOOMERANG = register("ice_boomerang",4,150,ModRarity.BLUE,
-            new Boomerang.BoomerangModifier()
+    public static DeferredItem<Boomerang> ENCHANTED_BOOMERANG = register("enchanted_boomerang",4.4f,1,ModRarity.BLUE,
+            new Boomerang.BoomerangModifier().setForwardTick(15).setFlySpeedFactor(1.55f).setBackSpeedFactor(1.55f)
     );
+    public static DeferredItem<Boomerang> SHROOMERANG = register("shroomerang",4.4f,1,ModRarity.BLUE,
+            new Boomerang.BoomerangModifier().setForwardTick(15).setFlySpeedFactor(1.55f).setBackSpeedFactor(1.55f)
+    );
+    public static DeferredItem<Boomerang> ICE_BOOMERANG = register("ice_boomerang",5.5f,1,ModRarity.BLUE,
+            new Boomerang.BoomerangModifier().setForwardTick(16).setFlySpeedFactor(1.6f).setBackSpeedFactor(1.6f)
+    );   //50% 的几率造成 3 秒的霜冻。
+
+    public static DeferredItem<Boomerang> TRIMARANG = register("trimarang",5.5f,1,ModRarity.ORANGE,
+            new Boomerang.BoomerangModifier().setForwardTick(17).setFlySpeedFactor(1.85f).setBackSpeedFactor(1.85f)
+    );   // 使用三次
+
+
+    public static DeferredItem<Boomerang> FLAMARANG = register("flamarang",12.5f,1,ModRarity.ORANGE,
+            new Boomerang.BoomerangModifier().setForwardTick(18).setFlySpeedFactor(1.85f).setBackSpeedFactor(1.85f)
+    );
+         //50% 的几率造成 着火。
 
 
     public static DeferredItem<Boomerang> DEVELOPER_BOOMERANG = register("developer_boomerang",20,100,ModRarity.EPIC,

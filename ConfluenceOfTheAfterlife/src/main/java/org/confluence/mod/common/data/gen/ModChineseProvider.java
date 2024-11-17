@@ -913,7 +913,14 @@ public class ModChineseProvider extends LanguageProvider {
         add(SwordItems.FAKE_SWORD.get(), "假剑");
         add(SwordItems.VOLCANO.get(), "火山");
 
+        add(BoomerangItems.WOOD_BOOMERANG.get(), "木回旋镖");
+        add(BoomerangItems.ENCHANTED_BOOMERANG.get(), "附魔回旋镖");
+        add(BoomerangItems.SHROOMERANG.get(), "蘑菇回旋镖");
+        add(BoomerangItems.ICE_BOOMERANG.get(), "冰雪回旋镖");
+        add(BoomerangItems.TRIMARANG.get(), "三尖回旋镖");
+        add(BoomerangItems.FLAMARANG.get(), "烈焰回旋镖");
 
+        add(BoomerangItems.DEVELOPER_BOOMERANG.get(), "开发者回旋镖");
         add(SwordItems.DEVELOPER_SWORD.get(), "开发者剑");
 
         add(AxeItems.COPPER_AXE.get(), "铜斧");
@@ -949,6 +956,7 @@ public class ModChineseProvider extends LanguageProvider {
         add(HammerItems.PLATINUM_HAMMER.get(), "铂金锤");
         add(HammerItems.EBONY_HAMMER.get(), "魔锤");
         add(HammerItems.TR_CRIMSON_HAMMER.get(), "血肉锤");
+        add(HammerItems.PWNHAMMER.get(), "神锤");
         /* HammerAxes */
 
 
@@ -1096,34 +1104,32 @@ public class ModChineseProvider extends LanguageProvider {
 
           */
         // 钩爪
-        /*
-        add(Hooks.GRAPPLING_HOOK.get(), "抓钩");
-        add(Hooks.RUBY_HOOK.get(), "红玉钩");
-        add(Hooks.AMBER_HOOK.get(), "琥珀钩");
-        add(Hooks.TOPAZ_HOOK.get(), "黄玉钩");
-        add(Hooks.EMERALD_HOOK.get(), "翡翠钩");
-        add(Hooks.SAPPHIRE_HOOK.get(), "蓝玉钩");
-        add(Hooks.DIAMOND_HOOK.get(), "钻石钩");
-        add(Hooks.AMETHYST_HOOK.get(), "紫晶钩");
-        add(Hooks.ANTI_GRAVITY_HOOK.get(), "反重力钩");
-        add(Hooks.WEB_SLINGER.get(), "蛛丝吊索");
-        add(Hooks.SKELETRON_HAND.get(), "骷髅王之手");
-        add(Hooks.SLIME_HOOK.get(), "史莱姆钩");
-        add(Hooks.FISH_HOOK.get(), "鱼钩");
-        add(Hooks.IVY_WHIP.get(), "常春藤钩");
-        add(Hooks.BAT_HOOK.get(), "蝙蝠钩");
-        add(Hooks.CANDY_CANE_HOOK.get(), "糖棒钩");
-        add(Hooks.CHRISTMAS_HOOK.get(), "圣诞挂钩");
-        add(Hooks.DUAL_HOOK.get(), "双钩");
-        add(Hooks.HOOK_OF_DISSONANCE.get(), "失谐钩");
-        add(Hooks.THORN_HOOK.get(), "棘刺钩");
-        add(Hooks.ILLUMINANT_HOOK.get(), "荧光钩");
-        add(Hooks.WORM_HOOK.get(), "蠕虫钩");
-        add(Hooks.LUNAR_HOOK.get(), "月钩");
-        add(Hooks.SPOOKY_HOOK.get(), "阴森钩");
-        add(Hooks.TENDON_HOOK.get(), "肌腱钩");
+        add(HookItems.GRAPPLING_HOOK.get(), "抓钩");
+        add(HookItems.RUBY_HOOK.get(), "红玉钩");
+        add(HookItems.AMBER_HOOK.get(), "琥珀钩");
+        add(HookItems.TOPAZ_HOOK.get(), "黄玉钩");
+        add(HookItems.EMERALD_HOOK.get(), "翡翠钩");
+        add(HookItems.SAPPHIRE_HOOK.get(), "蓝玉钩");
+        add(HookItems.DIAMOND_HOOK.get(), "钻石钩");
+        add(HookItems.AMETHYST_HOOK.get(), "紫晶钩");
+        add(HookItems.ANTI_GRAVITY_HOOK.get(), "反重力钩");
+        add(HookItems.WEB_SLINGER.get(), "蛛丝吊索");
+        add(HookItems.SKELETRON_HAND.get(), "骷髅王之手");
+        add(HookItems.SLIME_HOOK.get(), "史莱姆钩");
+        add(HookItems.FISH_HOOK.get(), "鱼钩");
+        add(HookItems.IVY_WHIP.get(), "常春藤钩");
+        add(HookItems.BAT_HOOK.get(), "蝙蝠钩");
+        add(HookItems.CANDY_CANE_HOOK.get(), "糖棒钩");
+        add(HookItems.CHRISTMAS_HOOK.get(), "圣诞挂钩");
+        add(HookItems.DUAL_HOOK.get(), "双钩");
+        add(HookItems.HOOK_OF_DISSONANCE.get(), "失谐钩");
+        add(HookItems.THORN_HOOK.get(), "棘刺钩");
+        add(HookItems.ILLUMINANT_HOOK.get(), "荧光钩");
+        add(HookItems.WORM_HOOK.get(), "蠕虫钩");
+        add(HookItems.LUNAR_HOOK.get(), "月钩");
+        add(HookItems.SPOOKY_HOOK.get(), "阴森钩");
+        add(HookItems.TENDON_HOOK.get(), "肌腱钩");
 
-         */
         // 锁链
         /*
         add(RUBY_CHAIN.get(), "红玉锁链");
