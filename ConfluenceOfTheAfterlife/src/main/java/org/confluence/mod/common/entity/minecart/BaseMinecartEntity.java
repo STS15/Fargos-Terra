@@ -19,10 +19,10 @@ import java.util.function.Supplier;
 
 public class BaseMinecartEntity extends Minecart {
     public static final double MECHANICAL_CART_MAX_SPEED = 0.615;
-    private static final double MECHANICAL_CART_ACCELERATION = 2.5;
+    public static final double MECHANICAL_CART_ACCELERATION = 2.5;
     public static final double MECHANICAL_CART_DRAG_AIR = 0.99;
-    public static final Abilities WOODEN = new Abilities(ModEntities.WOODEN_MINECART, () -> Items.AIR, 0.308F, 0.16, 0.94);
-    public static final Abilities MECHANICAL = new Abilities(ModEntities.MECHANICAL_CART, MinecartItems.MECHANICAL_CART, (float) MECHANICAL_CART_MAX_SPEED, MECHANICAL_CART_ACCELERATION, MECHANICAL_CART_DRAG_AIR);
+    public static final Abilities<BaseMinecartEntity> WOODEN = new Abilities<>(ModEntities.WOODEN_MINECART, () -> Items.AIR, 0.308F, 0.16, 0.94);
+    public static final Abilities<BaseMinecartEntity> MECHANICAL = new Abilities<>(ModEntities.MECHANICAL_CART, MinecartItems.MECHANICAL_CART, (float) MECHANICAL_CART_MAX_SPEED, MECHANICAL_CART_ACCELERATION, MECHANICAL_CART_DRAG_AIR);
 
     protected Supplier<? extends Item> dropItem = () -> Items.AIR;
     protected float maxSpeed = (float) MECHANICAL_CART_MAX_SPEED;
@@ -32,7 +32,7 @@ public class BaseMinecartEntity extends Minecart {
         super(entityType, level);
     }
 
-    public BaseMinecartEntity(Level level, double x, double y, double z, Abilities abilities) {
+    public BaseMinecartEntity(Level level, double x, double y, double z, Abilities<? extends BaseMinecartEntity> abilities) {
         super(abilities.entityType.get(), level);
         this.dropItem = abilities.dropItem;
         this.acceleration = abilities.acceleration;
@@ -50,8 +50,8 @@ public class BaseMinecartEntity extends Minecart {
         if (upgradeKit) setDragAir(MECHANICAL_CART_DRAG_AIR);
         double d25 = upgradeKit ? MECHANICAL_CART_MAX_SPEED : getMaxCartSpeedOnRail();
         double d24 = upgradeKit ? MECHANICAL_CART_ACCELERATION : (isVehicle() ? acceleration : 1.0);
-        Vec3 vec3d1 = getDeltaMovement();
-        move(MoverType.SELF, new Vec3(Mth.clamp(d24 * vec3d1.x, -d25, d25), 0.0D, Mth.clamp(d24 * vec3d1.z, -d25, d25)));
+        Vec3 motion = getDeltaMovement();
+        move(MoverType.SELF, new Vec3(Mth.clamp(d24 * motion.x, -d25, d25), 0.0D, Mth.clamp(d24 * motion.z, -d25, d25)));
     }
 
     @Override
@@ -75,5 +75,5 @@ public class BaseMinecartEntity extends Minecart {
         return super.getMaxSpeed() * 2.0;
     }
 
-    public record Abilities(Supplier<EntityType<? extends BaseMinecartEntity>> entityType, Supplier<? extends Item> dropItem, float maxSpeed, double acceleration, double dragAir) {}
+    public record Abilities<E extends BaseMinecartEntity>(Supplier<EntityType<E>> entityType, Supplier<? extends Item> dropItem, float maxSpeed, double acceleration, double dragAir) {}
 }

@@ -28,9 +28,10 @@ public class PalmTreeFeature extends Feature<PalmTreeFeature.Config> {
         int height = 7 + pContext.random().nextInt(3);
         boolean facingT = pContext.random().nextBoolean();
         boolean facingF = pContext.random().nextBoolean();
-        List<Integer> leavesListX = new ArrayList<>(Arrays.asList(1, 2, 2, 3, 4, 1, 2, -1, -2, -2, -3, -4, -1, -2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 1, 2, 3, -1, -2, -3, -1, -2, -3));
-        List<Integer> leavesListY = new ArrayList<>(Arrays.asList(2, 2, 1, 1, 0, -1, -2, 2, 2, 1, 1, 0, -1, -2, 2, 2, 1, 1, 0, -1, -2, 2, 2, 1, 1, 0, -1, -2, 0, 0, -1, 0, 0, -1, 0, 0, -1, 0, 0, -1));
-        List<Integer> leavesListZ = new ArrayList<>(Arrays.asList(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 2, 3, 4, 1, 2, -1, -2, -2, -3, -4, -1, -2, -1, -2, -3, 1, 2, 3, -1, -2, -3, 1, 2, 3));
+        List<Integer> leavesListX = new ArrayList<>(Arrays.asList(0, 3, 1, -3, -1, 0, 0, 0, 0, 1, 1, -1, -1, 0, 0, 0, 0, 1, -1, 2, -2, 0, 0, 4, -4, 0, 0, 2, -2, 2, 2, -2, -2));
+        List<Integer> leavesListY = new ArrayList<>(Arrays.asList(1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, -1, -1, -1, -1, 0, 0, 0, 0));
+        List<Integer> leavesListZ = new ArrayList<>(Arrays.asList(0, 0, 0, 0, 0, 3, 1, -3, -1, 1, -1, 1, -1, 1, -1, 2, -2, 0, 0, 0, 0, 4, -4, 0, 0, 2, -2, 0, 0, 2, -2, 2, -2));
+        List<Integer> leavesListT = new ArrayList<>(Arrays.asList(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3));
         int treeX;
         int treeZ;
         int bl = facingF ? 1 : -1;
@@ -40,7 +41,10 @@ public class PalmTreeFeature extends Feature<PalmTreeFeature.Config> {
         BlockPos trunkBlockPos = pContext.origin();
         BlockPos leavesBlockPos = pContext.origin();
         BlockState trunkBlockState = config.trunk().getState(pContext.random(), trunkBlockPos);
-        BlockState leavesBlockState = config.leaves().getState(pContext.random(), leavesBlockPos);
+        BlockState leavesBlockState1 = config.leaves1().getState(pContext.random(), leavesBlockPos);
+        BlockState leavesBlockState2 = config.leaves2().getState(pContext.random(), leavesBlockPos);
+        BlockState leavesBlockState3 = config.leaves3().getState(pContext.random(), leavesBlockPos);
+        List<BlockState> leavesBlocks = new ArrayList<>(Arrays.asList(leavesBlockState1, leavesBlockState2, leavesBlockState3));
 
         boolean placed = true;
 
@@ -83,12 +87,11 @@ public class PalmTreeFeature extends Feature<PalmTreeFeature.Config> {
                 treeX = (int) (Math.sqrt(height)) * bl;
             }
             leavesBlockPos = new BlockPos(leavesBlockPos.getX() - treeX, leavesBlockPos.getY() + height - 1, leavesBlockPos.getZ() - treeZ);
-            worldGenRegion.confluence$setBlock(leavesBlockPos.atY(leavesBlockPos.getY() + 1), leavesBlockState, 2);
             for (int i = 0; i < 40; i++) {
                 BlockPos leavesBlockPosPlace = new BlockPos(leavesBlockPos.getX() + leavesListX.get(i), leavesBlockPos.getY() + leavesListY.get(i), leavesBlockPos.getZ() + leavesListZ.get(i));
                 BlockState leavesPos = level.getBlockState(leavesBlockPosPlace);
                 if (leavesPos.isAir()) {
-                    worldGenRegion.confluence$setBlock(leavesBlockPosPlace, leavesBlockState, 2);
+                    worldGenRegion.confluence$setBlock(leavesBlockPosPlace, leavesBlocks.get(leavesListT.get(i) - 1), 2);
                 }
             }
 
@@ -97,10 +100,12 @@ public class PalmTreeFeature extends Feature<PalmTreeFeature.Config> {
         return false;
     }
 
-    public record Config(BlockStateProvider trunk, BlockStateProvider leaves) implements FeatureConfiguration {
+    public record Config(BlockStateProvider trunk, BlockStateProvider leaves1, BlockStateProvider leaves2, BlockStateProvider leaves3) implements FeatureConfiguration {
         public static final Codec<Config> CODEC = RecordCodecBuilder.create(instance -> instance.group(
                 BlockStateProvider.CODEC.fieldOf("trunk_block").forGetter(Config::trunk),
-                BlockStateProvider.CODEC.fieldOf("leaves_block").forGetter(Config::leaves)
+                BlockStateProvider.CODEC.fieldOf("leaves_block_bottom").forGetter(Config::leaves1),
+                BlockStateProvider.CODEC.fieldOf("leaves_block_top").forGetter(Config::leaves2),
+                BlockStateProvider.CODEC.fieldOf("leaves_block_double").forGetter(Config::leaves3)
         ).apply(instance, Config::new));
     }
 }

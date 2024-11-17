@@ -5,9 +5,11 @@ import net.minecraft.core.Direction;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.util.Mth;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
 
 public class DiggingMolecartEntity extends BaseMinecartEntity {
@@ -17,12 +19,12 @@ public class DiggingMolecartEntity extends BaseMinecartEntity {
         super(entityType, level);
     }
 
-    public DiggingMolecartEntity(Level level, double x, double y, double z, Abilities abilities) {
+    public DiggingMolecartEntity(Level level, double x, double y, double z, Abilities<DiggingMolecartEntity> abilities) {
         super(level, x, y, z, abilities);
     }
 
     @Override
-    protected void defineSynchedData(SynchedEntityData.Builder builder) {
+    protected void defineSynchedData(SynchedEntityData.@NotNull Builder builder) {
         super.defineSynchedData(builder);
         builder.define(DATA_ITEM_STACK, ItemStack.EMPTY);
     }
@@ -41,7 +43,10 @@ public class DiggingMolecartEntity extends BaseMinecartEntity {
 
     @Override
     public void moveMinecartOnRail(@NotNull BlockPos pos) {
-        Direction dir = Direction.fromYRot(getYRot());
         super.moveMinecartOnRail(pos);
+        Vec3 motion = getDeltaMovement();
+        setYRot((float) -(Mth.atan2(motion.x, motion.z) * Mth.RAD_TO_DEG));
+        Direction dir = Direction.fromYRot(getYRot());
+
     }
 }

@@ -1,0 +1,19 @@
+{
+  "type": "confluence:queen_bee_hive",
+  "config": {
+    "hive_block": {
+      "type": "simple_state_provider",
+      "state": {
+        "Name": "minecraft:gold_block"
+      }
+    },
+    "honey": {
+      "type": "simple_state_provider",
+      "state": {
+        "Name": "confluence:honey"
+      }
+    },
+    "radius": 30,
+    "y_to_honey": -20
+  }
+}

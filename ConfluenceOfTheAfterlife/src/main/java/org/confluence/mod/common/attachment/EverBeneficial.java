@@ -104,7 +104,6 @@ public class EverBeneficial implements INBTSerializable<CompoundTag> {
     }
 
     public boolean setMinecartUpgradeKitUsed() {
-        if (minecartUpgradeKit) return false;
         this.minecartUpgradeKit = true;
         return true;
     }
