@@ -2,6 +2,8 @@ package org.confluence.mod.common.item.sword;
 
 import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.Entity;
@@ -11,25 +13,27 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.level.Level;
 import org.confluence.mod.Confluence;
 import org.confluence.mod.common.component.SingleBooleanComponent;
+import org.confluence.mod.common.init.ModAttachments;
 import org.confluence.mod.common.init.ModDataComponentTypes;
-import org.confluence.mod.common.item.CustomRarityItem;
 import org.confluence.mod.common.item.sword.stagedy.EffectStrategy;
 import org.confluence.mod.common.item.sword.stagedy.InventoryTickStrategy;
 import org.confluence.mod.common.item.sword.stagedy.projectile.AbstractProjContainer;
 import org.confluence.mod.common.item.sword.stagedy.projectile.BoomerangProjContainer;
 import org.confluence.terra_curio.common.component.ModRarity;
 import org.confluence.terra_curio.common.init.TCDataComponentTypes;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.BiConsumer;
 
-public class Boomerang extends CustomRarityItem {
+public class Boomerang extends Item {
 
     public final BoomerangModifier boomerangModifier;
 
@@ -66,7 +70,6 @@ public class Boomerang extends CustomRarityItem {
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand usedHand) {
         ItemStack stack = player.getItemInHand(usedHand);
-
         // 等待返回且未到达最大等待时间
         if(boomerangModifier.shouldWaitForBack && !isBacked(stack)
                  && player.getCooldowns().isOnCooldown(this)
@@ -76,22 +79,24 @@ public class Boomerang extends CustomRarityItem {
         // 冷却
         if(boomerangModifier.shouldApplyCd && player.getCooldowns().isOnCooldown(this))
             return InteractionResultHolder.fail(stack);
-
-
-
+        // 动作
         if(level.isClientSide) {
             player.swing(InteractionHand.MAIN_HAND);
             return super.use(level, player, usedHand);
         }
-
+        // 射击
         setBacked(stack,SingleBooleanComponent.FALSE);
         if(boomerangModifier.proj == null)
             return InteractionResultHolder.fail(stack);
         boomerangModifier.proj.genProjectile(player, stack);
         if(usedHand == InteractionHand.OFF_HAND) stack.hurtAndBreak(1, player, EquipmentSlot.OFFHAND);
         else stack.hurtAndBreak(1, player, EquipmentSlot.MAINHAND);
-        if(boomerangModifier.shouldApplyCd )
-            player.getCooldowns().addCooldown(this, boomerangModifier.cd);
+        if(boomerangModifier.shouldApplyCd ) {
+            var map = player.getData(ModAttachments.WEAPON_STORAGE).boomerangCounter;
+            Integer count = map.compute(this, (k, v) -> v == null? 1 : v + 1);
+            if(count < boomerangModifier.maxCount) player.getCooldowns().addCooldown(this, boomerangModifier.cd);
+            else player.getCooldowns().addCooldown(this, 100); //最大等待时间
+        }
         else player.getCooldowns().addCooldown(this, 100); //最大等待时间
         return super.use(level, player, usedHand);
     }
@@ -104,14 +109,20 @@ public class Boomerang extends CustomRarityItem {
     @Override
     public boolean canContinueUsing(ItemStack oldStack, ItemStack newStack) {return false;}
 
+    @Override
+    public @NotNull MutableComponent getName(@NotNull ItemStack pStack) {
+        return Component.translatable(getDescriptionId()).withStyle(style -> style.withColor(pStack.get(TCDataComponentTypes.MOD_RARITY).getColor()));
+    }
+
     public static class BoomerangModifier {
 
         public float damage;
-        public float flySpeed = 1.52f;               //向前飞行速度
-        public float backSpeed = 1.52f;              //向后飞行速度//返回速度
+        public float flySpeed = 1.52f;              //向前飞行速度
+        public float backSpeed = 1.52f;             //向后飞行速度//返回速度
         public float knockback = 0.2f;              //基础击退力度
-        public int cd = 20;                         //冷却时间
+        public int cd = 10;                         //冷却时间
         public int forwardTick = 15;                //前进时间
+        public int maxCount = 1;                    //最大射击次数
         public boolean canPenetrate = false;        //是否可穿透，否则命中生物返回
         public boolean shouldWaitForBack = true;    //是否等待返回
         public boolean shouldApplyCd = false;       //是否应用冷却
@@ -200,10 +211,23 @@ public class Boomerang extends CustomRarityItem {
             this.knockback *= knockback;
             return this;
         }
+        /**
+         * 设置最大射击次数
+         */
+        public BoomerangModifier setMaxCount(int maxCount) {
+            this.maxCount = maxCount;
+            return this;
+        }
+        /**
+         * 设置向前飞行速度倍率
+         */
         public BoomerangModifier setFlySpeedFactor(float flySpeed) {
             this.flySpeed *= flySpeed;
             return this;
         }
+        /**
+         * 设置向后飞行速度倍率
+         */
         public BoomerangModifier setBackSpeedFactor(float backSpeed) {
             this.backSpeed *= backSpeed;
             return this;

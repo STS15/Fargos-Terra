@@ -17,8 +17,8 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.Vec3;
 import org.confluence.mod.common.component.SingleBooleanComponent;
+import org.confluence.mod.common.init.ModAttachments;
 import org.confluence.mod.common.init.ModEntities;
-import org.confluence.mod.common.init.item.BoomerangItems;
 import org.confluence.mod.common.item.sword.Boomerang;
 import org.confluence.mod.common.item.sword.Boomerang.BoomerangModifier;
 
@@ -43,7 +43,7 @@ public class BoomerangProjectile extends AbstractHurtingProjectile {
         this.setOwner(owner);
         this.modifier = modifier;
         this.weapon = weapon;
-        this.entityData.set(DATA_WEAPON, weapon);
+        this.entityData.set(DATA_WEAPON, weapon.copy());
     }
 
     //同步客户端数据
@@ -77,13 +77,13 @@ public class BoomerangProjectile extends AbstractHurtingProjectile {
 
     @Override
     protected void onHitEntity(EntityHitResult result) {
-//        if(!level().isClientSide){
+        if(!level().isClientSide){
             if(result.getEntity() instanceof LivingEntity living && living.isAlive()
                     && this.getOwner()!= null && !this.getOwner().is(living)
             ){
                 assert this.getOwner() instanceof LivingEntity;
                 living.hurt(this.damageSources().mobProjectile(this, (LivingEntity) this.getOwner()), modifier.damage);
-                modifier.onHitEffects.forEach(effect -> effect.accept(living, (LivingEntity) this.getOwner()));
+                modifier.onHitEffects.forEach(effect -> effect.accept((LivingEntity) this.getOwner(), living));
                 //击退
                 doKnockback(living);
             }
@@ -97,7 +97,7 @@ public class BoomerangProjectile extends AbstractHurtingProjectile {
                 isBacking = true;
 
             }
-//        }
+        }
     }
 
     protected void doKnockback(LivingEntity entity) {
@@ -142,7 +142,7 @@ public class BoomerangProjectile extends AbstractHurtingProjectile {
                 Vec3 motion = dir.scale(actualSpeed);
                 this.setDeltaMovement(motion);
 //                this.move(MoverType.SELF, this.getDeltaMovement());
-                if(this.distanceToSqr(living.position().add(0,1,0)) < 1){
+                if(this.distanceToSqr(living.position().add(0,1,0)) < 1.5){
                     discard();
                 }
             }
@@ -168,11 +168,19 @@ public class BoomerangProjectile extends AbstractHurtingProjectile {
 
     @Override
     public void onRemovedFromLevel(){
-        if(weapon!=null && !level().isClientSide) {
+        if(!weapon.isEmpty() && !level().isClientSide) {
             Boomerang.setBacked(weapon, SingleBooleanComponent.TRUE);
+            Integer count = getOwner().getData(ModAttachments.WEAPON_STORAGE).boomerangCounter.compute(weapon.getItem(), (k, c) -> c != null && c > 0? c - 1 : 0);
+
             //  提前部署
-            if(getOwner() instanceof Player player && modifier.shouldWaitForBack && !modifier.shouldApplyCd)
+            if(getOwner() instanceof Player player &&
+                    (modifier.shouldWaitForBack && !modifier.shouldApplyCd || modifier.maxCount - 1 == count)
+            ){
+
                 player.getCooldowns().removeCooldown(weapon.getItem());
+
+            }
+
         }
         super.onRemovedFromLevel();
     }

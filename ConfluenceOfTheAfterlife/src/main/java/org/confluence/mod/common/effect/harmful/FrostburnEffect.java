@@ -39,6 +39,10 @@ public class FrostburnEffect extends MobEffect { //霜冻：缓慢损失生命 �
         return true;
     }
 
+    public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
+        return duration % 20 == 0;
+    }
+
     public static void apply(LivingEntity entity, Consumer<Boolean> consumer) {
         if (entity.hasEffect(ModEffects.FROST_BURN)) {
             consumer.accept(true);
