@@ -13,6 +13,7 @@ import org.confluence.terra_curio.common.init.TCDataComponentTypes;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+@SuppressWarnings("rawtypes")
 public class BaseMinecartItem extends MinecartItem {
     private final BaseMinecartEntity.Abilities abilities;
     private final MinecartFactory factory;

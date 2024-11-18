@@ -36,17 +36,22 @@ public class DiggingMolecartEntity extends BaseMinecartEntity {
         Vec3 motion = getDeltaMovement();
         if (motion.horizontalDistanceSqr() < 0.1) return;
         if (canDigging() && getFirstPassenger() instanceof Player player) {
+            setYRot((float) -(Mth.atan2(motion.x, motion.z) * Mth.RAD_TO_DEG));
+            Direction facing = Direction.fromYRot(getYRot());
+            BlockPos facingPos = blockPosition().relative(facing);
             Tuple<ItemStack, Integer> tuple = PlayerUtils.getMaxDiggingPowerItem(player);
             ItemStack pickaxeItem = tuple.getA();
             int power = tuple.getB();
             if (power > 0 && !pickaxeItem.isEmpty()) {
-                setYRot((float) -(Mth.atan2(motion.x, motion.z) * Mth.RAD_TO_DEG));
-                Direction facing = Direction.fromYRot(getYRot());
-                BlockPos facingPos = blockPosition().relative(facing);
                 diggingBlocks(player, facingPos, facing, power, pickaxeItem);
-                placeRail(player, facingPos, facing);
             }
+            placeRail(player, facingPos, facing);
         }
+    }
+
+    @Override
+    protected double getUpgradedMaxSpeed() {
+        return super.getUpgradedMaxSpeed() * 0.5;
     }
 
     protected boolean canDigging() {

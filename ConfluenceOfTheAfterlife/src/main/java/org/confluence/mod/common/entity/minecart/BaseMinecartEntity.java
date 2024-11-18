@@ -18,7 +18,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.function.Supplier;
 
 public class BaseMinecartEntity extends Minecart {
-    public static final double MECHANICAL_CART_MAX_SPEED = 0.615;
+    public static final double MECHANICAL_CART_MAX_SPEED = 1.23;
     public static final double MECHANICAL_CART_ACCELERATION = 2.5;
     public static final double MECHANICAL_CART_DRAG_AIR = 0.99;
     public static final Abilities<BaseMinecartEntity> WOODEN = new Abilities<>(ModEntities.WOODEN_MINECART, () -> Items.AIR, 0.308F, 0.16, 0.94);
@@ -26,8 +26,8 @@ public class BaseMinecartEntity extends Minecart {
     public static final Abilities<DiggingMolecartEntity> MOLECART = new Abilities<>(ModEntities.DIGGING_MOLECART, MinecartItems.DIGGING_MOLECART, 0.185F, 0.15, 0.93);
 
     protected Supplier<? extends Item> dropItem = () -> Items.AIR;
-    protected float maxSpeed = (float) MECHANICAL_CART_MAX_SPEED;
-    protected double acceleration = MECHANICAL_CART_ACCELERATION;
+    protected float maxSpeed = 0.0F;
+    protected double acceleration = 0.0;
 
     public BaseMinecartEntity(EntityType<? extends BaseMinecartEntity> entityType, Level level) {
         super(entityType, level);
@@ -48,11 +48,23 @@ public class BaseMinecartEntity extends Minecart {
     @Override
     public void moveMinecartOnRail(@NotNull BlockPos pos) {
         boolean upgradeKit = getFirstPassenger() instanceof LivingEntity living && living.getData(ModAttachments.EVER_BENEFICIAL).isMinecartUpgradeKitUsed();
-        if (upgradeKit) setDragAir(MECHANICAL_CART_DRAG_AIR);
-        double d25 = upgradeKit ? MECHANICAL_CART_MAX_SPEED : getMaxCartSpeedOnRail();
-        double d24 = upgradeKit ? MECHANICAL_CART_ACCELERATION : (isVehicle() ? acceleration : 1.0);
+        if (upgradeKit) setDragAir(getUpgradedDragAir());
+        double d25 = upgradeKit ? getUpgradedMaxSpeed() : getMaxCartSpeedOnRail();
+        double d24 = upgradeKit ? getUpgradedAcceleration() : (isVehicle() ? acceleration : 1.0);
         Vec3 motion = getDeltaMovement();
         move(MoverType.SELF, new Vec3(Mth.clamp(d24 * motion.x, -d25, d25), 0.0D, Mth.clamp(d24 * motion.z, -d25, d25)));
+    }
+
+    protected double getUpgradedDragAir() {
+        return MECHANICAL_CART_DRAG_AIR;
+    }
+
+    protected double getUpgradedMaxSpeed() {
+        return MECHANICAL_CART_MAX_SPEED;
+    }
+
+    protected double getUpgradedAcceleration() {
+        return MECHANICAL_CART_ACCELERATION;
     }
 
     @Override
