@@ -4,7 +4,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.block.grower.TreeGrower;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import org.confluence.mod.Confluence;
-import org.confluence.mod.worldgen.feature.ModFeatures;
+import org.confluence.mod.common.worldgen.feature.ModFeatures;
 
 import java.util.Optional;
 

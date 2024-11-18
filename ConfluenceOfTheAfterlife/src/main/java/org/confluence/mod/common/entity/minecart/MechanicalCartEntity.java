@@ -3,7 +3,7 @@ package org.confluence.mod.common.entity.minecart;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.Level;
 
-public class MechanicalCartEntity extends BaseMinecartEntity{
+public class MechanicalCartEntity extends BaseMinecartEntity {
     public MechanicalCartEntity(EntityType<? extends BaseMinecartEntity> entityType, Level level) {
         super(entityType, level);
     }
