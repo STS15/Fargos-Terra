@@ -1,17 +1,22 @@
 package org.confluence.mod.integration.jade;
 
+import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import org.confluence.mod.Confluence;
+import org.confluence.mod.common.block.functional.network.INetworkEntity;
+import org.confluence.mod.common.block.functional.network.NetworkNode;
+import org.confluence.mod.common.init.block.FunctionalBlocks;
 import snownee.jade.api.BlockAccessor;
 import snownee.jade.api.IBlockComponentProvider;
 import snownee.jade.api.IServerDataProvider;
 import snownee.jade.api.ITooltip;
 import snownee.jade.api.config.IPluginConfig;
 
-// todo
+import java.util.Comparator;
+
 public class MechanicalComponentProvider implements IBlockComponentProvider, IServerDataProvider<BlockAccessor> {
     public static final MechanicalComponentProvider INSTANCE = new MechanicalComponentProvider();
     public static final ResourceLocation UID = Confluence.asResource("jade_mechanical_component");
@@ -40,19 +45,19 @@ public class MechanicalComponentProvider implements IBlockComponentProvider, ISe
 
     @Override
     public void appendServerData(CompoundTag compoundTag, BlockAccessor blockAccessor) {
-//        if (!blockAccessor.getPlayer().isCreative() && blockAccessor.getBlock() == ModBlocks.DEATH_CHEST_BLOCK.getPrefab()) return;
-//        if (blockAccessor.getBlockEntity() instanceof INetworkEntity entity) {
-//            NetworkNode networkNode = entity.getOrCreateNetworkNode();
-//            ListTag listTag = new ListTag();
-//            networkNode.getNetworks().int2ObjectEntrySet().stream()
-//                    .sorted(Comparator.comparingInt(Int2ObjectMap.Entry::getIntKey))
-//                    .forEach(entry -> {
-//                        CompoundTag tag = new CompoundTag();
-//                        tag.putInt("color", entry.getIntKey());
-//                        tag.putBoolean("signal", entry.getValue().hasSignal());
-//                        listTag.add(tag);
-//                    });
-//            compoundTag.put("networkInfo", listTag);
-//        }
+        if (!blockAccessor.getPlayer().isCreative() && blockAccessor.getBlock() == FunctionalBlocks.DEATH_CHEST_BLOCK.get()) return;
+        if (blockAccessor.getBlockEntity() instanceof INetworkEntity entity) {
+            NetworkNode networkNode = entity.getOrCreateNetworkNode();
+            ListTag listTag = new ListTag();
+            networkNode.getNetworks().int2ObjectEntrySet().stream()
+                    .sorted(Comparator.comparingInt(Int2ObjectMap.Entry::getIntKey))
+                    .forEach(entry -> {
+                        CompoundTag tag = new CompoundTag();
+                        tag.putInt("color", entry.getIntKey());
+                        tag.putBoolean("signal", entry.getValue().hasSignal());
+                        listTag.add(tag);
+                    });
+            compoundTag.put("networkInfo", listTag);
+        }
     }
 }

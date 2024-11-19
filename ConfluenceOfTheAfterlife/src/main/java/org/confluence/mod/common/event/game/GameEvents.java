@@ -58,17 +58,17 @@ public final class GameEvents {
     public static void rangePickupItem$Post(RangePickupItemEvent.Post event) {
         LivingEntity living = event.getEntity();
         ItemStack itemStack = event.getItemEntity().getItem();
-        if (itemStack.is(ModTags.Items.PROVIDE_MANA)) {
-            float mana = TCUtils.getAccessoriesValue(living, AccessoryItems.MANA$PICKUP$RANGE).getA();
-            if ((float) living.distanceToSqr(event.getItemEntity()) > mana * mana) event.setCanceled(true);
+        if (itemStack.is(ModTags.Items.PROVIDE_MANA) && !event.canPickupWithin(TCUtils.getAccessoriesValue(living, AccessoryItems.MANA$PICKUP$RANGE).getA())) {
+            event.setCanceled(true);
         }
-        if (itemStack.is(ModTags.Items.COIN)) {
-            float coin = TCUtils.getAccessoriesValue(living, AccessoryItems.COIN$PICKUP$RANGE).getA();
-            if ((float) living.distanceToSqr(event.getItemEntity()) > coin * coin) event.setCanceled(true);
+        if (itemStack.is(ModTags.Items.COIN) && !event.canPickupWithin(TCUtils.getAccessoriesValue(living, AccessoryItems.COIN$PICKUP$RANGE).getA())) {
+            event.setCanceled(true);
         }
-        if (itemStack.is(ModTags.Items.PROVIDE_LIFE)) {
-            float life = HeartReachEffect.getRange(living);
-            if ((float) living.distanceToSqr(event.getItemEntity()) > life * life) event.setCanceled(true);
+        if (itemStack.is(ModTags.Items.PROVIDE_LIFE) && !event.canPickupWithin(HeartReachEffect.getRange(living))) {
+            event.setCanceled(true);
+        }
+        if (!event.isCanceled() && !event.canPickupWithin(event.getOriginalRange())) {
+            event.setCanceled(true);
         }
     }
 

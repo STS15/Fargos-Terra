@@ -2,6 +2,7 @@ package org.confluence.mod.common.event;
 
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Blocks;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -19,12 +20,15 @@ import org.confluence.mod.common.block.natural.spreadable.ISpreadable;
 import org.confluence.mod.common.fluid.FluidBuilder;
 import org.confluence.mod.common.init.ModFluids;
 import org.confluence.mod.common.init.block.FunctionalBlocks;
+import org.confluence.mod.common.init.block.OreBlocks;
 import org.confluence.mod.common.init.item.AccessoryItems;
 import org.confluence.mod.network.c2s.HookThrowingPacketC2S;
 import org.confluence.mod.network.c2s.SwordShootingPacketC2S;
 import org.confluence.mod.network.s2c.FishingPowerInfoPacketS2C;
 import org.confluence.mod.network.s2c.GamePhasePacketS2C;
 import org.confluence.mod.network.s2c.ManaPacketS2C;
+import org.confluence.phase_journey.PhaseJourney;
+import org.confluence.phase_journey.api.PhaseJourneyEvent;
 import org.confluence.terra_curio.api.event.RegisterAccessoriesComponentUpdateEvent;
 import org.confluence.terra_curio.common.init.TCItems;
 import org.confluence.terra_curio.common.init.TCTabs;
@@ -104,6 +108,25 @@ public final class ModEvents {
                 DeferredItem<? extends Item> entry = (DeferredItem<? extends Item>) entries[i];
                 event.insertFirst(entry.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             }
+        }
+    }
+
+    @SubscribeEvent
+    public static void phaseJourney$Register(PhaseJourneyEvent.Register event) {
+        int step = 0;
+        for (int state = 0; state < 3; state++) {
+            event.phaseRegister(PhaseJourney.asResource("reveal_step_" + (step++)), context -> {
+                context.blockReplacement(OreBlocks.DEEPSLATE_COBALT_ORE.get(), Blocks.DEEPSLATE);
+                context.blockReplacement(OreBlocks.DEEPSLATE_PALLADIUM_ORE.get(), Blocks.DEEPSLATE);
+            });
+            event.phaseRegister(PhaseJourney.asResource("reveal_step_" + (step++)), context -> {
+                context.blockReplacement(OreBlocks.DEEPSLATE_MITHRIL_ORE.get(), Blocks.DEEPSLATE);
+                context.blockReplacement(OreBlocks.DEEPSLATE_ORICHALCUM_ORE.get(), Blocks.DEEPSLATE);
+            });
+            event.phaseRegister(PhaseJourney.asResource("reveal_step_" + (step++)), context -> {
+                context.blockReplacement(OreBlocks.DEEPSLATE_ADAMANTITE_ORE.get(), Blocks.DEEPSLATE);
+                context.blockReplacement(OreBlocks.DEEPSLATE_TITANIUM_ORE.get(), Blocks.DEEPSLATE);
+            });
         }
     }
 }
