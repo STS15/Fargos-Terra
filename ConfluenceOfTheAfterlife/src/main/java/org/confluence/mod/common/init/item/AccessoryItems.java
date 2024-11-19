@@ -6,14 +6,10 @@ import net.minecraft.util.Tuple;
 import net.minecraft.util.Unit;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.MoverType;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.phys.AABB;
-import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.confluence.mod.Confluence;
@@ -21,7 +17,6 @@ import org.confluence.mod.common.CommonConfigs;
 import org.confluence.mod.common.entity.fishing.CurioFishingHook;
 import org.confluence.mod.common.init.ModAttributes;
 import org.confluence.mod.common.init.ModEffects;
-import org.confluence.mod.common.init.ModTags;
 import org.confluence.mod.common.item.accessory.FishingBobber;
 import org.confluence.mod.common.item.accessory.PickupRangeAbilityValue;
 import org.confluence.mod.util.ModUtils;
@@ -50,18 +45,21 @@ import static org.confluence.terra_curio.common.component.ModRarity.*;
 public class AccessoryItems {
     public static final DeferredRegister.Items ACCESSORIES = DeferredRegister.createItems(Confluence.MODID);
 
+    public static final ValueType<Unit, UnitValue> MECHANICAL$VIEW = ValueType.ofUnit("mechanical_view");
+
     public static final ValueType<Unit, UnitValue> LUCKY$COIN = ValueType.ofUnit("lucky_coin");
     public static final ValueType<Unit, UnitValue> SHEARS$DIG = ValueType.ofUnit("shears_dig");
     public static final ValueType<Unit, UnitValue> ICE$SAFE = ValueType.ofUnit("ice_safe");
     public static final ValueType<Unit, UnitValue> AUTO$GET$MANA = ValueType.ofUnit("auto_get_mama");
     public static final ValueType<Unit, UnitValue> HURT$GET$MANA = ValueType.ofUnit("hurt_get_mana");
     public static final ValueType<Unit, UnitValue> FAST$MANA$GENERATION = ValueType.ofUnit("faset_mana_regeneration");
+
     public static final ValueType<Float, FloatValue> MANA$USE$REDUCE = ValueType.ofFloat("mana_use_reduce", FloatValue.ADDITION_WITHIN_0_TO_1, 0.0F);
+    public static final ValueType<Float, FloatValue> REDUCE$HEALING$COOLDOWN = ValueType.ofFloat("reduce_healing_cooldown", FloatValue.ADDITION_WITHIN_0_TO_1, 0.0F);
+    public static final ValueType<Float, FloatValue> FISHING$POWER = ValueType.ofFloat("fishing_power", FloatValue.ADDITION, 0.0F);
     public static final ValueType<Integer, IntegerValue> ADDITIONAL$MANA = ValueType.ofInteger("additional_mana", IntegerValue.ADDITION, 0);
     public static final ValueType<Tuple<Float, Integer>, PickupRangeAbilityValue> MANA$PICKUP$RANGE = ValueType.create("mana_pickup_range", PickupRangeAbilityValue.COMBINE_RULE, PickupRangeAbilityValue.CODEC, new Tuple<>(1.75F, 0), PickupRangeAbilityValue::new);
     public static final ValueType<Tuple<Float, Integer>, PickupRangeAbilityValue> COIN$PICKUP$RANGE = ValueType.create("coin_pickup_range", PickupRangeAbilityValue.COMBINE_RULE, PickupRangeAbilityValue.CODEC, new Tuple<>(2.0F, 0), PickupRangeAbilityValue::new);
-    public static final ValueType<Float, FloatValue> REDUCE$HEALING$COOLDOWN = ValueType.ofFloat("reduce_healing_cooldown", FloatValue.ADDITION_WITHIN_0_TO_1, 0.0F);
-    public static final ValueType<Float, FloatValue> FISHING$POWER = ValueType.ofFloat("fishing_power", FloatValue.ADDITION, 0.0F);
 
     public static final Supplier<BaseCurioItem> ADHESIVE_BANDAGE = registerCurio("adhesive_bandage", builder -> builder.rarity(ModRarity.LIGHT_RED).accessories(of(ValueType.EFFECT$IMMUNITIES, Set.of(ModEffects.BLEEDING)))),
             MEDICATED_BANDAGE = registerCurio("medicated_bandage", builder -> builder.rarity(PINK).accessories(of(ValueType.EFFECT$IMMUNITIES, Set.of(MobEffects.POISON, ModEffects.BLEEDING)))),
@@ -95,6 +93,10 @@ public class AccessoryItems {
             ARGON_MOSS_FISHING_BOBBER = ACCESSORIES.register("argon_moss_fishing_bobber", () -> new FishingBobber(CurioFishingHook.Variant.ARGON)), // 氩苔藓钓鱼浮标
             KRYPTON_MOSS_FISHING_BOBBER = ACCESSORIES.register("krypton_moss_fishing_bobber", () -> new FishingBobber(CurioFishingHook.Variant.KRYPTON)), // 氪苔藓钓鱼浮标
             XENON_MOSS_FISHING_BOBBER = ACCESSORIES.register("xenon_moss_fishing_bobber", () -> new FishingBobber(CurioFishingHook.Variant.XENON)); // 氙苔藓钓鱼浮标
+
+    public static final Supplier<BaseCurioItem> MECHANICAL_LENS = registerCurio("mechanical_lens", builder -> builder.rarity(ORANGE).accessories(units(MECHANICAL$VIEW)));
+    /* 标尺 */
+    /* 机械标尺 */
 
     /* 向导巫毒娃娃 */
     /* 服装商巫毒娃娃 */
@@ -133,23 +135,6 @@ public class AccessoryItems {
 
     public static void acceptTag(IntrinsicHolderTagsProvider.IntrinsicTagAppender<Item> tag) {
         for (DeferredHolder<Item, ? extends Item> accessory : ACCESSORIES.getEntries()) tag.add(accessory.get());
-    }
-
-    public static void applyCoinPickup(Player player) {
-        float range = TCUtils.getAccessoriesValue(player, COIN$PICKUP$RANGE).getA();
-        if (range <= 0.0) return;
-        player.level().getEntitiesOfClass(
-                ItemEntity.class,
-                new AABB(player.getOnPos()).inflate(range),
-                itemEntity -> !itemEntity.hasPickUpDelay() && itemEntity.getItem().is(ModTags.Items.COIN)
-        ).forEach(itemEntity -> {
-            if (itemEntity.isRemoved()) return;
-            Vec3 vec3 = player.position()
-                    .subtract(itemEntity.getX(), itemEntity.getY(), itemEntity.getZ())
-                    .normalize().scale(0.05F).add(0, 0.04F, 0);
-            itemEntity.addDeltaMovement(vec3);
-            itemEntity.move(MoverType.SELF, itemEntity.getDeltaMovement());
-        });
     }
 
     public static void applyLuckyCoin(Player player, Entity target) {

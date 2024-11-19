@@ -8,6 +8,7 @@ import org.confluence.mod.common.init.ModSoundEvents;
 import org.confluence.mod.network.s2c.FishingPowerInfoPacketS2C;
 import org.confluence.mod.network.s2c.GamePhasePacketS2C;
 import org.confluence.mod.network.s2c.ManaPacketS2C;
+import org.confluence.mod.network.s2c.MechanicalViewPacketS2C;
 
 @OnlyIn(Dist.CLIENT)
 public final class ClientPacketHandler {
@@ -15,6 +16,7 @@ public final class ClientPacketHandler {
     private static int currentMana = 20;
     private static GamePhase gamePhase = GamePhase.BEFORE_SKELETRON;
     private static float fishingPower = 0.0F;
+    private static boolean mechanicalView = false;
 
     public static int getCurrentMana() {
         return currentMana;
@@ -33,7 +35,11 @@ public final class ClientPacketHandler {
     }
 
     public static boolean hasMechanicalView() {
-        return false; // todo
+        return mechanicalView;
+    }
+
+    public static void handleMechanicalView(MechanicalViewPacketS2C mechanicalViewPacketS2C) {
+        mechanicalView = mechanicalViewPacketS2C.enable();
     }
 
     public boolean isGraduated() {
