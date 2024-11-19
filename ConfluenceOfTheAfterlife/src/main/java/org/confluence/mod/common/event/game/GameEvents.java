@@ -8,8 +8,10 @@ import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.ItemStackedOnOtherEvent;
+import net.neoforged.neoforge.event.RegisterCommandsEvent;
 import org.confluence.mod.Confluence;
 import org.confluence.mod.api.event.ShimmerItemTransmutationEvent;
+import org.confluence.mod.common.data.saved.ConfluenceCommand;
 import org.confluence.mod.common.data.saved.ConfluenceData;
 import org.confluence.mod.common.effect.beneficial.HeartReachEffect;
 import org.confluence.mod.common.init.ModAttachments;
@@ -79,5 +81,10 @@ public final class GameEvents {
         if (living instanceof ServerPlayer serverPlayer) {
             FishingPowerInfoPacketS2C.sendToPlayer(serverPlayer);
         }
+    }
+
+    @SubscribeEvent
+    public static void command(RegisterCommandsEvent event) {
+        ConfluenceCommand.register(event.getDispatcher());
     }
 }

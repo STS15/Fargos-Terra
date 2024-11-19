@@ -9,6 +9,7 @@ import net.minecraft.util.Tuple;
 import net.minecraft.world.level.saveddata.SavedData;
 import net.neoforged.neoforge.network.PacketDistributor;
 import org.confluence.mod.network.s2c.GamePhasePacketS2C;
+import org.confluence.mod.network.s2c.StarPhasesPacketS2C;
 import org.confluence.terra_curio.network.s2c.WindSpeedPacketS2C;
 import org.jetbrains.annotations.NotNull;
 
@@ -16,6 +17,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ConfluenceData extends SavedData {
+    public static final int STAR_PHASES_SIZE = 11;
+
     private GamePhase gamePhase;
     private float windSpeedX;
     private float windSpeedZ;
@@ -25,7 +28,10 @@ public class ConfluenceData extends SavedData {
         this.gamePhase = GamePhase.BEFORE_SKELETRON;
         this.windSpeedX = 0.0F;
         this.windSpeedZ = 0.0F;
-        this.starPhases = new ArrayList<>();
+        this.starPhases = new ArrayList<>(STAR_PHASES_SIZE);
+        for (int i = 0; i < STAR_PHASES_SIZE; i++) {
+            starPhases.add(new Tuple<>(0.0F, 0.0F));
+        }
     }
 
     ConfluenceData(CompoundTag nbt, HolderLookup.@NotNull Provider registries) {
@@ -33,10 +39,10 @@ public class ConfluenceData extends SavedData {
         this.windSpeedX = nbt.getFloat("windSpeedX");
         this.windSpeedZ = nbt.getFloat("windSpeedZ");
         ListTag listTag = nbt.getList("starPhases", Tag.TAG_COMPOUND);
-        this.starPhases = new ArrayList<>();
+        this.starPhases = new ArrayList<>(STAR_PHASES_SIZE);
         for (Tag tag : listTag) {
             CompoundTag phase = (CompoundTag) tag;
-            starPhases.add(new Tuple<>(phase.getFloat("radius"), phase.getFloat("angle")));
+            starPhases.set(phase.getInt("index"), new Tuple<>(phase.getFloat("radius"), phase.getFloat("angle")));
         }
     }
 
@@ -50,11 +56,14 @@ public class ConfluenceData extends SavedData {
         nbt.putFloat("windSpeedX", windSpeedX);
         nbt.putFloat("windSpeedZ", windSpeedZ);
         ListTag listTag = new ListTag();
+        int i = 0;
         for (Tuple<Float, Float> phase : starPhases) {
             CompoundTag tag = new CompoundTag();
+            tag.putInt("index", i);
             tag.putFloat("radius", phase.getA());
             tag.putFloat("angle", phase.getB());
             listTag.add(tag);
+            i++;
         }
         nbt.put("starPhases", listTag);
         return nbt;
@@ -93,7 +102,15 @@ public class ConfluenceData extends SavedData {
         return windSpeedZ;
     }
 
-    public List<Tuple<Float, Float>> getStarPhases() {
-        return starPhases;
+    public boolean setStarPhase(int index, float radius, float angle) {
+        if (index >= STAR_PHASES_SIZE) return false;
+        starPhases.set(index, new Tuple<>(radius, angle));
+        PacketDistributor.sendToAllPlayers(new StarPhasesPacketS2C(starPhases));
+        return true;
+    }
+
+    public Tuple<Float, Float> getStarPhase(int index) {
+        if (index >= STAR_PHASES_SIZE) return null;
+        return starPhases.get(index);
     }
 }
