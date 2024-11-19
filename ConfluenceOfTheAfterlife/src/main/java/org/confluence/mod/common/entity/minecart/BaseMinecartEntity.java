@@ -13,7 +13,9 @@ import net.minecraft.world.phys.Vec3;
 import org.confluence.mod.common.init.ModAttachments;
 import org.confluence.mod.common.init.ModEntities;
 import org.confluence.mod.common.init.item.MinecartItems;
+import org.confluence.terra_curio.mixin.accessor.LivingEntityAccessor;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Supplier;
 
@@ -25,9 +27,11 @@ public class BaseMinecartEntity extends Minecart {
     public static final Abilities<MechanicalCartEntity> MECHANICAL = new Abilities<>(ModEntities.MECHANICAL_CART, MinecartItems.MECHANICAL_CART, (float) MECHANICAL_CART_MAX_SPEED, MECHANICAL_CART_ACCELERATION, MECHANICAL_CART_DRAG_AIR);
     public static final Abilities<DiggingMolecartEntity> MOLECART = new Abilities<>(ModEntities.DIGGING_MOLECART, MinecartItems.DIGGING_MOLECART, 0.185F, 0.15, 0.93);
 
-    protected Supplier<? extends Item> dropItem = () -> Items.AIR;
-    protected float maxSpeed = 0.0F;
-    protected double acceleration = 0.0;
+    protected Supplier<? extends Item> dropItem = () -> Items.AIR; // both
+    protected float maxSpeed = 0.0F; // both
+    protected double acceleration = 0.0; // both
+    protected @Nullable LivingEntity driver; // server
+    protected boolean jumping = false; // server
 
     public BaseMinecartEntity(EntityType<? extends BaseMinecartEntity> entityType, Level level) {
         super(entityType, level);
@@ -37,7 +41,7 @@ public class BaseMinecartEntity extends Minecart {
         super(abilities.entityType.get(), level);
         this.dropItem = abilities.dropItem;
         this.acceleration = abilities.acceleration;
-        setCurrentCartSpeedCapOnRail(maxSpeed);
+        setCurrentCartSpeedCapOnRail(abilities.maxSpeed);
         setDragAir(abilities.dragAir);
         setPos(x, y, z);
         this.xo = x;
@@ -46,13 +50,28 @@ public class BaseMinecartEntity extends Minecart {
     }
 
     @Override
+    public void tick() {
+        super.tick();
+        if (!level().isClientSide) {
+            this.driver = getFirstPassenger() instanceof LivingEntity living ? living : null;
+            if (!jumping && isOnRails() && driver != null && ((LivingEntityAccessor) driver).getJumping()) {
+                setPos(getX(), getY() + 5.0, getZ());
+                this.jumping = true;
+            }
+            if (level().getGameTime() % 30 == 0) {
+                this.jumping = false;
+            }
+        }
+    }
+
+    @Override
     public void moveMinecartOnRail(@NotNull BlockPos pos) {
-        boolean upgradeKit = getFirstPassenger() instanceof LivingEntity living && living.getData(ModAttachments.EVER_BENEFICIAL).isMinecartUpgradeKitUsed();
+        boolean upgradeKit = driver != null && driver.getData(ModAttachments.EVER_BENEFICIAL).isMinecartUpgradeKitUsed();
         if (upgradeKit) setDragAir(getUpgradedDragAir());
-        double d25 = upgradeKit ? getUpgradedMaxSpeed() : getMaxCartSpeedOnRail();
+        double d25 = upgradeKit ? getUpgradedMaxSpeed() : getMaxSpeedWithRail();
         double d24 = upgradeKit ? getUpgradedAcceleration() : (isVehicle() ? acceleration : 1.0);
         Vec3 motion = getDeltaMovement();
-        move(MoverType.SELF, new Vec3(Mth.clamp(d24 * motion.x, -d25, d25), 0.0D, Mth.clamp(d24 * motion.z, -d25, d25)));
+        move(MoverType.SELF, new Vec3(Mth.clamp(d24 * motion.x, -d25, d25), 0.0, Mth.clamp(d24 * motion.z, -d25, d25)));
     }
 
     protected double getUpgradedDragAir() {
