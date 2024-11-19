@@ -10,14 +10,13 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import org.confluence.mod.common.item.common.BaseMinecartItem;
 import org.confluence.mod.mixed.IAbstractMinecart;
-import org.confluence.terra_curio.mixed.SelfGetter;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(AbstractMinecart.class)
-public abstract class AbstractMinecartMixin extends VehicleEntity implements IAbstractMinecart, SelfGetter<AbstractMinecart> {
+public abstract class AbstractMinecartMixin extends VehicleEntity implements IAbstractMinecart {
     public AbstractMinecartMixin(EntityType<?> entityType, Level level) {
         super(entityType, level);
     }

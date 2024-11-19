@@ -2,21 +2,22 @@ package org.confluence.mod.common.entity.minecart;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.Mth;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.MoverType;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.vehicle.Minecart;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import org.confluence.mod.common.init.ModAttachments;
 import org.confluence.mod.common.init.ModEntities;
 import org.confluence.mod.common.init.item.MinecartItems;
+import org.confluence.mod.util.ModUtils;
 import org.confluence.terra_curio.mixin.accessor.LivingEntityAccessor;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.List;
 import java.util.function.Supplier;
 
 public class BaseMinecartEntity extends Minecart {
@@ -61,7 +62,28 @@ public class BaseMinecartEntity extends Minecart {
             if (level().getGameTime() % 30 == 0) {
                 this.jumping = false;
             }
+            Vec3 movement = getDeltaMovement();
+            boolean bx = Math.abs(movement.x) > 0.1;
+            boolean bz = Math.abs(movement.z) > 0.1;
+            if (bx || bz) {
+                double sx = bx ? movement.x : 0.0;
+                double sz = bz ? movement.z : 0.0;
+                AABB aabb = getBoundingBox().move(sx, 0.0, sz).inflate(Math.abs(sx), 0.0, Math.abs(sz));
+                List<Entity> list = this.level().getEntities(this, aabb, entity -> !hasPassenger(entity) && EntitySelector.pushableBy(this).test(entity));
+                if (!list.isEmpty()) {
+                    for (Entity entity : list) {
+                        double distance = movement.horizontalDistance();
+                        entity.hurt(damageSources().flyIntoWall(), (float) distance * 5.0F);
+                        ModUtils.knockBackA2B(this, entity, distance * 0.5, 0.2);
+                    }
+                }
+            }
         }
+    }
+
+    @Override
+    public boolean isPushable() {
+        return driver == null;
     }
 
     @Override

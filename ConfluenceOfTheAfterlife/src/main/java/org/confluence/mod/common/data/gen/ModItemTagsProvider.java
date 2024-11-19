@@ -16,6 +16,7 @@ import org.confluence.mod.common.init.ModTags;
 import org.confluence.mod.common.init.block.ModBlocks;
 import org.confluence.mod.common.init.item.*;
 import org.confluence.terra_curio.common.init.TCTags;
+import org.confluence.terraentity.init.TETags;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -73,8 +74,8 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         AxeItems.acceptTag(tag(ItemTags.AXES));
         copy(BlockTags.RAILS, ItemTags.RAILS);
         tag(ModTags.Items.COIN).add(ModItems.COPPER_COIN.get(), ModItems.SILVER_COIN.get(), ModItems.GOLDEN_COIN.get(), ModItems.PLATINUM_COIN.get());
-        tag(org.confluence.terraentity.init.ModTags.Items.HONEY_TRANSLATION_BUCKET).add(ModItems.HONEY_BUCKET.get());
-        tag(org.confluence.terraentity.init.ModTags.Items.HONEY_TRANSLATION_NOT_CONSUMED).add(ModItems.BOTTOMLESS_HONEY_BUCKET.get());
+        tag(TETags.Items.HONEY_TRANSLATION_BUCKET).add(ModItems.HONEY_BUCKET.get());
+        tag(TETags.Items.HONEY_TRANSLATION_NOT_CONSUMED).add(ModItems.BOTTOMLESS_HONEY_BUCKET.get());
 
         AccessoryItems.acceptTag(tag(TCTags.ACCESSORY));
     }
