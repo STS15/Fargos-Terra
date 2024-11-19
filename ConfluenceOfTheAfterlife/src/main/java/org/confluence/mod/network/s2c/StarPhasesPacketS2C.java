@@ -5,11 +5,16 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.Tuple;
+import net.neoforged.neoforge.network.PacketDistributor;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
+import net.neoforged.neoforge.server.ServerLifecycleHooks;
 import org.apache.commons.lang3.tuple.ImmutableTriple;
 import org.confluence.mod.Confluence;
 import org.confluence.mod.client.handler.ClientPacketHandler;
+import org.confluence.mod.common.data.saved.ConfluenceData;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -68,5 +73,27 @@ public record StarPhasesPacketS2C(Either<List<Tuple<Float, Float>>, ImmutableTri
             context.disconnect(Component.translatable("neoforge.network.invalid_flow", e.getMessage()));
             return null;
         });
+    }
+
+    public static void sendToAll(ServerLevel serverLevel) {
+        if (ServerLifecycleHooks.getCurrentServer() != null) {
+            PacketDistributor.sendToAllPlayers(new StarPhasesPacketS2C(Either.left(ConfluenceData.get(serverLevel).getStarPhases())));
+        }
+    }
+
+    public static void sendToAll(int index, float radius, float angle) {
+        if (ServerLifecycleHooks.getCurrentServer() != null) {
+            PacketDistributor.sendToAllPlayers(new StarPhasesPacketS2C(Either.right(new ImmutableTriple<>(index, radius, angle))));
+        }
+    }
+
+    public static void sendToPlayer(ServerPlayer serverPlayer) {
+        if (ServerLifecycleHooks.getCurrentServer() != null) {
+            PacketDistributor.sendToPlayer(serverPlayer, new StarPhasesPacketS2C(Either.left(ConfluenceData.get(serverPlayer.serverLevel()).getStarPhases())));
+        }
+    }
+
+    public static void sendToPlayer(ServerPlayer serverPlayer, int index, float radius, float angle) {
+        PacketDistributor.sendToPlayer(serverPlayer, new StarPhasesPacketS2C(Either.right(new ImmutableTriple<>(index, radius, angle))));
     }
 }

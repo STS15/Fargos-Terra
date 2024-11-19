@@ -1,6 +1,5 @@
 package org.confluence.mod.util;
 
-import com.mojang.datafixers.util.Either;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.Tuple;
 import net.minecraft.world.entity.player.Player;
@@ -85,14 +84,14 @@ public final class PlayerUtils {
         ConfluenceData data = ConfluenceData.get(serverPlayer.serverLevel());
         PacketDistributor.sendToPlayer(serverPlayer, new WindSpeedPacketS2C(data.getWindSpeedX(), data.getWindSpeedZ()));
         PacketDistributor.sendToPlayer(serverPlayer, new GamePhasePacketS2C(data.getGamePhase()));
-        PacketDistributor.sendToPlayer(serverPlayer, new StarPhasesPacketS2C(Either.left(data.getStarPhases())));
+        StarPhasesPacketS2C.sendToAll(serverPlayer.serverLevel());
     }
 
     public static float getFishingPower(ServerPlayer player) {
         float base = TCUtils.getAccessoriesValue(player, AccessoryItems.FISHING$POWER);
         if (player.getData(ModAttachments.EVER_BENEFICIAL).isGummyWormUsed()) base += 3.0F;
         Level level = player.level();
-        long dayTime = level.dayTime() % 24000; // [0, 24000]
+        long dayTime = level.dayTime() % 24000; // [0, 23999]
         if (level.isRaining()) base *= 1.1F;
         else if (level.isThundering()) base *= 1.2F;
         if (dayTime >= 22500 || dayTime == 0) base *= 1.3F; // 04:30 -> 06:00
