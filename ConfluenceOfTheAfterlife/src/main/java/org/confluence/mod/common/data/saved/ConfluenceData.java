@@ -1,5 +1,6 @@
 package org.confluence.mod.common.data.saved;
 
+import com.mojang.datafixers.util.Either;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
@@ -8,6 +9,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Tuple;
 import net.minecraft.world.level.saveddata.SavedData;
 import net.neoforged.neoforge.network.PacketDistributor;
+import org.apache.commons.lang3.tuple.ImmutableTriple;
 import org.confluence.mod.network.s2c.GamePhasePacketS2C;
 import org.confluence.mod.network.s2c.StarPhasesPacketS2C;
 import org.confluence.terra_curio.network.s2c.WindSpeedPacketS2C;
@@ -42,7 +44,7 @@ public class ConfluenceData extends SavedData {
         this.starPhases = new ArrayList<>(STAR_PHASES_SIZE);
         for (Tag tag : listTag) {
             CompoundTag phase = (CompoundTag) tag;
-            starPhases.set(phase.getInt("index"), new Tuple<>(phase.getFloat("radius"), phase.getFloat("angle")));
+            starPhases.add(new Tuple<>(phase.getFloat("radius"), phase.getFloat("angle")));
         }
     }
 
@@ -56,14 +58,11 @@ public class ConfluenceData extends SavedData {
         nbt.putFloat("windSpeedX", windSpeedX);
         nbt.putFloat("windSpeedZ", windSpeedZ);
         ListTag listTag = new ListTag();
-        int i = 0;
         for (Tuple<Float, Float> phase : starPhases) {
             CompoundTag tag = new CompoundTag();
-            tag.putInt("index", i);
             tag.putFloat("radius", phase.getA());
             tag.putFloat("angle", phase.getB());
             listTag.add(tag);
-            i++;
         }
         nbt.put("starPhases", listTag);
         return nbt;
@@ -105,12 +104,17 @@ public class ConfluenceData extends SavedData {
     public boolean setStarPhase(int index, float radius, float angle) {
         if (index >= STAR_PHASES_SIZE) return false;
         starPhases.set(index, new Tuple<>(radius, angle));
-        PacketDistributor.sendToAllPlayers(new StarPhasesPacketS2C(starPhases));
+        PacketDistributor.sendToAllPlayers(new StarPhasesPacketS2C(Either.right(new ImmutableTriple<>(index, radius, angle))));
+        setDirty();
         return true;
     }
 
     public Tuple<Float, Float> getStarPhase(int index) {
         if (index >= STAR_PHASES_SIZE) return null;
         return starPhases.get(index);
+    }
+
+    public List<Tuple<Float, Float>> getStarPhases() {
+        return starPhases;
     }
 }

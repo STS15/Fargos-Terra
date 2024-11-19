@@ -1,13 +1,18 @@
 package org.confluence.mod.client.handler;
 
+import com.mojang.datafixers.util.Either;
 import net.minecraft.Util;
 import net.minecraft.util.Tuple;
 import net.minecraft.world.entity.player.Player;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
+import org.apache.commons.lang3.tuple.ImmutableTriple;
 import org.confluence.mod.common.data.saved.GamePhase;
 import org.confluence.mod.common.init.ModSoundEvents;
-import org.confluence.mod.network.s2c.*;
+import org.confluence.mod.network.s2c.FishingPowerInfoPacketS2C;
+import org.confluence.mod.network.s2c.GamePhasePacketS2C;
+import org.confluence.mod.network.s2c.ManaPacketS2C;
+import org.confluence.mod.network.s2c.MechanicalViewPacketS2C;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -79,7 +84,8 @@ public final class ClientPacketHandler {
         mechanicalView = packet.enable();
     }
 
-    public static void handleStarPhases(StarPhasesPacketS2C packet) {
-        starPhases = packet.starPhases();
+    public static void handleStarPhases(Either<List<Tuple<Float, Float>>, ImmutableTriple<Integer, Float, Float>> packet) {
+        packet.ifLeft(list -> starPhases = list);
+        packet.ifRight(triple -> starPhases.set(triple.left, new Tuple<>(triple.middle, triple.right)));
     }
 }

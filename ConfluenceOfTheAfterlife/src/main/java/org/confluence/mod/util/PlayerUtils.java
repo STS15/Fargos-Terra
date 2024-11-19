@@ -1,5 +1,6 @@
 package org.confluence.mod.util;
 
+import com.mojang.datafixers.util.Either;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.Tuple;
 import net.minecraft.world.entity.player.Player;
@@ -20,6 +21,7 @@ import org.confluence.mod.common.init.ModTiers;
 import org.confluence.mod.common.init.item.AccessoryItems;
 import org.confluence.mod.network.s2c.GamePhasePacketS2C;
 import org.confluence.mod.network.s2c.ManaPacketS2C;
+import org.confluence.mod.network.s2c.StarPhasesPacketS2C;
 import org.confluence.terra_curio.network.s2c.WindSpeedPacketS2C;
 import org.confluence.terra_curio.util.TCUtils;
 
@@ -83,6 +85,7 @@ public final class PlayerUtils {
         ConfluenceData data = ConfluenceData.get(serverPlayer.serverLevel());
         PacketDistributor.sendToPlayer(serverPlayer, new WindSpeedPacketS2C(data.getWindSpeedX(), data.getWindSpeedZ()));
         PacketDistributor.sendToPlayer(serverPlayer, new GamePhasePacketS2C(data.getGamePhase()));
+        PacketDistributor.sendToPlayer(serverPlayer, new StarPhasesPacketS2C(Either.left(data.getStarPhases())));
     }
 
     public static float getFishingPower(ServerPlayer player) {
