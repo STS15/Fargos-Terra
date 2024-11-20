@@ -24,7 +24,7 @@ import top.theillusivec4.curios.api.CuriosApi;
 public final class EntityEvents {
     @SubscribeEvent
     public static void entityMount(EntityMountEvent event) {
-        if (event.isMounting() || event.getLevel().isClientSide) return;
+        if (event.isMounting() || event.getLevel().isClientSide || event.getEntityBeingMounted().isRemoved()) return;
         if (event.getEntityMounting() instanceof Player player && event.getEntityBeingMounted() instanceof AbstractMinecart minecart) {
             MinecartAbilityEvent.DismountOnMinecart e = NeoForge.EVENT_BUS.post(new MinecartAbilityEvent.DismountOnMinecart(player, minecart));
             ItemStack itemStack = e.getMinecartItem();

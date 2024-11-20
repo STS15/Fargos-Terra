@@ -1,4 +1,4 @@
-package org.confluence.mod.worldgen.feature;
+package org.confluence.mod.common.worldgen.feature;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
@@ -13,7 +13,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
-import org.confluence.mod.common.init.block.ModBlocks;
+import org.confluence.mod.common.init.block.NatureBlocks;
 import org.confluence.mod.mixed.IWorldGenRegion;
 
 import java.util.HashSet;
@@ -75,7 +75,7 @@ public class ThinIcePatchFeature extends Feature<ThinIcePatchFeature.Config> {
         }
         if ((air.size() + ice.size()) / (config.maxDepth * config.radius * config.radius * Mth.PI) > config.successRatio) {
             BlockState airState = Blocks.AIR.defaultBlockState();
-            BlockState iceState = ModBlocks.THIN_ICE_BLOCK.get().defaultBlockState();
+            BlockState iceState = NatureBlocks.THIN_ICE_BLOCK.get().defaultBlockState();
             air.forEach(blockPos -> worldGenRegion.confluence$setBlock(blockPos, airState, 2));
             ice.forEach(blockPos -> worldGenRegion.confluence$setBlock(blockPos, iceState, 2));
             return true;

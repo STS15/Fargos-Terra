@@ -5,7 +5,7 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.grower.TreeGrower;
 import net.minecraft.world.level.block.state.BlockState;
-import org.confluence.mod.common.init.block.ModBlocks;
+import org.confluence.mod.common.init.block.NatureBlocks;
 import org.jetbrains.annotations.NotNull;
 
 public class AshSaplingBlock extends SaplingBlock {
@@ -17,6 +17,6 @@ public class AshSaplingBlock extends SaplingBlock {
     public boolean canSurvive(@NotNull BlockState pState, LevelReader pLevel, BlockPos pPos) {
         BlockPos below = pPos.below();
         BlockState blockBelow = pLevel.getBlockState(below);
-        return blockBelow.is(ModBlocks.ASH_BLOCK.get()) || blockBelow.is(ModBlocks.ASH_GRASS_BLOCK.get());
+        return blockBelow.is(NatureBlocks.ASH_BLOCK.get()) || blockBelow.is(NatureBlocks.ASH_GRASS_BLOCK.get());
     }
 }

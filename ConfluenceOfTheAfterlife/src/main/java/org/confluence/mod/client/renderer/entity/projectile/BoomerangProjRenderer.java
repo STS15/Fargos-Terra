@@ -23,13 +23,13 @@ public class BoomerangProjRenderer extends EntityRenderer<BoomerangProjectile> {
 
         // 位置插值
         Vec3 v = entity.getDeltaMovement();
-        /*
-        double x = v.x * partialTick;
-        double y = v.y * partialTick;
-        double z = v.z * partialTick;
-        System.out.println(partialTick+" "+x+" "+y+" "+z);
-        poseStack.translate(x, y, z);
-        */
+
+//        double x =  Mth.lerp(partialTick, entity.xo, entity.getX()) - entity.xo;
+//        double y =  Mth.lerp(partialTick, entity.yo, entity.getY()) - entity.yo;
+//        double z =  Mth.lerp(partialTick, entity.zo, entity.getZ()) - entity.zo;
+//        System.out.println(partialTick+" "+x+" "+y+" "+z);
+//        poseStack.translate(x, y, z);
+
 
         float yaw = (float) Math.atan2(v.z, v.x);
         // 旋转到正前方yaw

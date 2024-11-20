@@ -26,7 +26,7 @@ import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.phys.Vec3;
 import org.confluence.mod.Confluence;
 import org.confluence.mod.common.init.item.ModItems;
-import org.confluence.mod.worldgen.feature.LivingTreeFeature;
+import org.confluence.mod.common.worldgen.feature.LivingTreeFeature;
 import org.joml.Vector3d;
 
 import javax.imageio.ImageIO;

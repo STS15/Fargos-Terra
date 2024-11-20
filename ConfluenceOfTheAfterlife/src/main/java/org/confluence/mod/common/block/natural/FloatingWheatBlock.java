@@ -3,8 +3,8 @@ package org.confluence.mod.common.block.natural;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
-import org.confluence.mod.common.init.block.ModBlocks;
-import org.confluence.mod.common.init.item.ModItems;
+import org.confluence.mod.common.init.block.NatureBlocks;
+import org.confluence.mod.common.init.item.FoodItems;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
@@ -17,12 +17,12 @@ public class FloatingWheatBlock extends BaseCropBlock {
 
     @Override
     protected @NotNull ItemLike getBaseSeedId() {
-        return ModItems.FLOATING_WHEAT_SEED.get();
+        return FoodItems.FLOATING_WHEAT_SEED.get();
     }
 
     @Override
     public Set<Block> getCanPlaceBlocks() {
-        return Set.of(ModBlocks.CLOUD_BLOCK.get());
+        return Set.of(NatureBlocks.CLOUD_BLOCK.get());
     }
 
     @Override

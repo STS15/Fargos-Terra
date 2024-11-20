@@ -6,7 +6,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import org.confluence.mod.Confluence;
 import org.confluence.mod.common.entity.hook.BaseHookEntity;
-import org.confluence.mod.common.init.block.ModBlocks;
+import org.confluence.mod.common.init.block.DecorativeBlocks;
 import org.jetbrains.annotations.NotNull;
 
 public class BaseHookRenderer extends AbstractHookRenderer<BaseHookEntity> {
@@ -26,13 +26,13 @@ public class BaseHookRenderer extends AbstractHookRenderer<BaseHookEntity> {
         super(pContext);
         this.CHAINS = new BlockState[]{
             Blocks.CHAIN.defaultBlockState(),
-            ModBlocks.AMETHYST_CHAIN.get().defaultBlockState(),
-            ModBlocks.TOPAZ_CHAIN.get().defaultBlockState(),
-            ModBlocks.SAPPHIRE_CHAIN.get().defaultBlockState(),
-            ModBlocks.EMERALD_CHAIN.get().defaultBlockState(),
-            ModBlocks.RUBY_CHAIN.get().defaultBlockState(),
-            ModBlocks.AMBER_CHAIN.get().defaultBlockState(),
-            ModBlocks.DIAMOND_CHAIN.get().defaultBlockState()
+            DecorativeBlocks.AMETHYST_CHAIN.get().defaultBlockState(),
+            DecorativeBlocks.TOPAZ_CHAIN.get().defaultBlockState(),
+            DecorativeBlocks.SAPPHIRE_CHAIN.get().defaultBlockState(),
+            DecorativeBlocks.EMERALD_CHAIN.get().defaultBlockState(),
+            DecorativeBlocks.RUBY_CHAIN.get().defaultBlockState(),
+            DecorativeBlocks.AMBER_CHAIN.get().defaultBlockState(),
+            DecorativeBlocks.DIAMOND_CHAIN.get().defaultBlockState()
         };
     }
 

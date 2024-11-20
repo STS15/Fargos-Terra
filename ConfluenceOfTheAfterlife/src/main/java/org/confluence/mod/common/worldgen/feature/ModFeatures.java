@@ -1,4 +1,4 @@
-package org.confluence.mod.worldgen.feature;
+package org.confluence.mod.common.worldgen.feature;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;

@@ -4,6 +4,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.confluence.mod.Confluence;
@@ -13,6 +14,7 @@ import org.confluence.mod.common.block.natural.LogBlockSet;
 import org.confluence.mod.common.init.armor.ArmorItems;
 import org.confluence.mod.common.init.block.DecorativeBlocks;
 import org.confluence.mod.common.init.block.FunctionalBlocks;
+import org.confluence.mod.common.init.block.NatureBlocks;
 import org.confluence.mod.common.init.block.OreBlocks;
 import org.confluence.mod.common.init.item.*;
 
@@ -35,6 +37,10 @@ public final class ModTabs {
                     .displayItems((parameters, output) -> {
                         LogBlockSet.acceptNature(output);
                         OreBlocks.BLOCKS.getEntries().forEach(block -> output.accept(block.get()));
+                        NatureBlocks.BLOCKS.getEntries().forEach(block -> {
+                            Item item = block.get().asItem();
+                            if (item != Items.AIR) output.accept(item);
+                        });
                     })
                     .build()
     );
@@ -59,6 +65,7 @@ public final class ModTabs {
             () -> CreativeModeTab.builder().icon(() -> IconItems.TOOLS_ICON.get().getDefaultInstance())
                     .title(Component.translatable("creativetab.confluence.tools"))
                     .displayItems((parameters, output) -> {
+                        ToolItems.ITEMS.getEntries().forEach(item -> output.accept(item.get()));
                         AxeItems.AXES.getEntries().forEach(item -> output.accept(item.get()));
                         HammerItems.HAMMERS.getEntries().forEach(item -> output.accept(item.get()));
                         HookItems.HOOKS.getEntries().forEach(item -> output.accept(item.get()));
@@ -113,7 +120,7 @@ public final class ModTabs {
                     .title(Component.translatable("creativetab.confluence.food_and_potions"))
                     .displayItems((parameters, output) -> {
                         PotionItems.POTIONS.getEntries().forEach(item -> output.accept(item.get()));
-                        FoodItems.FOODS.getEntries().forEach(item -> output.accept(item.get()));
+                        FoodItems.ITEMS.getEntries().forEach(item -> output.accept(item.get()));
                     })
                     .build());
     // 盔甲

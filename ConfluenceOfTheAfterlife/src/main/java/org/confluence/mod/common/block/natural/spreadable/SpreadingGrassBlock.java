@@ -6,7 +6,7 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import org.confluence.mod.common.block.natural.ThornBlock;
-import org.confluence.mod.common.init.block.ModBlocks;
+import org.confluence.mod.common.init.block.NatureBlocks;
 import org.jetbrains.annotations.NotNull;
 
 public class SpreadingGrassBlock extends SpreadingBlock {
@@ -22,8 +22,8 @@ public class SpreadingGrassBlock extends SpreadingBlock {
             serverLevel.setBlockAndUpdate(blockPos, Blocks.DIRT.defaultBlockState());
         } else {
             ThornBlock thorn = switch (getType()) {
-                case CRIMSON -> ModBlocks.CRIMSON_THORN.get();
-                case CORRUPT -> ModBlocks.CORRUPTION_THORN.get();
+                case CRIMSON -> NatureBlocks.CRIMSON_THORN.get();
+                case CORRUPT -> NatureBlocks.CORRUPTION_THORN.get();
                 default -> null;
             };
             if (thorn != null && randomSource.nextInt(10) == 0

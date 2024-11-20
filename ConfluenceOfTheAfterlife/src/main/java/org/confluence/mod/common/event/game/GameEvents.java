@@ -8,15 +8,18 @@ import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.ItemStackedOnOtherEvent;
+import net.neoforged.neoforge.event.RegisterCommandsEvent;
 import org.confluence.mod.Confluence;
 import org.confluence.mod.api.event.ShimmerItemTransmutationEvent;
+import org.confluence.mod.common.data.saved.ConfluenceCommand;
 import org.confluence.mod.common.data.saved.ConfluenceData;
 import org.confluence.mod.common.effect.beneficial.HeartReachEffect;
 import org.confluence.mod.common.init.ModAttachments;
 import org.confluence.mod.common.init.ModTags;
 import org.confluence.mod.common.init.item.AccessoryItems;
-import org.confluence.mod.common.init.item.ModItems;
+import org.confluence.mod.common.init.item.ToolItems;
 import org.confluence.mod.network.s2c.FishingPowerInfoPacketS2C;
+import org.confluence.mod.network.s2c.MechanicalViewPacketS2C;
 import org.confluence.terra_curio.api.event.AfterAccessoryAbilitiesFlushedEvent;
 import org.confluence.terra_curio.api.event.RangePickupItemEvent;
 import org.confluence.terra_curio.util.TCUtils;
@@ -35,12 +38,12 @@ public final class GameEvents {
         if (ConfluenceData.get((ServerLevel) event.getSource().level()).isGraduated()) {
             ItemStack itemStack = event.getSource().getItem();
             Item item = itemStack.getItem();
-            if (item == ModItems.BOTTOMLESS_WATER_BUCKET.get()) {
+            if (item == ToolItems.BOTTOMLESS_WATER_BUCKET.get()) {
                 event.setShrink(1);
-                event.setTargets(Collections.singletonList(new ItemStack(ModItems.BOTTOMLESS_SHIMMER_BUCKET.get())));
-            } else if (item == ModItems.BOTTOMLESS_SHIMMER_BUCKET.get()) {
+                event.setTargets(Collections.singletonList(new ItemStack(ToolItems.BOTTOMLESS_SHIMMER_BUCKET.get())));
+            } else if (item == ToolItems.BOTTOMLESS_SHIMMER_BUCKET.get()) {
                 event.setShrink(1);
-                event.setTargets(Collections.singletonList(new ItemStack(ModItems.BOTTOMLESS_WATER_BUCKET.get())));
+                event.setTargets(Collections.singletonList(new ItemStack(ToolItems.BOTTOMLESS_WATER_BUCKET.get())));
             }
         }
     }
@@ -58,17 +61,17 @@ public final class GameEvents {
     public static void rangePickupItem$Post(RangePickupItemEvent.Post event) {
         LivingEntity living = event.getEntity();
         ItemStack itemStack = event.getItemEntity().getItem();
-        if (itemStack.is(ModTags.Items.PROVIDE_MANA)) {
-            float mana = TCUtils.getAccessoriesValue(living, AccessoryItems.MANA$PICKUP$RANGE).getA();
-            if ((float) living.distanceToSqr(event.getItemEntity()) > mana * mana) event.setCanceled(true);
+        if (itemStack.is(ModTags.Items.PROVIDE_MANA) && !event.canPickupWithin(TCUtils.getAccessoriesValue(living, AccessoryItems.MANA$PICKUP$RANGE).getA())) {
+            event.setCanceled(true);
         }
-        if (itemStack.is(ModTags.Items.COIN)) {
-            float coin = TCUtils.getAccessoriesValue(living, AccessoryItems.COIN$PICKUP$RANGE).getA();
-            if ((float) living.distanceToSqr(event.getItemEntity()) > coin * coin) event.setCanceled(true);
+        if (itemStack.is(ModTags.Items.COIN) && !event.canPickupWithin(TCUtils.getAccessoriesValue(living, AccessoryItems.COIN$PICKUP$RANGE).getA())) {
+            event.setCanceled(true);
         }
-        if (itemStack.is(ModTags.Items.PROVIDE_LIFE)) {
-            float life = HeartReachEffect.getRange(living);
-            if ((float) living.distanceToSqr(event.getItemEntity()) > life * life) event.setCanceled(true);
+        if (itemStack.is(ModTags.Items.PROVIDE_LIFE) && !event.canPickupWithin(HeartReachEffect.getRange(living))) {
+            event.setCanceled(true);
+        }
+        if (!event.isCanceled() && !event.canPickupWithin(event.getOriginalRange())) {
+            event.setCanceled(true);
         }
     }
 
@@ -77,7 +80,13 @@ public final class GameEvents {
         LivingEntity living = event.getEntity();
         living.getData(ModAttachments.MANA_STORAGE).flushAbility(living);
         if (living instanceof ServerPlayer serverPlayer) {
-            FishingPowerInfoPacketS2C.sendToPlayer(serverPlayer);
+            FishingPowerInfoPacketS2C.sendToClient(serverPlayer);
+            MechanicalViewPacketS2C.sendToClient(serverPlayer);
         }
+    }
+
+    @SubscribeEvent
+    public static void command(RegisterCommandsEvent event) {
+        ConfluenceCommand.register(event.getDispatcher());
     }
 }

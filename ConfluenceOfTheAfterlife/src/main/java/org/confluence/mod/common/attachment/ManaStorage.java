@@ -133,8 +133,10 @@ public class ManaStorage implements INBTSerializable<CompoundTag> {
         return fastManaRegeneration;
     }
 
-    public void setArcaneCrystalUsed() {
+    public boolean setArcaneCrystalUsed() {
+        if (arcaneCrystalUsed) return false;
         this.arcaneCrystalUsed = true;
+        return true;
     }
 
     public boolean isArcaneCrystalUsed() {

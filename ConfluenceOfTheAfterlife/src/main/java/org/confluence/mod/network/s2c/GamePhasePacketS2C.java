@@ -4,7 +4,9 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
+import net.neoforged.neoforge.network.PacketDistributor;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
+import net.neoforged.neoforge.server.ServerLifecycleHooks;
 import org.confluence.mod.Confluence;
 import org.confluence.mod.client.handler.ClientPacketHandler;
 import org.confluence.mod.common.data.saved.GamePhase;
@@ -31,5 +33,11 @@ public record GamePhasePacketS2C(GamePhase gamePhase) implements CustomPacketPay
             context.disconnect(Component.translatable("neoforge.network.invalid_flow", e.getMessage()));
             return null;
         });
+    }
+
+    public static void sendToAll(GamePhase gamePhase) {
+        if (ServerLifecycleHooks.getCurrentServer() != null) {
+            PacketDistributor.sendToAllPlayers(new GamePhasePacketS2C(gamePhase));
+        }
     }
 }

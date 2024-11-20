@@ -1,9 +1,10 @@
 package org.confluence.mod.util;
 
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.util.Tuple;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.DiggerItem;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.PickaxeItem;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.Tiers;
 import net.minecraft.world.level.Level;
@@ -19,10 +20,10 @@ import org.confluence.mod.common.init.ModTiers;
 import org.confluence.mod.common.init.item.AccessoryItems;
 import org.confluence.mod.network.s2c.GamePhasePacketS2C;
 import org.confluence.mod.network.s2c.ManaPacketS2C;
+import org.confluence.mod.network.s2c.StarPhasesPacketS2C;
 import org.confluence.terra_curio.network.s2c.WindSpeedPacketS2C;
 import org.confluence.terra_curio.util.TCUtils;
 
-import java.util.Optional;
 import java.util.function.IntSupplier;
 
 public final class PlayerUtils {
@@ -83,13 +84,14 @@ public final class PlayerUtils {
         ConfluenceData data = ConfluenceData.get(serverPlayer.serverLevel());
         PacketDistributor.sendToPlayer(serverPlayer, new WindSpeedPacketS2C(data.getWindSpeedX(), data.getWindSpeedZ()));
         PacketDistributor.sendToPlayer(serverPlayer, new GamePhasePacketS2C(data.getGamePhase()));
+        StarPhasesPacketS2C.sendToAll(serverPlayer.serverLevel());
     }
 
     public static float getFishingPower(ServerPlayer player) {
         float base = TCUtils.getAccessoriesValue(player, AccessoryItems.FISHING$POWER);
         if (player.getData(ModAttachments.EVER_BENEFICIAL).isGummyWormUsed()) base += 3.0F;
         Level level = player.level();
-        long dayTime = level.dayTime() % 24000; // [0, 24000]
+        long dayTime = level.dayTime() % 24000; // [0, 23999]
         if (level.isRaining()) base *= 1.1F;
         else if (level.isThundering()) base *= 1.2F;
         if (dayTime >= 22500 || dayTime == 0) base *= 1.3F; // 04:30 -> 06:00
@@ -107,12 +109,12 @@ public final class PlayerUtils {
         return base + player.getLuck();
     }
 
-    public static Optional<ItemStack> getMaxDiggingPowerItem(Player player) {
+    public static Tuple<ItemStack, Integer> getMaxDiggingPowerItem(Player player) {
         int max = 0;
-        ItemStack ret = null;
+        ItemStack ret = ItemStack.EMPTY;
         for (ItemStack itemStack : player.getInventory().items) {
-            if (!itemStack.isEmpty() && itemStack.getItem() instanceof DiggerItem diggerItem) {
-                Tier tier = diggerItem.getTier();
+            if (!itemStack.isEmpty() && itemStack.getItem() instanceof PickaxeItem pickaxeItem) {
+                Tier tier = pickaxeItem.getTier();
                 if (tier instanceof ModTiers.PoweredTier poweredTier) {
                     if (poweredTier.getPower() > max) {
                         max = poweredTier.getPower();
@@ -134,6 +136,6 @@ public final class PlayerUtils {
                 ret = itemStack;
             }
         }
-        return Optional.ofNullable(ret);
+        return new Tuple<>(ret, max);
     }
 }

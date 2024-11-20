@@ -9,8 +9,7 @@ import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.vehicle.AbstractMinecart;
 import net.minecraft.world.entity.vehicle.Minecart;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseRailBlock;
 import net.minecraft.world.level.block.state.BlockState;
@@ -27,6 +26,7 @@ import org.confluence.mod.common.effect.harmful.StonedEffect;
 import org.confluence.mod.common.entity.minecart.BaseMinecartEntity;
 import org.confluence.mod.common.init.ModAttachments;
 import org.confluence.mod.common.init.ModTags;
+import org.confluence.mod.common.init.ModTiers;
 import org.confluence.mod.common.init.item.AccessoryItems;
 import org.confluence.mod.common.item.common.BaseMinecartItem;
 import org.confluence.mod.common.item.common.EverBeneficialItem;
@@ -179,6 +179,21 @@ public final class PlayerEvents {
         }
         if (event.isEndConquered()) {
             serverPlayer.setHealth(serverPlayer.getPersistentData().getFloat("confluence:cached_health"));
+        }
+    }
+
+    @SubscribeEvent
+    public static void harvestCheck(PlayerEvent.HarvestCheck event) {
+        ItemStack itemStack = event.getEntity().getMainHandItem();
+        if (!itemStack.isEmpty() && itemStack.getItem() instanceof DiggerItem diggerItem) {
+            int power = 0;
+            Tier tier = diggerItem.getTier();
+            if (tier instanceof ModTiers.PoweredTier poweredTier) {
+                power = poweredTier.getPower();
+            } else if (tier instanceof Tiers tiers) {
+                power = ModTiers.getPowerForVanillaTiers(tiers);
+            }
+            event.setCanHarvest(ModTiers.isCorrectToolForDrops(power, itemStack, event.getTargetBlock()));
         }
     }
 }

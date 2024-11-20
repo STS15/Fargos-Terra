@@ -14,7 +14,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.Vec3;
 import org.confluence.mod.common.block.natural.BaseHerbBlock;
-import org.confluence.mod.common.init.item.ModItems;
+import org.confluence.mod.common.init.item.FoodItems;
 import org.jetbrains.annotations.NotNull;
 import org.joml.Vector3f;
 
@@ -35,7 +35,7 @@ public class MoonshineGrass extends BaseHerbBlock {
 
 	@Override
 	protected @NotNull ItemLike getBaseSeedId(){
-		return ModItems.MOONSHINE_GRASS_SEED.get();
+		return FoodItems.MOONSHINE_GRASS_SEED.get();
 	}
 
 	@Override

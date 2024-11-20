@@ -4,7 +4,7 @@ import net.minecraft.world.item.Item;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.confluence.mod.Confluence;
-import org.confluence.mod.common.init.block.ModBlocks;
+import org.confluence.mod.common.init.block.NatureBlocks;
 import org.confluence.mod.common.item.CustomRarityItem;
 import org.confluence.mod.common.item.common.MushroomItem;
 import org.confluence.terra_curio.common.component.ModRarity;
@@ -98,11 +98,11 @@ public class MaterialItems{
     public static final DeferredItem<Item> SUNFLOWERS = MATERIALS.registerSimpleItem("sunflowers");
     public static final DeferredItem<Item> DEATHWEED = MATERIALS.registerSimpleItem("deathweed");
     // 蘑菇
-    public static final DeferredItem<Item> TR_CRIMSON_MUSHROOM = MATERIALS.register("tr_crimson_mushroom", () -> new MushroomItem(ModBlocks.TR_CRIMSON_MUSHROOM.get(), 0.0F));
-    public static final DeferredItem<Item> EBONY_MUSHROOM = MATERIALS.register("ebony_mushroom", () -> new MushroomItem(ModBlocks.EBONY_MUSHROOM.get(), 0.0F));
+    public static final DeferredItem<Item> TR_CRIMSON_MUSHROOM = MATERIALS.register("tr_crimson_mushroom", () -> new MushroomItem(NatureBlocks.TR_CRIMSON_MUSHROOM.get(), 0.0F));
+    public static final DeferredItem<Item> EBONY_MUSHROOM = MATERIALS.register("ebony_mushroom", () -> new MushroomItem(NatureBlocks.EBONY_MUSHROOM.get(), 0.0F));
     // TODO: 发光蘑菇可以放置，但此蘑菇非彼蘑菇
-    public static final DeferredItem<Item> GLOWING_MUSHROOM = MATERIALS.register("glowing_mushroom", () -> new MushroomItem(ModBlocks.GLOWING_MUSHROOM.get(), 0.0F));
-    public static final DeferredItem<Item> LIFE_MUSHROOM = MATERIALS.register("life_mushroom", () -> new MushroomItem(ModBlocks.LIFE_MUSHROOM.get(), 6.0F));
+    public static final DeferredItem<Item> GLOWING_MUSHROOM = MATERIALS.register("glowing_mushroom", () -> new MushroomItem(NatureBlocks.GLOWING_MUSHROOM.get(), 0.0F));
+    public static final DeferredItem<Item> LIFE_MUSHROOM = MATERIALS.register("life_mushroom", () -> new MushroomItem(NatureBlocks.LIFE_MUSHROOM.get(), 6.0F));
     public static final DeferredItem<Item> JUNGLE_SPORE = MATERIALS.register("jungle_spore", () -> new Item(new Item.Properties()));
 
     public static DeferredItem<Item> register(String id) {

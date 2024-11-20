@@ -34,7 +34,7 @@ import net.minecraft.world.level.block.state.properties.ChestType;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
 import org.confluence.mod.common.init.block.FunctionalBlocks;
-import org.confluence.mod.common.init.item.ModItems;
+import org.confluence.mod.common.init.item.ToolItems;
 import org.confluence.mod.mixed.IBaseContainerBlockEntity;
 import org.confluence.terra_curio.util.TCUtils;
 import org.jetbrains.annotations.NotNull;
@@ -86,8 +86,8 @@ public class BaseChestBlock extends ChestBlock {
     public @NotNull InteractionResult useWithoutItem(@NotNull BlockState pState, Level pLevel, @NotNull BlockPos pPos, @NotNull Player pPlayer, @NotNull BlockHitResult pHit) {
         if (pLevel.getBlockEntity(pPos) instanceof Entity entity && entity.isLocked()) {
             ItemStack itemStack = pPlayer.getMainHandItem();
-            boolean isShadow = itemStack.is(ModItems.SHADOW_KEY.get());
-            if ((entity.variant == Variant.LOCKED_SHADOW && isShadow) || (entity.variant == Variant.LOCKED_GOLDEN && itemStack.is(ModItems.GOLDEN_KEY.get()))) {
+            boolean isShadow = itemStack.is(ToolItems.SHADOW_KEY.get());
+            if ((entity.variant == Variant.LOCKED_SHADOW && isShadow) || (entity.variant == Variant.LOCKED_GOLDEN && itemStack.is(ToolItems.GOLDEN_KEY.get()))) {
                 int unlock = entity.variant.unlock;
                 if (unlock > 0) {
                     if (!isShadow && !pPlayer.getAbilities().instabuild) {

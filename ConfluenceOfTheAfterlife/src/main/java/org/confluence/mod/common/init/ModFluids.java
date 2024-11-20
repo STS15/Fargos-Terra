@@ -15,8 +15,9 @@ import net.neoforged.neoforge.fluids.FluidInteractionRegistry;
 import org.confluence.mod.Confluence;
 import org.confluence.mod.common.fluid.FluidTriple;
 import org.confluence.mod.common.init.block.ModBlocks;
+import org.confluence.mod.common.init.block.NatureBlocks;
 import org.confluence.mod.common.init.item.MaterialItems;
-import org.confluence.mod.common.init.item.ModItems;
+import org.confluence.mod.common.init.item.ToolItems;
 
 import static org.confluence.mod.api.event.ShimmerEntityTransmutationEvent.addEntity;
 import static org.confluence.mod.api.event.ShimmerItemTransmutationEvent.addItem;
@@ -40,7 +41,7 @@ public final class ModFluids {
                     .sound(SoundActions.FLUID_VAPORIZE, SoundEvents.FIRE_EXTINGUISH)
             ).baseProperties(properties -> properties
                     .block(ModBlocks.HONEY)
-                    .bucket(ModItems.HONEY_BUCKET)
+                    .bucket(ToolItems.HONEY_BUCKET)
             ).build();
     public static final FluidTriple SHIMMER = FluidTriple.builder(Confluence.asResource("shimmer"))
             .typeProperties(properties -> properties
@@ -63,19 +64,19 @@ public final class ModFluids {
 
     public static void registerInteraction() {
         FluidInteractionRegistry.addInteraction(HONEY.type().get(), new FluidInteractionRegistry.InteractionInformation(
-                NeoForgeMod.WATER_TYPE.value(), fluidState -> fluidState.isSource() ? Blocks.HONEY_BLOCK.defaultBlockState() : ModBlocks.THIN_HONEY_BLOCK.get().defaultBlockState()
+                NeoForgeMod.WATER_TYPE.value(), fluidState -> fluidState.isSource() ? Blocks.HONEY_BLOCK.defaultBlockState() : NatureBlocks.THIN_HONEY_BLOCK.get().defaultBlockState()
         ));
         FluidInteractionRegistry.addInteraction(HONEY.type().get(), new FluidInteractionRegistry.InteractionInformation(
-                NeoForgeMod.LAVA_TYPE.value(), fluidState -> fluidState.isSource() ? ModBlocks.CRISPY_HONEY_BLOCK.get().defaultBlockState() : ModBlocks.LOOSE_HONEY_BLOCK.get().defaultBlockState()
+                NeoForgeMod.LAVA_TYPE.value(), fluidState -> fluidState.isSource() ? ModBlocks.CRISPY_HONEY_BLOCK.get().defaultBlockState() : NatureBlocks.LOOSE_HONEY_BLOCK.get().defaultBlockState()
         ));
         FluidInteractionRegistry.addInteraction(SHIMMER.type().get(), new FluidInteractionRegistry.InteractionInformation(
-                NeoForgeMod.WATER_TYPE.value(), fluidState -> fluidState.isSource() ? ModBlocks.AETHERIUM_BLOCK.get().defaultBlockState() : ModBlocks.DARK_AETHERIUM_BLOCK.get().defaultBlockState()
+                NeoForgeMod.WATER_TYPE.value(), fluidState -> fluidState.isSource() ? NatureBlocks.AETHERIUM_BLOCK.get().defaultBlockState() : NatureBlocks.DARK_AETHERIUM_BLOCK.get().defaultBlockState()
         ));
         FluidInteractionRegistry.addInteraction(SHIMMER.type().get(), new FluidInteractionRegistry.InteractionInformation(
-                NeoForgeMod.LAVA_TYPE.value(), fluidState -> fluidState.isSource() ? ModBlocks.AETHERIUM_BLOCK.get().defaultBlockState() : ModBlocks.DARK_AETHERIUM_BLOCK.get().defaultBlockState()
+                NeoForgeMod.LAVA_TYPE.value(), fluidState -> fluidState.isSource() ? NatureBlocks.AETHERIUM_BLOCK.get().defaultBlockState() : NatureBlocks.DARK_AETHERIUM_BLOCK.get().defaultBlockState()
         ));
         FluidInteractionRegistry.addInteraction(SHIMMER.type().get(), new FluidInteractionRegistry.InteractionInformation(
-                HONEY.type().get(), fluidState -> fluidState.isSource() ? ModBlocks.AETHERIUM_BLOCK.get().defaultBlockState() : ModBlocks.DARK_AETHERIUM_BLOCK.get().defaultBlockState()
+                HONEY.type().get(), fluidState -> fluidState.isSource() ? NatureBlocks.AETHERIUM_BLOCK.get().defaultBlockState() : NatureBlocks.DARK_AETHERIUM_BLOCK.get().defaultBlockState()
         ));
     }
 
@@ -152,8 +153,8 @@ public final class ModFluids {
         addItem(MaterialItems.RAW_TIN.get(), Items.RAW_COPPER);
 
         addItem(Items.WATER_BUCKET, Items.LAVA_BUCKET);
-        addItem(Items.LAVA_BUCKET, ModItems.HONEY_BUCKET.get());
-        addItem(ModItems.HONEY_BUCKET.get(), Items.WATER_BUCKET);
+        addItem(Items.LAVA_BUCKET, ToolItems.HONEY_BUCKET.get());
+        addItem(ToolItems.HONEY_BUCKET.get(), Items.WATER_BUCKET);
 //        addItem(ModItems.WHOOPIE_CUSHION.get(), Swords.ZOMBIE_ARM.get());
 //
 //        addItem(ModItems.LIFE_CRYSTAL.get(), ModItems.VITAL_CRYSTAL.get());
