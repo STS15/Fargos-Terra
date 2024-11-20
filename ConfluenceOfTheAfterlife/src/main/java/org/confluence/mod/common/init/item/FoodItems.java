@@ -1,20 +1,26 @@
 package org.confluence.mod.common.init.item;
 
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemNameBlockItem;
 import net.minecraft.world.item.UseAnim;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.confluence.mod.Confluence;
+import org.confluence.mod.common.init.block.ModBlocks;
+import org.confluence.mod.common.init.block.NatureBlocks;
+import org.confluence.mod.common.item.common.HerbSeedItem;
 import org.confluence.mod.common.item.food.BaseFoodItem;
 import org.confluence.mod.common.item.food.FoodType;
 
 import java.util.function.Consumer;
+import java.util.function.Supplier;
 
 import static net.minecraft.world.item.Items.BOWL;
 import static net.minecraft.world.item.Items.GLASS_BOTTLE;
 
 public class FoodItems {
-    public static final DeferredRegister.Items FOODS = DeferredRegister.createItems(Confluence.MODID);
+    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Confluence.MODID);
     //常规食物
     public static final DeferredItem<BaseFoodItem> COOKED_SHRIMP = registerFood("cooked_shrimp", builder -> builder.initialize().food(FoodType.MEDIUM));
     public static final DeferredItem<BaseFoodItem> ESCARGOT = registerFood("escargot", builder -> builder.initialize().food(FoodType.MEDIUM)); //法式蜗牛
@@ -136,8 +142,20 @@ public class FoodItems {
 
     public static final DeferredItem<BaseFoodItem> LONGEVITY_NOODLES = registerFood("longevity_noodles", builder -> builder.initialize().food(FoodType.LOW));
 
+    // 种子
+    public static final Supplier<Item> STELLAR_BLOSSOM_SEED = ITEMS.register("stellar_blossom_seed", () -> new ItemNameBlockItem(NatureBlocks.STELLAR_BLOSSOM.get(), new Item.Properties()));
+    public static final Supplier<Item> CLOUDWEAVER_SEED = ITEMS.register("cloudweaver_seed", () -> new ItemNameBlockItem(NatureBlocks.CLOUDWEAVER.get(), new Item.Properties()));
+    public static final Supplier<Item> FLOATING_WHEAT_SEED = ITEMS.register("floating_wheat_seed", () -> new ItemNameBlockItem(NatureBlocks.FLOATING_WHEAT.get(), new Item.Properties()));
+    public static final Supplier<Item> WATERLEAF_SEED = ITEMS.register("waterleaf_seed", () -> new HerbSeedItem(ModBlocks.WATERLEAF.get()));
+    public static final Supplier<Item> FLAMEFLOWERS_SEED = ITEMS.register("flameflowers_seed", () -> new HerbSeedItem(ModBlocks.FLAMEFLOWERS.get(), new Item.Properties().fireResistant()));
+    public static final Supplier<Item> MOONSHINE_GRASS_SEED = ITEMS.register("moonshine_grass_seed", () -> new HerbSeedItem(ModBlocks.MOONSHINE_GRASS.get()));
+    public static final Supplier<Item> SHINE_ROOT_SEED = ITEMS.register("shine_root_seed", () -> new HerbSeedItem(ModBlocks.SHINE_ROOT.get()));
+    public static final Supplier<Item> SHIVERINGTHORNS_SEED = ITEMS.register("shiveringthorns_seed", () -> new HerbSeedItem(ModBlocks.SHIVERINGTHORNS.get()));
+    public static final Supplier<Item> SUNFLOWERS_SEED = ITEMS.register("sunflowers_seed", () -> new HerbSeedItem(ModBlocks.SUNFLOWERS.get()));
+    public static final Supplier<Item> DEATHWEED_SEED = ITEMS.register("deathweed_seed", () -> new HerbSeedItem(ModBlocks.DEATHWEED.get()));
+
     public static DeferredItem<BaseFoodItem> registerFood(String name, Consumer<BaseFoodItem.Builder> consumer) {
-        return FOODS.register(name, () -> {
+        return ITEMS.register(name, () -> {
             BaseFoodItem.Builder builder = BaseFoodItem.builder(name);
             consumer.accept(builder);
             return builder.build();

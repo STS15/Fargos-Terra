@@ -5,7 +5,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.state.BlockState;
 import org.confluence.mod.Confluence;
 import org.confluence.mod.common.entity.hook.LunarHookEntity;
-import org.confluence.mod.common.init.block.ModBlocks;
+import org.confluence.mod.common.init.block.DecorativeBlocks;
 import org.jetbrains.annotations.NotNull;
 
 public class LunarHookRenderer extends AbstractHookRenderer<LunarHookEntity> {
@@ -20,10 +20,10 @@ public class LunarHookRenderer extends AbstractHookRenderer<LunarHookEntity> {
     public LunarHookRenderer(EntityRendererProvider.Context pContext) {
         super(pContext);
         this.CHAINS = new BlockState[]{
-            ModBlocks.AMETHYST_CHAIN.get().defaultBlockState(),
-            ModBlocks.AMBER_CHAIN.get().defaultBlockState(),
-            ModBlocks.SAPPHIRE_CHAIN.get().defaultBlockState(),
-            ModBlocks.EMERALD_CHAIN.get().defaultBlockState()
+            DecorativeBlocks.AMETHYST_CHAIN.get().defaultBlockState(),
+            DecorativeBlocks.AMBER_CHAIN.get().defaultBlockState(),
+            DecorativeBlocks.SAPPHIRE_CHAIN.get().defaultBlockState(),
+            DecorativeBlocks.EMERALD_CHAIN.get().defaultBlockState()
         };
     }
 

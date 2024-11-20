@@ -79,6 +79,7 @@ public final class ModEvents {
 
     @SubscribeEvent
     public static void registerUnitType(RegisterAccessoriesComponentUpdateEvent.UnitType event) {
+        event.register(AccessoryItems.MECHANICAL$VIEW);
         event.register(AccessoryItems.LUCKY$COIN);
         event.register(AccessoryItems.SHEARS$DIG);
         event.register(AccessoryItems.ICE$SAFE);

@@ -25,6 +25,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import org.confluence.mod.common.init.block.ModBlocks;
+import org.confluence.mod.common.init.block.NatureBlocks;
 import org.confluence.mod.util.ModUtils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -39,16 +40,7 @@ public abstract class BaseHerbBlock extends CropBlock implements EntityBlock {
     public static final IntegerProperty AGE = BlockStateProperties.AGE_2;
     private static final VoxelShape[] SHAPE_BY_AGE = new VoxelShape[]{Block.box(0.0D, 0.0D, 0.0D, 16.0D, 2.0D, 16.0D), Block.box(0.0D, 0.0D, 0.0D, 16.0D, 4.0D, 16.0D), Block.box(0.0D, 0.0D, 0.0D, 16.0D, 6.0D, 16.0D), Block.box(0.0D, 0.0D, 0.0D, 16.0D, 8.0D, 16.0D)};
 
-    public static Map<DeferredBlock<? extends Block>, Set<Block>> herbGroundMap = new ImmutableMap.Builder<DeferredBlock<? extends Block>, Set<Block>>()
-        .put(ModBlocks.SUNFLOWERS, Set.of(Blocks.GRASS_BLOCK, ModBlocks.HALLOW_GRASS_BLOCK.get()))
-        .put(ModBlocks.MOONSHINE_GRASS, Set.of(Blocks.GRASS_BLOCK, Blocks.MOSS_BLOCK))
-        .put(ModBlocks.STELLAR_BLOSSOM, Set.of(ModBlocks.CLOUD_BLOCK.get(), ModBlocks.RAIN_CLOUD_BLOCK.get()))
-        .put(ModBlocks.SHIVERINGTHORNS, Set.of(Blocks.GRASS_BLOCK, Blocks.ICE, ModBlocks.RED_ICE.get(), ModBlocks.RED_PACKED_ICE.get(), ModBlocks.PINK_PACKED_ICE.get(), ModBlocks.PINK_ICE.get(), ModBlocks.PURPLE_ICE.get(), ModBlocks.PURPLE_PACKED_ICE.get()))
-        .put(ModBlocks.SHINE_ROOT, Set.of(Blocks.DIRT, Blocks.MUD, Blocks.STONE, Blocks.DEEPSLATE))
-        .put(ModBlocks.DEATHWEED, Set.of(ModBlocks.CORRUPT_GRASS_BLOCK.get(), ModBlocks.EBONY_STONE.get(), ModBlocks.TR_CRIMSON_GRASS_BLOCK.get(), ModBlocks.TR_CRIMSON_STONE.get()))
-        .put(ModBlocks.WATERLEAF, Set.of(Blocks.SAND, Blocks.RED_SAND, ModBlocks.PEARL_SAND.get()))
-        .put(ModBlocks.FLAMEFLOWERS, Set.of(ModBlocks.ASH_BLOCK.get(), ModBlocks.ASH_GRASS_BLOCK.get()))
-        .build();
+    public static Map<DeferredBlock<? extends Block>, Set<Block>> herbGroundMap;
 
     public BaseHerbBlock(){
         super(Properties.ofFullCopy(Blocks.DANDELION).randomTicks());
@@ -60,6 +52,18 @@ public abstract class BaseHerbBlock extends CropBlock implements EntityBlock {
 
     @Override
     public boolean mayPlaceOn(@NotNull BlockState groundState, @NotNull BlockGetter worldIn, @NotNull BlockPos pos){
+        if (herbGroundMap == null) {
+            herbGroundMap = new ImmutableMap.Builder<DeferredBlock<? extends Block>, Set<Block>>()
+                    .put(ModBlocks.SUNFLOWERS, Set.of(Blocks.GRASS_BLOCK, NatureBlocks.HALLOW_GRASS_BLOCK.get()))
+                    .put(ModBlocks.MOONSHINE_GRASS, Set.of(Blocks.GRASS_BLOCK, Blocks.MOSS_BLOCK))
+                    .put(NatureBlocks.STELLAR_BLOSSOM, Set.of(NatureBlocks.CLOUD_BLOCK.get(), NatureBlocks.RAIN_CLOUD_BLOCK.get()))
+                    .put(ModBlocks.SHIVERINGTHORNS, Set.of(Blocks.GRASS_BLOCK, Blocks.ICE, NatureBlocks.RED_ICE.get(), NatureBlocks.RED_PACKED_ICE.get(), NatureBlocks.PINK_PACKED_ICE.get(), NatureBlocks.PINK_ICE.get(), NatureBlocks.PURPLE_ICE.get(), NatureBlocks.PURPLE_PACKED_ICE.get()))
+                    .put(ModBlocks.SHINE_ROOT, Set.of(Blocks.DIRT, Blocks.MUD, Blocks.STONE, Blocks.DEEPSLATE))
+                    .put(ModBlocks.DEATHWEED, Set.of(NatureBlocks.CORRUPT_GRASS_BLOCK.get(), NatureBlocks.EBONY_STONE.get(), NatureBlocks.TR_CRIMSON_GRASS_BLOCK.get(), NatureBlocks.TR_CRIMSON_STONE.get()))
+                    .put(ModBlocks.WATERLEAF, Set.of(Blocks.SAND, Blocks.RED_SAND, NatureBlocks.PEARL_SAND.get()))
+                    .put(ModBlocks.FLAMEFLOWERS, Set.of(NatureBlocks.ASH_BLOCK.get(), NatureBlocks.ASH_GRASS_BLOCK.get()))
+                    .build();
+        }
         Set<Block> blocks = herbGroundMap.get(DeferredBlock.createBlock(BuiltInRegistries.BLOCK.getKey(this)));
         return blocks != null && blocks.contains(groundState.getBlock());
     }

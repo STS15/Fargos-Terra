@@ -5,7 +5,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
-import org.confluence.mod.common.init.block.ModBlocks;
+import org.confluence.mod.common.init.block.NatureBlocks;
 import org.jetbrains.annotations.NotNull;
 
 public class AshGrassBlock extends SpreadingGrassBlock {
@@ -17,7 +17,7 @@ public class AshGrassBlock extends SpreadingGrassBlock {
     public void randomTick(@NotNull BlockState blockState, @NotNull ServerLevel serverLevel, @NotNull BlockPos blockPos, @NotNull RandomSource randomSource) {
         if (!serverLevel.isAreaLoaded(blockPos, 3)) return;
         if (ISpreadable.isFullBlock(serverLevel, blockPos.above())) {
-            serverLevel.setBlockAndUpdate(blockPos, ModBlocks.ASH_BLOCK.get().defaultBlockState());
+            serverLevel.setBlockAndUpdate(blockPos, NatureBlocks.ASH_BLOCK.get().defaultBlockState());
         } else {
             super.randomTick(blockState, serverLevel, blockPos, randomSource);
         }

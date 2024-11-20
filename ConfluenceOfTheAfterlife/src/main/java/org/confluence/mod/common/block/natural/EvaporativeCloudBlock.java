@@ -8,7 +8,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
-import org.confluence.mod.common.init.block.ModBlocks;
+import org.confluence.mod.common.init.block.NatureBlocks;
 import org.confluence.mod.util.ModUtils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -40,7 +40,7 @@ public class EvaporativeCloudBlock extends BaseEntityBlock {
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(@NotNull Level pLevel, @NotNull BlockState pState, @NotNull BlockEntityType<T> pBlockEntityType) {
         if (pLevel.isClientSide) return null;
-        return ModUtils.getTicker(pBlockEntityType, ModBlocks.EVAPORATIVE_CLOUD_BLOCK_ENTITY.get(), (level, blockPos, blockState, e) -> {
+        return ModUtils.getTicker(pBlockEntityType, NatureBlocks.EVAPORATIVE_CLOUD_BLOCK_ENTITY.get(), (level, blockPos, blockState, e) -> {
             level.updateNeighborsAt(blockPos, blockState.getBlock());
             level.removeBlock(blockPos, false);
         });
@@ -48,7 +48,7 @@ public class EvaporativeCloudBlock extends BaseEntityBlock {
 
     public static class EvaporativeCloudBlockEntity extends BlockEntity {
         public EvaporativeCloudBlockEntity(BlockPos pos, BlockState state) {
-            super(ModBlocks.EVAPORATIVE_CLOUD_BLOCK_ENTITY.get(), pos, state);
+            super(NatureBlocks.EVAPORATIVE_CLOUD_BLOCK_ENTITY.get(), pos, state);
         }
     }
 }

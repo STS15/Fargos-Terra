@@ -4,8 +4,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import org.confluence.mod.common.init.block.ModBlocks;
-import org.confluence.mod.common.init.item.ModItems;
+import org.confluence.mod.common.init.block.NatureBlocks;
+import org.confluence.mod.common.init.item.FoodItems;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
@@ -18,12 +18,12 @@ public class CloudWeaverBlock extends BaseCropBlock {
 
     @Override
     protected @NotNull ItemLike getBaseSeedId() {
-        return ModItems.CLOUDWEAVER_SEED.get();
+        return FoodItems.CLOUDWEAVER_SEED.get();
     }
 
     @Override
     public Set<Block> getCanPlaceBlocks() {
-        return Set.of(ModBlocks.CLOUD_BLOCK.get());
+        return Set.of(NatureBlocks.CLOUD_BLOCK.get());
     }
 
     @Override

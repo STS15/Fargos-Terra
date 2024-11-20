@@ -22,7 +22,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.material.PushReaction;
 import org.confluence.mod.common.init.ModDamageTypes;
-import org.confluence.mod.common.init.block.ModBlocks;
+import org.confluence.mod.common.init.block.NatureBlocks;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -85,7 +85,7 @@ public class ThornBlock extends PipeBlock {
 
     @Override
     public boolean isRandomlyTicking(@NotNull BlockState pState) {
-        return !pState.is(ModBlocks.PLANTERA_THORN.get()) && pState.getValue(PROP_AGE) < 7;
+        return !pState.is(NatureBlocks.PLANTERA_THORN.get()) && pState.getValue(PROP_AGE) < 7;
     }
 
     @Override

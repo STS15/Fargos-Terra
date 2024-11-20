@@ -11,7 +11,6 @@ import net.neoforged.neoforge.network.handling.IPayloadContext;
 import org.confluence.mod.Confluence;
 import org.confluence.mod.client.handler.ClientPacketHandler;
 import org.confluence.mod.common.init.item.AccessoryItems;
-import org.confluence.terra_curio.common.component.AccessoriesComponent;
 import org.confluence.terra_curio.util.TCUtils;
 import org.jetbrains.annotations.NotNull;
 
@@ -39,10 +38,7 @@ public record MechanicalViewPacketS2C(boolean enable) implements CustomPacketPay
     }
 
     public static void sendToClient(ServerPlayer serverPlayer) {
-        boolean enable = serverPlayer.getInventory().items.stream().anyMatch(itemStack -> {
-            AccessoriesComponent component = TCUtils.getAccessoriesComponent(itemStack);
-            return component != null && component.contains(AccessoryItems.MECHANICAL$VIEW);
-        });
+        boolean enable = TCUtils.hasAccessoriesType(serverPlayer, AccessoryItems.MECHANICAL$VIEW);
         PacketDistributor.sendToPlayer(serverPlayer, new MechanicalViewPacketS2C(enable));
     }
 }

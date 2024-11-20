@@ -64,7 +64,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         customModels.add(createDir(MaterialItems.MATERIALS,         "materials/","gem/","ingot/","ore/"));
         customModels.add(createDir(PotionItems.POTIONS,             "potion/"));
         customModels.add(createDir(ArrowItems.ARROWS,               "arrow/"));
-        customModels.add(createDir(FoodItems.FOODS,                 "food/"));
+        customModels.add(createDir(FoodItems.ITEMS,                 "food/"));
         customModels.add(createDir(FishingPoleItems.POLES,          "fishingpole/"));
         customModels.add(createDir(ArmorItems.ARMORS,               "armor_item/"));
         customModels.add(createDir(AccessoryItems.ACCESSORIES,      "accessory/"));

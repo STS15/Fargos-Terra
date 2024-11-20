@@ -11,6 +11,7 @@ import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import org.confluence.mod.common.block.natural.LogBlockSet;
 import org.confluence.mod.common.init.ModTags;
 import org.confluence.mod.common.init.block.FunctionalBlocks;
+import org.confluence.mod.common.init.block.NatureBlocks;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -38,7 +39,7 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
                 Blocks.CAVE_VINES_PLANT
         );
         tag(ModTags.Blocks.EASY_CRASH).add(
-                THIN_ICE_BLOCK.get(),
+                NatureBlocks.THIN_ICE_BLOCK.get(),
                 SWORD_IN_STONE.get(),
                 CRACKED_BLUE_BRICK.get(),
                 CRACKED_GREEN_BRICK.get(),

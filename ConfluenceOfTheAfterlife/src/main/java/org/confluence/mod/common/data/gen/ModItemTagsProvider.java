@@ -13,7 +13,7 @@ import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import org.confluence.mod.Confluence;
 import org.confluence.mod.common.init.ModTags;
-import org.confluence.mod.common.init.block.ModBlocks;
+import org.confluence.mod.common.init.block.NatureBlocks;
 import org.confluence.mod.common.init.item.*;
 import org.confluence.terra_curio.common.init.TCTags;
 import org.confluence.terraentity.init.TETags;
@@ -45,8 +45,8 @@ public class ModItemTagsProvider extends ItemTagsProvider {
                 Blocks.DEAD_TUBE_CORAL.asItem(), Blocks.DEAD_TUBE_CORAL_FAN.asItem(), Blocks.DEAD_TUBE_CORAL_BLOCK.asItem(), Blocks.DEAD_BRAIN_CORAL.asItem(), Blocks.DEAD_BRAIN_CORAL_FAN.asItem(), Blocks.DEAD_BRAIN_CORAL_BLOCK.asItem(),
                 Blocks.DEAD_BUBBLE_CORAL.asItem(), Blocks.DEAD_BUBBLE_CORAL_FAN.asItem(), Blocks.DEAD_BUBBLE_CORAL_BLOCK.asItem(), Blocks.DEAD_FIRE_CORAL.asItem(), Blocks.DEAD_FIRE_CORAL_FAN.asItem(), Blocks.DEAD_FIRE_CORAL_BLOCK.asItem(), Blocks.DEAD_HORN_CORAL.asItem(), Blocks.DEAD_HORN_CORAL_FAN.asItem(), Blocks.DEAD_HORN_CORAL_BLOCK.asItem());
         tag(ModTags.Items.TR_PLANKS).add(
-                ModBlocks.EBONY_LOG_BLOCKS.getPlanks().asItem(), ModBlocks.SHADOW_LOG_BLOCKS.getPlanks().asItem(), ModBlocks.PALM_LOG_BLOCKS.getPlanks().asItem(),
-                ModBlocks.SPOOKY_LOG_BLOCKS.getPlanks().asItem(), ModBlocks.ASH_LOG_BLOCKS.getPlanks().asItem(), ModBlocks.PEARL_LOG_BLOCKS.getPlanks().asItem(), Blocks.OAK_PLANKS.asItem(), Blocks.SPRUCE_PLANKS.asItem(),
+                NatureBlocks.EBONY_LOG_BLOCKS.getPlanks().asItem(), NatureBlocks.SHADOW_LOG_BLOCKS.getPlanks().asItem(), NatureBlocks.PALM_LOG_BLOCKS.getPlanks().asItem(),
+                NatureBlocks.SPOOKY_LOG_BLOCKS.getPlanks().asItem(), NatureBlocks.ASH_LOG_BLOCKS.getPlanks().asItem(), NatureBlocks.PEARL_LOG_BLOCKS.getPlanks().asItem(), Blocks.OAK_PLANKS.asItem(), Blocks.SPRUCE_PLANKS.asItem(),
                 Blocks.ACACIA_PLANKS.asItem(), Blocks.DARK_OAK_PLANKS.asItem(), Blocks.JUNGLE_PLANKS.asItem(), Blocks.MANGROVE_PLANKS.asItem(), Blocks.CHERRY_PLANKS.asItem(), Blocks.BAMBOO_PLANKS.asItem(), Blocks.CRIMSON_PLANKS.asItem(),
                 Blocks.BIRCH_PLANKS.asItem(), Blocks.WARPED_PLANKS.asItem());
         tag(ModTags.Items.LEAD_AND_IRON).add(Items.IRON_INGOT, MaterialItems.LEAD_INGOT.get());
@@ -54,10 +54,10 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         torch.add(Items.TORCH, Items.SOUL_TORCH);
 //        for (Torches torches : Torches.values()) torch.add(torches.item.get());
         tag(ModTags.Items.BOTTOMLESS).add(
-                ModItems.BOTTOMLESS_WATER_BUCKET.get(),
-                ModItems.BOTTOMLESS_LAVA_BUCKET.get(),
-                ModItems.BOTTOMLESS_HONEY_BUCKET.get(),
-                ModItems.BOTTOMLESS_SHIMMER_BUCKET.get()
+                ToolItems.BOTTOMLESS_WATER_BUCKET.get(),
+                ToolItems.BOTTOMLESS_LAVA_BUCKET.get(),
+                ToolItems.BOTTOMLESS_HONEY_BUCKET.get(),
+                ToolItems.BOTTOMLESS_SHIMMER_BUCKET.get()
         );
         tag(ModTags.Items.FRUIT).add(
                 Items.APPLE, Items.MELON_SLICE, FoodItems.APRICOT.get(),
@@ -74,8 +74,8 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         AxeItems.acceptTag(tag(ItemTags.AXES));
         copy(BlockTags.RAILS, ItemTags.RAILS);
         tag(ModTags.Items.COIN).add(ModItems.COPPER_COIN.get(), ModItems.SILVER_COIN.get(), ModItems.GOLDEN_COIN.get(), ModItems.PLATINUM_COIN.get());
-        tag(TETags.Items.HONEY_TRANSLATION_BUCKET).add(ModItems.HONEY_BUCKET.get());
-        tag(TETags.Items.HONEY_TRANSLATION_NOT_CONSUMED).add(ModItems.BOTTOMLESS_HONEY_BUCKET.get());
+        tag(TETags.Items.HONEY_TRANSLATION_BUCKET).add(ToolItems.HONEY_BUCKET.get());
+        tag(TETags.Items.HONEY_TRANSLATION_NOT_CONSUMED).add(ToolItems.BOTTOMLESS_HONEY_BUCKET.get());
 
         AccessoryItems.acceptTag(tag(TCTags.ACCESSORY));
     }

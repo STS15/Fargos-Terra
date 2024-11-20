@@ -17,8 +17,9 @@ import org.confluence.mod.common.effect.beneficial.HeartReachEffect;
 import org.confluence.mod.common.init.ModAttachments;
 import org.confluence.mod.common.init.ModTags;
 import org.confluence.mod.common.init.item.AccessoryItems;
-import org.confluence.mod.common.init.item.ModItems;
+import org.confluence.mod.common.init.item.ToolItems;
 import org.confluence.mod.network.s2c.FishingPowerInfoPacketS2C;
+import org.confluence.mod.network.s2c.MechanicalViewPacketS2C;
 import org.confluence.terra_curio.api.event.AfterAccessoryAbilitiesFlushedEvent;
 import org.confluence.terra_curio.api.event.RangePickupItemEvent;
 import org.confluence.terra_curio.util.TCUtils;
@@ -37,12 +38,12 @@ public final class GameEvents {
         if (ConfluenceData.get((ServerLevel) event.getSource().level()).isGraduated()) {
             ItemStack itemStack = event.getSource().getItem();
             Item item = itemStack.getItem();
-            if (item == ModItems.BOTTOMLESS_WATER_BUCKET.get()) {
+            if (item == ToolItems.BOTTOMLESS_WATER_BUCKET.get()) {
                 event.setShrink(1);
-                event.setTargets(Collections.singletonList(new ItemStack(ModItems.BOTTOMLESS_SHIMMER_BUCKET.get())));
-            } else if (item == ModItems.BOTTOMLESS_SHIMMER_BUCKET.get()) {
+                event.setTargets(Collections.singletonList(new ItemStack(ToolItems.BOTTOMLESS_SHIMMER_BUCKET.get())));
+            } else if (item == ToolItems.BOTTOMLESS_SHIMMER_BUCKET.get()) {
                 event.setShrink(1);
-                event.setTargets(Collections.singletonList(new ItemStack(ModItems.BOTTOMLESS_WATER_BUCKET.get())));
+                event.setTargets(Collections.singletonList(new ItemStack(ToolItems.BOTTOMLESS_WATER_BUCKET.get())));
             }
         }
     }
@@ -79,7 +80,8 @@ public final class GameEvents {
         LivingEntity living = event.getEntity();
         living.getData(ModAttachments.MANA_STORAGE).flushAbility(living);
         if (living instanceof ServerPlayer serverPlayer) {
-            FishingPowerInfoPacketS2C.sendToPlayer(serverPlayer);
+            FishingPowerInfoPacketS2C.sendToClient(serverPlayer);
+            MechanicalViewPacketS2C.sendToClient(serverPlayer);
         }
     }
 

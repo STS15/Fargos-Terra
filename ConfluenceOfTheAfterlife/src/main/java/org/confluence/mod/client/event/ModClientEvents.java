@@ -21,7 +21,6 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
-import net.neoforged.neoforge.client.event.RegisterEntitySpectatorShadersEvent;
 import net.neoforged.neoforge.client.event.RegisterGuiLayersEvent;
 import net.neoforged.neoforge.client.extensions.common.IClientFluidTypeExtensions;
 import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent;
@@ -58,6 +57,7 @@ import org.confluence.mod.client.renderer.gui.ManaHudLayer;
 import org.confluence.mod.common.init.ModFluids;
 import org.confluence.mod.common.init.block.FunctionalBlocks;
 import org.confluence.mod.common.init.block.ModBlocks;
+import org.confluence.mod.common.init.block.NatureBlocks;
 import org.confluence.mod.common.init.item.*;
 import org.confluence.mod.common.item.common.ColoredItem;
 import org.confluence.mod.util.color.IntegerRGB;
@@ -94,13 +94,13 @@ public final class ModClientEvents {
             FishingPoleItems.registerCast();
             ArrowInBowHud.initAdaptionMap();
 
-            ItemBlockRenderTypes.setRenderLayer(ModBlocks.RED_ICE.get(), RenderType.translucent());
-            ItemBlockRenderTypes.setRenderLayer(ModBlocks.PURPLE_ICE.get(), RenderType.translucent());
-            ItemBlockRenderTypes.setRenderLayer(ModBlocks.PINK_ICE.get(), RenderType.translucent());
-            ItemBlockRenderTypes.setRenderLayer(ModBlocks.THIN_ICE_BLOCK.get(), RenderType.translucent());
-            ItemBlockRenderTypes.setRenderLayer(ModBlocks.EBONY_LOG_BLOCKS.getDoor().get(), RenderType.cutout());
-            ItemBlockRenderTypes.setRenderLayer(ModBlocks.EBONY_LOG_BLOCKS.getTrapdoor().get(), RenderType.cutout());
-            ItemBlockRenderTypes.setRenderLayer(ModBlocks.PALM_LOG_BLOCKS.getDoor().get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(NatureBlocks.RED_ICE.get(), RenderType.translucent());
+            ItemBlockRenderTypes.setRenderLayer(NatureBlocks.PURPLE_ICE.get(), RenderType.translucent());
+            ItemBlockRenderTypes.setRenderLayer(NatureBlocks.PINK_ICE.get(), RenderType.translucent());
+            ItemBlockRenderTypes.setRenderLayer(NatureBlocks.THIN_ICE_BLOCK.get(), RenderType.translucent());
+            ItemBlockRenderTypes.setRenderLayer(NatureBlocks.EBONY_LOG_BLOCKS.getDoor().get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(NatureBlocks.EBONY_LOG_BLOCKS.getTrapdoor().get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(NatureBlocks.PALM_LOG_BLOCKS.getDoor().get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(FunctionalBlocks.EVER_POWERED_RAIL.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(ModFluids.SHIMMER.fluid().get(), RenderType.translucent());
             ItemBlockRenderTypes.setRenderLayer(ModFluids.SHIMMER.flowing().get(), RenderType.translucent());
@@ -109,7 +109,7 @@ public final class ModClientEvents {
 
             GroupWikiScreen.putWikiType("item",
                     List.of(AccessoryItems.ACCESSORIES, ArrowItems.ARROWS, AxeItems.AXES, BaitItems.BAITS, BowItems.BOWS, FishingPoleItems.POLES,
-                            FoodItems.FOODS, MaterialItems.MATERIALS, ModItems.ITEMS, QuestedFishes.FISHES, SwordItems.SWORDS, PotionItems.POTIONS),
+                            FoodItems.ITEMS, MaterialItems.MATERIALS, ModItems.ITEMS, QuestedFishes.FISHES, SwordItems.SWORDS, PotionItems.POTIONS),
                     List.of("accessories", "arrow", "axe", "bait", "bow", "fishing_pole",
                             "food", "material", "misc", "quested_fish", "sword", "terra_potion"));
             ObjectWikiScreen.putDescription("confluence:copper_short_sword", Component.translatable("wiki.confluence.copper_short_sword"));
@@ -214,17 +214,12 @@ public final class ModClientEvents {
 
     @SubscribeEvent
     public static void registerBlockColors(RegisterColorHandlersEvent.Block event) {
-
+        event.register(HALLOW_LEAVES_COLOR, NatureBlocks.PEARL_LOG_BLOCKS.getLeaves().get());
     }
 
     @SubscribeEvent
     public static void registerItemColors(RegisterColorHandlersEvent.Item event) {
         event.register(SIMPLE, MaterialItems.GEL.get());
-    }
-
-    @SubscribeEvent
-    public static void registerEntitySpectatorShaders(RegisterEntitySpectatorShadersEvent event) {
-
     }
 
     @SubscribeEvent

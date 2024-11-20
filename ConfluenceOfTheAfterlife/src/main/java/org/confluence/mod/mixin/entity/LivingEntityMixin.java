@@ -8,7 +8,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-import org.confluence.mod.common.init.block.ModBlocks;
+import org.confluence.mod.common.init.block.NatureBlocks;
 import org.confluence.mod.common.init.item.AccessoryItems;
 import org.confluence.mod.mixed.ILivingEntity;
 import org.confluence.mod.mixed.Immunity;
@@ -50,10 +50,10 @@ public abstract class LivingEntityMixin extends Entity implements ILivingEntity,
     @Inject(method = "checkFallDamage", at = @At("HEAD"), cancellable = true)
     private void fall(double motionY, boolean onGround, BlockState blockState, BlockPos blockPos, CallbackInfo ci) {
         LivingEntity self = self();
-        if (fallDistance >= 2.5F && blockState.is(ModBlocks.THIN_ICE_BLOCK) && !TCUtils.hasAccessoriesType(self, AccessoryItems.ICE$SAFE)) {
+        if (fallDistance >= 2.5F && blockState.is(NatureBlocks.THIN_ICE_BLOCK) && !TCUtils.hasAccessoriesType(self, AccessoryItems.ICE$SAFE)) {
             if (!level().isClientSide) {
                 BlockPos.betweenClosedStream(getBoundingBox().move(0.0, -0.5, 0.0)).forEach(pos -> {
-                    if (pos.equals(blockPos) || level().getBlockState(pos).is(ModBlocks.THIN_ICE_BLOCK)) {
+                    if (pos.equals(blockPos) || level().getBlockState(pos).is(NatureBlocks.THIN_ICE_BLOCK)) {
                         level().destroyBlock(pos, true, self);
                     }
                 });

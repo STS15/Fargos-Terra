@@ -6,7 +6,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import org.confluence.mod.Confluence;
 import org.confluence.mod.client.model.entity.hook.WebSlingerModel;
 import org.confluence.mod.common.entity.hook.AbstractHookEntity;
-import org.confluence.mod.common.init.block.ModBlocks;
+import org.confluence.mod.common.init.block.DecorativeBlocks;
 import org.jetbrains.annotations.NotNull;
 
 public class WebSlingerRenderer extends AbstractHookRenderer<AbstractHookEntity.Impl> {
@@ -15,7 +15,7 @@ public class WebSlingerRenderer extends AbstractHookRenderer<AbstractHookEntity.
 
     public WebSlingerRenderer(EntityRendererProvider.Context pContext) {
         super(pContext, new WebSlingerModel(pContext.bakeLayer(WebSlingerModel.LAYER_LOCATION)));
-        this.CHAIN = ModBlocks.SILK_CHAIN.get().defaultBlockState();
+        this.CHAIN = DecorativeBlocks.SILK_CHAIN.get().defaultBlockState();
     }
 
     @Override

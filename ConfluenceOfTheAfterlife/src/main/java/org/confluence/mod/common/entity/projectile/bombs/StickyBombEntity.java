@@ -8,7 +8,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 import org.confluence.mod.common.init.ModEntities;
-import org.confluence.mod.common.init.item.ModItems;
+import org.confluence.mod.common.init.item.ToolItems;
 import org.jetbrains.annotations.NotNull;
 
 public class StickyBombEntity extends BaseBombEntity {
@@ -39,7 +39,7 @@ public class StickyBombEntity extends BaseBombEntity {
 
     @Override
     protected @NotNull Item getDefaultItem() {
-        return ModItems.STICKY_BOMB.get();
+        return ToolItems.STICKY_BOMB.get();
     }
 
     @Override

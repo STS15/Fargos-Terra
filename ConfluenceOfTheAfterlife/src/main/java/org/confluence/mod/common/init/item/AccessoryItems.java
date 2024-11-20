@@ -46,7 +46,6 @@ public class AccessoryItems {
     public static final DeferredRegister.Items ACCESSORIES = DeferredRegister.createItems(Confluence.MODID);
 
     public static final ValueType<Unit, UnitValue> MECHANICAL$VIEW = ValueType.ofUnit("mechanical_view");
-
     public static final ValueType<Unit, UnitValue> LUCKY$COIN = ValueType.ofUnit("lucky_coin");
     public static final ValueType<Unit, UnitValue> SHEARS$DIG = ValueType.ofUnit("shears_dig");
     public static final ValueType<Unit, UnitValue> ICE$SAFE = ValueType.ofUnit("ice_safe");

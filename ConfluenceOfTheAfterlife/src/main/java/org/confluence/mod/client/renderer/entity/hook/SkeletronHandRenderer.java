@@ -6,7 +6,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import org.confluence.mod.Confluence;
 import org.confluence.mod.client.model.entity.hook.SkeletronHandModel;
 import org.confluence.mod.common.entity.hook.AbstractHookEntity;
-import org.confluence.mod.common.init.block.ModBlocks;
+import org.confluence.mod.common.init.block.DecorativeBlocks;
 import org.jetbrains.annotations.NotNull;
 
 public class SkeletronHandRenderer extends AbstractHookRenderer<AbstractHookEntity.Impl> {
@@ -15,7 +15,7 @@ public class SkeletronHandRenderer extends AbstractHookRenderer<AbstractHookEnti
 
     public SkeletronHandRenderer(EntityRendererProvider.Context pContext) {
         super(pContext, new SkeletronHandModel(pContext.bakeLayer(SkeletronHandModel.LAYER_LOCATION)));
-        this.CHAIN = ModBlocks.BONE_CHAIN.get().defaultBlockState();
+        this.CHAIN = DecorativeBlocks.BONE_CHAIN.get().defaultBlockState();
     }
 
     @Override
