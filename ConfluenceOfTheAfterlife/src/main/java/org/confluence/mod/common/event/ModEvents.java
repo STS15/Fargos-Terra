@@ -104,7 +104,7 @@ public final class ModEvents {
             event.insertFirst(TCItems.BASE_POINT.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.insertFirst(TCItems.EVERLASTING.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
 
-            Object[] entries = AccessoryItems.ACCESSORIES.getEntries().toArray();
+            Object[] entries = AccessoryItems.ITEMS.getEntries().toArray();
             for (int i = entries.length - 1; i > -1; i--) {
                 DeferredItem<? extends Item> entry = (DeferredItem<? extends Item>) entries[i];
                 event.insertFirst(entry.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);

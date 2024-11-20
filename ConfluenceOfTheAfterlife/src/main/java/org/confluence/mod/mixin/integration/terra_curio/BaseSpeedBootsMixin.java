@@ -9,9 +9,9 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import top.theillusivec4.curios.api.SlotContext;
 
-@Mixin(BaseSpeedBoots.class)
+@Mixin(value = BaseSpeedBoots.class, remap = false)
 public abstract class BaseSpeedBootsMixin {
-    @Inject(method = "speedUp", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "speedUp", at = @At(value = "INVOKE", target = "Lorg/confluence/terra_curio/util/TCUtils;forConfluence$Inject()V"), cancellable = true)
     private void confluence(SlotContext slotContext, ItemStack stack, int acceleration, int maxSpeed, CallbackInfo ci) {
         if (slotContext.entity().hasEffect(ModEffects.STONED)) {
             ci.cancel();

@@ -249,7 +249,7 @@ public class ModEnglishProvider extends LanguageProvider {
         });
         Map<String, String> data = ((LanguageProviderAccessor) this).getData();
         add(AccessoryItems.PHILOSOPHERS_STONE.get(), "Philosopher's Stone");
-        AccessoryItems.ACCESSORIES.getEntries().forEach(accessory -> {
+        AccessoryItems.ITEMS.getEntries().forEach(accessory -> {
             Item item = accessory.get();
             String descriptionId = item.getDescriptionId();
             if (data.containsKey(descriptionId)) return;

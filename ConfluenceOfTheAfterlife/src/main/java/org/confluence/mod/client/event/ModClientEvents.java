@@ -108,8 +108,8 @@ public final class ModClientEvents {
             ItemBlockRenderTypes.setRenderLayer(ModFluids.HONEY.flowing().get(), RenderType.translucent());
 
             GroupWikiScreen.putWikiType("item",
-                    List.of(AccessoryItems.ACCESSORIES, ArrowItems.ARROWS, AxeItems.AXES, BaitItems.BAITS, BowItems.BOWS, FishingPoleItems.POLES,
-                            FoodItems.ITEMS, MaterialItems.MATERIALS, ModItems.ITEMS, QuestedFishes.FISHES, SwordItems.SWORDS, PotionItems.POTIONS),
+                    List.of(AccessoryItems.ITEMS, ArrowItems.ARROWS, AxeItems.ITEMS, BaitItems.ITEMS, BowItems.BOWS, FishingPoleItems.ITEMS,
+                            FoodItems.ITEMS, MaterialItems.MATERIALS, ModItems.ITEMS, QuestedFishes.ITEMS, SwordItems.SWORDS, PotionItems.POTIONS),
                     List.of("accessories", "arrow", "axe", "bait", "bow", "fishing_pole",
                             "food", "material", "misc", "quested_fish", "sword", "terra_potion"));
             ObjectWikiScreen.putDescription("confluence:copper_short_sword", Component.translatable("wiki.confluence.copper_short_sword"));
