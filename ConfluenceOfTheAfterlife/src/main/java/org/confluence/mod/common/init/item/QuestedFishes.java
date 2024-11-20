@@ -8,7 +8,7 @@ import org.confluence.terra_curio.common.component.ModRarity;
 import org.confluence.terra_curio.common.init.TCDataComponentTypes;
 
 public class QuestedFishes {
-    public static final DeferredRegister.Items FISHES = DeferredRegister.createItems(Confluence.MODID);
+    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Confluence.MODID);
 
     public static final DeferredItem<Item> AMANITA_FUNGIFIN = register("amanita_fungifin"), // 发光蘑菇鱼
             ANGELFISH = register("angelfish"), // 天使鱼
@@ -53,6 +53,6 @@ public class QuestedFishes {
             TUNDRA_TROUT = register("tundra_trout"); // 苔原鳟鱼
 
     public static DeferredItem<Item> register(String name) {
-        return FISHES.register(name, () -> new Item(new Item.Properties().fireResistant().component(TCDataComponentTypes.MOD_RARITY, ModRarity.QUEST)));
+        return ITEMS.register(name, () -> new Item(new Item.Properties().fireResistant().component(TCDataComponentTypes.MOD_RARITY, ModRarity.QUEST)));
     }
 }

@@ -65,11 +65,11 @@ public class ModItemModelProvider extends ItemModelProvider {
         customModels.add(createDir(PotionItems.POTIONS,             "potion/"));
         customModels.add(createDir(ArrowItems.ARROWS,               "arrow/"));
         customModels.add(createDir(FoodItems.ITEMS,                 "food/"));
-        customModels.add(createDir(FishingPoleItems.POLES,          "fishingpole/"));
+        customModels.add(createDir(FishingPoleItems.ITEMS,          "fishingpole/"));
         customModels.add(createDir(ArmorItems.ARMORS,               "armor_item/"));
-        customModels.add(createDir(AccessoryItems.ACCESSORIES,      "accessory/"));
+        customModels.add(createDir(AccessoryItems.ITEMS,      "accessory/"));
         customModels.add(createDir(ModItems.ITEMS,                  "misc/", "seed/", "consumables/", "materials/"));
-        customModels.add(createDir(HammerItems.HAMMERS,             "hammer/"));
+        customModels.add(createDir(HammerItems.ITEMS,             "hammer/"));
 
 
         genModels(customModels,"item/generated",false);
@@ -78,8 +78,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         List<Map<DeferredRegister.Items,List<String>>> handheld = new ArrayList<>();
         handheld.add(createDir(SwordItems.SWORDS,"sword/"));
         handheld.add(createDir(BowItems.BOWS,"bow/"));
-        handheld.add(createDir(AxeItems.AXES,"axe/"));
-        handheld.add(createDir(HammerItems.HAMMERS, "hammer/"));
+        handheld.add(createDir(AxeItems.ITEMS,"axe/"));
+        handheld.add(createDir(HammerItems.ITEMS, "hammer/"));
         handheld.add(createDir(BoomerangItems.BOOMERANG_ITEMS,  "boomerang/"));
 
         genModels(handheld,"item/handheld",true);

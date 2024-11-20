@@ -10,7 +10,7 @@ import static org.confluence.terra_curio.common.component.ModRarity.*;
 
 
 public class BaitItems {
-    public static final DeferredRegister.Items BAITS = DeferredRegister.createItems(Confluence.MODID);
+    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Confluence.MODID);
 
     public static final DeferredItem<BaitItem> APPRENTICE_BAIT = register("apprentice_bait", BLUE, 0.15F),
             JOURNEYMAN_BAIT = register("journeyman_bait", GREEN, 0.3F),
@@ -60,6 +60,6 @@ public class BaitItems {
             ZEBRA_SWALLOWTAIL_BUTTERFLY = register("zebra_swallowtail_butterfly", BLUE, 0.15F);
 
     public static DeferredItem<BaitItem> register(String name, ModRarity rarity, float bonus) {
-        return BAITS.register(name, () -> new BaitItem(rarity, bonus));
+        return ITEMS.register(name, () -> new BaitItem(rarity, bonus));
     }
 }

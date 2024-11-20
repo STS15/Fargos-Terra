@@ -92,12 +92,7 @@ public final class PlayerEvents {
 
     @SubscribeEvent
     public static void itemFished(ItemFishedEvent event) {
-
-    }
-
-    @SubscribeEvent
-    public static void arrowLoose(ArrowLooseEvent event) {
-
+        // todo
     }
 
     @SubscribeEvent

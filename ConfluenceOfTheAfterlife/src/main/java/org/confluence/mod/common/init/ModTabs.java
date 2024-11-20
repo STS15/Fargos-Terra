@@ -48,7 +48,9 @@ public final class ModTabs {
             () -> CreativeModeTab.builder().icon(() -> IconItems.PRECIOUS_ICON.get().getDefaultInstance())
                     .title(Component.translatable("creativetab.confluence.misc"))
                     .displayItems((parameters, output) -> {
-                        ModItems.ITEMS.getEntries().forEach(holder -> output.accept(holder.get()));
+                        ModItems.ITEMS.getEntries().forEach(item -> output.accept(item.get()));
+                        BaitItems.ITEMS.getEntries().forEach(item -> output.accept(item.get()));
+                        QuestedFishes.ITEMS.getEntries().forEach(item -> output.accept(item.get()));
                     })
                     .build()
     );
@@ -66,10 +68,11 @@ public final class ModTabs {
                     .title(Component.translatable("creativetab.confluence.tools"))
                     .displayItems((parameters, output) -> {
                         ToolItems.ITEMS.getEntries().forEach(item -> output.accept(item.get()));
-                        AxeItems.AXES.getEntries().forEach(item -> output.accept(item.get()));
-                        HammerItems.HAMMERS.getEntries().forEach(item -> output.accept(item.get()));
-                        HookItems.HOOKS.getEntries().forEach(item -> output.accept(item.get()));
+                        AxeItems.ITEMS.getEntries().forEach(item -> output.accept(item.get()));
+                        HammerItems.ITEMS.getEntries().forEach(item -> output.accept(item.get()));
+                        HookItems.ITEMS.getEntries().forEach(item -> output.accept(item.get()));
                         MinecartItems.ITEMS.getEntries().forEach(item -> output.accept(item.get()));
+                        FishingPoleItems.ITEMS.getEntries().forEach(item -> output.accept(item.get()));
                     })
                     .build());
     // 战士武器

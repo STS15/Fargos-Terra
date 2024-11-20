@@ -15,7 +15,7 @@ import org.confluence.mod.common.item.fishing.*;
 import java.util.function.Supplier;
 
 public class FishingPoleItems {
-    public static final DeferredRegister.Items POLES = DeferredRegister.createItems(Confluence.MODID);
+    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Confluence.MODID);
 
     public static final DeferredItem<AbstractFishingPole> WOOD_FISHING_POLE = register("wood_fishing_pole", WoodFishingPole::new),
             REINFORCED_FISHING_POLE = register("reinforced_fishing_pole", ReinforcedFishingPole::new),
@@ -30,7 +30,7 @@ public class FishingPoleItems {
             GOLDEN_FISHING_ROD = register("golden_fishing_rod", GoldenFishingRod::new);
 
     private static DeferredItem<AbstractFishingPole> register(String name, Supplier<AbstractFishingPole> supplier) {
-        return POLES.register(name, supplier);
+        return ITEMS.register(name, supplier);
     }
 
     @OnlyIn(Dist.CLIENT)
@@ -46,6 +46,6 @@ public class FishingPoleItems {
                 return (flag || flag1) && living instanceof Player && ((Player) living).fishing != null ? 1.0F : 0.0F;
             }
         };
-        POLES.getEntries().forEach(pole -> ItemProperties.register(pole.get(), cast, function));
+        ITEMS.getEntries().forEach(pole -> ItemProperties.register(pole.get(), cast, function));
     }
 }
