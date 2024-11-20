@@ -1,21 +1,19 @@
 package org.confluence.mod.client.handler;
 
 import com.mojang.datafixers.util.Either;
+import it.unimi.dsi.fastutil.ints.Int2ObjectArrayMap;
+import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.minecraft.Util;
-import net.minecraft.util.Tuple;
 import net.minecraft.world.entity.player.Player;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
-import org.apache.commons.lang3.tuple.ImmutableTriple;
 import org.confluence.mod.common.data.saved.GamePhase;
+import org.confluence.mod.common.data.saved.StarPhase;
 import org.confluence.mod.common.init.ModSoundEvents;
 import org.confluence.mod.network.s2c.FishingPowerInfoPacketS2C;
 import org.confluence.mod.network.s2c.GamePhasePacketS2C;
 import org.confluence.mod.network.s2c.ManaPacketS2C;
 import org.confluence.mod.network.s2c.MechanicalViewPacketS2C;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import static org.confluence.mod.common.data.saved.ConfluenceData.STAR_PHASES_SIZE;
 
@@ -24,9 +22,9 @@ public final class ClientPacketHandler {
     private static int maxMana = 20;
     private static int currentMana = 20;
     private static GamePhase gamePhase = GamePhase.BEFORE_SKELETRON;
-    private static List<Tuple<Float, Float>> starPhases = Util.make(new ArrayList<>(), list -> {
+    private static Int2ObjectMap<StarPhase> starPhases = Util.make(new Int2ObjectArrayMap<>(), map -> {
         for (int i = 0; i < STAR_PHASES_SIZE; i++) {
-            list.add(new Tuple<>(0.0F, 0.0F));
+            map.put(i, StarPhase.DEFAULT);
         }
     });
     private static float fishingPower = 0.0F;
@@ -60,7 +58,7 @@ public final class ClientPacketHandler {
         return fishingPower;
     }
 
-    public static List<Tuple<Float, Float>> getStarPhases() {
+    public static Int2ObjectMap<StarPhase> getStarPhases() {
         return starPhases;
     }
 
@@ -84,8 +82,8 @@ public final class ClientPacketHandler {
         mechanicalView = packet.enable();
     }
 
-    public static void handleStarPhases(Either<List<Tuple<Float, Float>>, ImmutableTriple<Integer, Float, Float>> packet) {
+    public static void handleStarPhases(Either<Int2ObjectMap<StarPhase>, Int2ObjectMap.Entry<StarPhase>> packet) {
         packet.ifLeft(list -> starPhases = list);
-        packet.ifRight(triple -> starPhases.set(triple.left, new Tuple<>(triple.middle, triple.right)));
+        packet.ifRight(triple -> starPhases.put(triple.getIntKey(), triple.getValue()));
     }
 }

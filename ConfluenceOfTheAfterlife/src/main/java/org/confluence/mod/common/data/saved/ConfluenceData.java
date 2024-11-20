@@ -1,20 +1,18 @@
 package org.confluence.mod.common.data.saved;
 
+import it.unimi.dsi.fastutil.ints.Int2ObjectArrayMap;
+import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.util.Tuple;
 import net.minecraft.world.level.saveddata.SavedData;
-import net.neoforged.neoforge.network.PacketDistributor;
+import org.confluence.mod.Confluence;
 import org.confluence.mod.network.s2c.GamePhasePacketS2C;
 import org.confluence.mod.network.s2c.StarPhasesPacketS2C;
 import org.confluence.terra_curio.network.s2c.WindSpeedPacketS2C;
 import org.jetbrains.annotations.NotNull;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class ConfluenceData extends SavedData {
     public static final int STAR_PHASES_SIZE = 11;
@@ -22,15 +20,15 @@ public class ConfluenceData extends SavedData {
     private GamePhase gamePhase;
     private float windSpeedX;
     private float windSpeedZ;
-    private final List<Tuple<Float, Float>> starPhases;
+    private final Int2ObjectMap<StarPhase> starPhases;
 
     ConfluenceData() {
         this.gamePhase = GamePhase.BEFORE_SKELETRON;
         this.windSpeedX = 0.0F;
         this.windSpeedZ = 0.0F;
-        this.starPhases = new ArrayList<>(STAR_PHASES_SIZE);
+        this.starPhases = new Int2ObjectArrayMap<>();
         for (int i = 0; i < STAR_PHASES_SIZE; i++) {
-            starPhases.add(new Tuple<>(0.0F, 0.0F));
+            starPhases.put(i, StarPhase.DEFAULT);
         }
     }
 
@@ -39,15 +37,15 @@ public class ConfluenceData extends SavedData {
         this.windSpeedX = nbt.getFloat("windSpeedX");
         this.windSpeedZ = nbt.getFloat("windSpeedZ");
         ListTag listTag = nbt.getList("starPhases", Tag.TAG_COMPOUND);
-        this.starPhases = new ArrayList<>(STAR_PHASES_SIZE);
+        this.starPhases = new Int2ObjectArrayMap<>();
         for (Tag tag : listTag) {
             CompoundTag phase = (CompoundTag) tag;
-            starPhases.add(new Tuple<>(phase.getFloat("radius"), phase.getFloat("angle")));
+            starPhases.put(phase.getInt("index"), new StarPhase(phase));
         }
     }
 
     public static ConfluenceData get(ServerLevel serverLevel) {
-        return serverLevel.getDataStorage().computeIfAbsent(new Factory<>(ConfluenceData::new, ConfluenceData::new), "confluence");
+        return serverLevel.getDataStorage().computeIfAbsent(new Factory<>(ConfluenceData::new, ConfluenceData::new), Confluence.MODID);
     }
 
     @Override
@@ -56,10 +54,10 @@ public class ConfluenceData extends SavedData {
         nbt.putFloat("windSpeedX", windSpeedX);
         nbt.putFloat("windSpeedZ", windSpeedZ);
         ListTag listTag = new ListTag();
-        for (Tuple<Float, Float> phase : starPhases) {
+        for (int i = 0; i < STAR_PHASES_SIZE; i++) {
             CompoundTag tag = new CompoundTag();
-            tag.putFloat("radius", phase.getA());
-            tag.putFloat("angle", phase.getB());
+            tag.putInt("index", i);
+            starPhases.getOrDefault(i, StarPhase.DEFAULT).writeTo(tag);
             listTag.add(tag);
         }
         nbt.put("starPhases", listTag);
@@ -76,7 +74,7 @@ public class ConfluenceData extends SavedData {
 
     public void setGamePhase(GamePhase gamePhase) {
         this.gamePhase = gamePhase;
-        PacketDistributor.sendToAllPlayers(new GamePhasePacketS2C(gamePhase));
+        GamePhasePacketS2C.sendToAll(gamePhase);
         setDirty();
     }
 
@@ -87,7 +85,7 @@ public class ConfluenceData extends SavedData {
     public void setWindSpeed(float x, float z) {
         this.windSpeedX = x;
         this.windSpeedZ = z;
-        PacketDistributor.sendToAllPlayers(new WindSpeedPacketS2C(x, z));
+        WindSpeedPacketS2C.sendToAll(x, z);
         setDirty();
     }
 
@@ -101,18 +99,18 @@ public class ConfluenceData extends SavedData {
 
     public boolean setStarPhase(int index, float radius, float angle) {
         if (index >= STAR_PHASES_SIZE) return false;
-        starPhases.set(index, new Tuple<>(radius, angle));
+        starPhases.put(index, new StarPhase(radius, angle));
         StarPhasesPacketS2C.sendToAll(index, radius, angle);
         setDirty();
         return true;
     }
 
-    public Tuple<Float, Float> getStarPhase(int index) {
+    public StarPhase getStarPhase(int index) {
         if (index >= STAR_PHASES_SIZE) return null;
-        return starPhases.get(index);
+        return starPhases.getOrDefault(index, StarPhase.DEFAULT);
     }
 
-    public List<Tuple<Float, Float>> getStarPhases() {
+    public Int2ObjectMap<StarPhase> getStarPhases() {
         return starPhases;
     }
 }
