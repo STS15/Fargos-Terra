@@ -24,7 +24,10 @@ import org.confluence.mod.common.init.block.OreBlocks;
 import org.confluence.mod.common.init.item.AccessoryItems;
 import org.confluence.mod.network.c2s.HookThrowingPacketC2S;
 import org.confluence.mod.network.c2s.SwordShootingPacketC2S;
-import org.confluence.mod.network.s2c.*;
+import org.confluence.mod.network.s2c.FishingPowerInfoPacketS2C;
+import org.confluence.mod.network.s2c.GamePhasePacketS2C;
+import org.confluence.mod.network.s2c.ManaPacketS2C;
+import org.confluence.mod.network.s2c.StarPhasesPacketS2C;
 import org.confluence.phase_journey.PhaseJourney;
 import org.confluence.phase_journey.api.PhaseJourneyEvent;
 import org.confluence.terra_curio.api.event.RegisterAccessoriesComponentUpdateEvent;
@@ -70,7 +73,6 @@ public final class ModEvents {
         registrar.playToClient(ManaPacketS2C.TYPE, ManaPacketS2C.STREAM_CODEC, ManaPacketS2C::handle);
         registrar.playToClient(GamePhasePacketS2C.TYPE, GamePhasePacketS2C.STREAM_CODEC, GamePhasePacketS2C::handle);
         registrar.playToClient(FishingPowerInfoPacketS2C.TYPE, FishingPowerInfoPacketS2C.STREAM_CODEC, FishingPowerInfoPacketS2C::handle);
-        registrar.playToClient(MechanicalViewPacketS2C.TYPE, MechanicalViewPacketS2C.STREAM_CODEC, MechanicalViewPacketS2C::handle);
         registrar.playToClient(StarPhasesPacketS2C.TYPE, StarPhasesPacketS2C.STREAM_CODEC, StarPhasesPacketS2C::handle);
 
         registrar.playToServer(SwordShootingPacketC2S.TYPE, SwordShootingPacketC2S.STREAM_CODEC, SwordShootingPacketC2S::receive);
@@ -79,7 +81,6 @@ public final class ModEvents {
 
     @SubscribeEvent
     public static void registerUnitType(RegisterAccessoriesComponentUpdateEvent.UnitType event) {
-        event.register(AccessoryItems.MECHANICAL$VIEW);
         event.register(AccessoryItems.LUCKY$COIN);
         event.register(AccessoryItems.SHEARS$DIG);
         event.register(AccessoryItems.ICE$SAFE);
@@ -103,6 +104,7 @@ public final class ModEvents {
         if (event.getTab() == TCTabs.ACCESSORIES.get()) {
             event.insertFirst(TCItems.BASE_POINT.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.insertFirst(TCItems.EVERLASTING.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.insertFirst(TCItems.MECHANICAL_LENS.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
 
             Object[] entries = AccessoryItems.ITEMS.getEntries().toArray();
             for (int i = entries.length - 1; i > -1; i--) {

@@ -9,6 +9,7 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.projectile.Arrow;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -25,6 +26,9 @@ import static net.minecraft.world.level.block.state.properties.BlockStatePropert
 
 @SuppressWarnings("deprecation")
 public class DartTrapBlock extends AbstractMechanicalBlock {
+
+    public static final ItemStack PICKUP_ITEM_STACK = Items.SPECTRAL_ARROW.getDefaultInstance();
+
     public DartTrapBlock() {
         super(Properties.ofFullCopy(Blocks.DISPENSER));
         registerDefaultState(stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(TRIGGERED, false));
@@ -66,7 +70,7 @@ public class DartTrapBlock extends AbstractMechanicalBlock {
         double x = pPos.getX() + 0.5 + 0.7 * direction.getStepX();
         double y = pPos.getY() + 0.5 + 0.7 * direction.getStepY();
         double z = pPos.getZ() + 0.5 + 0.7 * direction.getStepZ();
-        Arrow arrow = new Arrow(pLevel, x, y, z, ItemStack.EMPTY, ItemStack.EMPTY);
+        Arrow arrow = new Arrow(pLevel, x, y, z, PICKUP_ITEM_STACK, null);
         arrow.pickup = AbstractArrow.Pickup.CREATIVE_ONLY;
         arrow.addEffect(new MobEffectInstance(MobEffects.POISON, 600, 1));
         arrow.setBaseDamage(5.0);

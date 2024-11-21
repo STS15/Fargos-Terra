@@ -55,7 +55,7 @@ public interface INetworkEntity {
         map.clear();
         CompoundTag compoundTag = nbt.getCompound(posesKey);
         for (String key : compoundTag.getAllKeys()) {
-            ListTag listTag = compoundTag.getList(key, Tag.TAG_INT_ARRAY);
+            ListTag listTag = compoundTag.getList(key, Tag.TAG_COMPOUND);
             int color = Integer.parseInt(key);
             Set<BlockPos> posSet = new HashSet<>();
             listTag.forEach(tag -> {

@@ -12,8 +12,8 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
-import org.confluence.mod.client.handler.ClientPacketHandler;
 import org.confluence.mod.common.block.functional.AbstractMechanicalBlock;
+import org.confluence.terra_curio.client.handler.InformationHandler;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Set;
@@ -23,17 +23,17 @@ public class MechanicalBlockRenderer<E extends AbstractMechanicalBlock.Entity> i
 
     @Override
     public boolean shouldRenderOffScreen(@NotNull E pBlockEntity) {
-        return ClientPacketHandler.hasMechanicalView();
+        return InformationHandler.hasMechanicalView();
     }
 
     @Override
     public int getViewDistance() {
-        return ClientPacketHandler.hasMechanicalView() ? 256 : BlockEntityRenderer.super.getViewDistance();
+        return InformationHandler.hasMechanicalView() ? 256 : BlockEntityRenderer.super.getViewDistance();
     }
 
     @Override
     public boolean shouldRender(@NotNull AbstractMechanicalBlock.Entity pBlockEntity, @NotNull Vec3 pCameraPos) {
-        return ClientPacketHandler.hasMechanicalView() && pBlockEntity.getBlockPos().getCenter().multiply(1.0, 0.0, 1.0).closerThan(pCameraPos.multiply(1.0, 0.0, 1.0), getViewDistance());
+        return InformationHandler.hasMechanicalView() && pBlockEntity.getBlockPos().getCenter().multiply(1.0, 0.0, 1.0).closerThan(pCameraPos.multiply(1.0, 0.0, 1.0), getViewDistance());
     }
 
     @Override

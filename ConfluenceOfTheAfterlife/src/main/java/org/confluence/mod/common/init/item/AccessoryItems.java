@@ -45,7 +45,6 @@ import static org.confluence.terra_curio.common.component.ModRarity.*;
 public class AccessoryItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Confluence.MODID);
 
-    public static final ValueType<Unit, UnitValue> MECHANICAL$VIEW = ValueType.ofUnit("mechanical_view");
     public static final ValueType<Unit, UnitValue> LUCKY$COIN = ValueType.ofUnit("lucky_coin");
     public static final ValueType<Unit, UnitValue> SHEARS$DIG = ValueType.ofUnit("shears_dig");
     public static final ValueType<Unit, UnitValue> ICE$SAFE = ValueType.ofUnit("ice_safe");
@@ -93,7 +92,6 @@ public class AccessoryItems {
             KRYPTON_MOSS_FISHING_BOBBER = ITEMS.register("krypton_moss_fishing_bobber", () -> new FishingBobber(CurioFishingHook.Variant.KRYPTON)), // 氪苔藓钓鱼浮标
             XENON_MOSS_FISHING_BOBBER = ITEMS.register("xenon_moss_fishing_bobber", () -> new FishingBobber(CurioFishingHook.Variant.XENON)); // 氙苔藓钓鱼浮标
 
-    public static final Supplier<BaseCurioItem> MECHANICAL_LENS = registerCurio("mechanical_lens", builder -> builder.rarity(ORANGE).accessories(units(MECHANICAL$VIEW)));
     /* 标尺 */
     /* 机械标尺 */
 
