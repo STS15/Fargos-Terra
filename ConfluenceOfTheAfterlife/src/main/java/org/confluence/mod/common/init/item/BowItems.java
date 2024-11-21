@@ -25,18 +25,18 @@ import java.util.function.Supplier;
  */
 public class BowItems {
 
-    public static final DeferredRegister.Items BOWS = DeferredRegister.createItems(Confluence.MODID);
+    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Confluence.MODID);
 
     // 短弓
-    public static final DeferredItem<ShortBowItem> WOODEN_SHORT_BOW = BOWS.register("wooden_short_bow",() -> new ShortBowItem( 4.0F, 384));
-    public static final DeferredItem<ShortBowItem> COPPER_SHORT_BOW = BOWS.register("copper_short_bow", () -> new ShortBowItem(4.5F, 640));
-    public static final DeferredItem<ShortBowItem> TIN_SHORT_BOW = BOWS.register("tin_short_bow", () -> new ShortBowItem(4.5F, 768));
-    public static final DeferredItem<ShortBowItem> IRON_SHORT_BOW = BOWS.register("iron_short_bow", () -> new ShortBowItem(5.0F, 896));
-    public static final DeferredItem<ShortBowItem> LEAD_SHORT_BOW = BOWS.register("lead_short_bow", () -> new ShortBowItem(5.0F, 1024));
-    public static final DeferredItem<ShortBowItem> SILVER_SHORT_BOW = BOWS.register("silver_short_bow", () -> new ShortBowItem(5.5F, 1152));
-    public static final DeferredItem<ShortBowItem> TUNGSTEN_SHORT_BOW = BOWS.register("tungsten_short_bow", () -> new ShortBowItem(5.5F, 1280));
-    public static final DeferredItem<ShortBowItem> GOLDEN_SHORT_BOW = BOWS.register("golden_short_bow", () -> new ShortBowItem(6.0F, 1408));
-    public static final DeferredItem<ShortBowItem> PLATINUM_SHORT_BOW = BOWS.register("platinum_short_bow", () -> new ShortBowItem(6.0F, 1536));
+    public static final DeferredItem<ShortBowItem> WOODEN_SHORT_BOW = ITEMS.register("wooden_short_bow",() -> new ShortBowItem( 4.0F, 384));
+    public static final DeferredItem<ShortBowItem> COPPER_SHORT_BOW = ITEMS.register("copper_short_bow", () -> new ShortBowItem(4.5F, 640));
+    public static final DeferredItem<ShortBowItem> TIN_SHORT_BOW = ITEMS.register("tin_short_bow", () -> new ShortBowItem(4.5F, 768));
+    public static final DeferredItem<ShortBowItem> IRON_SHORT_BOW = ITEMS.register("iron_short_bow", () -> new ShortBowItem(5.0F, 896));
+    public static final DeferredItem<ShortBowItem> LEAD_SHORT_BOW = ITEMS.register("lead_short_bow", () -> new ShortBowItem(5.0F, 1024));
+    public static final DeferredItem<ShortBowItem> SILVER_SHORT_BOW = ITEMS.register("silver_short_bow", () -> new ShortBowItem(5.5F, 1152));
+    public static final DeferredItem<ShortBowItem> TUNGSTEN_SHORT_BOW = ITEMS.register("tungsten_short_bow", () -> new ShortBowItem(5.5F, 1280));
+    public static final DeferredItem<ShortBowItem> GOLDEN_SHORT_BOW = ITEMS.register("golden_short_bow", () -> new ShortBowItem(6.0F, 1408));
+    public static final DeferredItem<ShortBowItem> PLATINUM_SHORT_BOW = ITEMS.register("platinum_short_bow", () -> new ShortBowItem(6.0F, 1536));
 
 
     // 无效果蓄力弓
@@ -63,7 +63,7 @@ public class BowItems {
 
 
     public static DeferredItem<TerraBowItem> register(String name, Supplier<TerraBowItem> supplier) {
-        return BOWS.register(name, supplier);
+        return ITEMS.register(name, supplier);
     }
     public static DeferredItem<TerraBowItem> register(String name, float damage, int durability, ModRarity rarity) {
         return register(name, () -> new TerraBowItem(damage, durability, rarity));
@@ -73,7 +73,7 @@ public class BowItems {
     }
 
     public static void acceptTag(IntrinsicHolderTagsProvider.IntrinsicTagAppender<Item> tag) {
-        BOWS.getEntries().forEach(entry -> tag.add(entry.get()));
+        ITEMS.getEntries().forEach(entry -> tag.add(entry.get()));
     }
 
     @OnlyIn(Dist.CLIENT)
@@ -84,7 +84,7 @@ public class BowItems {
         ResourceLocation pulling = ResourceLocation.withDefaultNamespace("pulling");
         ClampedItemPropertyFunction bowPulling = (itemStack, clientLevel, living, speed) -> living != null && living.isUsingItem() && living.getUseItem() == itemStack ? 1.0F : 0.0F;
 
-        BOWS.getEntries().forEach(item -> {
+        ITEMS.getEntries().forEach(item -> {
             if(item.get() instanceof ShortBowItem) ItemProperties.register(item.get(), pull, shortBowPull);
             else ItemProperties.register(item.get(), pull, bowPull);
             ItemProperties.register(item.get(), pulling, bowPulling);

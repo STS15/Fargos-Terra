@@ -4,8 +4,8 @@ import net.minecraft.world.item.Item;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.confluence.mod.Confluence;
+import org.confluence.mod.common.item.CustomRarityItem;
 import org.confluence.terra_curio.common.component.ModRarity;
-import org.confluence.terra_curio.common.init.TCDataComponentTypes;
 
 public class QuestedFishes {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Confluence.MODID);
@@ -53,6 +53,6 @@ public class QuestedFishes {
             TUNDRA_TROUT = register("tundra_trout"); // 苔原鳟鱼
 
     public static DeferredItem<Item> register(String name) {
-        return ITEMS.register(name, () -> new Item(new Item.Properties().fireResistant().component(TCDataComponentTypes.MOD_RARITY, ModRarity.QUEST)));
+        return ITEMS.register(name, () -> new CustomRarityItem(new Item.Properties().fireResistant(), ModRarity.QUEST));
     }
 }

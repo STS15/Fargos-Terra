@@ -59,7 +59,7 @@ public final class ModTabs {
             () -> CreativeModeTab.builder().icon(() -> IconItems.MATERIAL_ICON.get().getDefaultInstance())
                     .title(Component.translatable("creativetab.confluence.materials"))
                     .displayItems((parameters, output) -> {
-                        MaterialItems.MATERIALS.getEntries().forEach(item -> output.accept(item.get()));
+                        MaterialItems.ITEMS.getEntries().forEach(item -> output.accept(item.get()));
                     })
                     .build());
     // 工具
@@ -80,8 +80,8 @@ public final class ModTabs {
             () -> CreativeModeTab.builder().icon(() -> IconItems.MELEE_ICON.get().getDefaultInstance())
                     .title(Component.translatable("creativetab.confluence.warriors"))
                     .displayItems((parameters, output) -> {
-                        SwordItems.SWORDS.getEntries().forEach(item -> output.accept(item.get()));
-                        BoomerangItems.BOOMERANG_ITEMS.getEntries().forEach(item -> output.accept(item.get()));
+                        SwordItems.ITEMS.getEntries().forEach(item -> output.accept(item.get()));
+                        BoomerangItems.ITEMS.getEntries().forEach(item -> output.accept(item.get()));
                     })
                     .build());
     // 射手武器
@@ -89,8 +89,8 @@ public final class ModTabs {
             () -> CreativeModeTab.builder().icon(() -> IconItems.REMOTE_ICON.get().getDefaultInstance())
                     .title(Component.translatable("creativetab.confluence.rangers"))
                     .displayItems((parameters, output) -> {
-                        BowItems.BOWS.getEntries().forEach(item -> output.accept(item.get()));
-                        ArrowItems.ARROWS.getEntries().forEach(item -> output.accept(item.get()));
+                        BowItems.ITEMS.getEntries().forEach(item -> output.accept(item.get()));
+                        ArrowItems.ITEMS.getEntries().forEach(item -> output.accept(item.get()));
                     })
                     .build());
     // 法师武器
@@ -122,7 +122,7 @@ public final class ModTabs {
             () -> CreativeModeTab.builder().icon(() -> IconItems.POTION_ICON.get().getDefaultInstance())
                     .title(Component.translatable("creativetab.confluence.food_and_potions"))
                     .displayItems((parameters, output) -> {
-                        PotionItems.POTIONS.getEntries().forEach(item -> output.accept(item.get()));
+                        PotionItems.ITEMS.getEntries().forEach(item -> output.accept(item.get()));
                         FoodItems.ITEMS.getEntries().forEach(item -> output.accept(item.get()));
                     })
                     .build());

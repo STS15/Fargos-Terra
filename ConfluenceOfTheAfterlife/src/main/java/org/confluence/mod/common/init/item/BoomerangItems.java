@@ -10,7 +10,8 @@ import org.confluence.terra_curio.common.component.ModRarity;
 
 import java.util.function.Supplier;
 
-import static org.confluence.mod.common.item.sword.stagedy.EffectStrategy.*;
+import static org.confluence.mod.common.item.sword.stagedy.EffectStrategy.SET_FIRE;
+import static org.confluence.mod.common.item.sword.stagedy.EffectStrategy.TIME_POSSIBILITY_EFFECT;
 
 public class BoomerangItems {
 
@@ -20,7 +21,7 @@ public class BoomerangItems {
             (cd, count, modifier) ->    modifier.setNotWaitForBack().setCd(cd).setMaxCount(count);
 
 
-    public static final DeferredRegister.Items BOOMERANG_ITEMS = DeferredRegister.createItems(Confluence.MODID);
+    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Confluence.MODID);
 
 
 
@@ -59,13 +60,13 @@ public class BoomerangItems {
     );
 
     public static DeferredItem<Boomerang> register(String name, Supplier<Boomerang> supplier) {
-        return BOOMERANG_ITEMS.register(name, supplier);
+        return ITEMS.register(name, supplier);
     }
     public static DeferredItem<Boomerang> register(String name,float damage,  int durability, Boomerang.BoomerangModifier boomerangModifier) {
-        return BOOMERANG_ITEMS.register(name, () -> new Boomerang(damage, durability,ModRarity.WHITE, boomerangModifier));
+        return ITEMS.register(name, () -> new Boomerang(damage, durability,ModRarity.WHITE, boomerangModifier));
     }
     public static DeferredItem<Boomerang> register(String name,float damage,  int durability, ModRarity rarity, Boomerang.BoomerangModifier boomerangModifier) {
-        return BOOMERANG_ITEMS.register(name, () -> new Boomerang(damage,durability,rarity, boomerangModifier));
+        return ITEMS.register(name, () -> new Boomerang(damage,durability,rarity, boomerangModifier));
     }
 
 

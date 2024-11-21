@@ -60,10 +60,10 @@ public class ModItemModelProvider extends ItemModelProvider {
         // 一般物品
         // tip：MATERIALS的贴图分多个文件夹 "materials/","gem/","ingot/","ore/"，物品多的文件夹放前面提高速度
         List<Map<DeferredRegister.Items,List<String>>> customModels = new ArrayList<>();
-        customModels.add(createDir(IconItems.ICONS,                 "icon/"));
-        customModels.add(createDir(MaterialItems.MATERIALS,         "materials/","gem/","ingot/","ore/"));
-        customModels.add(createDir(PotionItems.POTIONS,             "potion/"));
-        customModels.add(createDir(ArrowItems.ARROWS,               "arrow/"));
+        customModels.add(createDir(IconItems.ITEMS,                 "icon/"));
+        customModels.add(createDir(MaterialItems.ITEMS,         "materials/","gem/","ingot/","ore/"));
+        customModels.add(createDir(PotionItems.ITEMS,             "potion/"));
+        customModels.add(createDir(ArrowItems.ITEMS,               "arrow/"));
         customModels.add(createDir(FoodItems.ITEMS,                 "food/"));
         customModels.add(createDir(FishingPoleItems.ITEMS,          "fishingpole/"));
         customModels.add(createDir(ArmorItems.ARMORS,               "armor_item/"));
@@ -76,11 +76,11 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         // 手持物品
         List<Map<DeferredRegister.Items,List<String>>> handheld = new ArrayList<>();
-        handheld.add(createDir(SwordItems.SWORDS,"sword/"));
-        handheld.add(createDir(BowItems.BOWS,"bow/"));
+        handheld.add(createDir(SwordItems.ITEMS,"sword/"));
+        handheld.add(createDir(BowItems.ITEMS,"bow/"));
         handheld.add(createDir(AxeItems.ITEMS,"axe/"));
         handheld.add(createDir(HammerItems.ITEMS, "hammer/"));
-        handheld.add(createDir(BoomerangItems.BOOMERANG_ITEMS,  "boomerang/"));
+        handheld.add(createDir(BoomerangItems.ITEMS,  "boomerang/"));
 
         genModels(handheld,"item/handheld",true);
 

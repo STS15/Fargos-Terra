@@ -10,7 +10,7 @@ import org.confluence.mod.common.item.common.MushroomItem;
 import org.confluence.terra_curio.common.component.ModRarity;
 
 public class MaterialItems{
-    public static final DeferredRegister.Items MATERIALS = DeferredRegister.createItems(Confluence.MODID);
+    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Confluence.MODID);
 
     public static final DeferredItem<Item> GEL = register("gel", ModRarity.WHITE);
     public static final DeferredItem<Item> PINK_GEL = register("pink_gel", ModRarity.PINK);
@@ -90,27 +90,27 @@ public class MaterialItems{
     public static final DeferredItem<Item> PINK_PEARL = register("pink_pearl");
 
     // 草药
-    public static final DeferredItem<Item> WATERLEAF = MATERIALS.registerSimpleItem("waterleaf");
-    public static final DeferredItem<Item> FLAMEFLOWERS = MATERIALS.registerSimpleItem("flameflowers", new Item.Properties().fireResistant());
-    public static final DeferredItem<Item> MOONSHINE_GRASS = MATERIALS.registerSimpleItem("moonshine_grass");
-    public static final DeferredItem<Item> SHINE_ROOT = MATERIALS.registerSimpleItem("shine_root");
-    public static final DeferredItem<Item> SHIVERINGTHORNS = MATERIALS.registerSimpleItem("shiveringthorns");
-    public static final DeferredItem<Item> SUNFLOWERS = MATERIALS.registerSimpleItem("sunflowers");
-    public static final DeferredItem<Item> DEATHWEED = MATERIALS.registerSimpleItem("deathweed");
+    public static final DeferredItem<Item> WATERLEAF = ITEMS.registerSimpleItem("waterleaf");
+    public static final DeferredItem<Item> FLAMEFLOWERS = ITEMS.registerSimpleItem("flameflowers", new Item.Properties().fireResistant());
+    public static final DeferredItem<Item> MOONSHINE_GRASS = ITEMS.registerSimpleItem("moonshine_grass");
+    public static final DeferredItem<Item> SHINE_ROOT = ITEMS.registerSimpleItem("shine_root");
+    public static final DeferredItem<Item> SHIVERINGTHORNS = ITEMS.registerSimpleItem("shiveringthorns");
+    public static final DeferredItem<Item> SUNFLOWERS = ITEMS.registerSimpleItem("sunflowers");
+    public static final DeferredItem<Item> DEATHWEED = ITEMS.registerSimpleItem("deathweed");
     // 蘑菇
-    public static final DeferredItem<Item> TR_CRIMSON_MUSHROOM = MATERIALS.register("tr_crimson_mushroom", () -> new MushroomItem(NatureBlocks.TR_CRIMSON_MUSHROOM.get(), 0.0F));
-    public static final DeferredItem<Item> EBONY_MUSHROOM = MATERIALS.register("ebony_mushroom", () -> new MushroomItem(NatureBlocks.EBONY_MUSHROOM.get(), 0.0F));
+    public static final DeferredItem<Item> TR_CRIMSON_MUSHROOM = ITEMS.register("tr_crimson_mushroom", () -> new MushroomItem(NatureBlocks.TR_CRIMSON_MUSHROOM.get(), 0.0F));
+    public static final DeferredItem<Item> EBONY_MUSHROOM = ITEMS.register("ebony_mushroom", () -> new MushroomItem(NatureBlocks.EBONY_MUSHROOM.get(), 0.0F));
     // TODO: 发光蘑菇可以放置，但此蘑菇非彼蘑菇
-    public static final DeferredItem<Item> GLOWING_MUSHROOM = MATERIALS.register("glowing_mushroom", () -> new MushroomItem(NatureBlocks.GLOWING_MUSHROOM.get(), 0.0F));
-    public static final DeferredItem<Item> LIFE_MUSHROOM = MATERIALS.register("life_mushroom", () -> new MushroomItem(NatureBlocks.LIFE_MUSHROOM.get(), 6.0F));
-    public static final DeferredItem<Item> JUNGLE_SPORE = MATERIALS.register("jungle_spore", () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> GLOWING_MUSHROOM = ITEMS.register("glowing_mushroom", () -> new MushroomItem(NatureBlocks.GLOWING_MUSHROOM.get(), 0.0F));
+    public static final DeferredItem<Item> LIFE_MUSHROOM = ITEMS.register("life_mushroom", () -> new MushroomItem(NatureBlocks.LIFE_MUSHROOM.get(), 6.0F));
+    public static final DeferredItem<Item> JUNGLE_SPORE = ITEMS.register("jungle_spore", () -> new Item(new Item.Properties()));
 
     public static DeferredItem<Item> register(String id) {
-        return MATERIALS.register(id, () -> new Item(new Item.Properties()));
+        return ITEMS.register(id, () -> new Item(new Item.Properties()));
 
     }
     public static DeferredItem<Item> register(String id, ModRarity rarity) {
-        return MATERIALS.register(id, () -> new CustomRarityItem(rarity));
+        return ITEMS.register(id, () -> new CustomRarityItem(rarity));
     }
 
     public static void init(){}

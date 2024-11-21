@@ -149,7 +149,7 @@ public class NatureBlocks {
         return BLOCKS.register(id, block);
     }
 
-    public static <B extends Block> DeferredBlock<B> registerWithItem(String id, Supplier<B> block) {
+    private static <B extends Block> DeferredBlock<B> registerWithItem(String id, Supplier<B> block) {
         DeferredBlock<B> object = BLOCKS.register(id, block);
         ModItems.BLOCK_ITEMS.registerSimpleBlockItem(object);
         return object;
