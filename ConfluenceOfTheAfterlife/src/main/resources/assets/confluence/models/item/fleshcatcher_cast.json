@@ -1,6 +1,6 @@
 {
     "parent": "item/fishing_rod",
     "textures": {
-        "layer0": "confluence:item/fleshcatcher_cast"
+        "layer0": "confluence:item/fishing_pole/fleshcatcher_cast"
     }
 }

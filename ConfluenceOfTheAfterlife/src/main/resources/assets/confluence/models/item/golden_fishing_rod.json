@@ -1,7 +1,7 @@
 {
     "parent": "item/handheld_rod",
     "textures": {
-        "layer0": "confluence:item/golden_fishing_rod"
+        "layer0": "confluence:item/fishing_pole/golden_fishing_rod"
     },
     "overrides": [
         {

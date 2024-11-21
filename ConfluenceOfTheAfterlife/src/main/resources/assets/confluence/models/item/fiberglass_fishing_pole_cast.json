@@ -1,6 +1,6 @@
 {
     "parent": "item/fishing_rod",
     "textures": {
-        "layer0": "confluence:item/fiberglass_fishing_pole_cast"
+        "layer0": "confluence:item/fishing_pole/fiberglass_fishing_pole_cast"
     }
 }

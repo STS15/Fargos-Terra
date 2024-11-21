@@ -1,4 +1,4 @@
-package org.confluence.mod.common.init.armor;
+package org.confluence.mod.common.init.item;
 
 import net.minecraft.Util;
 import net.minecraft.core.Holder;
@@ -10,7 +10,6 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.confluence.mod.Confluence;
-import org.confluence.mod.common.init.item.MaterialItems;
 
 import java.util.EnumMap;
 import java.util.List;

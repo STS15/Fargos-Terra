@@ -1,4 +1,4 @@
-package org.confluence.mod.common.init.armor;
+package org.confluence.mod.common.init.item;
 
 import net.minecraft.core.Holder;
 import net.minecraft.world.item.ArmorItem;
@@ -12,7 +12,7 @@ import org.confluence.mod.common.item.armor.NormalArmorItem;
 import java.util.function.Supplier;
 
 public class ArmorItems {
-    public static final DeferredRegister.Items ARMORS = DeferredRegister.createItems(Confluence.MODID);
+    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Confluence.MODID);
 
     public static final Supplier<ArmorItem> CACTUS_HELMET = registerNormalArmor("cactus_helmet", "cactus_armor", ArmorMaterials.CACTUS_ARMOR_MATERIALS, ArmorItem.Type.HELMET, 120);
     public static final Supplier<ArmorItem> CACTUS_CHESTPLATE = registerNormalArmor("cactus_chestplate", "cactus_armor", ArmorMaterials.CACTUS_ARMOR_MATERIALS, ArmorItem.Type.CHESTPLATE, 170);
@@ -81,11 +81,11 @@ public class ArmorItems {
 
 
     private static Supplier<ArmorItem> registerNormalArmor(String name, String geoName, Holder<ArmorMaterial> material, ArmorItem.Type type, int durability) {
-        return ARMORS.register(name, () -> new NormalArmorItem("armor/" + geoName, material, type, new Item.Properties().stacksTo(1).durability(durability)));
+        return ITEMS.register(name, () -> new NormalArmorItem("armor/" + geoName, material, type, new Item.Properties().stacksTo(1).durability(durability)));
     }
 
     public static void register(IEventBus eventBus) {
         ArmorMaterials.ARMOR_MATERIALS.register(eventBus);
-        ARMORS.register(eventBus);
+        ITEMS.register(eventBus);
     }
 }

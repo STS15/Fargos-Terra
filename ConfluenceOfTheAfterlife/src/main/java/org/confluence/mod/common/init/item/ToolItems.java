@@ -4,10 +4,12 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.material.Fluids;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.confluence.mod.Confluence;
-import org.confluence.mod.common.entity.projectile.bombs.*;
 import org.confluence.mod.common.init.ModFluids;
 import org.confluence.mod.common.item.CustomRarityItem;
-import org.confluence.mod.common.item.common.*;
+import org.confluence.mod.common.item.common.BottomlessBucketItem;
+import org.confluence.mod.common.item.common.HoneyBucketItem;
+import org.confluence.mod.common.item.common.WireCutterItem;
+import org.confluence.mod.common.item.common.WrenchItem;
 import org.confluence.terra_curio.common.component.ModRarity;
 
 import java.util.function.Supplier;
@@ -29,11 +31,4 @@ public class ToolItems {
     public static final Supplier<WrenchItem> BLUE_WRENCH = ITEMS.register("blue_wrench", () -> new WrenchItem(0x0000FF));
     public static final Supplier<WrenchItem> YELLOW_WRENCH = ITEMS.register("yellow_wrench", () -> new WrenchItem(0xFFFF00));
     public static final Supplier<WireCutterItem> WIRE_CUTTER = ITEMS.register("wire_cutter", WireCutterItem::new);
-
-    // 炸弹
-    public static final Supplier<BombItem> BOMB = ITEMS.register("bomb", () -> new BombItem(BaseBombEntity::new));
-    public static final Supplier<BombItem> BOUNCY_BOMB = ITEMS.register("bouncy_bomb", () -> new BombItem(BouncyBombEntity::new));
-    public static final Supplier<BombItem> STICKY_BOMB = ITEMS.register("sticky_bomb", () -> new BombItem(StickyBombEntity::new));
-    public static final Supplier<BombItem> BOMB_FISH = ITEMS.register("bomb_fish", () -> new BombItem(BombFishEntity::new));
-    public static final Supplier<BombItem> SCARAB_BOMB = ITEMS.register("scarab_bomb", () -> new BombItem(ScarabBombEntity::new));
 }

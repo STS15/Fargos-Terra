@@ -1,7 +1,7 @@
 {
     "parent": "item/handheld_rod",
     "textures": {
-        "layer0": "confluence:item/reinforced_fishing_pole"
+        "layer0": "confluence:item/fishing_pole/reinforced_fishing_pole"
     },
     "overrides": [
         {

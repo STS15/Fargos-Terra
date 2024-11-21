@@ -8,7 +8,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 import org.confluence.mod.common.init.ModEntities;
-import org.confluence.mod.common.init.item.ToolItems;
+import org.confluence.mod.common.init.item.ConsumableItems;
 import org.jetbrains.annotations.NotNull;
 
 public class BombFishEntity extends BaseBombEntity {
@@ -39,7 +39,7 @@ public class BombFishEntity extends BaseBombEntity {
 
     @Override
     protected @NotNull Item getDefaultItem() {
-        return ToolItems.BOMB_FISH.get();
+        return ConsumableItems.BOMB_FISH.get();
     }
 
     @Override

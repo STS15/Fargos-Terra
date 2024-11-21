@@ -1,7 +1,7 @@
 {
     "parent": "item/handheld_rod",
     "textures": {
-        "layer0": "confluence:item/fisher_of_souls"
+        "layer0": "confluence:item/fishing_pole/fisher_of_souls"
     },
     "overrides": [
         {

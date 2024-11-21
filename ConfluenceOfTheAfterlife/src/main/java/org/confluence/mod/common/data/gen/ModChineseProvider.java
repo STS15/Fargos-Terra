@@ -4,7 +4,6 @@ import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 import org.confluence.mod.Confluence;
 import org.confluence.mod.common.init.ModEffects;
-import org.confluence.mod.common.init.armor.ArmorItems;
 import org.confluence.mod.common.init.block.*;
 import org.confluence.mod.common.init.item.*;
 
@@ -1005,14 +1004,14 @@ public class ModChineseProvider extends LanguageProvider {
 //        add(ModItems.STONE_PRESSURE_PLATE.get(), "石头压力板");
 
         // 杂项
-        add(ToolItems.BOMB.get(), "炸弹");
-        add(ToolItems.BOUNCY_BOMB.get(), "弹力炸弹");
-        add(ToolItems.STICKY_BOMB.get(), "粘性炸弹");
-        add(ToolItems.SCARAB_BOMB.get(), "甲虫炸弹");
-        add(ToolItems.BOMB_FISH.get(), "炸弹鱼");
-        add(ModItems.MANA_STAR.get(), "魔力水晶");
-        add(ModItems.LIFE_CRYSTAL.get(), "生命水晶");
-        add(ModItems.LIFE_FRUIT.get(), "生命果");
+        add(ConsumableItems.BOMB.get(), "炸弹");
+        add(ConsumableItems.BOUNCY_BOMB.get(), "弹力炸弹");
+        add(ConsumableItems.STICKY_BOMB.get(), "粘性炸弹");
+        add(ConsumableItems.SCARAB_BOMB.get(), "甲虫炸弹");
+        add(ConsumableItems.BOMB_FISH.get(), "炸弹鱼");
+        add(ConsumableItems.MANA_STAR.get(), "魔力水晶");
+        add(ConsumableItems.LIFE_CRYSTAL.get(), "生命水晶");
+        add(ConsumableItems.LIFE_FRUIT.get(), "生命果");
         // 种子
         add(FoodItems.STELLAR_BLOSSOM_SEED.get(), "星辰花种子");
         add(FoodItems.CLOUDWEAVER_SEED.get(), "云织草种子");
