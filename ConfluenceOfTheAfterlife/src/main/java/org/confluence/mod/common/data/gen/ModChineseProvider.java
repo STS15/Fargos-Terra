@@ -927,18 +927,18 @@ public class ModChineseProvider extends LanguageProvider {
         add(AxeItems.EBONY_AXE.get(), "暗夜战斧");
         add(AxeItems.TR_CRIMSON_AXE.get(), "嗜血狂斧");
 
-/*
-        add(Pickaxes.COPPER_PICKAXE.get(), "铜镐");
-        add(Pickaxes.CACTUS_PICKAXE.get(), "仙人掌镐");
-        add(Pickaxes.CANDY_CANE_PICKAXE.get(), "糖棒镐");
-        add(Pickaxes.FOSSIL_PICKAXE.get(), "化石镐");
-        add(Pickaxes.TIN_PICKAXE.get(), "锡镐");
-        add(Pickaxes.LEAD_PICKAXE.get(), "铅镐");
-        add(Pickaxes.SILVER_PICKAXE.get(), "银镐");
-        add(Pickaxes.TUNGSTEN_PICKAXE.get(), "钨镐");
-        add(Pickaxes.GOLDEN_PICKAXE.get(), "金镐");
-        add(Pickaxes.PLATINUM_PICKAXE.get(), "铂金镐");
-        */
+
+        add(PickaxeItems.COPPER_PICKAXE.get(), "铜镐");
+        add(PickaxeItems.CACTUS_PICKAXE.get(), "仙人掌镐");
+        add(PickaxeItems.CANDY_CANE_PICKAXE.get(), "糖棒镐");
+        add(PickaxeItems.FOSSIL_PICKAXE.get(), "化石镐");
+        add(PickaxeItems.TIN_PICKAXE.get(), "锡镐");
+        add(PickaxeItems.LEAD_PICKAXE.get(), "铅镐");
+        add(PickaxeItems.SILVER_PICKAXE.get(), "银镐");
+        add(PickaxeItems.TUNGSTEN_PICKAXE.get(), "钨镐");
+        add(PickaxeItems.GOLDEN_PICKAXE.get(), "金镐");
+        add(PickaxeItems.PLATINUM_PICKAXE.get(), "铂金镐");
+
         /* Hammers */
         add(HammerItems.WOODEN_HAMMER.get(), "木锤");
         add(HammerItems.COPPER_HAMMER.get(), "铜锤");
@@ -1165,13 +1165,13 @@ public class ModChineseProvider extends LanguageProvider {
         add(FoodItems.DEATHWEED_SEED.get(), "死亡草种子");
 
 
-/*
-        add(CRIMSON_THORN.get(), "猩红荆棘");
-        add(CORRUPTION_THORN.get(), "腐化荆棘");
-        add(JUNGLE_THORN.get(), "丛林荆棘");
-        add(PLANTERA_THORN.get(), "世纪之花荆棘");
 
- */
+        add(NatureBlocks.CRIMSON_THORN.get(), "猩红荆棘");
+        add(NatureBlocks.CORRUPTION_THORN.get(), "腐化荆棘");
+        add(NatureBlocks.JUNGLE_THORN.get(), "丛林荆棘");
+        add(NatureBlocks.PLANTERA_THORN.get(), "世纪之花荆棘");
+
+
         // 树苗
         add(NatureBlocks.SHADOW_SAPLING.get(), "暗影树苗");
         add(NatureBlocks.EBONY_SAPLING.get(), "乌木树苗");
@@ -1308,31 +1308,6 @@ public class ModChineseProvider extends LanguageProvider {
         add(AmmoItems.LUMINITE_BULLET.get(), "夜明弹");
         add(AmmoItems.TUNGSTEN_BULLET.get(), "钨子弹");
 
-         */
-        // 刷怪蛋
-        /*
-        add(SpawnEggs.BLUE_SLIME_SPAWN_EGG.get(), "蓝色史莱姆刷怪蛋");
-        add(SpawnEggs.RED_SLIME_SPAWN_EGG.get(), "红色史莱姆刷怪蛋");
-        add(SpawnEggs.YELLOW_SLIME_SPAWN_EGG.get(), "黄色史莱姆刷怪蛋");
-        add(SpawnEggs.HONEY_SLIME_SPAWN_EGG.get(), "蜂蜜史莱姆刷怪蛋");
-        add(SpawnEggs.PURPLE_SLIME_SPAWN_EGG.get(), "紫色史莱姆刷怪蛋");
-        add(SpawnEggs.DESERT_SLIME_SPAWN_EGG.get(), "沙漠史莱姆刷怪蛋");
-        add(SpawnEggs.JUNGLE_SLIME_SPAWN_EGG.get(), "丛林史莱姆刷怪蛋");
-        add(SpawnEggs.PINK_SLIME_SPAWN_EGG.get(), "粉色史莱姆刷怪蛋");
-        add(SpawnEggs.ICE_SLIME_SPAWN_EGG.get(), "冰冻史莱姆刷怪蛋");
-        add(SpawnEggs.GREEN_SLIME_SPAWN_EGG.get(), "绿色史莱姆刷怪蛋");
-        add(SpawnEggs.BLACK_SLIME_SPAWN_EGG.get(), "史莱姆之母刷怪蛋");
-        add(SpawnEggs.CRIMSON_SLIME_SPAWN_EGG.get(), "猩红史莱姆刷怪蛋");
-        add(SpawnEggs.TROPIC_SLIME_SPAWN_EGG.get(), "热带史莱姆刷怪蛋");
-        add(SpawnEggs.LUMINOUS_SLIME_SPAWN_EGG.get(), "夜明史莱姆刷怪蛋");
-        add(SpawnEggs.LAVA_SLIME_SPAWN_EGG.get(), "岩浆史莱姆刷怪蛋");
-        add(SpawnEggs.DEMON_EYE_SPAWN_EGG.get(), "恶魔眼刷怪蛋");
-        add(SpawnEggs.BLOOD_CRAWLER_SPAWN_EGG.get(), "血爬虫刷怪蛋");
-        add(SpawnEggs.BLOODY_SPORE_SPAWN_EGG.get(), "血腥芽孢刷怪蛋");
-        add(SpawnEggs.CTHULHU_EYE_SPAWN_EGG.get(), "克苏鲁之眼刷怪蛋");
-        add(SpawnEggs.KING_SLIME_SPAWN_EGG.get(), "史莱姆王刷怪蛋");
-
-         */
         // 光剑
         /*
         add(SwordItems.RED_LIGHT_SABER.get(), "陨石红光剑");
