@@ -19,22 +19,39 @@ public class DecorativeBlocks {
 
     //TODO 暂未注册BeamLikeBlock
     public static final Supplier<Block> TR_OAK_BEAM = copyBlockRegister("tr_oak_beam", Blocks.OAK_PLANKS); 
-//    public static final Supplier<Block> TR_OAK_PLANKS = copyBlockRegister("tr_oak_planks", () -> new BeamLikeBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS);
+    public static final Supplier<Block> TR_OAK_PLANKS = copyBlockRegister("tr_oak_planks", Blocks.OAK_PLANKS);
     public static final Supplier<Block> TR_NORTHLAND_BEAM = copyBlockRegister("tr_northland_beam", Blocks.OAK_PLANKS); 
-//    public static final Supplier<Block> TR_NORTHLAND_PLANKS = copyBlockRegister("tr_northland_planks", () -> new BeamLikeBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS);
-//    public static final Supplier<Block> WOOD_STONE_SLATTED_BLOCKS = copyBlockRegister("wood_stone_slatted_blocks", () -> new BeamLikeBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS);
+    public static final Supplier<Block> TR_NORTHLAND_PLANKS = copyBlockRegister("tr_northland_planks", Blocks.OAK_PLANKS);
+    public static final Supplier<Block> WOOD_STONE_SLATTED_BLOCKS = copyBlockRegister("wood_stone_slatted_blocks", Blocks.OAK_PLANKS);
     public static final Supplier<Block> ICE_BRICKS = copyBlockRegister("ice_bricks", Blocks.BLUE_ICE); 
     public static final Supplier<Block> SNOW_BRICKS = copyBlockRegister("snow_bricks", Blocks.STONE_BRICKS); 
     public static final Supplier<Block> TR_STONE_BRICKS = copyBlockRegister("tr_stone_bricks", Blocks.STONE_BRICKS); 
 
     public static final Supplier<Block> PURE_GLASS = copyBlockRegister("pure_glass", Blocks.GLASS); 
+    public static final Supplier<Block> WHITE_PURE_GLASS = copyBlockRegister("pure_glass", Blocks.GLASS);
+    public static final Supplier<Block> LIGHT_GRAY_PURE_GLASS = copyBlockRegister("pure_glass", Blocks.GLASS);
+    public static final Supplier<Block> GRAY_PURE_GLASS = copyBlockRegister("pure_glass", Blocks.GLASS);
+    public static final Supplier<Block> BLACK_PURE_GLASS = copyBlockRegister("pure_glass", Blocks.GLASS);
+    public static final Supplier<Block> BROWN_PURE_GLASS = copyBlockRegister("pure_glass", Blocks.GLASS);
+    public static final Supplier<Block> RED_PURE_GLASS = copyBlockRegister("pure_glass", Blocks.GLASS);
+    public static final Supplier<Block> ORANGE_PURE_GLASS = copyBlockRegister("pure_glass", Blocks.GLASS);
+    public static final Supplier<Block> YELLOW_PURE_GLASS = copyBlockRegister("pure_glass", Blocks.GLASS);
+    public static final Supplier<Block> LIME_PURE_GLASS = copyBlockRegister("pure_glass", Blocks.GLASS);
+    public static final Supplier<Block> GREEN_PURE_GLASS = copyBlockRegister("pure_glass", Blocks.GLASS);
+    public static final Supplier<Block> CYAN_PURE_GLASS = copyBlockRegister("pure_glass", Blocks.GLASS);
+    public static final Supplier<Block> LIGHT_BLUE_PURE_GLASS = copyBlockRegister("pure_glass", Blocks.GLASS);
+    public static final Supplier<Block> BLUE_PURE_GLASS = copyBlockRegister("pure_glass", Blocks.GLASS);
+    public static final Supplier<Block> PURPLE_PURE_GLASS = copyBlockRegister("pure_glass", Blocks.GLASS);
+    public static final Supplier<Block> MAGENTA_PURE_GLASS = copyBlockRegister("pure_glass", Blocks.GLASS);
+    public static final Supplier<Block> PINK_PURE_GLASS = copyBlockRegister("pure_glass", Blocks.GLASS);
+
 
     public static final Supplier<Block> TR_COPPER_BRICKS = copyBlockRegister("tr_copper_bricks", Blocks.COPPER_BLOCK); 
     public static final Supplier<Block> ANCIENT_COPPER_BRICKS = copyBlockRegister("ancient_copper_bricks", Blocks.COPPER_BLOCK); 
-//    public static final Supplier<Block> TR_COPPER_PLATE = copyBlockRegister("tr_copper_plate", () -> new BeamLikeBlock(BlockBehaviour.Properties.copy(Blocks.COPPER_BLOCK);
+    public static final Supplier<Block> TR_COPPER_PLATE = copyBlockRegister("tr_copper_plate", Blocks.COPPER_BLOCK);
     public static final Supplier<Block> TIN_BRICKS = copyBlockRegister("tin_bricks", Blocks.COPPER_BLOCK); 
     public static final Supplier<Block> ANCIENT_TIN_BRICKS = copyBlockRegister("ancient_tin_bricks", Blocks.COPPER_BLOCK); 
-//    public static final Supplier<Block> TIN_PLATE = copyBlockRegister("tin_plate", () -> new BeamLikeBlock(BlockBehaviour.Properties.copy(Blocks.COPPER_BLOCK);
+    public static final Supplier<Block> TIN_PLATE = copyBlockRegister("tin_plate", Blocks.COPPER_BLOCK);
     public static final Supplier<Block> TR_IRON_BRICKS = copyBlockRegister("tr_iron_bricks", Blocks.IRON_BLOCK); 
     public static final Supplier<Block> ANCIENT_IRON_BRICKS = copyBlockRegister("ancient_iron_bricks", Blocks.IRON_BLOCK); 
 //    public static final Supplier<Block> TR_IRON_PLATE = copyBlockRegister("tr_iron_plate", () -> new  BeamLikeBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK);
@@ -60,7 +77,8 @@ public class DecorativeBlocks {
     public static final Supplier<Block> FROZEN_GEL_BLOCK = copyBlockRegister("frozen_gel_block", Blocks.SLIME_BLOCK); 
     public static final Supplier<Block> BLUE_GEL_BLOCK = copyBlockRegister("blue_gel_block", Blocks.SLIME_BLOCK); 
     public static final Supplier<Block> PINK_GEL_BLOCK = copyBlockRegister("pink_gel_block", Blocks.SLIME_BLOCK); 
-    public static final Supplier<Block> SUN_PLATE = copyBlockRegister("sun_plate", Blocks.STONE_BRICKS); 
+    public static final Supplier<Block> SUN_PLATE = copyBlockRegister("sun_plate", Blocks.STONE_BRICKS);
+    public static final Supplier<Block> DISC_BLOCK = copyBlockRegister("pure_glass", Blocks.STONE_BRICKS);
     public static final Supplier<Block> TR_LAVA_BEAM = copyBlockRegister("tr_lava_beam", Blocks.STONE_BRICKS);
     public static final Supplier<Block> TR_LAVA_BRICKS = copyBlockRegister("tr_lava_bricks", Blocks.STONE_BRICKS); 
     public static final Supplier<Block> TR_OBSIDIAN_BEAM = copyBlockRegister("tr_obsidian_beam", Blocks.STONE_BRICKS); 
@@ -69,7 +87,9 @@ public class DecorativeBlocks {
     public static final Supplier<Block> TR_OBSIDIAN_SMALL_BRICKS = copyBlockRegister("tr_obsidian_small_bricks", Blocks.STONE_BRICKS); 
     public static final Supplier<Block> TR_SMOOTH_OBSIDIAN = copyBlockRegister("tr_smooth_obsidian", Blocks.STONE_BRICKS); 
     public static final Supplier<Block> TR_GRANITE_COLUMN = copyBlockRegister("tr_granite_column", Blocks.STONE_BRICKS); 
-    public static final Supplier<Block> MARBLE_COLUMN = copyBlockRegister("marble_column", Blocks.STONE_BRICKS); 
+    public static final Supplier<Block> MARBLE_COLUMN = copyBlockRegister("marble_column", Blocks.STONE_BRICKS);
+    public static final Supplier<Block> POLISHED_MARBLE = copyBlockRegister("polished_marble", Blocks.STONE_BRICKS);
+
 
     public static final Supplier<Block> CHISELED_TR_OBSIDIAN_BRICKS = copyBlockRegister("chiseled_tr_obsidian_bricks", Blocks.STONE_BRICKS); 
     public static final Supplier<Block> BLUE_BRICK = copyBlockRegister("blue_brick", Blocks.STONE_BRICKS); 
@@ -78,6 +98,16 @@ public class DecorativeBlocks {
     public static final Supplier<Block> AETHERIUM_BRICK = copyBlockRegister("aetherium_brick", Blocks.STONE_BRICKS); 
     public static final Supplier<Block> CRYSTAL_BLOCK = copyBlockRegister("crystal_block", Blocks.AMETHYST_BLOCK); 
     public static final Supplier<Block> RAINBOW_BRICK = copyBlockRegister("rainbow_brick", Blocks.STONE_BRICKS);
+    // 大宝石块
+    public static final Supplier<Block> BIG_RUBY_BLOCK = copyBlockRegister("big_ruby_block", Blocks.DIAMOND_BLOCK);
+    public static final Supplier<Block> BIG_AMBER_BLOCK = copyBlockRegister("big_amber_block", Blocks.DIAMOND_BLOCK);
+    public static final Supplier<Block> BIG_TOPAZ_BLOCK = copyBlockRegister("big_topaz_block", Blocks.DIAMOND_BLOCK);
+    public static final Supplier<Block> BIG_TR_EMERALD_BLOCK = copyBlockRegister("big_tr_emerald_block", Blocks.DIAMOND_BLOCK);
+    public static final Supplier<Block> BIG_SAPPHIRE_BLOCK = copyBlockRegister("big_sapphire_block", Blocks.DIAMOND_BLOCK);
+    public static final Supplier<Block> BIG_TR_AMETHYST_BLOCK = copyBlockRegister("big_tr_amethyst_block", Blocks.DIAMOND_BLOCK);
+    public static final Supplier<Block> TR_POLISHED_GRANITE = copyBlockRegister("tr_polished_granite", Blocks.DIAMOND_BLOCK);
+
+
     // 锁链
     public static final Supplier<ChainBlock> RUBY_CHAIN = copyBlockRegister("ruby_chain", Blocks.CHAIN, properties -> new ChainBlock(properties.mapColor(MapColor.COLOR_RED)));
     public static final Supplier<ChainBlock> AMBER_CHAIN = copyBlockRegister("amber_chain", Blocks.CHAIN, properties -> new ChainBlock(properties.mapColor(MapColor.COLOR_ORANGE)));

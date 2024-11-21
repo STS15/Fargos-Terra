@@ -48,6 +48,9 @@ public class NatureBlocks {
     public static final DeferredBlock<Block> DIATOMACEOUS = registerWithItem("diatomaceous", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SAND)));
     public static final DeferredBlock<SandLayerBlock> SAND_LAYER_BLOCK = registerWithItem("sand_layer_block", SandLayerBlock::new);
     public static final DeferredBlock<SandLayerBlock> RED_SAND_LAYER_BLOCK = registerWithItem("red_sand_layer_block", SandLayerBlock::new);
+    public static final DeferredBlock<Block> DESERT_FOSSIL = registerWithItem("desert_fossil", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SAND)));
+    public static final DeferredBlock<Block> SLUSH = registerWithItem("slush", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SAND)));
+    public static final DeferredBlock<Block> MARINE_GRAVEL = registerWithItem("marine_gravel", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SAND)));
 
     // 腐化
     public static final DeferredBlock<Block> CORRUPT_GRASS_BLOCK = registerWithItem("corrupt_grass_block", () -> new SpreadingGrassBlock(ISpreadable.Type.CORRUPT, BlockBehaviour.Properties.ofFullCopy(Blocks.GRASS_BLOCK)));

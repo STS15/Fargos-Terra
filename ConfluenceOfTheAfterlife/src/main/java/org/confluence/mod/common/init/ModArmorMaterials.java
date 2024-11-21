@@ -10,7 +10,9 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.confluence.mod.Confluence;
+import org.confluence.mod.common.init.block.NatureBlocks;
 import org.confluence.mod.common.init.item.MaterialItems;
+import org.confluence.mod.common.init.item.ModItems;
 
 import java.util.EnumMap;
 import java.util.List;
@@ -27,6 +29,46 @@ public class ModArmorMaterials {
         }),
         15, SoundEvents.ARMOR_EQUIP_LEATHER, () -> Ingredient.of(Items.CACTUS),
         List.of(new ArmorMaterial.Layer(Confluence.asResource("cactus"))), 0.0F, 0.0F
+    ));
+    public static final Holder<ArmorMaterial> EBONY_ARMOR_MATERIALS = ARMOR_MATERIALS.register("ebony_armor_materials", () -> new ArmorMaterial(
+            Util.make(new EnumMap<>(ArmorItem.Type.class), map -> {
+                map.put(ArmorItem.Type.HELMET, 1);
+                map.put(ArmorItem.Type.CHESTPLATE, 2);
+                map.put(ArmorItem.Type.LEGGINGS, 1);
+                map.put(ArmorItem.Type.BOOTS, 1);
+            }),
+            15, SoundEvents.ARMOR_EQUIP_LEATHER, () -> Ingredient.of(NatureBlocks.EBONY_LOG_BLOCKS.getPlanks().get()),
+            List.of(new ArmorMaterial.Layer(Confluence.asResource("cactus"))), 0.0F, 0.0F
+    ));
+    public static final Holder<ArmorMaterial> SHADOW_PLANK_ARMOR_MATERIALS = ARMOR_MATERIALS.register("shadow_plank_armor_materials", () -> new ArmorMaterial(
+            Util.make(new EnumMap<>(ArmorItem.Type.class), map -> {
+                map.put(ArmorItem.Type.HELMET, 1);
+                map.put(ArmorItem.Type.CHESTPLATE, 2);
+                map.put(ArmorItem.Type.LEGGINGS, 1);
+                map.put(ArmorItem.Type.BOOTS, 1);
+            }),
+            15, SoundEvents.ARMOR_EQUIP_LEATHER, () -> Ingredient.of(NatureBlocks.SHADOW_LOG_BLOCKS.getPlanks().get()),
+            List.of(new ArmorMaterial.Layer(Confluence.asResource("cactus"))), 0.0F, 0.0F
+    ));
+    public static final Holder<ArmorMaterial> PEARL_ARMOR_MATERIALS = ARMOR_MATERIALS.register("pearl_armor_materials", () -> new ArmorMaterial(
+            Util.make(new EnumMap<>(ArmorItem.Type.class), map -> {
+                map.put(ArmorItem.Type.HELMET, 1);
+                map.put(ArmorItem.Type.CHESTPLATE, 2);
+                map.put(ArmorItem.Type.LEGGINGS, 2);
+                map.put(ArmorItem.Type.BOOTS, 1);
+            }),
+            15, SoundEvents.ARMOR_EQUIP_LEATHER, () -> Ingredient.of(NatureBlocks.PEARL_LOG_BLOCKS.getPlanks().get()),
+            List.of(new ArmorMaterial.Layer(Confluence.asResource("cactus"))), 0.0F, 0.0F
+    ));
+    public static final Holder<ArmorMaterial> RAINCOAT_ARMOR_MATERIALS = ARMOR_MATERIALS.register("raincoat_armor_materials", () -> new ArmorMaterial(
+            Util.make(new EnumMap<>(ArmorItem.Type.class), map -> {
+                map.put(ArmorItem.Type.HELMET, 1);
+                map.put(ArmorItem.Type.CHESTPLATE, 1);
+                map.put(ArmorItem.Type.LEGGINGS, 2);
+                map.put(ArmorItem.Type.BOOTS, 1);
+            }),
+            15, SoundEvents.ARMOR_EQUIP_LEATHER, () -> Ingredient.of(MaterialItems.GEL.get()),
+            List.of(new ArmorMaterial.Layer(Confluence.asResource("cactus"))), 0.0F, 0.0F
     ));
     public static final Holder<ArmorMaterial> SNOW_ARMOR_MATERIALS = ARMOR_MATERIALS.register("snow_armor_materials", () -> new ArmorMaterial(
         Util.make(new EnumMap<>(ArmorItem.Type.class), map -> {

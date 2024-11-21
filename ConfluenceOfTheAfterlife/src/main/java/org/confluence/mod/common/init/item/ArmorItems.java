@@ -25,6 +25,24 @@ public class ArmorItems {
     public static final Supplier<ArmorItem> PLANK_LEGGINGS = registerNormalArmor("plank_leggings", "plank_armor", ModArmorMaterials.PLANK_ARMOR_MATERIALS, ArmorItem.Type.LEGGINGS, 75);
     public static final Supplier<ArmorItem> PLANK_BOOTS = registerNormalArmor("plank_boots", "plank_armor", ModArmorMaterials.PLANK_ARMOR_MATERIALS, ArmorItem.Type.BOOTS, 65);
 
+    public static final Supplier<ArmorItem> EBONY_HELMET = registerNormalArmor("ebony_helmet", "ebony_armor", ModArmorMaterials.EBONY_ARMOR_MATERIALS, ArmorItem.Type.HELMET, 120);
+    public static final Supplier<ArmorItem> EBONY_CHESTPLATE = registerNormalArmor("ebony_chestplate", "ebony_armor", ModArmorMaterials.EBONY_ARMOR_MATERIALS, ArmorItem.Type.CHESTPLATE, 170);
+    public static final Supplier<ArmorItem> EBONY_LEGGINGS = registerNormalArmor("ebony_leggings", "ebony_armor", ModArmorMaterials.EBONY_ARMOR_MATERIALS, ArmorItem.Type.LEGGINGS, 150);
+    public static final Supplier<ArmorItem> EBONY_BOOTS = registerNormalArmor("ebony_boots", "ebony_armor", ModArmorMaterials.EBONY_ARMOR_MATERIALS, ArmorItem.Type.BOOTS, 130);
+
+    public static final Supplier<ArmorItem> SHADOW_PLANK_HELMET = registerNormalArmor("shadow_plank_helmet", "shadow_plank_armor", ModArmorMaterials.SHADOW_PLANK_ARMOR_MATERIALS, ArmorItem.Type.HELMET, 120);
+    public static final Supplier<ArmorItem> SHADOW_PLANK_CHESTPLATE = registerNormalArmor("shadow_plank_chestplate", "shadow_plank_armor", ModArmorMaterials.SHADOW_PLANK_ARMOR_MATERIALS, ArmorItem.Type.CHESTPLATE, 170);
+    public static final Supplier<ArmorItem> SHADOW_PLANK_LEGGINGS = registerNormalArmor("shadow_plank_leggings", "shadow_plank_armor", ModArmorMaterials.SHADOW_PLANK_ARMOR_MATERIALS, ArmorItem.Type.LEGGINGS, 150);
+    public static final Supplier<ArmorItem> SHADOW_PLANK_BOOTS = registerNormalArmor("shadow_plank_boots", "shadow_plank_armor", ModArmorMaterials.SHADOW_PLANK_ARMOR_MATERIALS, ArmorItem.Type.BOOTS, 130);
+
+    public static final Supplier<ArmorItem> PEARL_HELMET = registerNormalArmor("pearl_helmet", "pearl_armor", ModArmorMaterials.PEARL_ARMOR_MATERIALS, ArmorItem.Type.HELMET, 120);
+    public static final Supplier<ArmorItem> PEARL_CHESTPLATE = registerNormalArmor("pearl_chestplate", "pearl_armor", ModArmorMaterials.PEARL_ARMOR_MATERIALS, ArmorItem.Type.CHESTPLATE, 170);
+    public static final Supplier<ArmorItem> PEARL_LEGGINGS = registerNormalArmor("pearl_leggings", "pearl_armor", ModArmorMaterials.PEARL_ARMOR_MATERIALS, ArmorItem.Type.LEGGINGS, 150);
+    public static final Supplier<ArmorItem> PEARL_BOOTS = registerNormalArmor("pearl_plank_boots", "pearl_armor", ModArmorMaterials.PEARL_ARMOR_MATERIALS, ArmorItem.Type.BOOTS, 130);
+
+    public static final Supplier<ArmorItem> RAIN_CAP = registerNormalArmor("rain_cap", "raincoat_armor", ModArmorMaterials.RAINCOAT_ARMOR_MATERIALS, ArmorItem.Type.HELMET, 120);
+    public static final Supplier<ArmorItem> RAINCOAT = registerNormalArmor("raincoat", "raincoat_armor", ModArmorMaterials.RAINCOAT_ARMOR_MATERIALS, ArmorItem.Type.CHESTPLATE, 170);
+
     public static final Supplier<ArmorItem> SNOW_CAPS = registerNormalArmor("snow_caps", "snow_armor", ModArmorMaterials.SNOW_ARMOR_MATERIALS, ArmorItem.Type.HELMET, 120);
     public static final Supplier<ArmorItem> SNOW_SUITS = registerNormalArmor("snow_suits", "snow_armor", ModArmorMaterials.SNOW_ARMOR_MATERIALS, ArmorItem.Type.CHESTPLATE, 170);
     public static final Supplier<ArmorItem> INSULATED_PANTS = registerNormalArmor("insulated_pants", "snow_armor", ModArmorMaterials.SNOW_ARMOR_MATERIALS, ArmorItem.Type.LEGGINGS, 150);
