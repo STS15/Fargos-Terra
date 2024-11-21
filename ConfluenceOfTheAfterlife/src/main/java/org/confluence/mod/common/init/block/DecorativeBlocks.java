@@ -28,22 +28,22 @@ public class DecorativeBlocks {
     public static final Supplier<Block> TR_STONE_BRICKS = copyBlockRegister("tr_stone_bricks", Blocks.STONE_BRICKS); 
 
     public static final Supplier<Block> PURE_GLASS = copyBlockRegister("pure_glass", Blocks.GLASS); 
-    public static final Supplier<Block> WHITE_PURE_GLASS = copyBlockRegister("pure_glass", Blocks.GLASS);
-    public static final Supplier<Block> LIGHT_GRAY_PURE_GLASS = copyBlockRegister("pure_glass", Blocks.GLASS);
-    public static final Supplier<Block> GRAY_PURE_GLASS = copyBlockRegister("pure_glass", Blocks.GLASS);
-    public static final Supplier<Block> BLACK_PURE_GLASS = copyBlockRegister("pure_glass", Blocks.GLASS);
-    public static final Supplier<Block> BROWN_PURE_GLASS = copyBlockRegister("pure_glass", Blocks.GLASS);
-    public static final Supplier<Block> RED_PURE_GLASS = copyBlockRegister("pure_glass", Blocks.GLASS);
-    public static final Supplier<Block> ORANGE_PURE_GLASS = copyBlockRegister("pure_glass", Blocks.GLASS);
-    public static final Supplier<Block> YELLOW_PURE_GLASS = copyBlockRegister("pure_glass", Blocks.GLASS);
-    public static final Supplier<Block> LIME_PURE_GLASS = copyBlockRegister("pure_glass", Blocks.GLASS);
-    public static final Supplier<Block> GREEN_PURE_GLASS = copyBlockRegister("pure_glass", Blocks.GLASS);
-    public static final Supplier<Block> CYAN_PURE_GLASS = copyBlockRegister("pure_glass", Blocks.GLASS);
-    public static final Supplier<Block> LIGHT_BLUE_PURE_GLASS = copyBlockRegister("pure_glass", Blocks.GLASS);
-    public static final Supplier<Block> BLUE_PURE_GLASS = copyBlockRegister("pure_glass", Blocks.GLASS);
-    public static final Supplier<Block> PURPLE_PURE_GLASS = copyBlockRegister("pure_glass", Blocks.GLASS);
-    public static final Supplier<Block> MAGENTA_PURE_GLASS = copyBlockRegister("pure_glass", Blocks.GLASS);
-    public static final Supplier<Block> PINK_PURE_GLASS = copyBlockRegister("pure_glass", Blocks.GLASS);
+    public static final Supplier<Block> WHITE_PURE_GLASS = copyBlockRegister("white_pure_glass", Blocks.GLASS);
+    public static final Supplier<Block> LIGHT_GRAY_PURE_GLASS = copyBlockRegister("light_gray_pure_glass", Blocks.GLASS);
+    public static final Supplier<Block> GRAY_PURE_GLASS = copyBlockRegister("gray_pure_glass", Blocks.GLASS);
+    public static final Supplier<Block> BLACK_PURE_GLASS = copyBlockRegister("black_pure_glass", Blocks.GLASS);
+    public static final Supplier<Block> BROWN_PURE_GLASS = copyBlockRegister("brown_pure_glass", Blocks.GLASS);
+    public static final Supplier<Block> RED_PURE_GLASS = copyBlockRegister("red_pure_glass", Blocks.GLASS);
+    public static final Supplier<Block> ORANGE_PURE_GLASS = copyBlockRegister("orange_pure_glass", Blocks.GLASS);
+    public static final Supplier<Block> YELLOW_PURE_GLASS = copyBlockRegister("yellow_pure_glass", Blocks.GLASS);
+    public static final Supplier<Block> LIME_PURE_GLASS = copyBlockRegister("lime_pure_glass", Blocks.GLASS);
+    public static final Supplier<Block> GREEN_PURE_GLASS = copyBlockRegister("green_pure_glass", Blocks.GLASS);
+    public static final Supplier<Block> CYAN_PURE_GLASS = copyBlockRegister("cyan_pure_glass", Blocks.GLASS);
+    public static final Supplier<Block> LIGHT_BLUE_PURE_GLASS = copyBlockRegister("light_blue_pure_glass", Blocks.GLASS);
+    public static final Supplier<Block> BLUE_PURE_GLASS = copyBlockRegister("blue_pure_glass", Blocks.GLASS);
+    public static final Supplier<Block> PURPLE_PURE_GLASS = copyBlockRegister("purple_pure_glass", Blocks.GLASS);
+    public static final Supplier<Block> MAGENTA_PURE_GLASS = copyBlockRegister("magenta_pure_glass", Blocks.GLASS);
+    public static final Supplier<Block> PINK_PURE_GLASS = copyBlockRegister("pink_pure_glass", Blocks.GLASS);
 
 
     public static final Supplier<Block> TR_COPPER_BRICKS = copyBlockRegister("tr_copper_bricks", Blocks.COPPER_BLOCK); 
@@ -78,7 +78,7 @@ public class DecorativeBlocks {
     public static final Supplier<Block> BLUE_GEL_BLOCK = copyBlockRegister("blue_gel_block", Blocks.SLIME_BLOCK); 
     public static final Supplier<Block> PINK_GEL_BLOCK = copyBlockRegister("pink_gel_block", Blocks.SLIME_BLOCK); 
     public static final Supplier<Block> SUN_PLATE = copyBlockRegister("sun_plate", Blocks.STONE_BRICKS);
-    public static final Supplier<Block> DISC_BLOCK = copyBlockRegister("pure_glass", Blocks.STONE_BRICKS);
+    public static final Supplier<Block> DISC_BLOCK = copyBlockRegister("disc_block", Blocks.STONE_BRICKS);
     public static final Supplier<Block> TR_LAVA_BEAM = copyBlockRegister("tr_lava_beam", Blocks.STONE_BRICKS);
     public static final Supplier<Block> TR_LAVA_BRICKS = copyBlockRegister("tr_lava_bricks", Blocks.STONE_BRICKS); 
     public static final Supplier<Block> TR_OBSIDIAN_BEAM = copyBlockRegister("tr_obsidian_beam", Blocks.STONE_BRICKS); 
