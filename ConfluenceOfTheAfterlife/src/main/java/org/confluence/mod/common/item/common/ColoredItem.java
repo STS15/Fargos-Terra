@@ -3,6 +3,8 @@ package org.confluence.mod.common.item.common;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
+import org.confluence.terra_curio.common.component.NbtComponent;
+import org.confluence.terra_curio.common.init.TCDataComponentTypes;
 import org.confluence.terra_curio.util.TCUtils;
 
 public class ColoredItem extends Item {
@@ -19,6 +21,10 @@ public class ColoredItem extends Item {
     }
 
     public static int getColor(ItemStack itemStack) {
-        return TCUtils.getItemStackNbt(itemStack).getInt("color");
+        NbtComponent nbtComponent = itemStack.get(TCDataComponentTypes.NBT);
+        if (nbtComponent == null) {
+            return 0xFF66CCFF;
+        }
+        return nbtComponent.nbt().getInt("color");
     }
 }

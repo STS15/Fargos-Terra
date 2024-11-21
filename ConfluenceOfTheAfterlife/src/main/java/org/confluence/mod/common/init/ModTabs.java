@@ -48,8 +48,8 @@ public final class ModTabs {
                     .title(Component.translatable("creativetab.confluence.misc"))
                     .displayItems((parameters, output) -> {
                         ModItems.ITEMS.getEntries().forEach(item -> output.accept(item.get()));
-                        BaitItems.ITEMS.getEntries().forEach(item -> output.accept(item.get()));
                         ConsumableItems.ITEMS.getEntries().forEach(item -> output.accept(item.get()));
+                        BaitItems.ITEMS.getEntries().forEach(item -> output.accept(item.get()));
                         QuestedFishes.ITEMS.getEntries().forEach(item -> output.accept(item.get()));
                     })
                     .build()
