@@ -21,21 +21,22 @@ public class ConfluenceCommand {
                                 context.getSource().sendFailure(Component.literal("No such StarPhase!"));
                                 return 0;
                             }
-                            context.getSource().sendSystemMessage(Component.literal(starPhase.toIndexedString(index)));
+                            context.getSource().sendSystemMessage(Component.literal(starPhase.toString()));
                             return 1;
                         })))
-                        .then(Commands.literal("set").then(Commands.argument("index", IntegerArgumentType.integer(0, STAR_PHASES_SIZE - 1)).then(Commands.argument("radius", FloatArgumentType.floatArg()).then(Commands.argument("angle", FloatArgumentType.floatArg()).executes(context -> {
+                        .then(Commands.literal("set").then(Commands.argument("index", IntegerArgumentType.integer(0, STAR_PHASES_SIZE - 1)).then(Commands.argument("timeOffset", IntegerArgumentType.integer()).then(Commands.argument("radius", FloatArgumentType.floatArg()).then(Commands.argument("angle", FloatArgumentType.floatArg()).executes(context -> {
                             int index = IntegerArgumentType.getInteger(context, "index");
+                            int timeOffset = IntegerArgumentType.getInteger(context, "timeOffset");
                             float radius = FloatArgumentType.getFloat(context, "radius");
                             float angle = FloatArgumentType.getFloat(context, "angle");
                             ConfluenceData data = ConfluenceData.get(context.getSource().getLevel());
-                            if (!data.setStarPhase(index, radius, angle)) {
+                            if (!data.setStarPhase(index, timeOffset, radius, angle)) {
                                 context.getSource().sendFailure(Component.literal("Can not set StarPhase!"));
                                 return 0;
                             }
-                            context.getSource().sendSuccess(() -> Component.literal("Has been set to " + data.getStarPhase(index).toIndexedString(index)), true);
+                            context.getSource().sendSuccess(() -> Component.literal("Has been set to " + data.getStarPhase(index).toString()), true);
                             return 1;
-                        })))))
+                        }))))))
                 )
                 .then(Commands.literal("gamePhase")
                         .then(Commands.literal("get").executes(context -> {

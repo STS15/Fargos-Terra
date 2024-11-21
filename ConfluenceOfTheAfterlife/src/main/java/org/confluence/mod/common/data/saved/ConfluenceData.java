@@ -97,10 +97,10 @@ public class ConfluenceData extends SavedData {
         return windSpeedZ;
     }
 
-    public boolean setStarPhase(int index, float radius, float angle) {
+    public boolean setStarPhase(int index, int timeOffset, float radius, float angle) {
         if (index >= STAR_PHASES_SIZE) return false;
-        starPhases.put(index, new StarPhase(radius, angle));
-        StarPhasesPacketS2C.sendToAll(index, radius, angle);
+        starPhases.put(index, new StarPhase(timeOffset, radius, angle));
+        StarPhasesPacketS2C.sendToAll(index, timeOffset, radius, angle);
         setDirty();
         return true;
     }

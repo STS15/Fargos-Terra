@@ -1,4 +1,4 @@
-package org.confluence.mod.common.init.item;
+package org.confluence.mod.common.init;
 
 import net.minecraft.Util;
 import net.minecraft.core.Holder;
@@ -10,11 +10,12 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.confluence.mod.Confluence;
+import org.confluence.mod.common.init.item.MaterialItems;
 
 import java.util.EnumMap;
 import java.util.List;
 
-public class ArmorMaterials {
+public class ModArmorMaterials {
     public static final DeferredRegister<ArmorMaterial> ARMOR_MATERIALS = DeferredRegister.create(BuiltInRegistries.ARMOR_MATERIAL, Confluence.MODID);
 
     public static final Holder<ArmorMaterial> CACTUS_ARMOR_MATERIALS = ARMOR_MATERIALS.register("cactus_armor_materials", () -> new ArmorMaterial(
