@@ -86,6 +86,9 @@ repositories {
             includeGroup "dev.latvian.mods"
         }
     }
+    maven {
+        url = "https://maven.bawnorton.com/releases"
+    }
 }
 
 dependencies {
