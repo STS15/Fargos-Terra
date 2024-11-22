@@ -95,6 +95,9 @@ public class AccessoryItems {
     /* 标尺 */
     /* 机械标尺 */
 
+    /* 自动安放器 */
+    /* 喷漆器 */
+
     /* 向导巫毒娃娃 */
     /* 服装商巫毒娃娃 */
     public static final Supplier<BaseCurioItem> LUCKY_COIN = registerCurio("lucky_coin", builder -> builder.rarity(PINK).accessories(units(LUCKY$COIN)).attribute(Attributes.LUCK, 0.05, ADD_VALUE)), // 幸运币
@@ -108,17 +111,17 @@ public class AccessoryItems {
     //SPECTRE_GOGGLES("spectre_goggles", SpectreGoggles::new), // 幽灵护目镜
     /* 炫彩斗篷 */
 
-    public static final Supplier<BaseCurioItem> SUMMONER_EMBLEM = registerCurio("summoner_emblem", builder -> builder.rarity(LIGHT_RED).attribute(ModAttributes.SUMMON_DAMAGE, 0.15, ADD_MULTIPLIED_TOTAL)); // 召唤师徽章
-    /* 学徒围巾 */
-    /* 侍卫护盾 */
-    /* 女猎人圆盾 */
-    /* 武僧腰带 */
-    /* 大力士甲虫 */
-    /* 死灵卷轴 */
-    /* 甲虫莎草纸 */
-    /* 矮人项链 */
+    public static final Supplier<BaseCurioItem> SUMMONER_EMBLEM = registerCurio("summoner_emblem", builder -> builder.rarity(LIGHT_RED).attribute(ModAttributes.SUMMON_DAMAGE, 0.15, ADD_MULTIPLIED_TOTAL)), // 召唤师徽章
+            APPRENTICES_SCARF = registerCurio("apprentices_scarf", builder -> builder.rarity(PINK).attribute(ModAttributes.SENTRY_CAPACITY, 1.0, ADD_VALUE).attribute(ModAttributes.SUMMON_DAMAGE, 0.1, ADD_MULTIPLIED_TOTAL)), // 学徒围巾
+            SQUIRES_SHIELD = registerCurio("squires_shield", builder -> builder.rarity(PINK).attribute(ModAttributes.SENTRY_CAPACITY, 1.0, ADD_VALUE).attribute(ModAttributes.SUMMON_DAMAGE, 0.1, ADD_MULTIPLIED_TOTAL)), // 侍卫护盾
+            HUNTRESSS_BUCKLER = registerCurio("huntresss_buckler", builder -> builder.rarity(PINK).attribute(ModAttributes.SENTRY_CAPACITY, 1.0, ADD_VALUE).attribute(ModAttributes.SUMMON_DAMAGE, 0.1, ADD_MULTIPLIED_TOTAL)), // 女猎人圆盾
+            MONKS_BELT = registerCurio("monks_belt", builder -> builder.rarity(PINK).attribute(ModAttributes.SENTRY_CAPACITY, 1.0, ADD_VALUE).attribute(ModAttributes.SUMMON_DAMAGE, 0.1, ADD_MULTIPLIED_TOTAL)), // 武僧腰带
+            HERCULES_BEETLE = registerCurio("hercules_beetle", builder -> builder.rarity(LIME).attribute(ModAttributes.SUMMON_DAMAGE, 0.15, ADD_MULTIPLIED_TOTAL).attribute(ModAttributes.SUMMON_KNOCKBACK, 2.0, ADD_VALUE)), // 大力士甲虫
+            NECROMANTIC_SCROLL = registerCurio("necromantic_scroll", builder -> builder.rarity(YELLOW).attribute(ModAttributes.MINION_CAPACITY, 1.0, ADD_VALUE).attribute(ModAttributes.SUMMON_DAMAGE, 0.1, ADD_MULTIPLIED_TOTAL)), // 死灵卷轴
+            PAPYRUS_SCARAB = registerCurio("papyrus_scarab", builder -> builder.rarity(YELLOW).attribute(ModAttributes.MINION_CAPACITY, 1.0, ADD_VALUE).attribute(ModAttributes.SUMMON_DAMAGE, 0.15, ADD_MULTIPLIED_TOTAL).attribute(ModAttributes.SUMMON_KNOCKBACK, 2.0, ADD_VALUE)), // 甲虫莎草纸
+            PYGMY_NECKLACE = registerCurio("pygmy_necklace", builder -> builder.rarity(LIME).attribute(ModAttributes.MINION_CAPACITY, 1.0, ADD_VALUE)); // 矮人项链
 
-    public static Supplier<BaseCurioItem> registerCurio(String name, Consumer<BaseCurioItem.Builder> consumer) {
+    private static Supplier<BaseCurioItem> registerCurio(String name, Consumer<BaseCurioItem.Builder> consumer) {
         return ITEMS.register(name, () -> {
             BaseCurioItem.Builder builder = BaseCurioItem.builder(name);
             consumer.accept(builder);
@@ -126,7 +129,7 @@ public class AccessoryItems {
         });
     }
 
-    public static Supplier<BaseCurioItem> registerDirectly(String name, Function<String, BaseCurioItem> function) {
+    private static Supplier<BaseCurioItem> registerDirectly(String name, Function<String, BaseCurioItem> function) {
         return ITEMS.register(name, () -> function.apply(name));
     }
 
