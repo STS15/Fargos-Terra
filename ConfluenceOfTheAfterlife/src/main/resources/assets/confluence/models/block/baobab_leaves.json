@@ -1,0 +1,7 @@
+{
+  "parent": "block/leaves",
+  "textures": {
+    "all": "confluence:block/baobab_leaves",
+    "particle": "confluence:block/baobab_leaves"
+  }
+}

@@ -532,6 +532,22 @@ public class ModChineseProvider extends LanguageProvider {
         add(NatureBlocks.PALM_LOG_BLOCKS.getFenceGate().get(), "沙漠风情栅栏门");
         add(NatureBlocks.PALM_LOG_BLOCKS.getPressurePlate().get(), "沙漠风情压力板");
 
+        add(NatureBlocks.BAOBAB_LOG_BLOCKS.getButton().get(), "猴面包木按钮");
+        add(NatureBlocks.BAOBAB_LOG_BLOCKS.getPlanks().get(), "猴面包木板");
+        add(NatureBlocks.BAOBAB_LOG_BLOCKS.getLog().get(), "猴面包木原木");
+        add(NatureBlocks.BAOBAB_LOG_BLOCKS.getStrippedLog().get(), "猴面包木去皮原木");
+        add(NatureBlocks.BAOBAB_LOG_BLOCKS.getStrippedWood().get(), "猴面包木去皮木");
+        add(NatureBlocks.BAOBAB_LOG_BLOCKS.getDoor().get(), "猴面包木门");
+        add(NatureBlocks.BAOBAB_LOG_BLOCKS.getTrapdoor().get(), "猴面包木活板门");
+        add(NatureBlocks.BAOBAB_LOG_BLOCKS.getSign().get(), "猴面包木告示牌");
+        add(NatureBlocks.BAOBAB_LOG_BLOCKS.getStairs().get(), "猴面包木楼梯");
+        add(NatureBlocks.BAOBAB_LOG_BLOCKS.getSlab().get(), "猴面包木台阶");
+        add(NatureBlocks.BAOBAB_LOG_BLOCKS.getWood().get(), "猴面包木");
+        add(NatureBlocks.BAOBAB_LOG_BLOCKS.getLeaves().get(), "猴面包木树叶");
+        add(NatureBlocks.BAOBAB_LOG_BLOCKS.getFence().get(), "猴面包木栅栏");
+        add(NatureBlocks.BAOBAB_LOG_BLOCKS.getFenceGate().get(), "猴面包木栅栏门");
+        add(NatureBlocks.BAOBAB_LOG_BLOCKS.getPressurePlate().get(), "猴面包木压力板");
+
         add(NatureBlocks.ASH_LOG_BLOCKS.getButton().get(), "白蜡木按钮");
         add(NatureBlocks.ASH_LOG_BLOCKS.getPlanks().get(), "白蜡木板");
         add(NatureBlocks.ASH_LOG_BLOCKS.getLog().get(), "白蜡木原木");

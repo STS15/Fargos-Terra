@@ -4,7 +4,7 @@
     "hive_block": {
       "type": "simple_state_provider",
       "state": {
-        "Name": "minecraft:gold_block"
+        "Name": "minecraft:honeycomb_block"
       }
     },
     "honey": {

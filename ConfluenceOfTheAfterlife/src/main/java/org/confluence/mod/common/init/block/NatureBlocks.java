@@ -119,6 +119,9 @@ public class NatureBlocks {
             .trapdoor(properties -> new TrapDoorBlock(PALM.SET, properties))
             .door(properties -> new DoorBlock(PALM.SET, properties)).build();
 
+    // 萨瓦纳草原
+    public static final LogBlockSet BAOBAB_LOG_BLOCKS = LogBlockSet.builder("baobab", true).createDefault(SHADOW, true).build();
+
     // 万圣节
     public static final LogBlockSet SPOOKY_LOG_BLOCKS = LogBlockSet.builder("spooky", true).createDefault(SPOOKY, false).build();
 

@@ -1,0 +1,8 @@
+{
+  "parent": "block/fence_post",
+  "textures": {
+    "texture": "confluence:block/baobab_planks",
+    "particle": "confluence:block/baobab_planks"
+  },
+  "render_type": "solid"
+}
