@@ -35,12 +35,15 @@ public final class ModLootTables {
     public static final ResourceKey<LootTable> HELL_STONE_BOX = register("hell_stone_box");
     public static final ResourceKey<LootTable> BEACH_BOX = register("beach_box");
 
+    public static final ResourceKey<LootTable> FISHING_LAVA = register("gameplay/fishing/lava");
+    public static final ResourceKey<LootTable> FISH = register("gameplay/fishing");
+
 
     public static ResourceKey<LootTable> register(String name) {
         return ResourceKey.create(Registries.LOOT_TABLE, Confluence.asResource(name));
     }
+
     public static ResourceKey<LootTable> registerOrGet(ResourceLocation location) {
         return ResourceKey.create(Registries.LOOT_TABLE, location);
     }
-
 }

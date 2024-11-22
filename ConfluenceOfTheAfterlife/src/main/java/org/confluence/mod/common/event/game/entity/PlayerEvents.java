@@ -3,6 +3,7 @@ package org.confluence.mod.common.event.game.entity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.item.ItemEntity;
@@ -25,14 +26,17 @@ import org.confluence.mod.common.effect.harmful.SilencedEffect;
 import org.confluence.mod.common.effect.harmful.StonedEffect;
 import org.confluence.mod.common.entity.minecart.BaseMinecartEntity;
 import org.confluence.mod.common.init.ModAttachments;
+import org.confluence.mod.common.init.ModSoundEvents;
 import org.confluence.mod.common.init.ModTags;
 import org.confluence.mod.common.init.ModTiers;
 import org.confluence.mod.common.init.item.AccessoryItems;
 import org.confluence.mod.common.item.common.BaseMinecartItem;
 import org.confluence.mod.common.item.common.EverBeneficialItem;
 import org.confluence.mod.mixed.IAbstractMinecart;
+import org.confluence.mod.mixed.IFishingHook;
 import org.confluence.mod.util.PlayerUtils;
 import org.confluence.terra_curio.util.CuriosUtils;
+import org.confluence.terra_curio.util.TCUtils;
 
 import java.util.Optional;
 
@@ -92,7 +96,20 @@ public final class PlayerEvents {
 
     @SubscribeEvent
     public static void itemFished(ItemFishedEvent event) {
-        // todo
+        Player player = event.getEntity();
+        Level level = player.level();
+        if (TCUtils.hasAccessoriesType(player, AccessoryItems.HIGH$TEST$FISHING$LINE) && level.random.nextFloat() < 0.1429F) {
+            level.playSound(null, player.getOnPos().above(), ModSoundEvents.DECOUPLING.get(), SoundSource.PLAYERS);
+            event.setCanceled(true);
+            return;
+        }
+        IFishingHook fishingHook = (IFishingHook) event.getHookEntity();
+        ItemStack bait = fishingHook.confluence$getBait();
+        if (bait == null) return;
+        float factor = TCUtils.hasAccessoriesType(player, AccessoryItems.TACKLE$BOX) ? 1.0F : 2.0F;
+        if (player.getRandom().nextFloat() < 1.0F / (factor + fishingHook.confluence$getBonus() / 6.0F)) {
+            bait.shrink(1);
+        }
     }
 
     @SubscribeEvent

@@ -103,6 +103,9 @@ public final class ModEvents {
         event.register(AccessoryItems.AUTO$GET$MANA);
         event.register(AccessoryItems.HURT$GET$MANA);
         event.register(AccessoryItems.FAST$MANA$GENERATION);
+        event.register(AccessoryItems.HIGH$TEST$FISHING$LINE);
+        event.register(AccessoryItems.TACKLE$BOX);
+        event.register(AccessoryItems.LAVAPROOF$FISHING$HOOK);
     }
 
     @SubscribeEvent

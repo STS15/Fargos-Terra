@@ -52,6 +52,9 @@ public class AccessoryItems {
     public static final ValueType<Unit, UnitValue> AUTO$GET$MANA = ValueType.ofUnit("auto_get_mama");
     public static final ValueType<Unit, UnitValue> HURT$GET$MANA = ValueType.ofUnit("hurt_get_mana");
     public static final ValueType<Unit, UnitValue> FAST$MANA$GENERATION = ValueType.ofUnit("faset_mana_regeneration");
+    public static final ValueType<Unit, UnitValue> HIGH$TEST$FISHING$LINE = ValueType.ofUnit("high_test_fishing_line");
+    public static final ValueType<Unit, UnitValue> TACKLE$BOX = ValueType.ofUnit("tackle_box");
+    public static final ValueType<Unit, UnitValue> LAVAPROOF$FISHING$HOOK = ValueType.ofUnit("lavaproof_fishing_hook");
 
     public static final ValueType<Float, FloatValue> MANA$USE$REDUCE = ValueType.ofFloat("mana_use_reduce", FloatValue.ADDITION_WITHIN_0_TO_1, 0.0F);
     public static final ValueType<Float, FloatValue> REDUCE$HEALING$COOLDOWN = ValueType.ofFloat("reduce_healing_cooldown", FloatValue.ADDITION_WITHIN_0_TO_1, 0.0F);
@@ -85,7 +88,12 @@ public class AccessoryItems {
             PHILOSOPHERS_STONE = registerCurio("philosophers_stone", builder -> builder.rarity(LIGHT_RED).accessories(of(REDUCE$HEALING$COOLDOWN, 0.25F))),
             CHARM_OF_MYTHS = registerDirectly("charm_of_myths", name -> new BandOfRegeneration(BaseCurioItem.builder(name).rarity(LIGHT_PURPLE).accessories(of(REDUCE$HEALING$COOLDOWN, 0.25F))));
 
-    public static final Supplier<FishingBobber> FISHING_BOBBER = ITEMS.register("fishing_bobber", () -> new FishingBobber(CurioFishingHook.Variant.COMMON)), // 钓鱼浮标
+    public static final Supplier<BaseCurioItem> HIGH_TEST_FISHING_LINE = registerCurio("high_test_fishing_line", builder -> builder.accessories(units(HIGH$TEST$FISHING$LINE))), // 优质钓鱼线
+            TACKLE_BOX = registerCurio("tackle_box", builder -> builder.accessories(units(TACKLE$BOX))), // 钓具箱
+            ANGLER_TACKLE_BAG = registerCurio("angler_tackle_bag", builder -> builder.rarity(ORANGE).accessories(units(HIGH$TEST$FISHING$LINE, TACKLE$BOX), of(FISHING$POWER, 10.0F))), // 渔夫渔具袋
+            LAVAPROOF_FISHING_HOOK = registerCurio("lavaproof_fishing_hook", builder -> builder.rarity(LIME).accessories(units(LAVAPROOF$FISHING$HOOK))), // 防熔岩钓钩
+            LAVAPROOF_TACKLE_BAG = registerCurio("lavaproof_tackle_bag", builder -> builder.rarity(YELLOW).accessories(units(HIGH$TEST$FISHING$LINE, TACKLE$BOX, LAVAPROOF$FISHING$HOOK), of(FISHING$POWER, 10.0F))), // 防熔岩渔具袋
+            FISHING_BOBBER = ITEMS.register("fishing_bobber", () -> new FishingBobber(CurioFishingHook.Variant.COMMON)), // 钓鱼浮标
             GLOWING_FISHING_BOBBER = ITEMS.register("glowing_fishing_bobber", () -> new FishingBobber(CurioFishingHook.Variant.GLOWING)), // 发光钓鱼浮标
             LAVA_MOSS_FISHING_BOBBER = ITEMS.register("lava_moss_fishing_bobber", () -> new FishingBobber(CurioFishingHook.Variant.LAVA)), // 熔岩苔藓钓鱼浮标
             HELIUM_MOSS_FISHING_BOBBER = ITEMS.register("helium_moss_fishing_bobber", () -> new FishingBobber(CurioFishingHook.Variant.HELIUM)), // 氦苔藓钓鱼浮标
