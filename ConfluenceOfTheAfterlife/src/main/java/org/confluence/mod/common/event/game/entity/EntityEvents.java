@@ -1,7 +1,6 @@
 package org.confluence.mod.common.event.game.entity;
 
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.vehicle.AbstractMinecart;
@@ -48,7 +47,7 @@ public final class EntityEvents {
 
         if (damageSource.is(ModDamageTypes.BOULDER) && living.getType().is(Tags.EntityTypes.BOSSES)) {
             event.setInvulnerable(true);
-        } else if (damageSource.is(DamageTypes.IN_WALL) && living.hasEffect(ModEffects.SHIMMER)) {
+        } else if ((damageSource.getEntity() == null || !damageSource.getEntity().getType().is(Tags.EntityTypes.BOSSES)) && living.hasEffect(ModEffects.SHIMMER)) {
             event.setInvulnerable(true);
         }
     }

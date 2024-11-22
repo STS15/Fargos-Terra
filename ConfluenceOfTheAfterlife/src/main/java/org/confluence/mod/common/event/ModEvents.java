@@ -1,5 +1,6 @@
 package org.confluence.mod.common.event;
 
+import net.minecraft.core.cauldron.CauldronInteraction;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Blocks;
@@ -15,13 +16,17 @@ import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.RegisterEvent;
 import org.confluence.mod.Confluence;
 import org.confluence.mod.common.CommonConfigs;
+import org.confluence.mod.common.block.common.AetheriumCauldronBlock;
+import org.confluence.mod.common.block.common.HoneyCauldronBlock;
 import org.confluence.mod.common.block.natural.LogBlockSet;
 import org.confluence.mod.common.block.natural.spreadable.ISpreadable;
 import org.confluence.mod.common.fluid.FluidBuilder;
 import org.confluence.mod.common.init.ModFluids;
 import org.confluence.mod.common.init.block.FunctionalBlocks;
+import org.confluence.mod.common.init.block.NatureBlocks;
 import org.confluence.mod.common.init.block.OreBlocks;
 import org.confluence.mod.common.init.item.AccessoryItems;
+import org.confluence.mod.common.init.item.ToolItems;
 import org.confluence.mod.network.c2s.HookThrowingPacketC2S;
 import org.confluence.mod.network.c2s.SwordShootingPacketC2S;
 import org.confluence.mod.network.s2c.FishingPowerInfoPacketS2C;
@@ -33,6 +38,8 @@ import org.confluence.phase_journey.api.PhaseJourneyEvent;
 import org.confluence.terra_curio.api.event.RegisterAccessoriesComponentUpdateEvent;
 import org.confluence.terra_curio.common.init.TCItems;
 import org.confluence.terra_curio.common.init.TCTabs;
+
+import java.util.Map;
 
 import static org.confluence.mod.Confluence.MODID;
 
@@ -54,6 +61,15 @@ public final class ModEvents {
             FunctionalBlocks.MECHANICAL_BLOCKS = null; // 销毁
             LogBlockSet.wrapStrip();
             ISpreadable.Type.buildMap();
+            CauldronInteraction.INTERACTIONS.values().forEach(map -> {
+                Map<Item, CauldronInteraction> interactionMap = map.map();
+                interactionMap.put(ToolItems.BOTTOMLESS_WATER_BUCKET.get(), CauldronInteraction.FILL_WATER);
+                interactionMap.put(ToolItems.BOTTOMLESS_LAVA_BUCKET.get(), CauldronInteraction.FILL_LAVA);
+                interactionMap.put(ToolItems.BOTTOMLESS_HONEY_BUCKET.get(), HoneyCauldronBlock.FILL_HONEY);
+                interactionMap.put(ToolItems.BOTTOMLESS_SHIMMER_BUCKET.get(), AetheriumCauldronBlock.FILL_AETHERIUM);
+                interactionMap.put(ToolItems.HONEY_BUCKET.get(), HoneyCauldronBlock.FILL_HONEY);
+                interactionMap.put(NatureBlocks.AETHERIUM_BLOCK.asItem(), AetheriumCauldronBlock.FILL_AETHERIUM);
+            });
         });
     }
 
@@ -97,6 +113,7 @@ public final class ModEvents {
         event.register(AccessoryItems.COIN$PICKUP$RANGE);
         event.register(AccessoryItems.REDUCE$HEALING$COOLDOWN);
         event.register(AccessoryItems.FISHING$POWER);
+        event.register(AccessoryItems.SPECIAL$PRICE);
     }
 
     @SubscribeEvent

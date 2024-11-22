@@ -1,5 +1,6 @@
 package org.confluence.mod.common.init;
 
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.entity.EntityType;
@@ -9,6 +10,7 @@ import net.minecraft.world.entity.monster.Creeper;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.PointedDripstoneBlock;
 import net.neoforged.neoforge.common.NeoForgeMod;
 import net.neoforged.neoforge.common.SoundActions;
 import net.neoforged.neoforge.fluids.FluidInteractionRegistry;
@@ -41,6 +43,12 @@ public final class ModFluids {
                     .sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL_LAVA)
                     .sound(SoundActions.BUCKET_EMPTY, SoundEvents.BUCKET_EMPTY_LAVA)
                     .sound(SoundActions.FLUID_VAPORIZE, SoundEvents.FIRE_EXTINGUISH)
+                    .addDripstoneDripping(
+                            PointedDripstoneBlock.LAVA_TRANSFER_PROBABILITY_PER_RANDOM_TICK,
+                            ParticleTypes.DRIPPING_DRIPSTONE_WATER,
+                            ModBlocks.HONEY_CAULDRON.get(),
+                            SoundEvents.POINTED_DRIPSTONE_DRIP_LAVA_INTO_CAULDRON
+                    )
             ).baseProperties(properties -> properties
                     .block(ModBlocks.HONEY)
                     .bucket(ToolItems.HONEY_BUCKET)
@@ -59,6 +67,12 @@ public final class ModFluids {
                     .sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL)
                     .sound(SoundActions.BUCKET_EMPTY, SoundEvents.BUCKET_EMPTY)
                     .sound(SoundActions.FLUID_VAPORIZE, SoundEvents.FIRE_EXTINGUISH)
+                    .addDripstoneDripping(
+                            PointedDripstoneBlock.LAVA_TRANSFER_PROBABILITY_PER_RANDOM_TICK,
+                            ParticleTypes.DRIPPING_DRIPSTONE_WATER,
+                            ModBlocks.AETHERIUM_CAULDRON.get(),
+                            SoundEvents.POINTED_DRIPSTONE_DRIP_WATER_INTO_CAULDRON
+                    )
             ).baseProperties(properties -> properties
                     .block(ModBlocks.SHIMMER)
                     .bucket(() -> Items.AIR)

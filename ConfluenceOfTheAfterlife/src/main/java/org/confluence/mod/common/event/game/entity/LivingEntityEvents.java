@@ -64,11 +64,6 @@ public final class LivingEntityEvents {
     }
 
     @SubscribeEvent
-    public static void livingEntityUseItem$tick(LivingEntityUseItemEvent.Tick event) {
-
-    }
-
-    @SubscribeEvent
     public static void livingIncomingDamage(LivingIncomingDamageEvent event) {
         if (event.getEntity() instanceof ServerPlayer serverPlayer) {
             DamageSource damageSource = event.getSource();
@@ -91,7 +86,6 @@ public final class LivingEntityEvents {
         float amount = event.getNewDamage();
 
         ThornsEffect.apply(living, damageSource.getEntity(), amount);
-        //MagicCuffs.consumer(living, damageSource, amount);
 
         amount = ArcheryEffect.apply(living, damageSource, amount);
         amount = ManaSicknessEffect.apply(damageSource, amount);

@@ -19,8 +19,8 @@ import org.confluence.mod.common.attachment.EverBeneficial;
 import org.confluence.mod.common.init.ModAttachments;
 import org.confluence.mod.common.init.item.MinecartItems;
 import org.confluence.mod.common.item.CustomRarityItem;
-import org.confluence.terra_curio.api.primitive.ValueType;
 import org.confluence.terra_curio.common.component.ModRarity;
+import org.confluence.terra_curio.common.init.TCItems;
 import org.confluence.terra_curio.network.s2c.RightClickSubtractorPacketS2C;
 import org.confluence.terra_curio.util.TCUtils;
 import org.jetbrains.annotations.NotNull;
@@ -51,7 +51,7 @@ public class EverBeneficialItem extends CustomRarityItem {
         attributeInstance.addPermanentModifier(new AttributeModifier(id, 4.0, AttributeModifier.Operation.ADD_VALUE));
     });
     public static final Beneficial AMBROSIA = new Beneficial(Confluence.asResource("ambrosia"), EverBeneficial::setAmbrosiaUsed, (id, player, everBeneficial, isRespawn) -> {
-        int value = TCUtils.getAccessoriesValue(player, ValueType.RIGHT$CLICK$DELAY$SUBSTRACTOR);
+        int value = TCUtils.getAccessoriesValue(player, TCItems.RIGHT$CLICK$DELAY$SUBSTRACTOR);
         PacketDistributor.sendToPlayer(player, new RightClickSubtractorPacketS2C(Math.min(value + 1, 4)));
         AttributeInstance attributeInstance = player.getAttributes().getInstance(Attributes.BLOCK_BREAK_SPEED);
         if (attributeInstance == null || attributeInstance.hasModifier(id)) return;

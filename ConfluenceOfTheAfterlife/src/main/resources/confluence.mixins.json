@@ -12,9 +12,13 @@
         "accessor.FishingHookAccessor",
         "accessor.LanguageProviderAccessor",
         "block.BaseContainerBlockEntityMixin",
+        "block.BlockBehaviour$BlockStateBaseMixin",
         "entity.AbstractArrowMixin",
         "entity.AbstractMinecartMixin",
+        "entity.EntityMixin",
+        "entity.ItemEntityMixin",
         "entity.LivingEntityMixin",
+        "entity.VillagerMixin",
         "integration.terra_curio.BaseSpeedBootsMixin",
         "integration.terra_curio.StarClockEntityMixin",
         "item.BowItemMixin",
@@ -26,6 +30,7 @@
         "level.WorldGenRegionMixin"
     ],
     "client": [
+        "client.GuiMixin",
         "client.ItemRendererMixin",
         "client.PauseScreenMixin",
         "client.TitleScreenMixin",
