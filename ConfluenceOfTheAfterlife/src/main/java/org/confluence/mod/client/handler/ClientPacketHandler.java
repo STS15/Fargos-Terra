@@ -13,7 +13,6 @@ import org.confluence.mod.common.init.ModSoundEvents;
 import org.confluence.mod.network.s2c.FishingPowerInfoPacketS2C;
 import org.confluence.mod.network.s2c.GamePhasePacketS2C;
 import org.confluence.mod.network.s2c.ManaPacketS2C;
-import org.confluence.mod.network.s2c.MechanicalViewPacketS2C;
 
 import static org.confluence.mod.common.data.saved.ConfluenceData.STAR_PHASES_SIZE;
 
@@ -28,7 +27,6 @@ public final class ClientPacketHandler {
         }
     });
     private static float fishingPower = 0.0F;
-    private static boolean mechanicalView = false;
 
     public static int getCurrentMana() {
         return currentMana;
@@ -44,10 +42,6 @@ public final class ClientPacketHandler {
 
     public static boolean isHardcore() {
         return gamePhase.ordinal() > 1;
-    }
-
-    public static boolean hasMechanicalView() {
-        return mechanicalView;
     }
 
     public boolean isGraduated() {
@@ -76,10 +70,6 @@ public final class ClientPacketHandler {
 
     public static void handleFishingPower(FishingPowerInfoPacketS2C packet) {
         fishingPower = packet.value();
-    }
-
-    public static void handleMechanicalView(MechanicalViewPacketS2C packet) {
-        mechanicalView = packet.enable();
     }
 
     public static void handleStarPhases(Either<Int2ObjectMap<StarPhase>, Int2ObjectMap.Entry<StarPhase>> packet) {

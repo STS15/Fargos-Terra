@@ -21,7 +21,7 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import org.confluence.mod.common.init.ModEntities;
 import org.confluence.mod.common.init.block.ModBlocks;
-import org.confluence.mod.common.init.item.ToolItems;
+import org.confluence.mod.common.init.item.ConsumableItems;
 import org.confluence.mod.util.ModUtils;
 import org.jetbrains.annotations.NotNull;
 
@@ -42,7 +42,7 @@ public class ScarabBombEntity extends StickyBombEntity {
 
     @Override
     protected @NotNull Item getDefaultItem() {
-        return ToolItems.SCARAB_BOMB.get();
+        return ConsumableItems.SCARAB_BOMB.get();
     }
 
     @Override

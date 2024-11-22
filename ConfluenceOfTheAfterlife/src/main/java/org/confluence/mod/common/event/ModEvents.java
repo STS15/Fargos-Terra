@@ -1,5 +1,6 @@
 package org.confluence.mod.common.event;
 
+import net.minecraft.core.cauldron.CauldronInteraction;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Blocks;
@@ -15,21 +16,30 @@ import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.RegisterEvent;
 import org.confluence.mod.Confluence;
 import org.confluence.mod.common.CommonConfigs;
+import org.confluence.mod.common.block.common.AetheriumCauldronBlock;
+import org.confluence.mod.common.block.common.HoneyCauldronBlock;
 import org.confluence.mod.common.block.natural.LogBlockSet;
 import org.confluence.mod.common.block.natural.spreadable.ISpreadable;
 import org.confluence.mod.common.fluid.FluidBuilder;
 import org.confluence.mod.common.init.ModFluids;
 import org.confluence.mod.common.init.block.FunctionalBlocks;
+import org.confluence.mod.common.init.block.NatureBlocks;
 import org.confluence.mod.common.init.block.OreBlocks;
 import org.confluence.mod.common.init.item.AccessoryItems;
+import org.confluence.mod.common.init.item.ToolItems;
 import org.confluence.mod.network.c2s.HookThrowingPacketC2S;
 import org.confluence.mod.network.c2s.SwordShootingPacketC2S;
-import org.confluence.mod.network.s2c.*;
+import org.confluence.mod.network.s2c.FishingPowerInfoPacketS2C;
+import org.confluence.mod.network.s2c.GamePhasePacketS2C;
+import org.confluence.mod.network.s2c.ManaPacketS2C;
+import org.confluence.mod.network.s2c.StarPhasesPacketS2C;
 import org.confluence.phase_journey.PhaseJourney;
 import org.confluence.phase_journey.api.PhaseJourneyEvent;
 import org.confluence.terra_curio.api.event.RegisterAccessoriesComponentUpdateEvent;
 import org.confluence.terra_curio.common.init.TCItems;
 import org.confluence.terra_curio.common.init.TCTabs;
+
+import java.util.Map;
 
 import static org.confluence.mod.Confluence.MODID;
 
@@ -51,6 +61,15 @@ public final class ModEvents {
             FunctionalBlocks.MECHANICAL_BLOCKS = null; // 销毁
             LogBlockSet.wrapStrip();
             ISpreadable.Type.buildMap();
+            CauldronInteraction.INTERACTIONS.values().forEach(map -> {
+                Map<Item, CauldronInteraction> interactionMap = map.map();
+                interactionMap.put(ToolItems.BOTTOMLESS_WATER_BUCKET.get(), CauldronInteraction.FILL_WATER);
+                interactionMap.put(ToolItems.BOTTOMLESS_LAVA_BUCKET.get(), CauldronInteraction.FILL_LAVA);
+                interactionMap.put(ToolItems.BOTTOMLESS_HONEY_BUCKET.get(), HoneyCauldronBlock.FILL_HONEY);
+                interactionMap.put(ToolItems.BOTTOMLESS_SHIMMER_BUCKET.get(), AetheriumCauldronBlock.FILL_AETHERIUM);
+                interactionMap.put(ToolItems.HONEY_BUCKET.get(), HoneyCauldronBlock.FILL_HONEY);
+                interactionMap.put(NatureBlocks.AETHERIUM_BLOCK.asItem(), AetheriumCauldronBlock.FILL_AETHERIUM);
+            });
         });
     }
 
@@ -70,7 +89,6 @@ public final class ModEvents {
         registrar.playToClient(ManaPacketS2C.TYPE, ManaPacketS2C.STREAM_CODEC, ManaPacketS2C::handle);
         registrar.playToClient(GamePhasePacketS2C.TYPE, GamePhasePacketS2C.STREAM_CODEC, GamePhasePacketS2C::handle);
         registrar.playToClient(FishingPowerInfoPacketS2C.TYPE, FishingPowerInfoPacketS2C.STREAM_CODEC, FishingPowerInfoPacketS2C::handle);
-        registrar.playToClient(MechanicalViewPacketS2C.TYPE, MechanicalViewPacketS2C.STREAM_CODEC, MechanicalViewPacketS2C::handle);
         registrar.playToClient(StarPhasesPacketS2C.TYPE, StarPhasesPacketS2C.STREAM_CODEC, StarPhasesPacketS2C::handle);
 
         registrar.playToServer(SwordShootingPacketC2S.TYPE, SwordShootingPacketC2S.STREAM_CODEC, SwordShootingPacketC2S::receive);
@@ -79,13 +97,15 @@ public final class ModEvents {
 
     @SubscribeEvent
     public static void registerUnitType(RegisterAccessoriesComponentUpdateEvent.UnitType event) {
-        event.register(AccessoryItems.MECHANICAL$VIEW);
         event.register(AccessoryItems.LUCKY$COIN);
         event.register(AccessoryItems.SHEARS$DIG);
         event.register(AccessoryItems.ICE$SAFE);
         event.register(AccessoryItems.AUTO$GET$MANA);
         event.register(AccessoryItems.HURT$GET$MANA);
         event.register(AccessoryItems.FAST$MANA$GENERATION);
+        event.register(AccessoryItems.HIGH$TEST$FISHING$LINE);
+        event.register(AccessoryItems.TACKLE$BOX);
+        event.register(AccessoryItems.LAVAPROOF$FISHING$HOOK);
     }
 
     @SubscribeEvent
@@ -96,6 +116,7 @@ public final class ModEvents {
         event.register(AccessoryItems.COIN$PICKUP$RANGE);
         event.register(AccessoryItems.REDUCE$HEALING$COOLDOWN);
         event.register(AccessoryItems.FISHING$POWER);
+        event.register(AccessoryItems.SPECIAL$PRICE);
     }
 
     @SubscribeEvent
@@ -103,6 +124,7 @@ public final class ModEvents {
         if (event.getTab() == TCTabs.ACCESSORIES.get()) {
             event.insertFirst(TCItems.BASE_POINT.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.insertFirst(TCItems.EVERLASTING.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.insertFirst(TCItems.MECHANICAL_LENS.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
 
             Object[] entries = AccessoryItems.ITEMS.getEntries().toArray();
             for (int i = entries.length - 1; i > -1; i--) {

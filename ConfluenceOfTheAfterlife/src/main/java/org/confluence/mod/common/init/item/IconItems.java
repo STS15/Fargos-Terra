@@ -6,7 +6,7 @@ import org.confluence.mod.Confluence;
 import org.confluence.mod.common.item.common.IconItem;
 
 public class IconItems {
-    public static final DeferredRegister.Items ICONS = DeferredRegister.createItems(Confluence.MODID);
+    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Confluence.MODID);
 
     public static final DeferredItem<IconItem> ITEM_ICON = register("item_icon");
     public static final DeferredItem<IconItem> MATERIAL_ICON = register("material_icon");
@@ -25,7 +25,7 @@ public class IconItems {
     public static final DeferredItem<IconItem> MECHANICAL_ICON = register("mechanical_icon");
     public static final DeferredItem<IconItem> FOOD_ICON = register("food_icon");
     public static DeferredItem<IconItem> register(String name) {
-        return ICONS.register(name, IconItem::new);
+        return ITEMS.register(name, IconItem::new);
     }
 
     public static void init() {}

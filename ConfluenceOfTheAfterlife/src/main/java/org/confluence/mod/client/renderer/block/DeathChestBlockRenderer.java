@@ -14,8 +14,8 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.level.block.state.properties.ChestType;
 import net.minecraft.world.phys.Vec3;
 import org.confluence.mod.Confluence;
-import org.confluence.mod.client.handler.ClientPacketHandler;
 import org.confluence.mod.common.block.functional.DeathChestBlock;
+import org.confluence.terra_curio.client.handler.InformationHandler;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Set;
@@ -51,17 +51,17 @@ public class DeathChestBlockRenderer extends ChestRenderer<DeathChestBlock.Entit
 
     @Override
     public int getViewDistance() {
-        return ClientPacketHandler.hasMechanicalView() ? 256 : super.getViewDistance();
+        return InformationHandler.hasMechanicalView() ? 256 : super.getViewDistance();
     }
 
     @Override
     public boolean shouldRenderOffScreen(@NotNull DeathChestBlock.Entity pBlockEntity) {
-        return ClientPacketHandler.hasMechanicalView();
+        return InformationHandler.hasMechanicalView();
     }
 
     @Override
     public boolean shouldRender(@NotNull DeathChestBlock.Entity pBlockEntity, @NotNull Vec3 pCameraPos) {
-        return ClientPacketHandler.hasMechanicalView()
+        return InformationHandler.hasMechanicalView()
             ? pBlockEntity.getBlockPos().getCenter().multiply(1.0, 0.0, 1.0).closerThan(pCameraPos.multiply(1.0, 0.0, 1.0), getViewDistance())
             : super.shouldRender(pBlockEntity, pCameraPos);
     }
@@ -69,7 +69,7 @@ public class DeathChestBlockRenderer extends ChestRenderer<DeathChestBlock.Entit
     @Override
     public void render(DeathChestBlock.@NotNull Entity pBlockEntity, float pPartialTick, @NotNull PoseStack pPoseStack, @NotNull MultiBufferSource pBuffer, int pPackedLight, int pPackedOverlay) {
         super.render(pBlockEntity, pPartialTick, pPoseStack, pBuffer, pPackedLight, pPackedOverlay);
-        if (ClientPacketHandler.hasMechanicalView()) {
+        if (InformationHandler.hasMechanicalView()) {
             long gameTime = pBlockEntity.getLevel().getGameTime();
             Vec3 vec31 = pBlockEntity.getBlockPos().getCenter();
             for (Int2ObjectMap.Entry<Set<BlockPos>> entry : pBlockEntity.getConnectedPoses().int2ObjectEntrySet()) {

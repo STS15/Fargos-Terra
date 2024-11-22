@@ -26,7 +26,7 @@ import static org.confluence.mod.common.item.sword.stagedy.SwordPrefabs.*;
 
 
 public class SwordItems {
-    public static final DeferredRegister.Items SWORDS = DeferredRegister.createItems(Confluence.MODID);
+    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Confluence.MODID);
 
     // 普通短剑
     public static final DeferredItem<SwordItem> COPPER_SHORT_SWORD = register("copper_short_sword", ModTiers.COPPER, 2, 3, SHORT_SWORD.get());
@@ -117,13 +117,13 @@ public class SwordItems {
 
 
     public static DeferredItem<SwordItem> register(String name, Supplier<SwordItem> supplier) {
-        return SWORDS.register(name, supplier);
+        return ITEMS.register(name, supplier);
     }
     public static DeferredItem<SwordItem> register(String name, Tier tier, int rawDamage, float rawSpeed, BaseSwordItem.ModifierBuilder modifierBuilder) {
-        return SWORDS.register(name, () -> new BaseSwordItem(tier, ModRarity.WHITE, rawDamage, rawSpeed, modifierBuilder));
+        return ITEMS.register(name, () -> new BaseSwordItem(tier, ModRarity.WHITE, rawDamage, rawSpeed, modifierBuilder));
     }
     public static DeferredItem<SwordItem> register(String name, Tier tier, int rawDamage, float rawSpeed ,ModRarity rarity, BaseSwordItem.ModifierBuilder modifierBuilder) {
-        return SWORDS.register(name, () -> new BaseSwordItem(tier, rarity, rawDamage, rawSpeed, modifierBuilder));
+        return ITEMS.register(name, () -> new BaseSwordItem(tier, rarity, rawDamage, rawSpeed, modifierBuilder));
     }
 
 }

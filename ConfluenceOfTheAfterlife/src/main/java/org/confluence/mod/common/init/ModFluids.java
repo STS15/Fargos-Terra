@@ -1,5 +1,6 @@
 package org.confluence.mod.common.init;
 
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.entity.EntityType;
@@ -9,6 +10,7 @@ import net.minecraft.world.entity.monster.Creeper;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.PointedDripstoneBlock;
 import net.neoforged.neoforge.common.NeoForgeMod;
 import net.neoforged.neoforge.common.SoundActions;
 import net.neoforged.neoforge.fluids.FluidInteractionRegistry;
@@ -17,8 +19,8 @@ import org.confluence.mod.common.fluid.FluidTriple;
 import org.confluence.mod.common.init.block.ModBlocks;
 import org.confluence.mod.common.init.block.NatureBlocks;
 import org.confluence.mod.common.init.item.BaitItems;
+import org.confluence.mod.common.init.item.ConsumableItems;
 import org.confluence.mod.common.init.item.MaterialItems;
-import org.confluence.mod.common.init.item.ModItems;
 import org.confluence.mod.common.init.item.ToolItems;
 
 import static org.confluence.mod.api.event.ShimmerEntityTransmutationEvent.addEntity;
@@ -41,6 +43,12 @@ public final class ModFluids {
                     .sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL_LAVA)
                     .sound(SoundActions.BUCKET_EMPTY, SoundEvents.BUCKET_EMPTY_LAVA)
                     .sound(SoundActions.FLUID_VAPORIZE, SoundEvents.FIRE_EXTINGUISH)
+                    .addDripstoneDripping(
+                            PointedDripstoneBlock.LAVA_TRANSFER_PROBABILITY_PER_RANDOM_TICK,
+                            ParticleTypes.DRIPPING_DRIPSTONE_WATER,
+                            ModBlocks.HONEY_CAULDRON.get(),
+                            SoundEvents.POINTED_DRIPSTONE_DRIP_LAVA_INTO_CAULDRON
+                    )
             ).baseProperties(properties -> properties
                     .block(ModBlocks.HONEY)
                     .bucket(ToolItems.HONEY_BUCKET)
@@ -59,6 +67,12 @@ public final class ModFluids {
                     .sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL)
                     .sound(SoundActions.BUCKET_EMPTY, SoundEvents.BUCKET_EMPTY)
                     .sound(SoundActions.FLUID_VAPORIZE, SoundEvents.FIRE_EXTINGUISH)
+                    .addDripstoneDripping(
+                            PointedDripstoneBlock.LAVA_TRANSFER_PROBABILITY_PER_RANDOM_TICK,
+                            ParticleTypes.DRIPPING_DRIPSTONE_WATER,
+                            ModBlocks.AETHERIUM_CAULDRON.get(),
+                            SoundEvents.POINTED_DRIPSTONE_DRIP_WATER_INTO_CAULDRON
+                    )
             ).baseProperties(properties -> properties
                     .block(ModBlocks.SHIMMER)
                     .bucket(() -> Items.AIR)
@@ -160,12 +174,12 @@ public final class ModFluids {
         addItem(ToolItems.HONEY_BUCKET.get(), Items.WATER_BUCKET);
 //        addItem(ModItems.WHOOPIE_CUSHION.get(), Swords.ZOMBIE_ARM.get());
 
-        addItem(ModItems.LIFE_CRYSTAL.get(), ModItems.VITAL_CRYSTAL.get());
-        addItem(ModItems.MANA_STAR.get(), ModItems.ARCANE_CRYSTAL.get());
-        addItem(ModItems.LIFE_FRUIT.get(), ModItems.AEGIS_APPLE.get());
-        addItem(ModTags.Items.FRUIT, ModItems.AMBROSIA.get(), 1);
-        addItem(BaitItems.GOLD_WORM.get(), ModItems.GUMMY_WORM.get());
-        addItem(MaterialItems.PINK_PEARL.get(), ModItems.GALAXY_PEARL.get());
+        addItem(ConsumableItems.LIFE_CRYSTAL.get(), ConsumableItems.VITAL_CRYSTAL.get());
+        addItem(ConsumableItems.MANA_STAR.get(), ConsumableItems.ARCANE_CRYSTAL.get());
+        addItem(ConsumableItems.LIFE_FRUIT.get(), ConsumableItems.AEGIS_APPLE.get());
+        addItem(ModTags.Items.FRUIT, ConsumableItems.AMBROSIA.get(), 1);
+        addItem(BaitItems.GOLD_WORM.get(), ConsumableItems.GUMMY_WORM.get());
+        addItem(MaterialItems.PINK_PEARL.get(), ConsumableItems.GALAXY_PEARL.get());
 
         addEntity(EntityType.WITCH, EntityType.VILLAGER);
         addEntity(entity -> {

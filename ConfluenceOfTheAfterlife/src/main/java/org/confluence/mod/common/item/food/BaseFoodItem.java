@@ -13,7 +13,6 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 
 public class BaseFoodItem extends Item {
-    protected static final Consumer<BaseFoodItem.Builder> NO_BUILDER = builder -> {};
     protected Builder builder;
 
     public BaseFoodItem(Builder builder) {
@@ -47,17 +46,13 @@ public class BaseFoodItem extends Item {
 
 
     public static class Builder {
-        private final String name;
         private final Properties properties;
-        private FoodProperties foodProperties;
-        private Item item;
         private Function<ItemStack, Integer> duration = duration -> 0;
         private Function<Void, SoundEvent> drinkingSoundType = sound -> SoundEvents.EMPTY;
         private Function<Void, SoundEvent> eatingSoundType = sound -> SoundEvents.EMPTY;
         private Function<ItemStack, UseAnim> useAnim = useAnim -> UseAnim.NONE;
 
         Builder(String name, Properties properties) {
-            this.name = name;
             this.properties = properties;
         }
 
@@ -66,7 +61,6 @@ public class BaseFoodItem extends Item {
         }
 
         public Builder food(FoodProperties foodProperties) {
-            this.foodProperties = foodProperties;
             if (foodProperties != null) {
                 properties.food(foodProperties);
             }
@@ -74,7 +68,6 @@ public class BaseFoodItem extends Item {
         }
 
         public Builder craftRemainder(Item item) {
-            this.item = item;
             if (item != null) {
                 properties.craftRemainder(item);
             }
@@ -107,7 +100,7 @@ public class BaseFoodItem extends Item {
         }
 
         public BaseFoodItem build() {
-            return new BaseFoodItem(initialize());
+            return new BaseFoodItem(initialize().useAnim(u -> UseAnim.EAT));
         }
     }
 }

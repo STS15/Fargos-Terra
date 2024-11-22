@@ -11,7 +11,6 @@ import org.confluence.mod.Confluence;
 import org.confluence.mod.common.block.common.BaseChestBlock;
 import org.confluence.mod.common.block.functional.DeathChestBlock;
 import org.confluence.mod.common.block.natural.LogBlockSet;
-import org.confluence.mod.common.init.armor.ArmorItems;
 import org.confluence.mod.common.init.block.DecorativeBlocks;
 import org.confluence.mod.common.init.block.FunctionalBlocks;
 import org.confluence.mod.common.init.block.NatureBlocks;
@@ -49,6 +48,7 @@ public final class ModTabs {
                     .title(Component.translatable("creativetab.confluence.misc"))
                     .displayItems((parameters, output) -> {
                         ModItems.ITEMS.getEntries().forEach(item -> output.accept(item.get()));
+                        ConsumableItems.ITEMS.getEntries().forEach(item -> output.accept(item.get()));
                         BaitItems.ITEMS.getEntries().forEach(item -> output.accept(item.get()));
                         QuestedFishes.ITEMS.getEntries().forEach(item -> output.accept(item.get()));
                     })
@@ -59,7 +59,7 @@ public final class ModTabs {
             () -> CreativeModeTab.builder().icon(() -> IconItems.MATERIAL_ICON.get().getDefaultInstance())
                     .title(Component.translatable("creativetab.confluence.materials"))
                     .displayItems((parameters, output) -> {
-                        MaterialItems.MATERIALS.getEntries().forEach(item -> output.accept(item.get()));
+                        MaterialItems.ITEMS.getEntries().forEach(item -> output.accept(item.get()));
                     })
                     .build());
     // 工具
@@ -69,6 +69,7 @@ public final class ModTabs {
                     .displayItems((parameters, output) -> {
                         ToolItems.ITEMS.getEntries().forEach(item -> output.accept(item.get()));
                         AxeItems.ITEMS.getEntries().forEach(item -> output.accept(item.get()));
+                        PickaxeItems.ITEMS.getEntries().forEach(item -> output.accept(item.get()));
                         HammerItems.ITEMS.getEntries().forEach(item -> output.accept(item.get()));
                         HookItems.ITEMS.getEntries().forEach(item -> output.accept(item.get()));
                         MinecartItems.ITEMS.getEntries().forEach(item -> output.accept(item.get()));
@@ -80,8 +81,8 @@ public final class ModTabs {
             () -> CreativeModeTab.builder().icon(() -> IconItems.MELEE_ICON.get().getDefaultInstance())
                     .title(Component.translatable("creativetab.confluence.warriors"))
                     .displayItems((parameters, output) -> {
-                        SwordItems.SWORDS.getEntries().forEach(item -> output.accept(item.get()));
-                        BoomerangItems.BOOMERANG_ITEMS.getEntries().forEach(item -> output.accept(item.get()));
+                        SwordItems.ITEMS.getEntries().forEach(item -> output.accept(item.get()));
+                        BoomerangItems.ITEMS.getEntries().forEach(item -> output.accept(item.get()));
                     })
                     .build());
     // 射手武器
@@ -89,8 +90,8 @@ public final class ModTabs {
             () -> CreativeModeTab.builder().icon(() -> IconItems.REMOTE_ICON.get().getDefaultInstance())
                     .title(Component.translatable("creativetab.confluence.rangers"))
                     .displayItems((parameters, output) -> {
-                        BowItems.BOWS.getEntries().forEach(item -> output.accept(item.get()));
-                        ArrowItems.ARROWS.getEntries().forEach(item -> output.accept(item.get()));
+                        BowItems.ITEMS.getEntries().forEach(item -> output.accept(item.get()));
+                        ArrowItems.ITEMS.getEntries().forEach(item -> output.accept(item.get()));
                     })
                     .build());
     // 法师武器
@@ -122,7 +123,7 @@ public final class ModTabs {
             () -> CreativeModeTab.builder().icon(() -> IconItems.POTION_ICON.get().getDefaultInstance())
                     .title(Component.translatable("creativetab.confluence.food_and_potions"))
                     .displayItems((parameters, output) -> {
-                        PotionItems.POTIONS.getEntries().forEach(item -> output.accept(item.get()));
+                        PotionItems.ITEMS.getEntries().forEach(item -> output.accept(item.get()));
                         FoodItems.ITEMS.getEntries().forEach(item -> output.accept(item.get()));
                     })
                     .build());
@@ -131,7 +132,7 @@ public final class ModTabs {
             () -> CreativeModeTab.builder().icon(() -> IconItems.ARMOR_ICON.get().getDefaultInstance())
                     .title(Component.translatable("creativetab.confluence.armors"))
                     .displayItems((parameters, output) -> {
-                        ArmorItems.ARMORS.getEntries().forEach(item -> output.accept(item.get()));
+                        ArmorItems.ITEMS.getEntries().forEach(item -> output.accept(item.get()));
                     })
                     .build());
     // 器械

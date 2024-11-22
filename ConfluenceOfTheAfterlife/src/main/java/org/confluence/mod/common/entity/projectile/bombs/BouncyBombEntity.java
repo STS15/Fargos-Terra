@@ -5,7 +5,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
 import org.confluence.mod.common.init.ModEntities;
-import org.confluence.mod.common.init.item.ToolItems;
+import org.confluence.mod.common.init.item.ConsumableItems;
 import org.jetbrains.annotations.NotNull;
 
 public class BouncyBombEntity extends BaseBombEntity {
@@ -28,6 +28,6 @@ public class BouncyBombEntity extends BaseBombEntity {
 
     @Override
     protected @NotNull Item getDefaultItem() {
-        return ToolItems.BOUNCY_BOMB.get();
+        return ConsumableItems.BOUNCY_BOMB.get();
     }
 }

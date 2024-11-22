@@ -255,9 +255,9 @@ public class ModEnglishProvider extends LanguageProvider {
             if (data.containsKey(descriptionId)) return;
             add(descriptionId, toTitleCase(accessory.getId().getPath()));
         });
-        SwordItems.SWORDS.getEntries().forEach(sword -> add(sword.get(), toTitleCase(sword.getId().getPath())));
-        ArrowItems.ARROWS.getEntries().forEach(arrow -> add(arrow.get(), toTitleCase(arrow.getId().getPath())));
-        BowItems.BOWS.getEntries().forEach(bow -> add(bow.get(), toTitleCase(bow.getId().getPath())));
-        PotionItems.POTIONS.getEntries().forEach(potion -> add(potion.get(), toTitleCase(potion.getId().getPath())));
+        SwordItems.ITEMS.getEntries().forEach(sword -> add(sword.get(), toTitleCase(sword.getId().getPath())));
+        ArrowItems.ITEMS.getEntries().forEach(arrow -> add(arrow.get(), toTitleCase(arrow.getId().getPath())));
+        BowItems.ITEMS.getEntries().forEach(bow -> add(bow.get(), toTitleCase(bow.getId().getPath())));
+        PotionItems.ITEMS.getEntries().forEach(potion -> add(potion.get(), toTitleCase(potion.getId().getPath())));
     }
 }

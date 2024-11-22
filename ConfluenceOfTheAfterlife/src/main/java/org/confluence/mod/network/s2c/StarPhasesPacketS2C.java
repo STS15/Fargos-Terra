@@ -78,9 +78,9 @@ public record StarPhasesPacketS2C(Either<Int2ObjectMap<StarPhase>, Int2ObjectMap
         }
     }
 
-    public static void sendToAll(int index, float radius, float angle) {
+    public static void sendToAll(int index, int timeOffset, float radius, float angle) {
         if (ServerLifecycleHooks.getCurrentServer() != null) {
-            PacketDistributor.sendToAllPlayers(new StarPhasesPacketS2C(Either.right(new AbstractInt2ObjectMap.BasicEntry<>(index, new StarPhase(radius, angle)))));
+            PacketDistributor.sendToAllPlayers(new StarPhasesPacketS2C(Either.right(new AbstractInt2ObjectMap.BasicEntry<>(index, new StarPhase(timeOffset, radius, angle)))));
         }
     }
 
@@ -88,7 +88,7 @@ public record StarPhasesPacketS2C(Either<Int2ObjectMap<StarPhase>, Int2ObjectMap
         PacketDistributor.sendToPlayer(serverPlayer, new StarPhasesPacketS2C(Either.left(ConfluenceData.get(serverPlayer.serverLevel()).getStarPhases())));
     }
 
-    public static void sendToPlayer(ServerPlayer serverPlayer, int index, float radius, float angle) {
-        PacketDistributor.sendToPlayer(serverPlayer, new StarPhasesPacketS2C(Either.right(new AbstractInt2ObjectMap.BasicEntry<>(index, new StarPhase(radius, angle)))));
+    public static void sendToPlayer(ServerPlayer serverPlayer, int index, int timeOffset, float radius, float angle) {
+        PacketDistributor.sendToPlayer(serverPlayer, new StarPhasesPacketS2C(Either.right(new AbstractInt2ObjectMap.BasicEntry<>(index, new StarPhase(timeOffset, radius, angle)))));
     }
 }

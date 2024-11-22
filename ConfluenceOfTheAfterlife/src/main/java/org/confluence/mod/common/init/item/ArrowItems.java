@@ -9,17 +9,17 @@ import org.confluence.mod.common.item.bow.BaseArrowItem;
 import org.confluence.terra_curio.common.component.ModRarity;
 
 public class ArrowItems {
-    public static final DeferredRegister.Items ARROWS = DeferredRegister.createItems(Confluence.MODID);
+    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Confluence.MODID);
 
-    public static final DeferredItem<BaseArrowItem> FLAMING_ARROW = ARROWS.register("flaming_arrow", () -> new BaseArrowItem(ModRarity.WHITE));
-    public static final DeferredItem<BaseArrowItem> UNHOLY_ARROW = ARROWS.register("unholy_arrow", () -> new  BaseArrowItem(ModRarity.BLUE));
-    public static final DeferredItem<BaseArrowItem> JESTERS_ARROW = ARROWS.register("jesters_arrow", () -> new  BaseArrowItem(ModRarity.BLUE));
-    public static final DeferredItem<BaseArrowItem> HELLFIRE_ARROW = ARROWS.register("hellfire_arrow", () -> new  BaseArrowItem(ModRarity.GREEN));
-    public static final DeferredItem<BaseArrowItem> FROSTBURN_ARROW = ARROWS.register("frostburn_arrow", () -> new  BaseArrowItem(ModRarity.WHITE));
-    public static final DeferredItem<BaseArrowItem> BONE_ARROW = ARROWS.register("bone_arrow", () -> new  BaseArrowItem(ModRarity.WHITE));
-    public static final DeferredItem<BaseArrowItem> SHIMMER_ARROW = ARROWS.register("shimmer_arrow", () -> new BaseArrowItem(ModRarity.WHITE));
+    public static final DeferredItem<BaseArrowItem> FLAMING_ARROW = ITEMS.register("flaming_arrow", () -> new BaseArrowItem(ModRarity.WHITE));
+    public static final DeferredItem<BaseArrowItem> UNHOLY_ARROW = ITEMS.register("unholy_arrow", () -> new  BaseArrowItem(ModRarity.BLUE));
+    public static final DeferredItem<BaseArrowItem> JESTERS_ARROW = ITEMS.register("jesters_arrow", () -> new  BaseArrowItem(ModRarity.BLUE));
+    public static final DeferredItem<BaseArrowItem> HELLFIRE_ARROW = ITEMS.register("hellfire_arrow", () -> new  BaseArrowItem(ModRarity.GREEN));
+    public static final DeferredItem<BaseArrowItem> FROSTBURN_ARROW = ITEMS.register("frostburn_arrow", () -> new  BaseArrowItem(ModRarity.WHITE));
+    public static final DeferredItem<BaseArrowItem> BONE_ARROW = ITEMS.register("bone_arrow", () -> new  BaseArrowItem(ModRarity.WHITE));
+    public static final DeferredItem<BaseArrowItem> SHIMMER_ARROW = ITEMS.register("shimmer_arrow", () -> new BaseArrowItem(ModRarity.WHITE));
 
     public static void acceptTag(IntrinsicHolderTagsProvider.IntrinsicTagAppender<Item> tag) {
-        ARROWS.getEntries().forEach(item -> tag.add(item.get()));
+        ITEMS.getEntries().forEach(item -> tag.add(item.get()));
     }
 }

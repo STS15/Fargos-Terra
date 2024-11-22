@@ -3,6 +3,7 @@ package org.confluence.mod.common.event.game.entity;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -14,9 +15,12 @@ import net.neoforged.neoforge.event.entity.living.*;
 import org.confluence.mod.Confluence;
 import org.confluence.mod.common.CommonConfigs;
 import org.confluence.mod.common.effect.beneficial.ArcheryEffect;
+import org.confluence.mod.common.effect.beneficial.LuckEffect;
 import org.confluence.mod.common.effect.beneficial.ThornsEffect;
 import org.confluence.mod.common.effect.harmful.ManaSicknessEffect;
+import org.confluence.mod.common.effect.neutral.LoveEffect;
 import org.confluence.mod.common.init.ModAttachments;
+import org.confluence.mod.common.init.ModEffects;
 import org.confluence.mod.common.init.item.AccessoryItems;
 import org.confluence.mod.common.item.sword.BaseSwordItem;
 import org.confluence.mod.util.ModUtils;
@@ -53,18 +57,15 @@ public final class LivingEntityEvents {
     public static void livingHeal(LivingHealEvent event) {
         LivingEntity living = event.getEntity();
         if (living.level().isClientSide) return;
-        if (living.getData(ModAttachments.EVER_BENEFICIAL).isVitalCrystalUsed()) {
+        if (living.hasEffect(ModEffects.FROST_BURN)) {
+            event.setCanceled(true); // todo 免疫
+        } else if (living.getData(ModAttachments.EVER_BENEFICIAL).isVitalCrystalUsed()) {
             event.setAmount(event.getAmount() * 1.2F);
         }
     }
 
     @SubscribeEvent
     public static void livingBreathe(LivingBreatheEvent event) {
-
-    }
-
-    @SubscribeEvent
-    public static void livingEntityUseItem$tick(LivingEntityUseItemEvent.Tick event) {
 
     }
 
@@ -91,7 +92,6 @@ public final class LivingEntityEvents {
         float amount = event.getNewDamage();
 
         ThornsEffect.apply(living, damageSource.getEntity(), amount);
-        //MagicCuffs.consumer(living, damageSource, amount);
 
         amount = ArcheryEffect.apply(living, damageSource, amount);
         amount = ManaSicknessEffect.apply(damageSource, amount);
@@ -110,6 +110,22 @@ public final class LivingEntityEvents {
                     sword.modifier.onHitEffects.forEach(effect -> effect.accept(livingEntity, damageEntity));
                 }
             }
+        }
+    }
+
+    @SubscribeEvent
+    public static void mobEffect$Remove(MobEffectEvent.Remove event) {
+        MobEffectInstance effectInstance = event.getEffectInstance();
+        if (effectInstance != null) {
+            LuckEffect.onRemove(event.getEntity(), effectInstance.getEffect(), effectInstance.getAmplifier());
+        }
+    }
+
+    @SubscribeEvent
+    public static void mobEffect$Added(MobEffectEvent.Added event) {
+        MobEffectInstance effectInstance = event.getEffectInstance();
+        if (effectInstance != null) {
+            LoveEffect.onAdd(effectInstance.getEffect(), event.getEntity(), event.getEffectSource());
         }
     }
 }

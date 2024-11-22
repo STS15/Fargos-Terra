@@ -1,7 +1,7 @@
 {
     "parent": "item/handheld_rod",
     "textures": {
-        "layer0": "confluence:item/chum_caster"
+        "layer0": "confluence:item/fishing_pole/chum_caster"
     },
     "overrides": [
         {
