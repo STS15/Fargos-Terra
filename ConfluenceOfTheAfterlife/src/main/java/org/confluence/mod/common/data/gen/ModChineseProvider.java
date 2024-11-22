@@ -674,7 +674,7 @@ public class ModChineseProvider extends LanguageProvider {
 //        add(ModBlocks.EXTRACTINATOR.get(), "提炼机");
 //        add(ModBlocks.FLOATING_WHEAT_BALE.get(), "飘飘麦捆");
 //        add(ModBlocks.BASE_CHEST_BLOCK.get(), "箱子");
-//        add(ModBlocks.JUNGLE_HIVE_BLOCK.get(), "丛林蜂巢");
+        add(NatureBlocks.JUNGLE_HIVE_BLOCK.get(), "丛林蜂巢");
         add(NatureBlocks.THIN_HONEY_BLOCK.get(), "稀薄蜂蜜块");
         add(NatureBlocks.LOOSE_HONEY_BLOCK.get(), "松散蜂蜜块");
 //        add(ModBlocks.SANCTIFICATION_REDSTONE_ORE.get(), "圣化红石矿石");
@@ -1542,6 +1542,8 @@ public class ModChineseProvider extends LanguageProvider {
         add(FoodItems.LONGEVITY_NOODLES.get(), "长寿面");
         add(FoodItems.FLUTTERING_LAMB_CHOPS.get(), "飘飘羊排");
         add(FoodItems.COOKED_FLUTTERING_LAMB_CHOPS.get(), "熟飘飘羊排");
+        add(FoodItems.BAOBAB_FRUIT.get(), "猴面包果");
+        add(FoodItems.COOKED_BAOBA_FRUIT.get(), "烤猴面包果");
         // 药水
 
 //        add(VANILLA_POTION.get(), "药水");
