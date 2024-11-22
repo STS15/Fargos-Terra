@@ -19,7 +19,7 @@ import org.confluence.mod.common.init.item.ConsumableItems;
 import org.confluence.mod.util.ModUtils;
 import org.jetbrains.annotations.NotNull;
 import org.joml.Vector3f;
-import org.mesdag.particlestorm.GameClient;
+import org.mesdag.particlestorm.PSGameClient;
 import org.mesdag.particlestorm.particle.ParticleEmitter;
 
 public class BaseBombEntity extends ThrowableItemProjectile {
@@ -114,7 +114,7 @@ public class BaseBombEntity extends ThrowableItemProjectile {
                 emitter.offsetPos = new Vec3(0.0, DIAMETER, 0.0);
                 emitter.parentRotation = rotation;
                 emitter.attached = this;
-                GameClient.LOADER.addEmitter(emitter, false);
+                PSGameClient.LOADER.addEmitter(emitter, false);
             }
         } else {
             if (this.delay-- < 0) {
