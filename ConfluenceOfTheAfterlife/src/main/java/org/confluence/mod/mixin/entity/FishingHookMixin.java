@@ -173,7 +173,6 @@ public abstract class FishingHookMixin implements IFishingHook, SelfGetter<Fishi
 
     @Unique
     private boolean confluence$isInLava() {
-        FishingHook self = self();
-        return self.level().getFluidState(self.blockPosition()).is(FluidTags.LAVA);
+        return self().getInBlockState().getFluidState().is(FluidTags.LAVA);
     }
 }
