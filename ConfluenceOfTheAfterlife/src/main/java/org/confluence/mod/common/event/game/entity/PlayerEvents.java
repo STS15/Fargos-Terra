@@ -34,6 +34,7 @@ import org.confluence.mod.common.item.common.BaseMinecartItem;
 import org.confluence.mod.common.item.common.EverBeneficialItem;
 import org.confluence.mod.mixed.IAbstractMinecart;
 import org.confluence.mod.mixed.IFishingHook;
+import org.confluence.mod.mixed.IServerPlayer;
 import org.confluence.mod.util.PlayerUtils;
 import org.confluence.terra_curio.util.CuriosUtils;
 import org.confluence.terra_curio.util.TCUtils;
@@ -48,8 +49,7 @@ public final class PlayerEvents {
     @SubscribeEvent
     public static void playerLogin(PlayerEvent.PlayerLoggedInEvent event) {
         Player player = event.getEntity();
-        if (PlayerUtils.isServerNotFake(player)) {
-            ServerPlayer serverPlayer = (ServerPlayer) player;
+        if (player instanceof ServerPlayer serverPlayer) {
             PlayerUtils.syncMana2Client(serverPlayer);
             PlayerUtils.syncSavedData(serverPlayer);
         }
@@ -123,9 +123,9 @@ public final class PlayerEvents {
     @SubscribeEvent
     public static void attackEntity(AttackEntityEvent event) {
         Player player = event.getEntity();
-        if (PlayerUtils.isServerNotFake(player)) {
+        if (player instanceof ServerPlayer serverPlayer) {
             Entity target = event.getTarget();
-            AccessoryItems.applyLuckyCoin(player, target);
+            AccessoryItems.applyLuckyCoin(serverPlayer, target);
         }
     }
 
@@ -206,6 +206,15 @@ public final class PlayerEvents {
                 power = ModTiers.getPowerForVanillaTiers(tiers);
             }
             event.setCanHarvest(ModTiers.isCorrectToolForDrops(power, itemStack, event.getTargetBlock()));
+        }
+    }
+
+    @SubscribeEvent
+    public static void itemPickup(ItemEntityPickupEvent.Pre event) {
+        if (event.getPlayer() instanceof ServerPlayer serverPlayer) {
+            if (!((IServerPlayer) serverPlayer).confluence$isCouldPickupItem()) {
+                event.setCanPickup(TriState.FALSE);
+            }
         }
     }
 }

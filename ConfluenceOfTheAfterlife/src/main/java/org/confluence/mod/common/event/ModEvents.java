@@ -124,7 +124,6 @@ public final class ModEvents {
         if (event.getTab() == TCTabs.ACCESSORIES.get()) {
             event.insertFirst(TCItems.BASE_POINT.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.insertFirst(TCItems.EVERLASTING.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.insertFirst(TCItems.MECHANICAL_LENS.get().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
 
             Object[] entries = AccessoryItems.ITEMS.getEntries().toArray();
             for (int i = entries.length - 1; i > -1; i--) {

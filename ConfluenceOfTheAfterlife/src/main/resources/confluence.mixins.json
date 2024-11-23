@@ -20,6 +20,7 @@
         "entity.FishingHookMixin",
         "entity.ItemEntityMixin",
         "entity.LivingEntityMixin",
+        "entity.ServerPlayerMixin",
         "entity.VillagerMixin",
         "integration.terra_curio.BaseSpeedBootsMixin",
         "integration.terra_curio.StarClockEntityMixin",
