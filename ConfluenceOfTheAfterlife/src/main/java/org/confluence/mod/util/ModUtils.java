@@ -22,11 +22,9 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
-import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.phys.Vec3;
 import org.confluence.mod.Confluence;
 import org.confluence.mod.common.init.item.ModItems;
-import org.confluence.mod.common.worldgen.feature.LivingTreeFeature;
 import org.joml.Vector3d;
 
 import javax.imageio.ImageIO;
@@ -386,7 +384,7 @@ public final class ModUtils {
         });
     }
 
-    public static void lightningPathList(List<Vector3d> locationList, double dis, int move, FeaturePlaceContext<LivingTreeFeature.Config> context) {
+    public static void lightningPathList(List<Vector3d> locationList, double dis, int move, RandomSource random) {
         boolean refined;
         do {
             refined = false;
@@ -400,9 +398,9 @@ public final class ModUtils {
                     midpoint.y = ((point1.y + point2.y) / 2);
                     midpoint.z = ((point1.z + point2.z) / 2);
                     double offset = distance / move;
-                    midpoint.x = midpoint.x + (context.random().nextDouble() - 0.5) * offset * 2;
-                    midpoint.y = midpoint.y + (context.random().nextDouble() - 0.5) * offset * 2;
-                    midpoint.z = midpoint.z + (context.random().nextDouble() - 0.5) * offset * 2;
+                    midpoint.x = midpoint.x + (random.nextDouble() - 0.5) * offset * 2;
+                    midpoint.y = midpoint.y + (random.nextDouble() - 0.5) * offset * 2;
+                    midpoint.z = midpoint.z + (random.nextDouble() - 0.5) * offset * 2;
                     locationList.add(i + 1, midpoint);
                     refined = true;
                 }
