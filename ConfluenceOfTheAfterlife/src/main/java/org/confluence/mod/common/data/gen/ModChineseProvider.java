@@ -881,7 +881,7 @@ public class ModChineseProvider extends LanguageProvider {
         add(MaterialItems.GEL.get(), "凝胶");
         add(MaterialItems.PINK_GEL.get(), "粉凝胶");
         add(MaterialItems.STURDY_FOSSIL.get(), "坚固化石");
-        add(MaterialItems.EMERALD_COIN.get(), "绿宝石币");
+        add(ModItems.EMERALD_COIN.get(), "绿宝石币");
 
 
         add(SwordItems.COPPER_SHORT_SWORD.get(), "铜短剑");

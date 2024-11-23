@@ -61,8 +61,6 @@ public class MaterialItems{
     public static final DeferredItem<Item> SAPPHIRE = register("sapphire");
     public static final DeferredItem<Item> TOPAZ = register("topaz");
 
-    public static final DeferredItem<Item> EMERALD_COIN = register("emerald_coin");
-
     public static final DeferredItem<Item> STAR_PETALS = register("star_petals");
     public static final DeferredItem<Item> FALLING_STAR = register("falling_star");
     public static final DeferredItem<Item> WEAVING_CLOUD_COTTON = register("weaving_cloud_cotton");

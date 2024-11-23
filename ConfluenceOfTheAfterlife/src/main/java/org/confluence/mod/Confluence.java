@@ -37,6 +37,7 @@ public class Confluence {
         ModFeatures.FEATURES.register(eventBus);
         ModJukeboxSongs.SONGS.register(eventBus);
         ModAttributes.ATTRIBUTES.register(eventBus);
+        ModVillagers.register(eventBus);
     }
 
     public static void registerGameRules() {

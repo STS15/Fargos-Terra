@@ -25,6 +25,14 @@ public class FunctionalBlocks {
     private static final DeferredRegister.Blocks HIDDEN = DeferredRegister.createBlocks(Confluence.MODID);
     public static List<Supplier<? extends Block>> MECHANICAL_BLOCKS = new ArrayList<>();
 
+    public static final Supplier<Block> EXTRACTINATOR = registerWithItem("extractinator", () -> new Block(BlockBehaviour.Properties.of()));
+    //public static final Supplier<BlockEntityType<ExtractinatorBlock.Entity>> EXTRACTINATOR_ENTITY = BLOCK_ENTITIES.register("extractinator_entity", () -> BlockEntityType.Builder.of(ExtractinatorBlock.Entity::new, EXTRACTINATOR.get()).build(null));
+    public static final Supplier<Block> DEMON_ALTAR = registerWithItem("demon_altar", () -> new Block(BlockBehaviour.Properties.of()));
+    public static final Supplier<Block> CRIMSON_ALTAR = registerWithItem("crimson_altar", () -> new Block(BlockBehaviour.Properties.of()));
+    //public static final Supplier<BlockEntityType<AltarBlock.Entity>> ALTAR_BLOCK_ENTITY = BLOCK_ENTITIES.register("altar_block_entity", () -> BlockEntityType.Builder.of(AltarBlock.Entity::new, DEMON_ALTAR.get(), CRIMSON_ALTAR.get()).build(null));
+    public static final Supplier<Block> SKY_MILL = registerWithItem("sky_mill", () -> new Block(BlockBehaviour.Properties.of()));
+    //public static final Supplier<BlockEntityType<SkyMillBlock.Entity>> SKY_MILL_ENTITY = BLOCK_ENTITIES.register("sky_mill_entity", () -> BlockEntityType.Builder.of(SkyMillBlock.Entity::new, SKY_MILL.get()).build(null));
+
     public static final Supplier<EchoBlock> ECHO_BLOCK = registerWithItem("echo_block", EchoBlock::new);
     public static final Supplier<BaseChestBlock> BASE_CHEST_BLOCK = registerWithItemButHidden("base_chest_block", BaseChestBlock::new);
     public static final Supplier<BlockEntityType<BaseChestBlock.Entity>> BASE_CHEST_BLOCK_ENTITY = ModBlocks.BLOCK_ENTITIES.register("base_chest_block_entity", () -> BlockEntityType.Builder.of(BaseChestBlock.Entity::new, BASE_CHEST_BLOCK.get()).build(null));
