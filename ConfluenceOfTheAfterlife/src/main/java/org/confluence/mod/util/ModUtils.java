@@ -3,6 +3,7 @@ package org.confluence.mod.util;
 import com.mojang.blaze3d.platform.NativeImage;
 import com.mojang.datafixers.util.Function4;
 import net.minecraft.ChatFormatting;
+import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.Mth;
@@ -22,9 +23,13 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import org.confluence.mod.Confluence;
+import org.confluence.mod.common.CommonConfigs;
 import org.confluence.mod.common.init.item.ModItems;
+import org.confluence.terraentity.entity.ai.Boss;
+import org.confluence.terraentity.utils.TEUtils;
 import org.joml.Vector3d;
 
 import javax.imageio.ImageIO;
@@ -406,5 +411,31 @@ public final class ModUtils {
                 }
             }
         } while (refined);
+    }
+
+
+
+    public static boolean hasBoss(double radius, Level level,
+                                  AABB box){
+        boolean flag = false;
+        for (Entity entity : TEUtils.getNearbyEntities(radius, level, Entity.class, box)) {
+            if (entity instanceof Boss) {
+                flag = true;
+                break;
+            }
+        }
+        return flag;
+    }
+
+    public static int getRespawnWaitTime(LocalPlayer player) {
+        boolean hasBoss = hasBoss(Short.MAX_VALUE, player.level(),
+                player.getBoundingBox());
+        if (hasBoss) {
+            return player.getRandom().nextInt(CommonConfigs.BOSS_RESPAWN_TIME_MIN.get()
+                    , CommonConfigs.BOSS_RESPAWN_TIME_MAX.get());
+        } else {
+            return player.getRandom().nextInt(CommonConfigs.DEFAULT_RESPAWN_TIME_MIN.get(),
+                    CommonConfigs.DEFAULT_RESPAWN_TIME_MAX.get());
+        }
     }
 }
