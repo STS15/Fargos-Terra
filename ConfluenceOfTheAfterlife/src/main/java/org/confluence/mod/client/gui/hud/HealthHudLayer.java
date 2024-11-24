@@ -1,4 +1,4 @@
-package org.confluence.mod.client.renderer.gui;
+package org.confluence.mod.client.gui.hud;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.DeltaTracker;
@@ -12,6 +12,7 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import org.confluence.mod.Confluence;
 import org.confluence.mod.client.ClientConfigs;
+import org.confluence.mod.client.gui.GuiHelper;
 import org.confluence.mod.common.item.common.EverBeneficialItem;
 
 public class HealthHudLayer implements LayeredDraw.Layer {

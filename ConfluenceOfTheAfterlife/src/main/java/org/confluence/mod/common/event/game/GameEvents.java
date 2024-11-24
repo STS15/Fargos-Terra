@@ -18,6 +18,7 @@ import org.confluence.mod.common.init.ModAttachments;
 import org.confluence.mod.common.init.ModTags;
 import org.confluence.mod.common.init.item.AccessoryItems;
 import org.confluence.mod.common.init.item.ToolItems;
+import org.confluence.mod.common.item.common.ColoredItem;
 import org.confluence.mod.network.s2c.FishingPowerInfoPacketS2C;
 import org.confluence.terra_curio.api.event.AfterAccessoryAbilitiesFlushedEvent;
 import org.confluence.terra_curio.api.event.RangePickupItemEvent;
@@ -29,7 +30,14 @@ import java.util.Collections;
 public final class GameEvents {
     @SubscribeEvent
     public static void itemStackedOnOther(ItemStackedOnOtherEvent event) {
-        // todo 凝胶堆叠
+        ItemStack onSlot = event.getCarriedItem();
+        ItemStack carried = event.getStackedOnItem(); // 非常奇怪,但事实如此
+        Item item = onSlot.getItem();
+        if (ItemStack.isSameItem(onSlot, carried)) {
+            if (item instanceof ColoredItem) {
+                ColoredItem.setColor(carried, ColoredItem.getColor(onSlot));
+            }
+        }
     }
 
     @SubscribeEvent

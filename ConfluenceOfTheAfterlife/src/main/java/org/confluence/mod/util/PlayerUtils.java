@@ -9,7 +9,6 @@ import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.Tiers;
 import net.minecraft.world.level.Level;
 import net.neoforged.neoforge.common.NeoForge;
-import net.neoforged.neoforge.common.util.FakePlayer;
 import net.neoforged.neoforge.network.PacketDistributor;
 import org.confluence.mod.api.event.GetCustomDiggingPowerEvent;
 import org.confluence.mod.common.attachment.ManaStorage;
@@ -74,10 +73,6 @@ public final class PlayerUtils {
     public static void receiveMana(ServerPlayer serverPlayer, IntSupplier sup) {
         ManaStorage manaStorage = serverPlayer.getData(ModAttachments.MANA_STORAGE);
         if (manaStorage.receiveMana(sup)) syncMana2Client(serverPlayer, manaStorage);
-    }
-
-    public static boolean isServerNotFake(Player player) {
-        return player instanceof ServerPlayer && !(player instanceof FakePlayer);
     }
 
     public static void syncSavedData(ServerPlayer serverPlayer) {

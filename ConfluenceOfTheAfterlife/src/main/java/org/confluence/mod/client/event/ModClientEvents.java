@@ -28,6 +28,8 @@ import net.neoforged.neoforge.client.gui.VanillaGuiLayers;
 import org.confluence.mod.Confluence;
 import org.confluence.mod.client.ClientConfigs;
 import org.confluence.mod.client.gui.hud.ArrowInBowHud;
+import org.confluence.mod.client.gui.hud.HealthHudLayer;
+import org.confluence.mod.client.gui.hud.ManaHudLayer;
 import org.confluence.mod.client.gui.screens.GroupWikiScreen;
 import org.confluence.mod.client.gui.screens.ObjectWikiScreen;
 import org.confluence.mod.client.model.entity.FallingStarRenderer;
@@ -52,8 +54,6 @@ import org.confluence.mod.client.renderer.entity.fishing.GlowingFishingHookRende
 import org.confluence.mod.client.renderer.entity.fishing.HotlineFishingHookRenderer;
 import org.confluence.mod.client.renderer.entity.hook.*;
 import org.confluence.mod.client.renderer.entity.projectile.*;
-import org.confluence.mod.client.renderer.gui.HealthHudLayer;
-import org.confluence.mod.client.renderer.gui.ManaHudLayer;
 import org.confluence.mod.common.init.ModFluids;
 import org.confluence.mod.common.init.block.FunctionalBlocks;
 import org.confluence.mod.common.init.block.ModBlocks;

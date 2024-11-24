@@ -1,13 +1,13 @@
 package org.confluence.mod.common.init.item;
 
 import net.minecraft.data.tags.IntrinsicHolderTagsProvider;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.Tuple;
 import net.minecraft.util.Unit;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -18,6 +18,7 @@ import org.confluence.mod.common.entity.fishing.CurioFishingHook;
 import org.confluence.mod.common.init.ModAttributes;
 import org.confluence.mod.common.init.ModEffects;
 import org.confluence.mod.common.item.accessory.FishingBobber;
+import org.confluence.mod.common.item.accessory.MechanicalLens;
 import org.confluence.mod.common.item.accessory.PickupRangeAbilityValue;
 import org.confluence.mod.util.ModUtils;
 import org.confluence.terra_curio.api.primitive.FloatValue;
@@ -31,6 +32,7 @@ import org.confluence.terra_curio.common.item.curio.BaseCurioItem;
 import org.confluence.terra_curio.common.item.curio.health.BandOfRegeneration;
 import org.confluence.terra_curio.util.TCUtils;
 
+import java.util.List;
 import java.util.Set;
 import java.util.function.Consumer;
 import java.util.function.Function;
@@ -102,6 +104,8 @@ public class AccessoryItems {
             KRYPTON_MOSS_FISHING_BOBBER = ITEMS.register("krypton_moss_fishing_bobber", () -> new FishingBobber(CurioFishingHook.Variant.KRYPTON)), // 氪苔藓钓鱼浮标
             XENON_MOSS_FISHING_BOBBER = ITEMS.register("xenon_moss_fishing_bobber", () -> new FishingBobber(CurioFishingHook.Variant.XENON)); // 氙苔藓钓鱼浮标
 
+
+    public static final Supplier<BaseCurioItem> MECHANICAL_LENS = registerDirectly("mechanical_lens", name -> new MechanicalLens(BaseCurioItem.builder("mechanical_lens").rarity(ORANGE).accessories(of(TCItems.INFORMATION, List.of(TCItems.MECHANICAL$LENS))))); //机械晶状体
     /* 标尺 */
     /* 机械标尺 */
 
@@ -150,7 +154,7 @@ public class AccessoryItems {
         for (DeferredHolder<Item, ? extends Item> accessory : ITEMS.getEntries()) tag.add(accessory.get());
     }
 
-    public static void applyLuckyCoin(Player player, Entity target) {
+    public static void applyLuckyCoin(ServerPlayer player, Entity target) {
         if (!CommonConfigs.DROP_MONEY.get()) return;
         RandomSource randomSource = player.getRandom();
         if (TCUtils.hasAccessoriesType(player, LUCKY$COIN) && randomSource.nextFloat() < 0.2F) {

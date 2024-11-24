@@ -140,6 +140,11 @@ public final class ModTabs {
             () -> CreativeModeTab.builder().icon(() -> IconItems.MECHANICAL_ICON.get().getDefaultInstance())
                     .title(Component.translatable("creativetab.confluence.mechanical"))
                     .displayItems((parameters, output) -> {
+                        output.accept(ToolItems.RED_WRENCH.get());
+                        output.accept(ToolItems.GREEN_WRENCH.get());
+                        output.accept(ToolItems.BLUE_WRENCH.get());
+                        output.accept(ToolItems.YELLOW_WRENCH.get());
+                        output.accept(ToolItems.WIRE_CUTTER.get());
                         Item base = FunctionalBlocks.BASE_CHEST_BLOCK.get().asItem();
                         Item death = FunctionalBlocks.DEATH_CHEST_BLOCK.get().asItem();
                         for (BaseChestBlock.Variant variant : BaseChestBlock.Variant.values()) {
