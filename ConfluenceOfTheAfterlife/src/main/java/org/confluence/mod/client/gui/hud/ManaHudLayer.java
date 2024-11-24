@@ -1,4 +1,4 @@
-package org.confluence.mod.client.renderer.gui;
+package org.confluence.mod.client.gui.hud;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.DeltaTracker;
@@ -7,6 +7,7 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.LayeredDraw;
 import net.minecraft.resources.ResourceLocation;
 import org.confluence.mod.Confluence;
+import org.confluence.mod.client.gui.GuiHelper;
 import org.confluence.mod.client.handler.ClientPacketHandler;
 
 public class ManaHudLayer implements LayeredDraw.Layer {
