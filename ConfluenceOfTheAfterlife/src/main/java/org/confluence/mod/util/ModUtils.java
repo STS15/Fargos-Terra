@@ -241,7 +241,8 @@ public final class ModUtils {
     }
 
     /**
-     * 为专家?在处理if...else if时应先使用isMaster
+     * 为专家?在处理if...else if时应先使用:
+     * @see ModUtils#isMaster(Level)
      */
     public static boolean isAtLeastExpert(Level level) {
         return level.getDifficulty().getId() >= Difficulty.NORMAL.getId();
@@ -414,7 +415,13 @@ public final class ModUtils {
     }
 
 
-
+    /**
+     * 检测半径内是否存在boss
+     * @param radius 检测半径
+     * @param level level
+     * @param box 参照实体碰撞箱
+     * @return 是否存在boss
+     */
     public static boolean hasBoss(double radius, Level level,
                                   AABB box){
         boolean flag = false;
@@ -427,9 +434,18 @@ public final class ModUtils {
         return flag;
     }
 
+    public static boolean hasBoss(Level level,
+                                  AABB box){
+        return hasBoss(Short.MAX_VALUE, level, box);
+    }
+
+    /**
+     * 获取玩家复活时间
+     * @param player 玩家
+     * @return 复活时间
+     */
     public static int getRespawnWaitTime(LocalPlayer player) {
-        boolean hasBoss = hasBoss(Short.MAX_VALUE, player.level(),
-                player.getBoundingBox());
+        boolean hasBoss = hasBoss(player.level(), player.getBoundingBox());
         if (hasBoss) {
             return player.getRandom().nextInt(CommonConfigs.BOSS_RESPAWN_TIME_MIN.get()
                     , CommonConfigs.BOSS_RESPAWN_TIME_MAX.get());
