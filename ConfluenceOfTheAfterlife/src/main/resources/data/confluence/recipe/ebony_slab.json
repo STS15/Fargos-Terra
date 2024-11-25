@@ -1,8 +1,7 @@
 {
     "type": "minecraft:crafting_shaped",
     "pattern": [
-        "###",
-        "# #"
+        "###"
     ],
     "key": {
         "#": {
@@ -10,7 +9,7 @@
         }
     },
     "result": {
-        "id": "confluence:ebony_helmet",
-        "count": 1
+        "id": "confluence:ebony_slab",
+        "count": 6
     }
 }

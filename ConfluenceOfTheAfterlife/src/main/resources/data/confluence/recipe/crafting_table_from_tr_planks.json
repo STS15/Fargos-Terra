@@ -1,16 +1,16 @@
 {
     "type": "minecraft:crafting_shaped",
     "pattern": [
-        "###",
-        "# #"
+        "##",
+        "##"
     ],
     "key": {
         "#": {
-            "item": "confluence:ebony_planks"
+            "tag": "confluence:tr_planks"
         }
     },
     "result": {
-        "id": "confluence:ebony_helmet",
+        "id": "minecraft:crafting_table",
         "count": 1
     }
 }

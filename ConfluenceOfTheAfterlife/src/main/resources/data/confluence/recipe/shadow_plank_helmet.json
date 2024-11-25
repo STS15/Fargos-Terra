@@ -6,11 +6,11 @@
     ],
     "key": {
         "#": {
-            "item": "confluence:ebony_planks"
+            "item": "confluence:shadow_planks"
         }
     },
     "result": {
-        "id": "confluence:ebony_helmet",
+        "id": "confluence:shadow_plank_helmet",
         "count": 1
     }
 }

@@ -1,16 +1,17 @@
 {
     "type": "minecraft:crafting_shaped",
     "pattern": [
-        "###",
-        "# #"
+        "#",
+        "#",
+        "#"
     ],
     "key": {
         "#": {
-            "item": "confluence:ebony_planks"
+            "item": "confluence:tr_emerald"
         }
     },
     "result": {
-        "id": "confluence:ebony_helmet",
+        "id": "confluence:emerald_chain",
         "count": 1
     }
 }

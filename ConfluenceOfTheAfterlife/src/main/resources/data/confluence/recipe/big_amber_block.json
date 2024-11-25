@@ -2,15 +2,16 @@
     "type": "minecraft:crafting_shaped",
     "pattern": [
         "###",
-        "# #"
+        "###",
+        "###"
     ],
     "key": {
         "#": {
-            "item": "confluence:ebony_planks"
+            "item": "confluence:amber"
         }
     },
     "result": {
-        "id": "confluence:ebony_helmet",
+        "id": "confluence:big_amber_block",
         "count": 1
     }
 }

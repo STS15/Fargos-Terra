@@ -1,16 +1,16 @@
 {
     "type": "minecraft:crafting_shaped",
     "pattern": [
-        "###",
-        "# #"
+        " c",
+        "c "
     ],
     "key": {
-        "#": {
-            "item": "confluence:ebony_planks"
+        "c": {
+            "item": "confluence:platinum_ingot"
         }
     },
     "result": {
-        "id": "confluence:ebony_helmet",
+        "id": "confluence:platinum_short_sword",
         "count": 1
     }
 }

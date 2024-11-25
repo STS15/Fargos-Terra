@@ -2,15 +2,16 @@
     "type": "minecraft:crafting_shaped",
     "pattern": [
         "###",
-        "# #"
+        "###",
+        "###"
     ],
     "key": {
         "#": {
-            "item": "confluence:ebony_planks"
+            "item": "confluence:floating_wheat"
         }
     },
     "result": {
-        "id": "confluence:ebony_helmet",
+        "id": "confluence:floating_wheat_bale",
         "count": 1
     }
 }

@@ -2,15 +2,16 @@
     "type": "minecraft:crafting_shaped",
     "pattern": [
         "###",
-        "# #"
+        "###",
+        "###"
     ],
     "key": {
         "#": {
-            "item": "confluence:ebony_planks"
+            "item": "confluence:tungsten_ingot"
         }
     },
     "result": {
-        "id": "confluence:ebony_helmet",
+        "id": "confluence:tungsten_block",
         "count": 1
     }
 }

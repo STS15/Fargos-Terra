@@ -2,15 +2,15 @@
     "type": "minecraft:crafting_shaped",
     "pattern": [
         "###",
-        "# #"
+        "###"
     ],
     "key": {
         "#": {
-            "item": "confluence:ebony_planks"
+            "item": "confluence:pearl_planks"
         }
     },
     "result": {
-        "id": "confluence:ebony_helmet",
-        "count": 1
+        "id": "confluence:pearl_trapdoor",
+        "count": 2
     }
 }

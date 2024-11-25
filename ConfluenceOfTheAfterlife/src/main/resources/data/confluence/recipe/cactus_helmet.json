@@ -6,11 +6,11 @@
     ],
     "key": {
         "#": {
-            "item": "confluence:ebony_planks"
+            "item": "minecraft:cactus"
         }
     },
     "result": {
-        "id": "confluence:ebony_helmet",
+        "id": "confluence:cactus_helmet",
         "count": 1
     }
 }

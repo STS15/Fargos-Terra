@@ -1,16 +1,17 @@
 {
     "type": "minecraft:crafting_shaped",
     "pattern": [
+        "# #",
         "###",
-        "# #"
+        "###"
     ],
     "key": {
         "#": {
-            "item": "confluence:ebony_planks"
+            "tag": "minecraft:planks"
         }
     },
     "result": {
-        "id": "confluence:ebony_helmet",
+        "id": "confluence:plank_chestplate",
         "count": 1
     }
 }
