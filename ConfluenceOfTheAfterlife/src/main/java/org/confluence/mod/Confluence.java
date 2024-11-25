@@ -19,6 +19,7 @@ import org.slf4j.LoggerFactory;
 public class Confluence {
     public static final String MODID = "confluence";
     public static final Logger LOGGER = LoggerFactory.getLogger("Confluence");
+    public static final int MAX_STACK_SIZE = 9999;
     public static GameRules.Key<GameRules.IntegerValue> SPREADABLE_CHANCE;
 
     public Confluence(IEventBus eventBus, ModContainer container) {
@@ -26,6 +27,7 @@ public class Confluence {
         ClientConfigs.register(container);
         ModBlocks.register(eventBus);
         ModItems.register(eventBus);
+        ModVillagers.register(eventBus);
         ModFluids.initialize();
         ModTriggers.TYPES.register(eventBus);
         ModTabs.TABS.register(eventBus);
@@ -37,7 +39,6 @@ public class Confluence {
         ModFeatures.FEATURES.register(eventBus);
         ModJukeboxSongs.SONGS.register(eventBus);
         ModAttributes.ATTRIBUTES.register(eventBus);
-        ModVillagers.register(eventBus);
     }
 
     public static void registerGameRules() {

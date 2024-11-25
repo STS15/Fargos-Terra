@@ -4,6 +4,7 @@ import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.mojang.serialization.Codec;
 import net.minecraft.world.item.ItemStack;
+import org.confluence.mod.Confluence;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
@@ -11,6 +12,6 @@ import org.spongepowered.asm.mixin.injection.At;
 public abstract class ItemStackMixin {
     @WrapOperation(method = "lambda$static$3", at = @At(value = "INVOKE", target = "Lnet/minecraft/util/ExtraCodecs;intRange(II)Lcom/mojang/serialization/Codec;"))
     private static Codec<Integer> modifyMaxStackSize(int min, int max, Operation<Codec<Integer>> original) {
-        return original.call(min, Math.max(max, 9999));
+        return original.call(min, Math.max(max, Confluence.MAX_STACK_SIZE));
     }
 }

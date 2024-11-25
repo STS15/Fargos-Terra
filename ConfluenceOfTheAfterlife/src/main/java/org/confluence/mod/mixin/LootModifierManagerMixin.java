@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.At;
 
 import java.util.Map;
 
-@Mixin(value = LootModifierManager.class, remap = false)
+@Mixin(value = LootModifierManager.class, remap = false, priority = 900)
 public abstract class LootModifierManagerMixin {
     @ModifyExpressionValue(method = "apply(Ljava/util/Map;Lnet/minecraft/server/packs/resources/ResourceManager;Lnet/minecraft/util/profiling/ProfilerFiller;)V", at= @At(value = "INVOKE", target = "Lcom/google/common/collect/ImmutableMap$Builder;build()Lcom/google/common/collect/ImmutableMap;"))
     private ImmutableMap<ResourceLocation, IGlobalLootModifier> removeTerraCurio(ImmutableMap<ResourceLocation, IGlobalLootModifier> original) {
